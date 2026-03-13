@@ -17,6 +17,10 @@
 - [x] `js/main.js` — modal open/close with keyboard support
 - [x] `assets/favicon.svg` — placeholder SVG favicon
 - [x] `assets/logo.svg` — placeholder SVG logo
+- [x] `assets/logo-dark.svg` — dark mode logo variant
+- [x] `js/logger.js` — isolated build activity logging system (localStorage + in-memory fallback)
+- [x] `docs/test-program.md` — two-track test programme (Claude + Mat checklists)
+- [x] Code review run and fixes applied (font loading, meta tags, dark mode logo, CSS property order, reduced-motion)
 
 ---
 
@@ -47,5 +51,6 @@
 - [ ] Custom domain setup
 - [ ] SEO: Open Graph image, sitemap, robots.txt
 - [ ] Analytics (if required)
-- [ ] App Store deep link / Smart App Banner
+- [ ] App Store deep link / Smart App Banner (enable commented meta tag in `<head>`)
 - [ ] Retina image optimisation and real screenshots
+- [ ] Remove or gate logger.js test block behind a debug flag before production

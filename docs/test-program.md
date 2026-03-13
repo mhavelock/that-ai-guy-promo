@@ -44,12 +44,20 @@ Run at the end of each development phase before sign-off.
 - [ ] `@media (prefers-reduced-motion: reduce)` applied to transitions and transforms
 
 ### Clean code — JS
-- [ ] No `console.log` statements
+- [ ] No `console.log` statements in main.js
 - [ ] `const`/`let` only (no `var`)
 - [ ] `===` not `==`
 - [ ] Semicolons on all statements
 - [ ] Event listeners use delegation where possible
 - [ ] No memory leaks from uncleaned listeners or large objects in global scope
+
+### Logger (js/logger.js)
+- [ ] Logger loaded before main.js in all HTML pages that use it
+- [ ] Test log block removed or gated before production deployment
+- [ ] `Logger.print()` shows no unexpected ERROR or WARN entries
+- [ ] `Logger.logStorage()` shows no unexpected keys in localStorage or sessionStorage
+- [ ] `Logger.logScripts()` confirms all scripts have `defer: true`
+- [ ] No 404s on image timing entries (check for ERROR level entries in image category)
 
 ### Performance
 - [ ] Web fonts loaded non-render-blocking (async `preload` + `onload` swap + `<noscript>` fallback)

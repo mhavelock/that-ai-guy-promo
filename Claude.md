@@ -24,7 +24,9 @@ A single-page promotional website encouraging visitors to download the **That AI
 ├── css/
 │   ├── global.css   # All styles — treated as critical (inlined or preloaded)
 │   └── custom.css   # Component overrides that extend global.css
-├── js/              # Optional JS enhancements
+├── js/
+│   ├── logger.js    # Build activity logging — isolated from app code
+│   └── main.js      # App behaviour (modal, etc.)
 ├── docs/            # Project documentation and test programme
 └── context/
     └── summaries/   # Tasklist & handoff summaries
@@ -41,6 +43,7 @@ A single-page promotional website encouraging visitors to download the **That AI
 - **Modern CSS**: custom properties for all tokens, `clamp()`, `min()`, `max()`, logical properties, `@media (width >=)` range syntax
 - **JS pattern**: deferred, wrapped in IIFE, event delegation — no global scope pollution
 - **`<dialog>` for modals**: native, accessible, keyboard-dismissible with no extra JS complexity
+- **Logging**: `js/logger.js` is isolated from `main.js` — stores structured entries in `localStorage` (key: `thaiaiguy:buildlog`) with in-memory fallback. Load before `main.js`. Remove/gate test block before production. Inspect via `Logger.print()` in the browser console.
 - **Git workflow**: feature development on `main`; deploy via GitHub Pages
 
 ---
