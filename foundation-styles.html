@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>That AI Guy — The App That Won't Stay Quiet</title>
+    <meta name="description" content="That AI Guy is the iOS app that listens to your conversations and interrupts with pedantic corrections and put-downs. Download free on the App Store.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="That AI Guy">
+    <meta property="og:description" content="The AI that listens, waits, and interrupts — at exactly the wrong moment.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://thataiguy.app/">
+    <meta property="og:image" content="https://thataiguy.app/assets/og-image.png">
+
+    <!-- Theme colour for mobile browsers -->
+    <meta name="theme-color" content="#f2f4f7" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#111318" media="(prefers-color-scheme: dark)">
+
+    <!-- iOS / App Store -->
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <!-- Smart App Banner — uncomment and update app-id once live on the App Store -->
+    <!-- <meta name="apple-itunes-app" content="app-id=PLACEHOLDER"> -->
+
+    <!-- Preconnect for web fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Non-blocking font load: preload fetches the CSS in parallel; onload swaps rel to apply it.
+         The onload attribute is the accepted exception to the no-inline-handlers rule —
+         there is no pure-HTML alternative for async stylesheet loading. -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700;800&display=swap" rel="stylesheet"></noscript>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+    <!-- Critical styles -->
+    <link rel="stylesheet" href="css/global-foundation.css">
+    <link rel="stylesheet" href="css/custom-foundation.css">
+</head>
+<body>
+
+    <a class="u-skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header" role="banner">
+        <div class="container">
+            <div class="site-header-inner">
+                <a href="/" class="site-logo" aria-label="That AI Guy — Home">
+                    <picture>
+                        <source srcset="assets/logo-dark.svg" media="(prefers-color-scheme: dark)">
+                        <img src="assets/logo.svg" alt="That AI Guy" width="144" height="26" class="site-logo-img">
+                    </picture>
+                </a>
+                <nav class="site-nav" aria-label="Primary">
+                    <a href="#how-it-works" class="site-nav-link">How it works</a>
+                    <a href="#download" class="btn btn-primary">Get the App</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <!-- Hero -->
+        <section class="hero section" id="hero" aria-labelledby="hero-title">
+            <div class="container">
+                <div class="hero-layout">
+                    <div class="hero-content">
+                        <h1 class="hero-title" id="hero-title">Meet the AI<br>nobody asked for.</h1>
+                        <p class="hero-subtitle">That AI Guy listens to your conversations and interrupts with pedantic corrections, unsolicited facts, and general put-downs. Because <em>someone</em> has to.</p>
+                        <div class="hero-actions">
+                            <a href="#download" class="btn btn-primary btn-lg">
+                                <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                                </svg>
+                                Download on the App Store
+                            </a>
+                        </div>
+                        <p class="hero-note">Free to download · iOS only · Side effects may include mild irritation</p>
+                    </div>
+                    <div class="hero-visual" aria-hidden="true">
+                        <div class="phone-mockup">
+                            <div class="phone-screen">
+                                <div class="chat-bubble chat-bubble-user">"I could care less about that."</div>
+                                <div class="chat-bubble chat-bubble-ai">
+                                    <span class="ai-name">That AI Guy</span>
+                                    Technically, you mean you <em>couldn't</em> care less — which implies you do, in fact, care at least some amount. Just so we're clear.
+                                </div>
+                                <div class="chat-bubble chat-bubble-user">"Oh come on..."</div>
+                                <div class="chat-bubble chat-bubble-ai">
+                                    <span class="ai-name">That AI Guy</span>
+                                    Also, "on" is unnecessary there. You simply mean "Come." You're welcome.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How it works -->
+        <section class="section section-alt" id="how-it-works" aria-labelledby="how-title">
+            <div class="container">
+                <header class="section-header">
+                    <h2 class="section-title" id="how-title">How it works</h2>
+                    <p class="section-subtitle">Simple. Effective. Mildly intrusive.</p>
+                </header>
+                <ol class="steps-list" role="list">
+                    <li class="step-item">
+                        <span class="step-number" aria-hidden="true">01</span>
+                        <div class="step-body">
+                            <h3 class="step-title">Start a conversation</h3>
+                            <p class="step-description">Talk naturally with friends, family, or colleagues. Act completely normal. Nothing to see here.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <span class="step-number" aria-hidden="true">02</span>
+                        <div class="step-body">
+                            <h3 class="step-title">He's listening</h3>
+                            <p class="step-description">That AI Guy monitors the room via your iPhone microphone, patiently waiting for someone to say something correctable.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <span class="step-number" aria-hidden="true">03</span>
+                        <div class="step-body">
+                            <h3 class="step-title">Brace yourself</h3>
+                            <p class="step-description">Expect pedantic corrections, unsolicited facts, and the occasional put-down. He's usually right. That's what makes it worse.</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="section" id="features" aria-labelledby="features-title">
+            <div class="container">
+                <header class="section-header">
+                    <h2 class="section-title" id="features-title">What to expect</h2>
+                    <p class="section-subtitle">A comprehensive suite of interruptions.</p>
+                </header>
+                <ul class="features-grid" role="list">
+                    <li class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                                <line x1="12" y1="19" x2="12" y2="23"/>
+                                <line x1="8" y1="23" x2="16" y2="23"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Always listening</h3>
+                        <p class="feature-description">Real-time conversation monitoring via your iPhone microphone. Nothing escapes him.</p>
+                    </li>
+                    <li class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="12" y1="8" x2="12" y2="12"/>
+                                <line x1="12" y1="16" x2="12.01" y2="16"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">AI-powered pedantry</h3>
+                        <p class="feature-description">Corrections powered by a state-of-the-art language model. Annoyingly accurate. Consistently unhelpful.</p>
+                    </li>
+                    <li class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Endless material</h3>
+                        <p class="feature-description">Grammar errors, mixed metaphors, historical inaccuracies — if there's something to correct, he'll find it.</p>
+                    </li>
+                    <li class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Social ammunition</h3>
+                        <p class="feature-description">Perfect for parties, offices, and family dinners. Someone always says something worth correcting.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Download CTA -->
+        <section class="section section-cta" id="download" aria-labelledby="download-title">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title" id="download-title">Ready to be corrected?</h2>
+                    <p class="cta-subtitle">Download That AI Guy and unleash him on your social life. He can't wait. (Technically, anticipation implies a waiting period, so he can wait — just not patiently.)</p>
+                    <a href="#" class="btn btn-primary btn-lg" aria-label="Download That AI Guy on the App Store">
+                        <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                        </svg>
+                        Download on the App Store
+                    </a>
+                    <p class="cta-note">Free to download · Requires iOS 16 or later · <a href="privacy.html">Privacy Policy</a></p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="site-footer-inner">
+                <p class="footer-copy">&copy; <time datetime="2026">2026</time> That AI Guy. All rights reserved.</p>
+                <nav class="footer-nav" aria-label="Footer">
+                    <a href="privacy.html" class="footer-nav-link">Privacy Policy</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/logger.js" defer></script>
+    <script src="js/main.js" defer></script>
+</body>
+</html>
