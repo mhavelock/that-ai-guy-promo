@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Privacy Policy — That AI Guy</title>
     <meta name="description" content="Privacy Policy for the That AI Guy iOS app.">
     <meta name="robots" content="noindex">
@@ -11,42 +11,29 @@
     <meta name="theme-color" content="#f2f4f7" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#111318" media="(prefers-color-scheme: dark)">
 
-    <!-- iOS -->
-    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
 
-    <!-- Preconnect for web fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Non-blocking font load — see index.html for explanation of onload exception -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700;800&display=swap" rel="stylesheet"></noscript>
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <!-- Early theme init — same as index.html to prevent flash of wrong theme -->
+    <script>
+        (function () {
+            var saved = localStorage.getItem('thaiaiguy:theme');
+            var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.dataset.theme = theme;
+        }());
+    </script>
 
     <!-- Critical styles -->
     <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/theme.css">
 </head>
 <body class="page-privacy">
 
     <a class="u-skip-link" href="#main-content">Skip to main content</a>
-
-    <header class="site-header" role="banner">
-        <div class="container">
-            <div class="site-header-inner">
-                <a href="/" class="site-logo" aria-label="That AI Guy — Home">
-                    <picture>
-                        <source srcset="assets/logo-dark.svg" media="(prefers-color-scheme: dark)">
-                        <img src="assets/logo.svg" alt="That AI Guy" width="144" height="26" class="site-logo-img">
-                    </picture>
-                </a>
-                <nav class="site-nav" aria-label="Primary">
-                    <a href="index.html#download" class="btn btn-primary">Get the App</a>
-                </nav>
-            </div>
-        </div>
-    </header>
 
     <main id="main-content">
         <div class="container">
@@ -110,16 +97,42 @@
         </div>
     </main>
 
-    <footer class="site-footer" role="contentinfo">
-        <div class="container">
-            <div class="site-footer-inner">
-                <p class="footer-copy">&copy; <time datetime="2026">2026</time> That AI Guy. All rights reserved.</p>
-                <nav class="footer-nav" aria-label="Footer">
-                    <a href="privacy.html" class="footer-nav-link" aria-current="page">Privacy Policy</a>
-                </nav>
-            </div>
-        </div>
-    </footer>
+    <!-- Theme toggle -->
+    <button
+        class="theme-toggle"
+        id="theme-toggle-btn"
+        type="button"
+        aria-label="Toggle light and dark theme"
+    >◐</button>
 
+    <!-- Bottom navigation — Liquid Glass -->
+    <nav class="bottom-nav" aria-label="Site navigation">
+        <a href="index.html" class="bottom-nav-item">
+            <img
+                src="assets/logo-tg.svg"
+                alt=""
+                class="bottom-nav-icon"
+                width="28"
+                height="28"
+                aria-hidden="true"
+            >
+            <span class="bottom-nav-label">Home</span>
+        </a>
+        <a href="privacy.html" class="bottom-nav-item is-active" aria-current="page">
+            <img
+                src="assets/privacy-policy.svg"
+                alt=""
+                class="bottom-nav-icon"
+                width="28"
+                height="28"
+                aria-hidden="true"
+            >
+            <span class="bottom-nav-label">Privacy</span>
+        </a>
+    </nav>
+
+    <script src="js/theme.js" defer></script>
+    <script src="js/logger.js" defer></script>
+    <script src="js/main.js" defer></script>
 </body>
 </html>
