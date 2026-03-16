@@ -23,20 +23,14 @@
 @import url("stars.css");
 @import url("slider.css");
 @import url("reviews.css");
-@import url("components.css");
+/* components.css removed — empty stub */
 
 
 /* ==========================================================================
-   1. Font face
+   1. Font
    ========================================================================== */
 
-@font-face {
-    font-display: swap;
-    font-family: 'Omnes';
-    font-style: normal;
-    font-weight: bold;
-    src: url('../assets/OmnesBold.otf') format('opentype');
-}
+/* Fredoka variable (300–700) loaded via Google Fonts in HTML <head> */
 
 
 /* ==========================================================================
@@ -130,11 +124,11 @@ html {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Mobile base font sizes */
+/* Mobile: fixed font sizes — base for all inherited elements */
 body {
     background-color: var(--color-bg);
-    font-family: 'Omnes', Verdana, Arial, sans-serif;
-    font-size: 1.3rem;
+    font-family: 'Fredoka', Verdana, Arial, sans-serif;
+    font-size: 1.2rem;
     /* Extra bottom padding so content clears the fixed nav */
     padding-bottom: calc(8rem + env(safe-area-inset-bottom, 0px));
 }
@@ -145,33 +139,55 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Omnes', Verdana, Arial, sans-serif;
-    font-size: 1.8rem;
+    font-family: 'Fredoka', Verdana, Arial, sans-serif;
+    font-weight: bold;
 }
 
+h1 { font-size: 1.5rem;   line-height: 1.66; }
+h2,
+h3,
+h4 { font-size: 1.333rem; line-height: 1.66; }
+h5,
+h6 { font-size: 1.25rem;  line-height: 1.66; }
+
 p {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: bold;
     line-height: 1.5;
     margin: 0;
 }
 
+/* Desktop: fluid font sizes — scale from mobile base → proportional max at 1248px.
+   Formula: clamp(mobile-rem, linear-interp(768px→1248px), max-rem)
+   Linear form: calc(b + m*vw) avoids mixed rem/px division in calc.
+   Exceptions (badges, reviews, stars) are pinned in their own stylesheets. */
 @media (width >= 768px) {
     body {
-        font-size: 2.2rem;
+        /* 1.2rem → 2rem */
+        font-size: clamp(1.2rem, calc(-1.28px + 2.667vw), 2rem);
     }
 
-    h1,
+    h1 {
+        /* 1.5rem → 2.5rem */
+        font-size: clamp(1.5rem, calc(-1.6px + 3.333vw), 2.5rem);
+    }
+
     h2,
     h3,
-    h4,
+    h4 {
+        /* 1.333rem → 2.2rem */
+        font-size: clamp(1.333rem, calc(-0.86px + 2.889vw), 2.2rem);
+    }
+
     h5,
     h6 {
-        font-size: 3rem;
+        /* 1.25rem → 2rem */
+        font-size: clamp(1.25rem, calc(0.8px + 2.5vw), 2rem);
     }
 
     p {
-        font-size: 2.2rem;
+        /* 1.2rem → 2rem */
+        font-size: clamp(1.2rem, calc(-1.28px + 2.667vw), 2rem);
     }
 }
 
@@ -443,16 +459,10 @@ body::after {
    11. Bottom navigation — Liquid Glass
    ========================================================================== */
 
+/* Structure */
 .bottom-nav {
-    backdrop-filter: blur(24px) saturate(200%);
-    background: var(--nav-glass-bg);
-    border: 1px solid var(--nav-glass-border);
     border-radius: 9999px;
     bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
-    box-shadow:
-        0 8px 32px var(--nav-glass-shadow),
-        inset 0 1px 0 var(--nav-glass-highlight),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.05);
     display: flex;
     gap: 0;
     left: 50%;
@@ -462,6 +472,17 @@ body::after {
     z-index: 100;
 }
 
+/* Glass appearance — applied via .glass modifier in HTML */
+.bottom-nav.glass {
+    backdrop-filter: blur(24px) saturate(200%);
+    background: var(--nav-glass-bg);
+    border: 1px solid var(--nav-glass-border);
+    box-shadow:
+        0 8px 32px var(--nav-glass-shadow),
+        inset 0 1px 0 var(--nav-glass-highlight),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+}
+
 .bottom-nav-item {
     align-items: center;
     border-radius: 9999px;
@@ -469,7 +490,7 @@ body::after {
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    font-family: 'Omnes', Verdana, Arial, sans-serif;
+    font-family: 'Fredoka', Verdana, Arial, sans-serif;
     font-size: 0.55rem;
     font-weight: bold;
     gap: 0.2rem;
@@ -532,10 +553,8 @@ body::after {
    12. Theme toggle button
    ========================================================================== */
 
+/* Structure */
 .theme-toggle {
-    backdrop-filter: blur(12px);
-    background: var(--toggle-bg);
-    border: 1px solid var(--toggle-border);
     border-radius: 9999px;
     bottom: calc(6.5rem + env(safe-area-inset-bottom, 0px));
     cursor: pointer;
@@ -549,9 +568,15 @@ body::after {
     z-index: 100;
 }
 
-.theme-toggle:hover {
+/* Glass appearance — applied via .glass modifier in HTML */
+.theme-toggle.glass {
+    backdrop-filter: blur(12px);
+    background: var(--toggle-bg);
+    border: 1px solid var(--toggle-border);
+}
+
+.theme-toggle.glass:hover {
     background: var(--nav-glass-bg);
-    transform: scale(1.08);
 }
 
 .theme-toggle:active {

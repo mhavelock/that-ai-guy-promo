@@ -12,7 +12,7 @@
   justify-content: center;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .grid-4x4 {
     /* 4 columns on desktop */
     grid-template-columns: repeat(4, 10rem);

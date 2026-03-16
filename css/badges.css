@@ -37,6 +37,7 @@
   border: 2px solid var(--color-text);
   border-radius: 50%;
   display: flex;
+  font-size: 1rem; /* pinned — exception from fluid text */
   justify-content: center;
   padding: 10px;
 }

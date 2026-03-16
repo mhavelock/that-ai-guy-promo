@@ -40,40 +40,36 @@
 
 > Focus: mobile only. Desktop overrides come later.
 
-### Mobile-first CSS audit
-- [ ] **CLAUDE.md** — reinforce mobile-first rule: base styles = mobile, `min-width`/`width >=` only; document exception for `.slider__holder`
-- [ ] Audit all CSS files — remove all `@media (width < ...)` and `@media (max-width: ...)` breakpoints; rewrite as mobile-first equivalents
-  - **Exception (leave as-is):** `@media (max-width: 900px) { .slider__holder { max-width: 300px; } }` — third-party slider, too fragile to refactor
+### Mobile-first CSS audit *(done)*
+- [x] Audit all CSS files — only `grid.css` had `min-width` syntax; updated to `(width >= 768px)`
+- [x] `custom.css` (orphaned) and `components.css` (empty stub) deleted
+- [x] **Exception (leave as-is):** `slider.css` — third-party component, too fragile to refactor; `.slider__holder` max-width at 900px is an intentional exception
+- [ ] **CLAUDE.md** — update to document mobile-first convention and `.glass` modifier pattern
 
-### Font
-- [ ] Replace `OmnesBold` / `@font-face` with **Fredoka** variable Google Font
-  - Add `<link rel="preconnect">` + stylesheet to `index.html` and `privacy.html`
-  - Update `font-family` stack in `theme.css`; remove `@font-face` block
-  - **OPEN** — weight range: 300–700 as originally noted, or different?
+### Font *(done)*
+- [x] Replaced `OmnesBold` / `@font-face` with **Fredoka** variable Google Font (300–700)
+- [x] `<link rel="preconnect">` + stylesheet added to `index.html` and `privacy.html`
+- [x] `font-family` updated in `theme.css`; `@font-face` block removed
 
-### Glass modifier pattern
-- [ ] Separate structural styles from glassmorphism in `theme.css`:
-  - `.theme-toggle` → structure only; `.theme-toggle.glass` → blur/border/shadow
-  - `.bottom-nav` → same split
-  - Document convention in `CLAUDE.md`
-  - Apply glass modifier class in HTML
+### Glass modifier pattern *(done)*
+- [x] `.bottom-nav` split: structure on `.bottom-nav`, glassmorphism on `.bottom-nav.glass`
+- [x] `.theme-toggle` split: structure on `.theme-toggle`, glassmorphism on `.theme-toggle.glass`
+- [x] `.glass` class applied in HTML
+- [ ] **CLAUDE.md** — document `.glass` modifier convention
 
-### Images → `<picture>` with srcset
-- [ ] Convert all non-SVG `<img>` to `<picture>` with mobile + desktop `srcset`
-  - Use same image file for both sizes for now (revisit when final dimensions are known)
-  - Breakpoint for mobile/desktop switch: **OPEN** — assume `768px`?
-  - SVGs: leave as `<img>` — no change needed
+### Images → `<picture>` with srcset *(done)*
+- [x] All non-SVG `<img>` converted to `<picture>` with mobile + desktop `<source>`
+- [x] Same image file used for both sizes — swap in separate files when final dimensions known
+- [x] `loading="lazy"` added to below-fold phone images
 
-### Fluid text
-- [ ] Implement viewport-relative fluid typography using `clamp()`
-  - Mobile: fixed line-heights — **OPEN** — confirm values (see clarifications below)
-  - Desktop: `calc(30px + (90 - 30) * (100vw - 320px) / (1500 - 320))` for headings
-  - Body text scale: **OPEN** — confirm min/max px values
+### Fluid text *(done)*
+- [x] Mobile (< 768px) fixed: `p` = 1.2rem / lh 1.5; `h1` = 1.5rem; `h2–h4` = 1.333rem; `h5–h6` = 1.25rem; all lh 1.66
+- [x] Desktop (≥ 768px): `clamp()` fluid scaling from mobile base → proportional max at 1248px; `p` max 2rem
+- [x] Badges pinned at `font-size: 1rem` (exception); reviews + stars already have explicit sizes
 
-### Text wrap around logo *(stop & test after this)*
-- [ ] Remove current `shape-outside` implementation (broken)
-- [ ] Rewrite: logo scaled to ~12 lines of text height, text wraps around it with `shape-outside`
-  - Stop and test before proceeding — layout will shift
+### Text wrap around logo *(open)*
+- [ ] **OPEN** — Remove current `shape-outside` implementation and rewrite once layout settles
+  - Logo should be ~12 lines of text height; text wraps with `shape-outside`
 
 ---
 

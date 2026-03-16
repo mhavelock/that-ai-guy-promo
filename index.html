@@ -39,6 +39,11 @@
         }());
     </script>
 
+    <!-- Fredoka variable font (300–700) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap">
+
     <!-- Critical styles -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/theme.css">
@@ -102,13 +107,16 @@
                 <p>Use at your own risk.</p>
             </div>
             <div class="promo-phone-wrap">
-                <img
-                    src="assets/iphones/iphone-ss-01.png"
-                    alt="That AI Guy app — listening screen"
-                    class="promo-phone"
-                    width="600"
-                    height="752"
-                >
+                <picture>
+                    <source media="(width >= 768px)" srcset="assets/iphones/iphone-ss-01.png">
+                    <img
+                        src="assets/iphones/iphone-ss-01.png"
+                        alt="That AI Guy app — listening screen"
+                        class="promo-phone"
+                        width="600"
+                        height="752"
+                    >
+                </picture>
                 <!-- Speech bubbles, absolutely positioned within phone container -->
                 <img
                     src="assets/speech-bubbles/bulle3.svg"
@@ -148,20 +156,28 @@
         <!-- Roast: two phones left, text right -->
         <section class="promo-section promo-roast" aria-label="Roast mode">
             <div class="promo-phone-wrap--duo">
-                <img
-                    src="assets/iphones/iphone-ss-02-roastoptions.png"
-                    alt="That AI Guy app — Victim Profile screen"
-                    class="imgresize-phone-sm"
-                    width="600"
-                    height="1262"
-                >
-                <img
-                    src="assets/iphones/iphone-ss-03-settings.png"
-                    alt="That AI Guy app — Settings screen"
-                    class="imgresize-phone-sm"
-                    width="600"
-                    height="1262"
-                >
+                <picture>
+                    <source media="(width >= 768px)" srcset="assets/iphones/iphone-ss-02-roastoptions.png">
+                    <img
+                        src="assets/iphones/iphone-ss-02-roastoptions.png"
+                        alt="That AI Guy app — Victim Profile screen"
+                        class="imgresize-phone-sm"
+                        width="600"
+                        height="1262"
+                        loading="lazy"
+                    >
+                </picture>
+                <picture>
+                    <source media="(width >= 768px)" srcset="assets/iphones/iphone-ss-03-settings.png">
+                    <img
+                        src="assets/iphones/iphone-ss-03-settings.png"
+                        alt="That AI Guy app — Settings screen"
+                        class="imgresize-phone-sm"
+                        width="600"
+                        height="1262"
+                        loading="lazy"
+                    >
+                </picture>
             </div>
             <div class="promo-text">
                 <p>Enter a name and a few details about your victim. That AI Guy does the rest &mdash; tailored, personal, and merciless.</p>
@@ -200,7 +216,10 @@
                     </div>
                     <div class="review-attribution">
                         <cite class="review-name">Mayim<span class="review-location">, Los Angeles</span></cite>
-                        <img src="assets/avatars/mayim-bialik.jpeg" alt="Mayim Bialik" class="review-avatar" width="48" height="48" loading="lazy">
+                        <picture>
+                            <source media="(width >= 768px)" srcset="assets/avatars/mayim-bialik.jpeg">
+                            <img src="assets/avatars/mayim-bialik.jpeg" alt="Mayim Bialik" class="review-avatar" width="48" height="48" loading="lazy">
+                        </picture>
                     </div>
                 </div>
             </label>
@@ -216,7 +235,10 @@
                     </div>
                     <div class="review-attribution">
                         <cite class="review-name">Sheldon<span class="review-location">, L.A.</span></cite>
-                        <img src="assets/avatars/sheldon.jpg" alt="Sheldon" class="review-avatar" width="48" height="48" loading="lazy">
+                        <picture>
+                            <source media="(width >= 768px)" srcset="assets/avatars/sheldon.jpg">
+                            <img src="assets/avatars/sheldon.jpg" alt="Sheldon" class="review-avatar" width="48" height="48" loading="lazy">
+                        </picture>
                     </div>
                 </div>
             </label>
@@ -232,7 +254,10 @@
                     </div>
                     <div class="review-attribution">
                         <cite class="review-name">Ben<span class="review-location">, Cockermouth</span></cite>
-                        <img src="assets/avatars/ben-shapiro.jpeg" alt="Ben" class="review-avatar" width="48" height="48" loading="lazy">
+                        <picture>
+                            <source media="(width >= 768px)" srcset="assets/avatars/ben-shapiro.jpeg">
+                            <img src="assets/avatars/ben-shapiro.jpeg" alt="Ben" class="review-avatar" width="48" height="48" loading="lazy">
+                        </picture>
                     </div>
                 </div>
             </label>
@@ -248,7 +273,10 @@
                     </div>
                     <div class="review-attribution">
                         <cite class="review-name">Jeff<span class="review-location">, Springfield</span></cite>
-                        <img src="assets/avatars/jeff-albertson.jpeg" alt="Jeff Albertson" class="review-avatar" width="48" height="48" loading="lazy">
+                        <picture>
+                            <source media="(width >= 768px)" srcset="assets/avatars/jeff-albertson.jpeg">
+                            <img src="assets/avatars/jeff-albertson.jpeg" alt="Jeff Albertson" class="review-avatar" width="48" height="48" loading="lazy">
+                        </picture>
                     </div>
                 </div>
             </label>
@@ -270,7 +298,10 @@
 
         <!-- Awards -->
         <section class="awards-section promo-awards" id="awards" aria-label="Awards">
-            <img src="assets/graphics/dogg-award.png" alt="Dogg Best Apple App 2026" loading="lazy" width="200" height="200">
+            <picture>
+                <source media="(width >= 768px)" srcset="assets/graphics/dogg-award.png">
+                <img src="assets/graphics/dogg-award.png" alt="Dogg Best Apple App 2026" loading="lazy" width="200" height="200">
+            </picture>
         </section>
 
 <section class="footer-section" id="footer" aria-label="Footer">
@@ -296,14 +327,14 @@
 
     <!-- Theme toggle -->
     <button
-        class="theme-toggle"
+        class="theme-toggle glass"
         id="theme-toggle-btn"
         type="button"
         aria-label="Toggle light and dark theme"
     >◐</button>
 
     <!-- Bottom navigation — Liquid Glass -->
-    <nav class="bottom-nav" aria-label="Site navigation">
+    <nav class="bottom-nav glass" aria-label="Site navigation">
         <a href="index.html" class="bottom-nav-item is-active" aria-current="page">
             <img
                 src="assets/components/logo-tg.svg"
