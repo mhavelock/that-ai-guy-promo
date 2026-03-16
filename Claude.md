@@ -2,7 +2,7 @@
 
 ## Session Start
 
-Read the latest handoff in `docs/summaries/` if one exists. Load only the files that handoff references. If no handoff exists, state: what you understand the project state to be, what you plan to do this session, and any open questions.
+Read the latest handoff in `docs/context/summaries/` if one exists. Load only the files that handoff references. If no handoff exists, state: what you understand the project state to be, what you plan to do this session, and any open questions.
 
 ---
 
@@ -44,16 +44,38 @@ A single-page promotional website encouraging visitors to download the **That AI
 /
 ├── index.html
 ├── privacy.html
-├── assets/          # Logo, favicon, images, SVG icons
+├── favicon.svg / favicon.ico / favicon-96x96.png / apple-touch-icon.png / site.webmanifest
+├── assets/          # Logo, favicon, images, SVG icons, audio
+│   ├── components/  # SVG logos and button assets
+│   ├── iphones/     # App screenshots (PNG — migrate to WebP)
+│   ├── speech-bubbles/ # SVG speech bubble assets
+│   ├── bgs/         # Background WebP images
+│   ├── graphics/    # Award/promo graphics
+│   ├── avatars/     # Reviewer avatar images
+│   └── audio/       # pull-chord MP3 sounds
 ├── css/
-│   ├── global.css   # All styles — treated as critical (inlined or preloaded)
-│   └── custom.css   # Component overrides that extend global.css
+│   ├── global.css   # Design system (tokens, reset, typography, layout, components, utilities)
+│   │                # Imports: grid.css, utilities.css, slider.css, badges.css
+│   ├── theme.css    # Promo page layout, dark/light tokens ([data-theme]), bottom-nav, toggle
+│   │                # Imports: stars.css, slider.css (⚠ duplicate), components.css
+│   ├── grid.css     # Grid layout utilities (grid-4x4)
+│   ├── utilities.css # sr-only, blockquote styles
+│   ├── slider.css   # CSS-only carousel slider
+│   ├── badges.css   # Circle badge hover component
+│   ├── stars.css    # CSS star-rating input component
+│   ├── reviews.css  # Review card styles (stub — not yet imported)
+│   ├── components.css # Review component styles (stub)
+│   └── custom.css   # LEGACY Phase 1 — not loaded, candidates for deletion
 ├── js/
-│   ├── logger.js    # Build activity logging — isolated from app code
-│   └── main.js      # App behaviour (modal, etc.)
-├── docs/            # Project documentation and test programme
-└── context/
-    └── summaries/   # Tasklist & handoff summaries
+│   ├── main.js      # App behaviour (modal)
+│   ├── theme.js     # Light/dark toggle — reads/writes localStorage + listens to system changes
+│   └── logger.js    # Build activity logging — isolated, load after theme.js
+├── _archive/        # Archived prototypes (do not use)
+└── docs/
+    ├── test-program.md
+    ├── context/
+    │   └── summaries/ # Tasklist & handoff summaries
+    └── discovery/   # Research docs and assets
 ```
 
 ---
@@ -62,7 +84,7 @@ A single-page promotional website encouraging visitors to download the **That AI
 
 - **Static site**: pure HTML5 / CSS / vanilla JS — no build tools, no package managers, no frameworks
 - **CSS-first**: use JS only where CSS cannot achieve the goal
-- **Two-file CSS architecture**: `global.css` (design system, components, utilities) + `custom.css` (page-specific overrides that extend the global system)
+- **Multi-file CSS architecture**: `global.css` (design system; imports `grid.css`, `utilities.css`, `slider.css`, `badges.css`) + `theme.css` (promo page layout + nav + dark/light tokens; imports `stars.css`, `components.css`) — `custom.css` is legacy Phase 1 (orphaned, not loaded)
 - **Mobile-first responsive CSS**: base styles target smallest screen; `min-width` queries only (never `max-width` for breakpoints)
 - **Modern CSS**: custom properties for all tokens, `clamp()`, `min()`, `max()`, logical properties, `@media (width >=)` range syntax
 - **JS pattern**: deferred, wrapped in IIFE, event delegation — no global scope pollution
@@ -77,7 +99,7 @@ A single-page promotional website encouraging visitors to download the **That AI
 - **Tone**: fun and comedic — copy and layout should reflect the app's personality
 - **Clarity**: single, clear call-to-action — download the app. Every element should support this goal
 - **Minimal friction**: large touch targets (≥ 44×44px), large text, large buttons, no clutter
-- **Light/dark mode**: automatic via `prefers-color-scheme` — no toggle required
+- **Light/dark mode**: `prefers-color-scheme` auto + manual toggle (`theme-toggle-btn`) saves preference to `localStorage`
 - **No motion surprises**: animations and transforms respect `prefers-reduced-motion`
 - **Accessible by default**: keyboard navigation, visible focus states, skip link, ARIA where needed
 
@@ -178,14 +200,14 @@ A single-page promotional website encouraging visitors to download the **That AI
 ## Rules
 
 1. Do not mix unrelated project contexts in one session.
-2. Write state to disk after meaningful work. Summary to `docs/summaries/` using templates.
+2. Write state to disk after meaningful work. Summary to `docs/context/summaries/` using templates.
 3. Before session end or context compaction: write every decision, number, file path, open question to disk.
 4. When switching work types (research → build → review), write a handoff and suggest a new session.
 5. Do not silently resolve open questions. Mark OPEN or ASSUMED.
 6. Do not bulk-read documents. Process one at a time: read, summarise to disk, release from context.
 7. Sub-agent returns must be structured. Use output contracts from `templates/claude-templates.md`.
 8. NEVER commit `.env.local`. NEVER hardcode API keys or secrets in source files.
-9. Images must be in `public/` to be served by Next.js — not `assets/`.
+9. Images live in `assets/` — this is a static HTML site, not Next.js. No `public/` directory.
 10. For responsive images, create separate 1x and 2x WebP variants and serve via `srcSet` in a `<picture>` element.
 
 ---
@@ -217,7 +239,7 @@ Run `docs/test-program.md` at the end of each phase. Claude runs the automated c
 | What | Where |
 |------|-------|
 | Templates | `templates/claude-templates.md` |
-| Active session state | `docs/summaries/` (latest handoff) |
+| Active session state | `docs/context/summaries/` (latest handoff) |
 | Domain knowledge | `docs/context/` (load only when relevant) |
 | Performance audit | `docs/context/performance-audit.md` |
 | Archived raw files | `docs/archive/` (do not read unless told) |

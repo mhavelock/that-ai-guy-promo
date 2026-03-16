@@ -87,7 +87,7 @@ button:hover {
   transition: inherit;
 }
 .badges dl:hover span {
-  scale: 1.5;
+  scale: 0.85;
 }
 .badges dl {  
   /* Shape #1 */
