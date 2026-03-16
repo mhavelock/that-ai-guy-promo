@@ -281,12 +281,6 @@
     0 2px 4px 0 rgba(0, 0, 0, 0.1);
 }
 
-/* Star ratings in review cards are display-only — prevent clicks landing
-   on the range input (which triggers focus-scroll on label click). */
-.slider-card .stars input[type="range"] {
-  pointer-events: none;
-}
-
 /*--------------------------------------------------------------
 2.0 Slider
 --------------------------------------------------------------*/
@@ -309,7 +303,7 @@
 }
 @media (max-width: 900px) {
   .slider__holder {
-    max-width: 540px;
+    max-width: 224px;
   }
 }
 @media (max-width: 600px) {
