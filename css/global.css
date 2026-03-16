@@ -102,31 +102,10 @@
     --transition-slow:  400ms ease;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --color-bg:                   #111318;
-        --color-surface:              #1a1d28;
-        --color-border:               #2c3044;
-        --color-text:                 #a1b1ca;
-        --color-text-muted:           #6b7a94;
-        --color-btn-primary-bg:       #1d1f24;
-        --color-btn-primary-text:     #a1b1ca;
-        --color-btn-secondary-bg:     #ebe6b7;
-        --color-btn-secondary-text:   #1d1f24;
-        --color-focus:                #7aaff0;
-        --color-alert-info-bg:        #1a2540;
-        --color-alert-info-text:      #90b8f0;
-        --color-alert-success-bg:     #152a1e;
-        --color-alert-success-text:   #7fcfa0;
-        --color-alert-warning-bg:     #2a2005;
-        --color-alert-warning-text:   #d4a845;
-        --color-alert-error-bg:       #2a0f0f;
-        --color-alert-error-text:     #d48080;
-        --shadow-sm:  0 1px 3px rgb(0 0 0 / 0.3);
-        --shadow-md:  0 4px 12px rgb(0 0 0 / 0.4);
-        --shadow-lg:  0 8px 24px rgb(0 0 0 / 0.5);
-    }
-}
+/* Dark mode tokens are on :root[data-theme="dark"] in theme.css.
+   The early-init script in <head> seeds data-theme from localStorage
+   or prefers-color-scheme before any paint, so no CSS media query
+   is needed here. */
 
 
 /* ==========================================================================

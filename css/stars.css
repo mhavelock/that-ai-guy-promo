@@ -38,11 +38,10 @@
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 5 L79 95 L2 40 L98 40 L21 95 Z'/%3E%3C/svg%3E") 
         0 / var(--s) var(--_m,);
 
-  /* 2. REPLACED HSL WITH YOUR HEX COLOR */
-  background: 
+  background:
     linear-gradient(90deg,
-      #b2aa8e calc(var(--val) * 100% / var(--max)), 
-      #7b7b7b 0
+      var(--color-star-active) calc(var(--val) * 100% / var(--max)),
+      var(--color-star-inactive) 0
     );
 
   appearance: none;
@@ -70,8 +69,8 @@
 }
 
 .stars input[type="range"]:focus-visible {
-  outline: 2px solid #000;
+  outline: 2px solid var(--color-focus);
   outline-offset: -2px;
-  --_m:,conic-gradient(from 90deg at 2px 2px,#0000 25%,#000 0) 0 0/calc(100% - 2px) calc(100% - 2px);
+  --_m:,conic-gradient(from 90deg at 2px 2px, transparent 25%, var(--color-focus) 0) 0 0/calc(100% - 2px) calc(100% - 2px);
 }
 

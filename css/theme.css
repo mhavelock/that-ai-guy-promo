@@ -43,33 +43,79 @@
    ========================================================================== */
 
 :root[data-theme="light"] {
-    --color-bg:              #ffffff;
-    --color-text:            #1d1f24;
-    --color-text-muted:      #5a6375;
-    --nav-glass-bg:          rgba(255, 255, 255, 0.40);
-    --nav-glass-border:      rgba(255, 255, 255, 0.65);
-    --nav-glass-shadow:      rgba(0, 0, 0, 0.14);
-    --nav-glass-highlight:   rgba(255, 255, 255, 0.85);
-    --nav-active-bg:         rgba(255, 255, 255, 0.45);
-    --nav-active-glow:       rgba(200, 220, 255, 0.7);
-    --nav-text:              #1d1f24;
-    --toggle-bg:             rgba(0, 0, 0, 0.08);
-    --toggle-border:         rgba(0, 0, 0, 0.12);
+    /* Colour */
+    --color-bg:                   #ffffff;
+    --color-surface:              #f2f4f7;
+    --color-border:               #dde1ea;
+    --color-text:                 #1d1f24;
+    --color-text-muted:           #5a6375;
+    --color-btn-primary-bg:       #a1b1ca;
+    --color-btn-primary-text:     #1d1f24;
+    --color-btn-secondary-bg:     #3e3b1b;
+    --color-btn-secondary-text:   #a1b1ca;
+    --color-focus:                #4a7fcb;
+    --color-alert-info-bg:        #eaf2ff;
+    --color-alert-info-text:      #1d3a6b;
+    --color-alert-success-bg:     #e8f9ef;
+    --color-alert-success-text:   #1a5c35;
+    --color-alert-warning-bg:     #fff8e6;
+    --color-alert-warning-text:   #6b4800;
+    --color-alert-error-bg:       #ffeaea;
+    --color-alert-error-text:     #6b1a1a;
+    --shadow-sm:                  0 1px 3px rgb(0 0 0 / 0.08);
+    --shadow-md:                  0 4px 12px rgb(0 0 0 / 0.1);
+    --shadow-lg:                  0 8px 24px rgb(0 0 0 / 0.14);
+    /* Stars */
+    --color-star-active:          #a1b1ca;
+    --color-star-inactive:        #5a6375;
+    /* Navigation */
+    --nav-glass-bg:               rgba(255, 255, 255, 0.40);
+    --nav-glass-border:           rgba(255, 255, 255, 0.65);
+    --nav-glass-shadow:           rgba(0, 0, 0, 0.14);
+    --nav-glass-highlight:        rgba(255, 255, 255, 0.85);
+    --nav-active-bg:              rgba(255, 255, 255, 0.45);
+    --nav-active-glow:            rgba(200, 220, 255, 0.7);
+    --nav-text:                   #1d1f24;
+    --toggle-bg:                  rgba(0, 0, 0, 0.08);
+    --toggle-border:              rgba(0, 0, 0, 0.12);
 }
 
 :root[data-theme="dark"] {
-    --color-bg:              #111318;
-    --color-text:            #a1b1ca;
-    --color-text-muted:      #6b7a94;
-    --nav-glass-bg:          rgba(15, 18, 28, 0.65);
-    --nav-glass-border:      rgba(255, 255, 255, 0.12);
-    --nav-glass-shadow:      rgba(0, 0, 0, 0.55);
-    --nav-glass-highlight:   rgba(255, 255, 255, 0.10);
-    --nav-active-bg:         rgba(255, 255, 255, 0.14);
-    --nav-active-glow:       rgba(80, 140, 255, 0.50);
-    --nav-text:              #a1b1ca;
-    --toggle-bg:             rgba(255, 255, 255, 0.10);
-    --toggle-border:         rgba(255, 255, 255, 0.15);
+    /* Colour */
+    --color-bg:                   #111318;
+    --color-surface:              #1a1d28;
+    --color-border:               #2c3044;
+    --color-text:                 #a1b1ca;
+    --color-text-muted:           #6b7a94;
+    --color-btn-primary-bg:       #1d1f24;
+    --color-btn-primary-text:     #a1b1ca;
+    --color-btn-secondary-bg:     #ebe6b7;
+    --color-btn-secondary-text:   #1d1f24;
+    --color-focus:                #7aaff0;
+    --color-alert-info-bg:        #1a2540;
+    --color-alert-info-text:      #90b8f0;
+    --color-alert-success-bg:     #152a1e;
+    --color-alert-success-text:   #7fcfa0;
+    --color-alert-warning-bg:     #2a2005;
+    --color-alert-warning-text:   #d4a845;
+    --color-alert-error-bg:       #2a0f0f;
+    --color-alert-error-text:     #d48080;
+    --shadow-sm:                  0 1px 3px rgb(0 0 0 / 0.3);
+    --shadow-md:                  0 4px 12px rgb(0 0 0 / 0.4);
+    --shadow-lg:                  0 8px 24px rgb(0 0 0 / 0.5);
+    /* Stars */
+    --color-star-active:          #a1b1ca;
+    --color-star-inactive:        #6b7a94;
+    /* Navigation */
+    --nav-glass-bg:               rgba(15, 18, 28, 0.65);
+    --nav-glass-border:           rgba(255, 255, 255, 0.12);
+    --nav-glass-shadow:           rgba(0, 0, 0, 0.55);
+    --nav-glass-highlight:        rgba(255, 255, 255, 0.10);
+    --nav-active-bg:              rgba(255, 255, 255, 0.14);
+    --nav-active-glow:            rgba(80, 140, 255, 0.50);
+    --nav-text:                   #a1b1ca;
+    --toggle-bg:                  rgba(255, 255, 255, 0.10);
+    --toggle-border:              rgba(255, 255, 255, 0.15);
 }
 
 
@@ -83,11 +129,12 @@ html {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Mobile base font sizes */
 body {
     background-color: var(--color-bg);
-    /* Extra bottom padding so content clears the fixed nav */
     font-family: 'Omnes', Verdana, Arial, sans-serif;
-    font-size: 2.2rem;
+    font-size: 1.3rem;
+    /* Extra bottom padding so content clears the fixed nav */
     padding-bottom: calc(8rem + env(safe-area-inset-bottom, 0px));
 }
 
@@ -98,18 +145,67 @@ h4,
 h5,
 h6 {
     font-family: 'Omnes', Verdana, Arial, sans-serif;
-    font-size: 3rem;
+    font-size: 1.8rem;
 }
 
 p {
-    font-size: 2.2rem;
+    font-size: 1.3rem;
     font-weight: bold;
     line-height: 1.5;
     margin: 0;
 }
 
+@media (width >= 768px) {
+    body {
+        font-size: 2.2rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: 3rem;
+    }
+
+    p {
+        font-size: 2.2rem;
+    }
+}
+
 .promo-text p + p {
     margin-top: 1.5rem;
+}
+
+
+/* ==========================================================================
+   3a. Background decorators (mobile only)
+   ========================================================================== */
+
+body::before,
+body::after {
+    background-image: url('../assets/bgs/wavegrid-bg.webp'), url('../assets/bgs/wavegrid-bgr.webp');
+    background-position: left bottom, right bottom;
+    background-repeat: no-repeat;
+    background-size: 40% 100%;
+    content: '';
+    display: inline-block;
+    height: 100vh;
+    opacity: 0.33;
+    position: fixed;
+    width: 100%;
+}
+
+body::after {
+    transform: rotateY(180deg);
+}
+
+@media (width >= 768px) {
+    body::before,
+    body::after {
+        display: none;
+    }
 }
 
 
@@ -126,14 +222,27 @@ p {
    5. Promo page — global layout
    ========================================================================== */
 
+/* Mobile base padding and spacing */
 .promo-main {
     margin-inline: auto;
     max-width: 1440px;
-    padding: 3rem 3rem 0;
+    padding: 1.5rem 1.5rem 0;
+    position: relative;
+    z-index: 1;
 }
 
 .promo-section {
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
+}
+
+@media (width >= 768px) {
+    .promo-main {
+        padding: 3rem 3rem 0;
+    }
+
+    .promo-section {
+        margin-bottom: 5rem;
+    }
 }
 
 
@@ -145,15 +254,19 @@ p {
     overflow: hidden; /* contain float */
 }
 
+/* Mobile: 30% width; desktop: natural SVG dimensions */
 .promo-logo {
-    /* 12 body text lines: font-size(2.2rem) × line-height(1.5) × 12 */
     float: left;
-    /* height: calc(2.2rem * 1.5 * 12); */
-    width: 42%;
     margin: 0 2.5rem 1rem 0;
     shape-margin: 1.5rem;
     shape-outside: circle(50%);
-    width: auto;
+    width: 30%;
+}
+
+@media (width >= 768px) {
+    .promo-logo {
+        width: auto;
+    }
 }
 
 
@@ -161,11 +274,29 @@ p {
    7. Section: Features — text left, phone + speech bubbles right
    ========================================================================== */
 
+/* Mobile: stack vertically; desktop: side-by-side */
 .promo-features {
-    align-items: flex-start;
     display: flex;
+    flex-direction: column;
     gap: 3rem;
     overflow-x: clip;
+}
+
+@media (width >= 768px) {
+    .promo-features {
+        align-items: flex-start;
+        flex-direction: row;
+    }
+}
+
+.promo-logo2 {
+    width: 30%;
+}
+
+@media (width >= 768px) {
+    .promo-logo2 {
+        width: auto;
+    }
 }
 
 .promo-text {
@@ -177,7 +308,13 @@ p {
 .promo-phone-wrap {
     flex-shrink: 0;
     position: relative;
-    width: 42%;
+    width: 100%;
+}
+
+@media (width >= 768px) {
+    .promo-phone-wrap {
+        width: 42%;
+    }
 }
 
 .promo-phone {
@@ -226,17 +363,31 @@ p {
    8. Section: Roast — phones left, text right
    ========================================================================== */
 
+/* Mobile: stack vertically; desktop: phones left, text right */
 .promo-roast {
-    align-items: flex-start;
     display: flex;
+    flex-direction: column;
     gap: 3rem;
+}
+
+@media (width >= 768px) {
+    .promo-roast {
+        align-items: flex-start;
+        flex-direction: row;
+    }
 }
 
 .promo-phone-wrap--duo {
     display: flex;
     flex-shrink: 0;
     gap: 1rem;
-    width: 34%;
+    width: 100%;
+}
+
+@media (width >= 768px) {
+    .promo-phone-wrap--duo {
+        width: 34%;
+    }
 }
 
 .imgresize-phone-sm {
@@ -264,6 +415,16 @@ p {
    10. Section: Download
    ========================================================================== */
 
+.promo-logo3 {
+    width: 40%;
+}
+
+@media (width >= 768px) {
+    .promo-logo3 {
+        width: auto;
+    }
+}
+
 
 
 /* ==========================================================================
@@ -271,7 +432,6 @@ p {
    ========================================================================== */
 
 .bottom-nav {
-    -webkit-backdrop-filter: blur(24px) saturate(200%);
     backdrop-filter: blur(24px) saturate(200%);
     background: var(--nav-glass-bg);
     border: 1px solid var(--nav-glass-border);
@@ -361,7 +521,6 @@ p {
    ========================================================================== */
 
 .theme-toggle {
-    -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     background: var(--toggle-bg);
     border: 1px solid var(--toggle-border);
@@ -398,86 +557,3 @@ p {
 }
 
 
-/* ==========================================================================
-   13. Mobile overrides (< 768px)
-   ========================================================================== */
-
-@media (width < 768px) {
-    body {
-        font-size: 1.3rem;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-size: 1.8rem;
-    }
-
-    p {
-        font-size: 1.3rem;
-    }
-
-    body:before {
-        content: '';
-        display: inline-block;
-        width: 100%;
-        height: 100vh;
-        background-image: url(../assets/bgs/wavegrid-bg.webp), url(../assets/bgs/wavegrid-bgr.webp);
-        background-position: left bottom, right bottom;
-        background-size: 40% 100%;
-        opacity: 0.33;
-        position: fixed;
-        background-repeat: no-repeat;
-    }
-    body:after {
-        content: '';
-        display: inline-block;
-        width: 100%;
-        height: 100vh;
-        background-image: url(../assets/bgs/wavegrid-bg.webp), url(../assets/bgs/wavegrid-bgr.webp);
-        background-position: left bottom, right bottom;
-        background-size: 40% 100%;
-        opacity: 0.33;
-        position: fixed;
-        background-repeat: no-repeat;
-        transform: rotateY(180deg)
-    }
-
-    .promo-main {
-        padding: 1.5rem 1.5rem 0;
-        z-index: 1;
-        position: relative;
-    }
-
-    .promo-section {
-        margin-bottom: 3rem;
-    }
-
-    /* Stack all two-column sections vertically */
-    .promo-features,
-    .promo-roast {
-        flex-direction: column;
-    }
-
-    .promo-phone-wrap,
-    .promo-phone-wrap--duo {
-        width: 100%;
-    }
-
-    /* Smaller logo on mobile */
-    .promo-logo {
-        /* height: calc(0.5rem * 1.5 * 10); */
-        width: 30%;
-    }
-
-    .promo-logo2 {
-        width: 30%;
-    }
-
-    .promo-logo3 {
-        width: 40%;
-    }
-}

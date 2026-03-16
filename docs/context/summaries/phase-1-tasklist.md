@@ -32,29 +32,35 @@
 - [x] `CLAUDE.md` CSS architecture, file structure, and theme toggle UX goal updated
 - [x] `global.css` — duplicate `slider.css` import removed
 - [x] `global.css` — `.container` duplicate `width`/`margin` conflict removed
+- [x] `global.css` — `@media (prefers-color-scheme: dark)` block removed; dark tokens now exclusively in `[data-theme="dark"]` in `theme.css`
+- [x] `theme.css` — `[data-theme="light"]` and `[data-theme="dark"]` blocks expanded with all missing tokens (surface, border, buttons, alerts, shadows, stars)
 - [x] `index.html` — duplicate `id="review01"` fixed → `review-01` through `review-04`
 - [x] `index.html` — `<card>` replaced with `<div>` (not a valid HTML element)
 - [x] `index.html` — orphan bullet #5 removed (no matching `#slide-5` radio input)
 - [x] `index.html` — awards `srcset` with three identical entries replaced with single `<img>`
 - [x] `index.html` — `loading="lazy"` added to awards image; corrected alt text typo
+- [x] `slider.css` — removed `.labs-bar` boilerplate (external tutorial code)
+- [x] `slider.css` — removed conflicting `.section`, `.button`, `.slider__item-content`, `.slider__item-text` (unused template stubs)
+- [x] `slider.css` — hardcoded `#fff` in bullets and `.slider-card` replaced with tokens
+- [x] `badges.css` — hardcoded `#000`, `#a5a8ae`, `white` colours replaced with tokens; non-standard `-moz-available`/`-webkit-fill-available` removed; properties alphabetised
+- [x] `stars.css` — hardcoded star colours replaced with `--color-star-active`/`--color-star-inactive` tokens; focus outline uses `--color-focus`
 
 ---
 
 ## Pending — bugs / code quality
 
 - [ ] **OPEN: `new-tasks.txt` not found** — user referenced `docs/discovery/new-tasks.txt` but file does not exist; create and re-run review once available
-- [ ] `css/slider.css` — uses `max-width` media queries throughout (violates mobile-first rule); refactor to range syntax `(width < Xpx)` or restructure mobile-first
-- [ ] `css/slider.css` — contains irrelevant `.labs-bar` boilerplate (lines ~427–511) from tutorial source; delete
-- [ ] `css/slider.css` — redefines `.section` (conflicts with `global.css`); rename or scope
-- [ ] `css/slider.css` — hardcoded `#fff` colours won't respond to dark mode; replace with tokens
-- [ ] `css/slider.css` — currently imported by BOTH `global.css` (removed) and `theme.css` — confirm single load via `theme.css` only
-- [ ] `css/badges.css` — hardcoded `#000`, `white`, `#a5a8ae` colours; replace with tokens
-- [ ] `css/badges.css` — uses non-standard `-moz-available` / `-webkit-fill-available`; replace with `stretch` (or `min-content`)
-- [ ] `css/stars.css` — hardcoded `#b2aa8e`, `#7b7b7b` colours; replace with tokens
+- [x] `css/slider.css` — fully rewritten mobile-first; all `max-width` queries replaced with `width >=` range syntax ✓
+- [x] `css/slider.css` — `.labs-bar` boilerplate removed ✓
+- [x] `css/slider.css` — conflicting `.section` and unused stubs removed ✓
+- [x] `css/slider.css` — hardcoded colours replaced with tokens ✓
+- [x] `css/slider.css` — duplicate import resolved (loaded via `theme.css` only) ✓
+- [x] `css/badges.css` — hardcoded colours replaced with tokens; non-standard properties removed ✓
+- [x] `css/stars.css` — hardcoded colours replaced with tokens ✓
 - [ ] `css/grid.css` — uses `min-width` syntax; migrate to range syntax `(width >= 768px)`
-- [ ] `css/theme.css` — mobile overrides use `@media (width < 768px)` (desktop-first); refactor to mobile-first `min-width` pattern
-- [ ] `css/theme.css` — `body::before` and `body::after` background decorators are identical (same positions); verify intent of `rotateY(180deg)` on second pseudo-element
-- [ ] **Two dark mode systems** — `global.css` uses `@media (prefers-color-scheme: dark)` for component colours; `theme.css` uses `[data-theme]` for page colours. Consolidate onto `[data-theme]` only (or ensure both are consistent)
+- [x] `css/theme.css` — section 13 deleted; all styles refactored to mobile-first base + `width >= 768px` overrides ✓
+- [ ] `css/theme.css` — `body::after { rotateY(180deg) }` decorator: verify intent visually (ASSUMED: mirrors wave decoration)
+- [x] **Dark mode** — consolidated onto `[data-theme]` exclusively; `global.css` media query removed ✓
 - [ ] `css/reviews.css` — stub file not imported anywhere; either add content + import, or delete
 - [ ] `css/components.css` — stub file; either populate or delete
 - [ ] `css/custom.css` — legacy Phase 1 file, not loaded, classes don't appear in current HTML; delete or archive
