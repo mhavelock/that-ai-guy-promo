@@ -1,19 +1,20 @@
 /* ==========================================================================
    THEME — That AI Guy Promo Page
    ==========================================================================
-   1.  Font face (Omnes Bold)
+   1.  Font (Fredoka via Google Fonts)
    2.  Theme tokens — light / dark (via [data-theme])
    3.  Global type overrides
+   3a. Background decorators (mobile only)
    4.  Hide default header
    5.  Promo page — global layout
    6.  Section: Intro (logo float + text wrap)
    7.  Section: Features (text left, phone + bubbles right)
    8.  Section: Roast (phones left, text right)
-   9.  Section: Sign-off
-   10. Section: Download
-   11. Bottom navigation — Liquid Glass
-   12. Theme toggle button
-   13. Mobile overrides (< 768px)
+   9.  Section: Reviews / Slider
+   10. Section: Sign-off
+   11. Section: Download
+   12. Bottom navigation — Liquid Glass
+   13. Theme toggle button
    ========================================================================== */
 
 /* ==========================================================================
@@ -189,6 +190,10 @@ p {
         /* 1.2rem → 2rem */
         font-size: clamp(1.2rem, calc(-1.28px + 2.667vw), 2rem);
     }
+}
+
+.promo-text p {
+    max-width: none; /* override global.css 65ch prose cap */
 }
 
 .promo-text p + p {
@@ -427,7 +432,7 @@ body::after {
 
 
 /* ==========================================================================
-   11. Section: Sign-off
+   10. Section: Sign-off
    ========================================================================== */
 
 .promo-sign p {
@@ -440,7 +445,7 @@ body::after {
 
 
 /* ==========================================================================
-   12. Section: Download
+   11. Section: Download
    ========================================================================== */
 
 .promo-logo3 {
@@ -456,7 +461,7 @@ body::after {
 
 
 /* ==========================================================================
-   11. Bottom navigation — Liquid Glass
+   12. Bottom navigation — Liquid Glass
    ========================================================================== */
 
 /* Structure */
@@ -550,7 +555,7 @@ body::after {
 }
 
 /* ==========================================================================
-   12. Theme toggle button
+   13. Theme toggle button
    ========================================================================== */
 
 /* Structure */

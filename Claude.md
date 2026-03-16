@@ -47,25 +47,24 @@ A single-page promotional website encouraging visitors to download the **That AI
 ├── favicon.svg / favicon.ico / favicon-96x96.png / apple-touch-icon.png / site.webmanifest
 ├── assets/          # Logo, favicon, images, SVG icons, audio
 │   ├── components/  # SVG logos and button assets
-│   ├── iphones/     # App screenshots (PNG — migrate to WebP)
+│   ├── iphones/     # App screenshots (PNG — to be converted to WebP)
 │   ├── speech-bubbles/ # SVG speech bubble assets
 │   ├── bgs/         # Background WebP images
 │   ├── graphics/    # Award/promo graphics
 │   ├── avatars/     # Reviewer avatar images
-│   └── audio/       # pull-chord MP3 sounds
+│   ├── icons/       # UI icons (SVG)
+│   └── audio/       # pull-chord MP3 sounds (Phase 2)
 ├── css/
 │   ├── global.css   # Design system (tokens, reset, typography, layout, components, utilities)
-│   │                # Imports: grid.css, utilities.css, slider.css, badges.css
+│   │                # Imports: grid.css, utilities.css, badges.css
 │   ├── theme.css    # Promo page layout, dark/light tokens ([data-theme]), bottom-nav, toggle
-│   │                # Imports: stars.css, slider.css (⚠ duplicate), components.css
+│   │                # Imports: stars.css, slider.css, reviews.css
 │   ├── grid.css     # Grid layout utilities (grid-4x4)
-│   ├── utilities.css # sr-only, blockquote styles
-│   ├── slider.css   # CSS-only carousel slider
-│   ├── badges.css   # Circle badge hover component
-│   ├── stars.css    # CSS star-rating input component
-│   ├── reviews.css  # Review card styles (stub — not yet imported)
-│   ├── components.css # Review component styles (stub)
-│   └── custom.css   # LEGACY Phase 1 — not loaded, candidates for deletion
+│   ├── utilities.css # sr-only, blockquote comma-separator
+│   ├── slider.css   # CSS-only carousel — third-party component (fragile, do not refactor)
+│   ├── badges.css   # Circle badge + clip-path morph on hover
+│   ├── stars.css    # CSS star-rating via <input type="range"> + @property + view-timeline
+│   └── reviews.css  # Review card layout (open-quote, quote text, stars, attribution)
 ├── js/
 │   ├── main.js      # App behaviour (modal)
 │   ├── theme.js     # Light/dark toggle — reads/writes localStorage + listens to system changes
@@ -84,9 +83,10 @@ A single-page promotional website encouraging visitors to download the **That AI
 
 - **Static site**: pure HTML5 / CSS / vanilla JS — no build tools, no package managers, no frameworks
 - **CSS-first**: use JS only where CSS cannot achieve the goal
-- **Multi-file CSS architecture**: `global.css` (design system; imports `grid.css`, `utilities.css`, `slider.css`, `badges.css`) + `theme.css` (promo page layout + nav + dark/light tokens; imports `stars.css`, `components.css`) — `custom.css` is legacy Phase 1 (orphaned, not loaded)
-- **Mobile-first responsive CSS**: base styles target smallest screen; `min-width` queries only (never `max-width` for breakpoints)
-- **Modern CSS**: custom properties for all tokens, `clamp()`, `min()`, `max()`, logical properties, `@media (width >=)` range syntax
+- **Multi-file CSS architecture**: `global.css` (design system; imports `grid.css`, `utilities.css`, `badges.css`) + `theme.css` (promo layout + nav + dark/light tokens; imports `stars.css`, `slider.css`, `reviews.css`)
+- **Mobile-first CSS** *(critical rule)*: base styles must target the smallest screen — no media queries needed for mobile. Layer desktop overrides upward using `@media (width >= Npx)` only. **Never use `max-width` breakpoints.** Exception: `slider.css` is a third-party component — do not refactor its media queries.
+- **Modern CSS**: custom properties for all tokens, `clamp()` for fluid type, `@media (width >=)` range syntax, logical properties
+- **Glass modifier pattern**: glassmorphism (`backdrop-filter`, `background: rgba()`, `border: 1px solid rgba()`, `box-shadow`) lives on a `.glass` modifier class — never baked into the structural component class. Apply both in HTML: `class="bottom-nav glass"`. This keeps structure and appearance independently reusable.
 - **JS pattern**: deferred, wrapped in IIFE, event delegation — no global scope pollution
 - **`<dialog>` for modals**: native, accessible, keyboard-dismissible with no extra JS complexity
 - **Logging**: `js/logger.js` is isolated from `main.js` — stores structured entries in `localStorage` (key: `thaiaiguy:buildlog`) with in-memory fallback. Load before `main.js`. Remove/gate test block before production. Inspect via `Logger.print()` in the browser console.
@@ -171,20 +171,20 @@ A single-page promotional website encouraging visitors to download the **That AI
 
 > **Note**: the original brief listed LM primary button text as `#a1b1ca` (same as bg — invisible). Interpreted as `#1d1f24` (dark on light button).
 
-**Fonts**
-- Body: Arial Bold
-- Headings: Open Sans 700/800 (async-loaded from Google Fonts)
+**Font**
+- **Fredoka** variable (300–700), loaded from Google Fonts via `<link rel="preconnect">` + stylesheet in `<head>`. Applied via `font-family: 'Fredoka', Verdana, Arial, sans-serif` in `theme.css`.
 
 ---
 
 ## CSS conventions
 
-- All styles in `global.css` (critical). Page-specific overrides in `custom.css`.
 - CSS custom properties for all colours, spacing, and type scales.
 - Properties alphabetised within each rule.
 - Clean modern CSS — no vendor prefixes for supported properties.
 - `cursor: pointer` on all buttons and button-styled links.
-- Standard component patterns: typography, forms, buttons, tooltips, modals, alerts, SVG icons.
+- **Mobile-first**: base rules are for mobile. Desktop overrides use `@media (width >= 768px)`. Never use `max-width` breakpoints (exception: `slider.css`).
+- **Glass modifier**: glassmorphism on `.glass` modifier only — never on the structural class. See *Technical development approach* above.
+- **Fluid typography**: mobile sizes are fixed (`p` = 1.2rem, `h1` = 1.5rem, etc.). Desktop scales via `clamp()` from 768px to 1248px. Badges, reviews, and stars are exceptions — their font sizes are pinned in their own files.
 
 ---
 
@@ -255,4 +255,4 @@ If context degrades: write current state to `docs/summaries/recovery-[date].md`,
 
 ## Before Delivering Output
 
-Verify: open questions marked OPEN, output matches what was requested, no secrets in committed code, images in `public/` not `assets/`, summary written to disk.
+Verify: open questions marked OPEN, output matches what was requested, no secrets in committed code, images in `assets/` (static site — no `public/` directory), summary written to disk.

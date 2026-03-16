@@ -67,10 +67,6 @@
 - [x] Desktop (≥ 768px): `clamp()` fluid scaling from mobile base → proportional max at 1248px; `p` max 2rem
 - [x] Badges pinned at `font-size: 1rem` (exception); reviews + stars already have explicit sizes
 
-### Text wrap around logo *(open)*
-- [ ] **OPEN** — Remove current `shape-outside` implementation and rewrite once layout settles
-  - Logo should be ~12 lines of text height; text wraps with `shape-outside`
-
 ---
 
 ## Priority 2 — Asset tidy
@@ -116,9 +112,14 @@
 
 ## Cleanup & housekeeping *(alongside, as we go)*
 
-- [ ] **CLAUDE.md** — update CSS architecture section to list all current CSS files
-- [ ] `css/components.css` — stub; populate or delete
-- [ ] `css/custom.css` — legacy Phase 1, orphaned; delete
+- [x] **CLAUDE.md** — updated: file structure, CSS architecture, mobile-first + glass modifier conventions, Fredoka font, fixed stale references
+- [x] **CSS audit** — completed 2026-03-16:
+  - Removed dead h1/h2 desktop clamp overrides from `global.css` (overridden by `theme.css`)
+  - Added `.promo-text p { max-width: none }` to prevent global 65ch cap bleeding into promo page
+  - Removed ~150 lines of unused third-party demo code from `slider.css` (labs-bar, section, button, entry classes)
+  - Fixed `theme.css` section numbering (was: 9→11→12→11→12; now sequential)
+  - **Known issue**: `badges.css .badges dd` uses hardcoded dark gradient — not theme tokens, dark mode appearance untested
+  - **Known issue**: Badge hover interaction (clip-path morph) is hover-only — needs click/active state for mobile touch
 - [ ] **OPEN** — should `main.js` load before `theme.js`? (currently main → theme → logger)
 - [ ] **Accessibility + schema pass** — add missing ARIA, `schema.org` markup
 
@@ -130,6 +131,12 @@
 - [ ] Review and sign off privacy policy content
 - [ ] Contact email in privacy policy (`hello@thataiguy.app` — placeholder)
 - [ ] Confirm star ratings: Sheldon + Jeff corrected to `value="1"` — is this right?
+
+---
+
+## Backlog — revisit when layout settles
+
+- [ ] **Text wrap around logo** — remove current broken `shape-outside`; rewrite with logo ~12 lines tall, text wrapping around with `shape-outside: circle(50%)`
 
 ---
 
