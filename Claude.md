@@ -1,4 +1,18 @@
-# That AI Guy — Promo Site
+# CLAUDE.md — That AI Guy — Promo Site
+
+## Session Start
+
+Read the latest handoff in `docs/summaries/` if one exists. Load only the files that handoff references. If no handoff exists, state: what you understand the project state to be, what you plan to do this session, and any open questions.
+
+---
+
+## Identity
+
+You are working with Mat. See `~/Claudette/Cowork/CLAUDE.md` for further details.
+
+---
+
+## Project
 
 A single-page promotional website encouraging visitors to download the **That AI Guy** iOS app from the App Store.
 
@@ -6,7 +20,17 @@ A single-page promotional website encouraging visitors to download the **That AI
 
 ---
 
-## Stack
+## Project Location
+
+| Item | Value |
+|------|-------|
+| **Working Directory** | `~/Claudette/Cowork/projects/that-guy-promo` |
+| **Repository** | https://github.com/mhavelock/that-ai-guy-promo | (matalab)
+| **Live Site** | https://that-ai-guy.app/ | (not currently working)
+
+---
+
+## Tech Stack
 
 - HTML5, CSS (single critical stylesheet), vanilla JS (CSS-first — use JS only when CSS cannot achieve the goal)
 - No build tools, no frameworks
@@ -142,6 +166,30 @@ A single-page promotional website encouraging visitors to download the **That AI
 
 ---
 
+## Image Strategy
+
+- **Format:** Always WebP. 
+- **Responsive:** Separate 1x and 2x WebP variants, served via `srcSet` in native `<picture>` for hero/banner images to allow manual preload hints.
+- **Retina rule:** `72dpi` files = 1x, `144dpi` files = 2x in srcSet.
+- **LCP images:** Always add `<link rel="preload" fetchPriority="high">`
+
+---
+
+## Rules
+
+1. Do not mix unrelated project contexts in one session.
+2. Write state to disk after meaningful work. Summary to `docs/summaries/` using templates.
+3. Before session end or context compaction: write every decision, number, file path, open question to disk.
+4. When switching work types (research → build → review), write a handoff and suggest a new session.
+5. Do not silently resolve open questions. Mark OPEN or ASSUMED.
+6. Do not bulk-read documents. Process one at a time: read, summarise to disk, release from context.
+7. Sub-agent returns must be structured. Use output contracts from `templates/claude-templates.md`.
+8. NEVER commit `.env.local`. NEVER hardcode API keys or secrets in source files.
+9. Images must be in `public/` to be served by Next.js — not `assets/`.
+10. For responsive images, create separate 1x and 2x WebP variants and serve via `srcSet` in a `<picture>` element.
+
+---
+
 ## Standards & compliance
 
 - Valid HTML5 (W3C)
@@ -161,3 +209,28 @@ A single-page promotional website encouraging visitors to download the **That AI
 ## Test programme
 
 Run `docs/test-program.md` at the end of each phase. Claude runs the automated checklist and fixes issues; Mat runs the manual browser checklist and signs off.
+
+---
+
+## Where Things Live
+
+| What | Where |
+|------|-------|
+| Templates | `templates/claude-templates.md` |
+| Active session state | `docs/summaries/` (latest handoff) |
+| Domain knowledge | `docs/context/` (load only when relevant) |
+| Performance audit | `docs/context/performance-audit.md` |
+| Archived raw files | `docs/archive/` (do not read unless told) |
+| Claude ops | `.claude/agents/`, `.claude/commands/` |
+
+---
+
+## Error Recovery
+
+If context degrades: write current state to `docs/summaries/recovery-[date].md`, tell the user what may have been lost, suggest a fresh session.
+
+---
+
+## Before Delivering Output
+
+Verify: open questions marked OPEN, output matches what was requested, no secrets in committed code, images in `public/` not `assets/`, summary written to disk.

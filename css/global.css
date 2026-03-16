@@ -17,6 +17,14 @@
    14. Utilities
    ========================================================================== */
 
+/* ==========================================================================
+   Imports
+   ========================================================================== */
+
+@import url("grid.css");
+@import url("utilities.css");
+@import url("slider.css");
+@import url("badges.css");
 
 /* ==========================================================================
    1. Design tokens
@@ -313,6 +321,9 @@ time {
     max-width: var(--max-width);
     padding-inline: var(--grid-gutter);
     width: 100%;
+
+    width: clamp(200px, 50%, 800px); /* 200px min, 50% preferred, 800px max */
+    margin: 0 auto;
 }
 
 @media (width >= 768px) {
@@ -328,9 +339,9 @@ time {
 }
 
 .grid {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
     gap: var(--grid-gutter);
-    grid-template-columns: repeat(var(--grid-cols), 1fr);
 }
 
 .section {
@@ -803,7 +814,6 @@ time {
 .u-block        { display: block; }
 .u-inline-block { display: inline-block; }
 .u-flex         { display: flex; }
-.u-grid         { display: grid; }
 .u-hidden       { display: none; }
 
 /* Spacing */

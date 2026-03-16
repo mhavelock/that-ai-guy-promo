@@ -1,0 +1,59 @@
+/* ==========================================================================
+   THEME — That AI Guy Utilities
+   ==========================================================================
+   1. Screen-reader only (visually-hidden)
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. Screen-reader only (visually-hidden)
+      - Hiding class, making content visible only to screen readers but not visually
+      - "sr" meaning "screen-reader"
+   ========================================================================== */
+
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0); 
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap; 
+  width: 1px;
+}
+
+.flex-center {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  border: 2px solid #000;
+  border-radius: 50%;
+  padding: 10px; /* Ensures text doesn't hit the border */
+}
+
+/* ==========================================================================
+   1. Comma separated name and place origin
+   ========================================================================== */
+
+/* The container */
+blockquote {
+  display: flex;
+  margin: 1rem;
+}
+
+/* The items (cite and div) */
+blockquote cite,
+blockquote div {
+  display: inline; /* ensures they sit together for the comma */
+}
+
+/* Select any visible item that follows another visible item */
+blockquote :not(.hidden) ~ :not(.hidden):before {
+  content: ', ';
+}
+
+/* Hide the items with the class */
+blockquote .hidden {
+  display: none;
+}

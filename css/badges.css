@@ -1,0 +1,100 @@
+/* ==========================================================================
+   THEME — That AI Guy Badges
+   ==========================================================================
+   1. Circle Badges
+   ========================================================================== */
+
+.badges.grid-4x4 {
+  margin: 3rem;
+}
+
+.badges dl {
+  position: relative;
+}
+
+.badges dt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  border: 2px solid #000;
+  border-radius: 50%;
+  padding: 10px; /* Ensures text doesn't hit the border */
+}
+
+.badges dd { 
+  display: none;
+  position: absolute;
+  top: 0;
+  /* Fallback for browsers that don't support fill-available */
+  height: 100%; 
+  /* Firefox equivalent */
+  height: -moz-available; 
+  /* Webkit-based browsers (Chrome, Safari, Edge) */
+  height: -webkit-fill-available; 
+  /* Modern standard name (recommended for future-proofing) */
+  height: stretch; 
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  font-size: var(--font-size-4xl);
+  background-image: radial-gradient(ellipse farthest-corner at 45px 45px, rgba(50, 50, 50, 0.8) 0%, rgba(80, 80, 80, 0.2) );
+  color: #a5a8ae;
+  border-color: white;
+  border-width: 3px;
+  border-radius: 50%;
+  padding: 10px; 
+  line-height: 1.5; /* Todo: change to responsive line height */
+}
+
+.badges dl:hover dt { 
+  visibility: hidden; /* Active state */
+  text-indent: -999em;
+  overflow: hidden;
+}
+.badges dl:hover dd { 
+  display: flex; /* Active state */
+}
+
+
+/* ==========================================================================
+   1. Squishy Badges from https://linear-easing-generator.netlify.app/
+   ========================================================================== */
+
+/* Basic approach for button. - CSS shape:
+button {
+  background: #c1121f;
+  color: #fff;
+  font-size: 50px;
+  line-height: 1.8;
+  transition: .3s ease-out;
+  cursor: pointer;
+}
+button:hover {
+  transition: 1s linear( clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%) );
+}
+*/
+
+.badges dl {
+  transition: scale .25s;
+}
+
+.badges dl:hover {
+  transition: 1s linear(0, 0.024, 0.068 1%, 0.22 2.2%, 0.968 6.1%, 1.221 7.7%, 1.314, 1.383, 1.426 10%, 1.438, 1.445, 1.447, 1.445 11.4%, 1.432, 1.405, 1.365 13.4%, 1.272 14.6%, 1.004 17.7%, 0.892 19.3%, 0.855, 0.828, 0.811, 0.802, 0.802, 0.808, 0.819, 0.837 24.8%, 0.879 26.1%, 0.998 29.1%, 1.048 30.8%, 1.076 32.2%, 1.084, 1.088 33.6%, 1.086, 1.077, 1.059 37.2%, 1.006 40.3%, 0.984 41.7%, 0.968 43.4%, 0.963, 0.961 45%, 0.962, 0.966 47.3%, 1.007 53.2%, 1.014, 1.017 56.4%, 1.015 58.8%, 0.997 64.6%, 0.992 67.8%, 0.993 70.2%, 1.001 75.9%, 1.003 78.9%, 0.999 90.2%, 1);
+}
+.badges dl dt,
+.badges dl dd {
+  transition: inherit;
+}
+.badges dl:hover span {
+  scale: 1.5;
+}
+.badges dl {  
+  /* Shape #1 */
+  clip-path: circle(50% at 50% 50%);
+}
+.badges dl:hover {
+  /* Shape #2 */
+  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%) 
+}
+

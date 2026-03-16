@@ -1,0 +1,20 @@
+/* ==========================================================================
+   THEME — That AI Guy Grid Layouts
+   ==========================================================================
+   1. 4 x 4 Badge Grid
+   ========================================================================== */
+   
+.grid-4x4 {
+  display: grid;
+  gap: 2rem;
+  /* 2 columns by default (mobile) */
+  grid-template-columns: repeat(2, 10rem); 
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .grid-4x4 {
+    /* 4 columns on desktop */
+    grid-template-columns: repeat(4, 10rem);
+  }
+}

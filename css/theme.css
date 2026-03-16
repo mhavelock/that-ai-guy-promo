@@ -16,6 +16,14 @@
    13. Mobile overrides (< 768px)
    ========================================================================== */
 
+/* ==========================================================================
+   Imports
+   ========================================================================== */
+
+@import url("stars.css");
+@import url("slider.css");
+@import url("components.css");
+
 
 /* ==========================================================================
    1. Font face
@@ -140,7 +148,8 @@ p {
 .promo-logo {
     /* 12 body text lines: font-size(2.2rem) × line-height(1.5) × 12 */
     float: left;
-    height: calc(2.2rem * 1.5 * 12);
+    /* height: calc(2.2rem * 1.5 * 12); */
+    width: 42%;
     margin: 0 2.5rem 1rem 0;
     shape-margin: 1.5rem;
     shape-outside: circle(50%);
@@ -156,6 +165,7 @@ p {
     align-items: flex-start;
     display: flex;
     gap: 3rem;
+    overflow-x: clip;
 }
 
 .promo-text {
@@ -254,29 +264,6 @@ p {
    10. Section: Download
    ========================================================================== */
 
-.promo-download {
-    text-align: center;
-}
-
-.btn-appstore {
-    display: inline-block;
-}
-
-.btn-appstore img {
-    height: auto;
-    max-width: 260px;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    width: 100%;
-}
-
-.btn-appstore:hover img {
-    transform: scale(1.05);
-}
-
-.btn-appstore:active img {
-    opacity: 0.8;
-    transform: scale(0.97);
-}
 
 
 /* ==========================================================================
@@ -369,7 +356,6 @@ p {
     }
 }
 
-
 /* ==========================================================================
    12. Theme toggle button
    ========================================================================== */
@@ -434,8 +420,36 @@ p {
         font-size: 1.3rem;
     }
 
+    body:before {
+        content: '';
+        display: inline-block;
+        width: 100%;
+        height: 100vh;
+        background-image: url(../assets/bgs/wavegrid-bg.webp), url(../assets/bgs/wavegrid-bgr.webp);
+        background-position: left bottom, right bottom;
+        background-size: 40% 100%;
+        opacity: 0.33;
+        position: fixed;
+        background-repeat: no-repeat;
+    }
+    body:after {
+        content: '';
+        display: inline-block;
+        width: 100%;
+        height: 100vh;
+        background-image: url(../assets/bgs/wavegrid-bg.webp), url(../assets/bgs/wavegrid-bgr.webp);
+        background-position: left bottom, right bottom;
+        background-size: 40% 100%;
+        opacity: 0.33;
+        position: fixed;
+        background-repeat: no-repeat;
+        transform: rotateY(180deg)
+    }
+
     .promo-main {
         padding: 1.5rem 1.5rem 0;
+        z-index: 1;
+        position: relative;
     }
 
     .promo-section {
@@ -455,6 +469,15 @@ p {
 
     /* Smaller logo on mobile */
     .promo-logo {
-        height: calc(1.3rem * 1.5 * 10);
+        /* height: calc(0.5rem * 1.5 * 10); */
+        width: 30%;
+    }
+
+    .promo-logo2 {
+        width: 30%;
+    }
+
+    .promo-logo3 {
+        width: 40%;
     }
 }

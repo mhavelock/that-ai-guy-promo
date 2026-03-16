@@ -52,21 +52,51 @@
         <!-- Intro: logo floats left, text wraps around it -->
         <section class="promo-section promo-intro" aria-label="Introduction">
             <img
-                src="assets/logo-tg.svg"
+                src="assets/components/logo-tg.svg"
                 alt="That AI Guy"
                 class="promo-logo"
                 width="200"
                 height="200"
             >
+            
+            
             <div class="promo-text">
                 <p>Bring the infinite wisdom and infinite annoyance of AI into your home. Have That AI Guy insult you &amp; your guests — caustic, pedantic, and relentless.</p>
                 <p>At the press of a button, That AI Guy will listen into your conversation and keep interrupting you with pedantic corrections, caustic judgements, petty insults, smug remarks, and backhanded compliments.</p>
-                <p>Flagellate yourself with an unrelenting onslaught of unsolicited, rude &amp; condescending personal attacks.</p>
+            </div>
+        </section>
+
+        <!-- Badges - grid layout, Squishy badge shapes -->
+        <section class="badges-section promo-badges" aria-label="Badges">
+            <h2 class="sr-only">Badges</h2>
+
+            <div class="grid-4x4 badges">
+                <dl>
+                    <dt>Pedantry</dt><dd>Weak press</dd>
+                </dl>
+                <dl>
+                    <dt>Roasting</dt><dd>Weak press</dd>
+                </dl>
+                <dl>
+                    <dt>Configurable</dt><dd>Weak press</dd>
+                </dl>
+                <dl>
+                    <dt>AI Powered</dt><dd>Weak press</dd>
+                </dl>
             </div>
         </section>
 
         <!-- Features: text left, phone + speech bubbles right -->
         <section class="promo-section promo-features" aria-label="Features">
+            <!-- 633 x 633 -->
+            <img
+                src="assets/components/thataiguy-button.svg"
+                alt="That AI Guy"
+                class="promo-logo2"
+                width="200"
+                height="200"
+            >
+
             <div class="promo-text">
                 <p>Alternatively, there&rsquo;s an option to tell That AI Guy your friend&rsquo;s name and a few things that describe them and what they love &mdash; and he&rsquo;ll give them a good-natured roasting.</p>
                 <p>Use at your own risk.</p>
@@ -140,23 +170,122 @@
 
         <!-- Sign-off -->
         <section class="promo-section promo-sign" aria-label="Sign-off">
+             <p>Flagellate yourself with an unrelenting onslaught of unsolicited, rude &amp; condescending personal attacks.</p>
             <p>Yours faithfully,</p>
             <p>That AI Guy</p>
         </section>
 
         <!-- Download -->
         <section class="promo-section promo-download" id="download" aria-label="Download">
-            <a href="#" class="btn-appstore" aria-label="Download That AI Guy on the App Store">
-                <img
-                    src="assets/available-on-the-app store.png"
-                    alt="Available on the App Store"
-                    width="260"
-                    height="87"
-                >
-            </a>
+            <a href="#" class="btn-appstore" aria-label="Download That AI Guy on the App Store">Download That AI Guy on the App Store</a>
         </section>
 
+        <section class="reviews-section promo-reviews slider" id="reviews" aria-label="Reviews">
+
+            <input type="radio" name="slider" id="slide-1" class="slider__radio" checked>
+            <input type="radio" name="slider" id="slide-2" class="slider__radio">
+            <input type="radio" name="slider" id="slide-3" class="slider__radio">
+            <input type="radio" name="slider" id="slide-4" class="slider__radio">
+            
+            <div class="slider__holder">
+
+            <label for="slide-1" class="slider__item slider__item--1 slider-card">
+                <card class="reviews stars">
+                    <blockquote>
+                        <q>A great party ice breaker!</q>
+                        <cite>Mayim</cite> 
+                        <div prefix="dc: http://purl.org/dc/terms/">
+                            <span property="dc:subject" resource="http://sws.geonames.org/7298792">Los Angeles</span>
+                        </div>
+                    </blockquote>
+                    <input id="review01" type="range" min=".5" step=".5" value="4.5" max="5">
+                </card>
+            </label>
+
+            <label for="slide-2" class="slider__item slider__item--2 slider-card">
+                <card class="reviews stars">
+                    <blockquote>
+                        <q>One star. The typeface wasn’t properly capitalised.</q>
+                        <cite>Sheldon</cite> 
+                            <div prefix="dc: http://purl.org/dc/terms/">
+                        <span property="dc:subject" resource="http://sws.geonames.org/7298792">L.A.</span>
+                        </div>
+                    </blockquote>
+                    <input id="review01" type="range" min=".5" step=".5" value="4.5" max="5">
+                </card>
+            </label>
+
+            <label for="slide-3" class="slider__item slider__item--3 slider-card">
+                <card class="reviews stars">
+                    <blockquote>
+                        <q>A great party ice breaker!</q>
+                        <cite>Janice</cite> 
+                        <div prefix="dc: http://purl.org/dc/terms/">
+                            <span property="dc:subject" resource="http://sws.geonames.org/7298792">Cockermouth</span>
+                        </div>
+                    </blockquote>
+                    <input id="review01" type="range" min=".5" step=".5" value="4.5" max="5">
+                </card>
+            </label>
+
+            <label for="slide-4" class="slider__item slider__item--4 slider-card">
+                <card class="reviews stars">
+                    <blockquote>
+                        <q>One star. The typeface wasn’t properly capitalised.</q>
+                        <cite>Jeff</cite> 
+                            <div prefix="dc: http://purl.org/dc/terms/">
+                        <span property="dc:subject" resource="http://sws.geonames.org/7298792">Springfield</span>
+                        </div>
+                    </blockquote>
+                    <input id="review01" type="range" min=".5" step=".5" value="4.5" max="5">
+                </card>
+            </label>
+
+            </div><!-- slider__holder -->
+        
+            <div class="bullets">
+            
+                <label for="slide-1" class="bullets__item bullets__item--1">1</label>
+                <label for="slide-2" class="bullets__item bullets__item--2">2</label>
+                <label for="slide-3" class="bullets__item bullets__item--3">3</label>
+                <label for="slide-4" class="bullets__item bullets__item--4">4</label>
+                <label for="slide-5" class="bullets__item bullets__item--5">5</label>
+            
+            </div> <!-- Bullets -->
+            
+        </section>
+
+
+
+        <!-- Awards -->
+        <section class="awards-section promo-awards" id="awards" aria-label="Awards">
+            <img src="assets/graphics/dogg-award.png" alt="Dogg Best Appple App 2026" 
+                 srcset="assets/graphics/dogg-award.png 200w, 
+                         assets/graphics/dogg-award.png 400w, 
+                         assets/graphics/dogg-award.png 600w"
+                 sizes="(max-width:800px) 30vw,  600px">
+        </section>
+
+<section class="footer-section" id="footer" aria-label="Footer">
+
+        <!-- 1240 x 572 -->
+            <img
+                src="assets/components/that-aiguy-logo.svg"
+                alt="That AI Guy"
+                class="promo-logo3"
+                width="310"
+                height="143"
+            >
+</section>
+
+
+
     </main>
+
+    <footer>
+
+
+    </footer>
 
     <!-- Theme toggle -->
     <button
@@ -170,7 +299,7 @@
     <nav class="bottom-nav" aria-label="Site navigation">
         <a href="index.html" class="bottom-nav-item is-active" aria-current="page">
             <img
-                src="assets/logo-tg.svg"
+                src="assets/components/logo-tg.svg"
                 alt=""
                 class="bottom-nav-icon"
                 width="28"
@@ -192,8 +321,9 @@
         </a>
     </nav>
 
+    <script src="js/main.js" defer></script>
     <script src="js/theme.js" defer></script>
     <script src="js/logger.js" defer></script>
-    <script src="js/main.js" defer></script>
+    
 </body>
 </html>
