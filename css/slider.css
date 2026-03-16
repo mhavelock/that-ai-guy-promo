@@ -275,10 +275,8 @@
   display: block;
   min-height: 240px;
   border-radius: 8px;
-  background: #fff;
-  box-shadow:
-    0 5px 20px 0 rgba(0, 0, 0, 0.05),
-    0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
 }
 
 /*--------------------------------------------------------------
@@ -364,11 +362,11 @@
   height: 10px;
   margin: 0 4px;
   border-radius: 6px;
-  background: rgba(0, 0, 0, 0.2);
+  background: var(--color-border);
   cursor: pointer;
 }
 .bullets__item:hover {
-  background: #fff;
+  background: var(--color-text-muted);
 }
 
 /*--------------------------------------------------------------
