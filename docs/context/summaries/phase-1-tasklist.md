@@ -29,6 +29,9 @@
 - [x] Code review + bug fixes — 2026-03-16 (see handoff)
 - [x] `stars.css` — `--s` 50px → 30px; track was overflowing slider cards on mobile
 - [x] `slider.css` — page-scroll-on-slide-change fixed via `overflow-x: clip` on `.promo-reviews`
+- [x] `css/reviews.css` — styled: open-quote header (large `"` + horizontal rule), italic bold quote, centered stars, attribution row (short rule + name/location + circular avatar)
+- [x] `css/utilities.css` — comma separator scoped with `:not(.review-quote)` to prevent bleed into review cards
+- [x] `css/slider.css` — active bullet dot changed to `var(--color-text)` (dark grey)
 
 ---
 
@@ -90,13 +93,12 @@
 
 ## Pending — styling features
 
-### Reviews section *(next task)*
-- [ ] Style using `<article><blockquote>` pattern — reference `docs/discovery/workshop.css`
-- [ ] Add avatar images from `assets/avatars/`
-- [ ] Center star ratings (do not restyle them)
-- [ ] Fix layout — pushing outside main div on mobile
-- [ ] Slide 2 card taller due to longer text — assess font size in slider context
-- [ ] **OPEN** — Mat notes styling "may not work" — try and stop to review
+### Reviews section *(done)*
+- [x] Style using open-quote + blockquote pattern — reference `docs/discovery/workshop.css`
+- [x] Add avatar images from `assets/avatars/`
+- [x] Center star ratings (do not restyle them)
+- [x] Fix layout — pushing outside main div on mobile (`overflow-x: clip`)
+- [x] Slide 2 card taller due to longer text — fixed with `-webkit-line-clamp: 2` + `min-height: 4.5rem` on quote `<p>`
 
 ### Bottom nav
 - [ ] Mobile: `bottom: calc(3.66rem + env(safe-area-inset-bottom, 0px))`, `gap: 20px`, all aspects 50% bigger

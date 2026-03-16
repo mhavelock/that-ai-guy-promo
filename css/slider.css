@@ -243,19 +243,19 @@
   transition: all 0.2s ease;
 }
 #slide-1:checked ~ .bullets .bullets__item--1 {
-  background: #fff;
+  background: var(--color-text);
 }
 #slide-2:checked ~ .bullets .bullets__item--2 {
-  background: #fff;
+  background: var(--color-text);
 }
 #slide-3:checked ~ .bullets .bullets__item--3 {
-  background: #fff;
+  background: var(--color-text);
 }
 #slide-4:checked ~ .bullets .bullets__item--4 {
-  background: #fff;
+  background: var(--color-text);
 }
 #slide-5:checked ~ .bullets .bullets__item--5 {
-  background: #fff;
+  background: var(--color-text);
 }
 
 /*--------------------------------------------------------------
@@ -303,7 +303,7 @@
 }
 @media (max-width: 900px) {
   .slider__holder {
-    max-width: 224px;
+    max-width: 300px;
   }
 }
 @media (max-width: 600px) {

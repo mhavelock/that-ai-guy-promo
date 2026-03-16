@@ -36,24 +36,24 @@
    1. Comma separated name and place origin
    ========================================================================== */
 
-/* The container */
-blockquote {
+/* The container — scoped away from review cards */
+blockquote:not(.review-quote) {
   display: flex;
   margin: 1rem;
 }
 
 /* The items (cite and div) */
-blockquote cite,
-blockquote div {
+blockquote:not(.review-quote) cite,
+blockquote:not(.review-quote) div {
   display: inline; /* ensures they sit together for the comma */
 }
 
 /* Select any visible item that follows another visible item */
-blockquote :not(.hidden) ~ :not(.hidden):before {
+blockquote:not(.review-quote) :not(.hidden) ~ :not(.hidden)::before {
   content: ', ';
 }
 
 /* Hide the items with the class */
-blockquote .hidden {
+blockquote:not(.review-quote) .hidden {
   display: none;
 }
