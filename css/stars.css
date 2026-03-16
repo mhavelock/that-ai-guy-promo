@@ -27,7 +27,7 @@
 }
 
 .stars input[type="range"] {
-  --s: 50px; 
+  --s: 30px;
   --min: attr(min type(<number>), 1);
   --max: attr(max type(<number>), 5); /* Set to 5 for your aspect ratio */
   

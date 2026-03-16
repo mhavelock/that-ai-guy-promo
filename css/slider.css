@@ -2,10 +2,13 @@
    THEME — That AI Guy Slider
    ==========================================================================
    1. Layout & structure
-   2. Slide position / transform rules (mobile-first, 4 slides)
+   2. Slide position / transform rules (4 slides)
    3. Bullets
    4. Card
    ========================================================================== */
+/* Note: media queries in sections 2–3 use max-width (inherited from original
+   third-party component). Mobile-first refactor deferred — too risky to
+   change opacity/transform cascade without visual regression testing. */
 
 
 /* ==========================================================================
@@ -20,24 +23,24 @@
     display: none;
 }
 
-/* Mobile base: narrow holder, less top margin */
 .slider__holder {
-    margin: 60px auto 0;
-    max-width: 540px;
+    margin: 0 auto;
+    margin-top: 80px;
+    max-width: 600px;
     position: relative;
     text-align: left;
     width: 100%;
 }
 
-@media (width >= 601px) {
+@media (max-width: 900px) {
     .slider__holder {
-        margin-top: 80px;
+        max-width: 540px;
     }
 }
 
-@media (width >= 901px) {
+@media (max-width: 600px) {
     .slider__holder {
-        max-width: 600px;
+        margin-top: 60px;
     }
 }
 
@@ -49,60 +52,50 @@
     overflow: hidden;
     position: absolute;
     top: 0;
-    transition: opacity 0.2s ease, transform 0.2s ease, z-index 0.2s ease;
+    transition: all 0.2s ease;
     width: 100%;
 }
 
 
 /* ==========================================================================
-   2. Slide position / transform rules
-   Mobile-first strategy:
-   - Base (mobile): active slide centred; ±1 adjacent at 0.6 opacity; ±2 hidden.
-   - width >= 768px: restore opacity on all partially-visible items.
-   - width >= 901px: expand far-item translate from 170 px → 210 px.
+   2. Slide position / transform rules (4 slides)
    ========================================================================== */
 
 /* ---- Slide 1 active ---- */
-
 #slide-1:checked ~ .slider__holder .slider__item--1 {
     position: relative;
     transform: translate(0) scale(1);
     z-index: 2;
 }
 
-/* Item 2 — adjacent right */
 #slide-1:checked ~ .slider__holder .slider__item--2 {
-    opacity: 0.6;
     transform: translateX(100px) scale(0.85);
     z-index: 1;
 }
 
-@media (width >= 768px) {
+@media (max-width: 768px) {
     #slide-1:checked ~ .slider__holder .slider__item--2 {
-        opacity: 1;
+        opacity: 0.6;
     }
 }
 
-/* Item 3 — far right */
 #slide-1:checked ~ .slider__holder .slider__item--3 {
-    opacity: 0;
-    transform: translateX(170px) scale(0.65);
+    transform: translateX(210px) scale(0.65);
     z-index: 0;
 }
 
-@media (width >= 768px) {
+@media (max-width: 900px) {
     #slide-1:checked ~ .slider__holder .slider__item--3 {
-        opacity: 1;
+        transform: translateX(170px) scale(0.65);
     }
 }
 
-@media (width >= 901px) {
+@media (max-width: 768px) {
     #slide-1:checked ~ .slider__holder .slider__item--3 {
-        transform: translateX(210px) scale(0.65);
+        opacity: 0;
     }
 }
 
-/* Item 4 — off-screen right */
 #slide-1:checked ~ .slider__holder .slider__item--4 {
     opacity: 0;
     transform: translateX(210px) scale(0.65);
@@ -111,17 +104,14 @@
 
 
 /* ---- Slide 2 active ---- */
-
-/* Item 1 — adjacent left */
 #slide-2:checked ~ .slider__holder .slider__item--1 {
-    opacity: 0.6;
     transform: translateX(-100px) scale(0.85);
     z-index: 1;
 }
 
-@media (width >= 768px) {
+@media (max-width: 768px) {
     #slide-2:checked ~ .slider__holder .slider__item--1 {
-        opacity: 1;
+        opacity: 0.6;
     }
 }
 
@@ -131,70 +121,61 @@
     z-index: 2;
 }
 
-/* Item 3 — adjacent right */
 #slide-2:checked ~ .slider__holder .slider__item--3 {
-    opacity: 0.6;
     transform: translateX(100px) scale(0.85);
     z-index: 1;
 }
 
-@media (width >= 768px) {
+@media (max-width: 768px) {
     #slide-2:checked ~ .slider__holder .slider__item--3 {
-        opacity: 1;
+        opacity: 0.6;
     }
 }
 
-/* Item 4 — far right */
 #slide-2:checked ~ .slider__holder .slider__item--4 {
-    opacity: 0;
-    transform: translateX(170px) scale(0.65);
+    transform: translateX(210px) scale(0.65);
     z-index: 0;
 }
 
-@media (width >= 768px) {
+@media (max-width: 900px) {
     #slide-2:checked ~ .slider__holder .slider__item--4 {
-        opacity: 1;
+        transform: translateX(170px) scale(0.65);
     }
 }
 
-@media (width >= 901px) {
+@media (max-width: 768px) {
     #slide-2:checked ~ .slider__holder .slider__item--4 {
-        transform: translateX(210px) scale(0.65);
+        opacity: 0;
     }
 }
 
 
 /* ---- Slide 3 active ---- */
-
-/* Item 1 — far left */
 #slide-3:checked ~ .slider__holder .slider__item--1 {
-    opacity: 0;
-    transform: translateX(-170px) scale(0.65);
+    transform: translateX(-210px) scale(0.65);
     z-index: 0;
 }
 
-@media (width >= 768px) {
+@media (max-width: 900px) {
     #slide-3:checked ~ .slider__holder .slider__item--1 {
-        opacity: 1;
+        transform: translateX(-170px) scale(0.65);
     }
 }
 
-@media (width >= 901px) {
+@media (max-width: 768px) {
     #slide-3:checked ~ .slider__holder .slider__item--1 {
-        transform: translateX(-210px) scale(0.65);
+        opacity: 0;
     }
 }
 
-/* Item 2 — adjacent left */
 #slide-3:checked ~ .slider__holder .slider__item--2 {
-    opacity: 0.6;
     transform: translateX(-100px) scale(0.85);
     z-index: 1;
 }
 
-@media (width >= 768px) {
+@media (max-width: 768px) {
     #slide-3:checked ~ .slider__holder .slider__item--2 {
-        opacity: 1;
+        opacity: 0.6;
     }
 }
 
@@ -204,58 +185,50 @@
     z-index: 2;
 }
 
-/* Item 4 — adjacent right */
 #slide-3:checked ~ .slider__holder .slider__item--4 {
-    opacity: 0.6;
     transform: translateX(100px) scale(0.85);
     z-index: 1;
 }
 
-@media (width >= 768px) {
+@media (max-width: 768px) {
     #slide-3:checked ~ .slider__holder .slider__item--4 {
-        opacity: 1;
+        opacity: 0.6;
     }
 }
 
 
 /* ---- Slide 4 active ---- */
-
-/* Item 1 — off-screen left */
 #slide-4:checked ~ .slider__holder .slider__item--1 {
     opacity: 0;
     transform: translateX(-210px) scale(0.65);
     z-index: -1;
 }
 
-/* Item 2 — far left */
 #slide-4:checked ~ .slider__holder .slider__item--2 {
-    opacity: 0;
-    transform: translateX(-170px) scale(0.65);
+    transform: translateX(-210px) scale(0.65);
     z-index: 0;
 }
 
-@media (width >= 768px) {
+@media (max-width: 900px) {
     #slide-4:checked ~ .slider__holder .slider__item--2 {
-        opacity: 1;
+        transform: translateX(-170px) scale(0.65);
     }
 }
 
-@media (width >= 901px) {
+@media (max-width: 768px) {
     #slide-4:checked ~ .slider__holder .slider__item--2 {
-        transform: translateX(-210px) scale(0.65);
+        opacity: 0;
     }
 }
 
-/* Item 3 — adjacent left */
 #slide-4:checked ~ .slider__holder .slider__item--3 {
-    opacity: 0.6;
     transform: translateX(-100px) scale(0.85);
     z-index: 1;
 }
 
-@media (width >= 768px) {
+@media (max-width: 768px) {
     #slide-4:checked ~ .slider__holder .slider__item--3 {
-        opacity: 1;
+        opacity: 0.6;
     }
 }
 
@@ -274,15 +247,17 @@
     display: block;
     font-size: 0;
     height: 10px;
-    margin: 32px auto 56px;
+    margin: 0 auto;
+    margin-bottom: 56px;
+    margin-top: 48px;
     text-align: center;
     width: auto;
     z-index: 10;
 }
 
-@media (width >= 601px) {
+@media (max-width: 600px) {
     .bullets {
-        margin-top: 48px;
+        margin-top: 32px;
     }
 }
 
