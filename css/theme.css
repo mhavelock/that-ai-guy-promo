@@ -40,6 +40,7 @@
 
 :root[data-theme="light"] {
     /* Colour */
+    --color-tg:                   #045ada;
     --color-bg:                   #ffffff;
     --color-surface:              #f2f4f7;
     --color-border:               #dde1ea;
@@ -74,6 +75,9 @@
     --nav-text:                   #1d1f24;
     --toggle-bg:                  rgba(0, 0, 0, 0.08);
     --toggle-border:              rgba(0, 0, 0, 0.12);
+    --font-body:                  'Trebuchet MS', 'Palatino', 'Baskerville', sans-serif;
+    --font-heading:               'Gill Sans', Verdana, Arial, sans-serif;
+
 }
 
 :root[data-theme="dark"] {
@@ -123,13 +127,15 @@ html {
     background-color: var(--color-bg);
     color: var(--color-text);
     transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: var(--font-body);
+    letter-spacing: var(--letter-space);
+    line-height: var(--line-height-body);
+    font-weight: var(--font-weight-body);
 }
 
 /* Mobile: fixed font sizes — base for all inherited elements */
 body {
-    background-color: var(--color-bg);
-    font-family: 'Fredoka', Verdana, Arial, sans-serif;
-    font-size: 1.2rem;
+    font-size: var(--font-size-lg);
     /* Extra bottom padding so content clears the fixed nav */
     padding-bottom: calc(8rem + env(safe-area-inset-bottom, 0px));
 }
@@ -140,55 +146,55 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Fredoka', Verdana, Arial, sans-serif;
-    font-weight: bold;
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-heading);
+    line-height: var(--line-height-heading);
 }
 
-h1 { font-size: 1.5rem;   line-height: 1.66; }
+h1 { font-size: var(--font-size-xlg); }
 h2,
 h3,
-h4 { font-size: 1.333rem; line-height: 1.66; }
+h4 { font-size: var(--font-size-lg); }
 h5,
-h6 { font-size: 1.25rem;  line-height: 1.66; }
+h6 { font-size: var(--font-size-base); }
 
 p {
-    font-size: 1.2rem;
-    font-weight: bold;
-    line-height: 1.5;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-body);
     margin: 0;
 }
 
-/* Desktop: fluid font sizes — scale from mobile base → proportional max at 1248px.
-   Formula: clamp(mobile-rem, linear-interp(768px→1248px), max-rem)
+/* Desktop: fluid font sizes — scale from mobile base → proportional max at 1280px.
+   Formula: clamp(mobile-rem, linear-interp(768px→1280px), max-rem)
    Linear form: calc(b + m*vw) avoids mixed rem/px division in calc.
    Exceptions (badges, reviews, stars) are pinned in their own stylesheets. */
-@media (width >= 768px) {
+@media (width >= 76.8rem) {
     body {
         /* 1.2rem → 2rem */
-        font-size: clamp(1.2rem, calc(-1.28px + 2.667vw), 2rem);
+        font-size: clamp(var(--font-size-base), -1.77rem + 3.9vw, var(--font-size-lg));
     }
 
     h1 {
         /* 1.5rem → 2.5rem */
-        font-size: clamp(1.5rem, calc(-1.6px + 3.333vw), 2.5rem);
+        font-size: clamp(var(--font-size-xl) -1.77rem + 3.9vw, var(--font-size-2xl));
     }
 
     h2,
     h3,
     h4 {
         /* 1.333rem → 2.2rem */
-        font-size: clamp(1.333rem, calc(-0.86px + 2.889vw), 2.2rem);
+        font-size: clamp(var(--font-size-base), -1.77rem + 3.9vw, var(--font-size-xl));
     }
 
     h5,
     h6 {
         /* 1.25rem → 2rem */
-        font-size: clamp(1.25rem, calc(0.8px + 2.5vw), 2rem);
+        font-size: clamp(var(--font-size-base), -1.77rem + 3.9vw, var(--font-size-lg));
     }
 
     p {
         /* 1.2rem → 2rem */
-        font-size: clamp(1.2rem, calc(-1.28px + 2.667vw), 2rem);
+        font-size: clamp(var(--font-size-base), -1.77rem + 3.9vw, var(--font-size-lg));
     }
 }
 
@@ -223,7 +229,7 @@ body::after {
     transform: rotateY(180deg);
 }
 
-@media (width >= 768px) {
+@media (width >= 76.8rem) {
     body::before,
     body::after {
         display: none;
@@ -244,29 +250,16 @@ body::after {
    5. Promo page — global layout
    ========================================================================== */
 
-/* Mobile base padding and spacing */
-.promo-main {
-    margin-inline: auto;
-    max-width: 1440px;
-    padding: 1.5rem 1.5rem 0;
-    position: relative;
-    z-index: 1;
-}
-
+/* Section spacing */
 .promo-section {
     margin-bottom: 3rem;
 }
 
-@media (width >= 768px) {
-    .promo-main {
-        padding: 3rem 3rem 0;
-    }
-
+@media (width >= 76.8rem) {
     .promo-section {
         margin-bottom: 5rem;
     }
 }
-
 
 /* ==========================================================================
    6. Section: Intro — logo float + text wrap (shape-outside)
@@ -285,9 +278,10 @@ body::after {
     width: 30%;
 }
 
-@media (width >= 768px) {
+@media (width >= 76.8rem) {
     .promo-logo {
         width: auto;
+        max-width: 14rem;
     }
 }
 
@@ -304,7 +298,7 @@ body::after {
     overflow-x: clip;
 }
 
-@media (width >= 768px) {
+@media (width >= 76.8rem) {
     .promo-features {
         align-items: flex-start;
         flex-direction: row;
@@ -315,7 +309,7 @@ body::after {
     width: 30%;
 }
 
-@media (width >= 768px) {
+@media (width >= 76.8rem) {
     .promo-logo2 {
         width: auto;
     }
@@ -333,7 +327,7 @@ body::after {
     width: 100%;
 }
 
-@media (width >= 768px) {
+@media (width >= 76.8rem) {
     .promo-phone-wrap {
         width: 42%;
     }
@@ -392,7 +386,7 @@ body::after {
     gap: 3rem;
 }
 
-@media (width >= 768px) {
+@media (width >= 76.8rem) {
     .promo-roast {
         align-items: flex-start;
         flex-direction: row;
@@ -406,7 +400,7 @@ body::after {
     width: 100%;
 }
 
-@media (width >= 768px) {
+@media (width >= 76.8rem) {
     .promo-phone-wrap--duo {
         width: 34%;
     }
@@ -452,7 +446,7 @@ body::after {
     width: 40%;
 }
 
-@media (width >= 768px) {
+@media (width >= 76.8rem) {
     .promo-logo3 {
         width: auto;
     }
@@ -537,7 +531,7 @@ body::after {
 }
 
 /* Desktop: 3× scale */
-@media (width >= 768px) {
+@media (width >= 76.8rem) {
     .bottom-nav {
         padding: 1rem 1.5rem;
     }
@@ -588,7 +582,7 @@ body::after {
     transform: scale(0.93);
 }
 
-@media (width >= 768px) {
+@media (width >= 76.8rem) {
     .theme-toggle {
         bottom: calc(12rem + env(safe-area-inset-bottom, 0px));
         font-size: 2rem;

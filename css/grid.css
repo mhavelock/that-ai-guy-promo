@@ -8,13 +8,22 @@
   display: grid;
   gap: 2rem;
   /* 2 columns by default (mobile) */
-  grid-template-columns: repeat(2, 10rem); 
+  grid-template-columns: repeat(2, 1fr); 
   justify-content: center;
 }
 
-@media (width >= 768px) {
+@media (width >= 76.8rem) {
   .grid-4x4 {
     /* 4 columns on desktop */
-    grid-template-columns: repeat(4, 10rem);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
   }
+}
+
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  gap: 8px;
 }

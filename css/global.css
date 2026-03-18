@@ -54,15 +54,18 @@
     /* Typography */
     --font-body:                  Arial, Helvetica, sans-serif;
     --font-heading:               Verdana, Arial, sans-serif;
-    --font-size-base:             1rem;
+    --font-size-base:             1.6rem;
     --font-size-sm:               0.875rem;
-    --font-size-lg:               1.125rem;
-    --font-size-xl:               1.375rem;
-    --font-size-2xl:              1.75rem;
-    --font-size-3xl:              2.25rem;
+    --font-size-lg:               1.75rem;
+    --font-size-xl:               2rem;
+    --font-size-2xl:              2.255rem;
+    --font-size-3xl:              2.5rem;
     --font-size-4xl:              3rem;
-    --line-height-body:           1.6;
-    --line-height-heading:        1.2;
+    --font-weight-body:           400;
+    --font-weight-heading:        700;
+    --line-height-body:           1.5;
+    --line-height-heading:        1.66;
+    
 
     /* Spacing (rem) */
     --space-1:   0.25rem;
@@ -77,6 +80,7 @@
     --space-16:  4rem;
     --space-20:  5rem;
     --space-24:  6rem;
+    --letter-space:   0.085rem;
 
     /* Layout */
     --max-width:          1440px;
@@ -126,7 +130,18 @@
 html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    font-size: 62.5%; 
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    line-height: var(--line-height-body);
+    letter-spacing: 0.085em;
 }
+
+body {
+    min-height: 100dvh;
+}
+
 
 @media (prefers-reduced-motion: reduce) {
     html {
@@ -161,18 +176,6 @@ select {
    3. Base elements
    ========================================================================== */
 
-html {
-    background-color: var(--color-bg);
-    color: var(--color-text);
-    font-family: var(--font-body);
-    font-size: 16px;
-    line-height: var(--line-height-body);
-}
-
-body {
-    min-height: 100dvh;
-}
-
 :focus-visible {
     border-radius: var(--radius-sm);
     outline: 2px solid var(--color-focus);
@@ -202,7 +205,7 @@ h4,
 h5,
 h6 {
     font-family: var(--font-heading);
-    font-weight: bold;
+    font-weight: var(--main-font-heading);
     line-height: var(--line-height-heading);
 }
 
@@ -292,6 +295,22 @@ time {
    5. Layout
    ========================================================================== */
 
+/* Base space */
+main {
+    margin-inline: auto;
+    min-width: 320px;
+    max-width: 1440px;
+    padding: 1.2rem 1.2rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+@media (width >= 76.8rem) {
+    main {
+        padding: 2.4rem 2.4rem 0;
+    }
+}
+
 .container {
     margin-inline: auto;
     max-width: var(--max-width);
@@ -299,13 +318,13 @@ time {
     width: 100%;
 }
 
-@media (width >= 768px) {
+@media (width >= 76.8rem) {
     .container {
         padding-inline: calc(var(--grid-gutter) * 2);
     }
 }
 
-@media (width >= 1280px) {
+@media (width >= 128rem) {
     .container {
         padding-inline: calc(var(--grid-gutter) * 4);
     }
@@ -321,7 +340,7 @@ time {
     padding-block: var(--space-16);
 }
 
-@media (width >= 768px) {
+@media (width >= 76.8rem) {
     .section {
         padding-block: var(--space-24);
     }
@@ -345,6 +364,8 @@ time {
 .section-subtitle {
     color: var(--color-text-muted);
 }
+
+
 
 
 /* ==========================================================================
