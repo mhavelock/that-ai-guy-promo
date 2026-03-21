@@ -273,7 +273,7 @@
 .slider-card {
   position: relative;
   display: block;
-  min-height: 24rem;
+  min-height: 21.5rem;
   border-radius: 8px;
   background: var(--color-surface);
   box-shadow: var(--shadow-md);

@@ -306,12 +306,12 @@ body::after {
 }
 
 .promo-logo2 {
-    width: 30%;
+    width: 20%;
 }
 
 @media (width >= 76.8rem) {
     .promo-logo2 {
-        width: auto;
+        width: 10%;
     }
 }
 
@@ -324,7 +324,7 @@ body::after {
 .promo-phone-wrap {
     flex-shrink: 0;
     position: relative;
-    width: 100%;
+    width: 80%;
 }
 
 @media (width >= 76.8rem) {
@@ -333,15 +333,30 @@ body::after {
     }
 }
 
+.promo-phone-wrap figure {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    height: auto;
+    position: absolute;
+}
+.promo-phone-wrap figure figcaption {
+    position: absolute;
+    z-index: 1;
+}
+
+
+
+
 .promo-phone {
     display: block;
     height: auto;
-    width: 100%;
+    width: 50%;
 }
 
 /* Speech bubbles — absolutely positioned within phone container.
    Use imgresize- prefix classes to resize once correct-sized images arrive. */
-.promo-bubble {
+.promo-phone-wrap > figure:first-child {
     height: auto;
     position: absolute;
 }

@@ -53,21 +53,20 @@
     <a class="u-skip-link" href="#main-content">Skip to main content</a>
 
     <main id="main-content" class="promo-main">
-
         <!-- Intro: logo floats left, text wraps around it -->
         <section class="promo-section promo-intro" aria-label="Introduction">
-            <img
-                src="assets/components/logo-tg.svg"
-                alt="That AI Guy"
-                class="promo-logo"
-                width="30%"
-                height="auto"
-            >
-            
-            
-            <div class="promo-text">
-                <p>Bring the infinite wisdom and infinite annoyance of AI into your home. Have That AI Guy insult you &amp; your guests — caustic, pedantic, and relentless.</p>
-                <p>At the press of a button, That AI Guy will listen into your conversation and keep interrupting you with pedantic corrections, caustic judgements, petty insults, smug remarks, and backhanded compliments.</p>
+                <img
+                    src="assets/components/logo-tg.svg"
+                    alt="That AI Guy"
+                    class="promo-logo"
+                    width="30%"
+                    height="auto"
+                >
+
+                <div class="promo-text">
+                    <p>Bring the infinite wisdom and infinite annoyance of AI into your home. Have That AI Guy insult you &amp; your guests — caustic, pedantic, and relentless.</p>
+                    <p>At the press of a button, That AI Guy will listen into your conversation and keep interrupting you with pedantic corrections, caustic judgements, petty insults, smug remarks, and backhanded compliments.</p>
+                </div>
             </div>
         </section>
 
@@ -98,7 +97,7 @@
                 src="assets/components/thataiguy-button.svg"
                 alt="That AI Guy"
                 class="promo-logo2"
-                width="30%"
+                width="200px"
                 height="auto"
             >
 
@@ -118,38 +117,47 @@
                     >
                 </picture>
                 <!-- Speech bubbles, absolutely positioned within phone container -->
-                <img
+                <figure class="imgresize-bubble-1">
+                    <img
                     src="assets/speech-bubbles/bulle3.svg"
                     alt="REALLY!?"
-                    class="promo-bubble imgresize-bubble-1"
                     width="150"
                     height="128"
                     aria-hidden="true"
                 >
-                <img
+                    <figcaption>Really!?</figcaption>
+                </figure>
+                <figure class="imgresize-bubble-2">
+                    <img
                     src="assets/speech-bubbles/bulle2.svg"
                     alt="FEWER, NOT LESS"
-                    class="promo-bubble imgresize-bubble-2"
                     width="150"
                     height="130"
                     aria-hidden="true"
                 >
-                <img
+                    <figcaption>fewer not less</figcaption>
+                </figure>
+                <figure class="imgresize-bubble-3">
+                    <img
                     src="assets/speech-bubbles/bulle6.svg"
                     alt="NONSENSE!!"
-                    class="promo-bubble imgresize-bubble-3"
                     width="150"
                     height="112"
                     aria-hidden="true"
                 >
-                <img
+                    <figcaption>NONSENSE!!</figcaption>
+                </figure>
+                <figure class="imgresize-bubble-4">
+                    <img
                     src="assets/speech-bubbles/bulle8.svg"
                     alt="FIGURATIVELY?"
-                    class="promo-bubble imgresize-bubble-4"
                     width="150"
                     height="131"
                     aria-hidden="true"
                 >
+                    <figcaption>Figuratively?</figcaption>
+                </figure>
+                
             </div>
         </section>
 
@@ -196,132 +204,132 @@
             <a href="#" class="btn-appstore" aria-label="Download That AI Guy on the App Store">Download That AI Guy on the App Store</a>
         </section>
 
-        <section class="reviews-section promo-reviews slider" id="reviews" aria-label="Reviews">
+        <div class="grid-1x2">
+            <section class="reviews-section promo-reviews slider" id="reviews" aria-label="Reviews">
 
-            <input type="radio" name="slider" id="slide-1" class="slider__radio" checked>
-            <input type="radio" name="slider" id="slide-2" class="slider__radio">
-            <input type="radio" name="slider" id="slide-3" class="slider__radio">
-            <input type="radio" name="slider" id="slide-4" class="slider__radio">
+                <input type="radio" name="slider" id="slide-1" class="slider__radio" checked>
+                <input type="radio" name="slider" id="slide-2" class="slider__radio">
+                <input type="radio" name="slider" id="slide-3" class="slider__radio">
+                <input type="radio" name="slider" id="slide-4" class="slider__radio">
+                
+                <div class="slider__holder">
+
+                <label for="slide-1" class="slider__item slider__item--1 slider-card">
+                    <div class="review">
+                        <blockquote class="review-quote">
+                            <div class="review-openquote" aria-hidden="true"></div>
+                            <p>A great party ice breaker!</p>
+                        </blockquote>
+                        <div class="stars review-stars">
+                            <input id="review-01" type="range" min=".5" step=".5" value="4.5" max="5" aria-label="Rating: 4.5 out of 5">
+                        </div>
+                        <div class="review-attribution">
+                            <cite class="review-name">Mayim<span class="review-location">, Los Angeles</span></cite>
+                            <picture>
+                                <source media="(width >= 768px)" srcset="assets/avatars/mayim-bialik.jpeg">
+                                <img src="assets/avatars/mayim-bialik.jpeg" alt="Mayim Bialik" class="review-avatar" width="48" height="48" loading="lazy">
+                            </picture>
+                        </div>
+                    </div>
+                </label>
+
+                <label for="slide-2" class="slider__item slider__item--2 slider-card">
+                    <div class="review">
+                        <blockquote class="review-quote">
+                            <div class="review-openquote" aria-hidden="true"></div>
+                            <p>One star. The typeface wasn’t properly capitalised.</p>
+                        </blockquote>
+                        <div class="stars review-stars">
+                            <input id="review-02" type="range" min=".5" step=".5" value="1" max="5" aria-label="Rating: 1 out of 5">
+                        </div>
+                        <div class="review-attribution">
+                            <cite class="review-name">Sheldon<span class="review-location">, L.A.</span></cite>
+                            <picture>
+                                <source media="(width >= 768px)" srcset="assets/avatars/sheldon.jpg">
+                                <img src="assets/avatars/sheldon.jpg" alt="Sheldon" class="review-avatar" width="48" height="48" loading="lazy">
+                            </picture>
+                        </div>
+                    </div>
+                </label>
+
+                <label for="slide-3" class="slider__item slider__item--3 slider-card">
+                    <div class="review">
+                        <blockquote class="review-quote">
+                            <div class="review-openquote" aria-hidden="true"></div>
+                            <p>We haven't had this much fun since Hungry Hungry Hippo.</p>
+                        </blockquote>
+                        <div class="stars review-stars">
+                            <input id="review-03" type="range" min=".5" step=".5" value="4.5" max="5" aria-label="Rating: 4.5 out of 5">
+                        </div>
+                        <div class="review-attribution">
+                            <cite class="review-name">Ben<span class="review-location">, Cockermouth</span></cite>
+                            <picture>
+                                <source media="(width >= 768px)" srcset="assets/avatars/ben-shapiro.jpeg">
+                                <img src="assets/avatars/ben-shapiro.jpeg" alt="Ben" class="review-avatar" width="48" height="48" loading="lazy">
+                            </picture>
+                        </div>
+                    </div>
+                </label>
+
+                <label for="slide-4" class="slider__item slider__item--4 slider-card">
+                    <div class="review">
+                        <blockquote class="review-quote">
+                            <div class="review-openquote" aria-hidden="true"></div>
+                            <p>I noticed some grammatical errors.</p>
+                        </blockquote>
+                        <div class="stars review-stars">
+                            <input id="review-04" type="range" min=".5" step=".5" value="1" max="5" aria-label="Rating: 1 out of 5">
+                        </div>
+                        <div class="review-attribution">
+                            <cite class="review-name">Jeff<span class="review-location">, Springfield</span></cite>
+                            <picture>
+                                <source media="(width >= 768px)" srcset="assets/avatars/jeff-albertson.jpeg">
+                                <img src="assets/avatars/jeff-albertson.jpeg" alt="Jeff Albertson" class="review-avatar" width="48" height="48" loading="lazy">
+                            </picture>
+                        </div>
+                    </div>
+                </label>
+
+                </div><!-- slider__holder -->
             
-            <div class="slider__holder">
+                <div class="bullets">
+                
+                    <label for="slide-1" class="bullets__item bullets__item--1">1</label>
+                    <label for="slide-2" class="bullets__item bullets__item--2">2</label>
+                    <label for="slide-3" class="bullets__item bullets__item--3">3</label>
+                    <label for="slide-4" class="bullets__item bullets__item--4">4</label>
+                
+                </div> <!-- Bullets -->
+            </section>
 
-            <label for="slide-1" class="slider__item slider__item--1 slider-card">
-                <div class="review">
-                    <blockquote class="review-quote">
-                        <div class="review-openquote" aria-hidden="true"></div>
-                        <p>A great party ice breaker!</p>
-                    </blockquote>
-                    <div class="stars review-stars">
-                        <input id="review-01" type="range" min=".5" step=".5" value="4.5" max="5" aria-label="Rating: 4.5 out of 5">
-                    </div>
-                    <div class="review-attribution">
-                        <cite class="review-name">Mayim<span class="review-location">, Los Angeles</span></cite>
-                        <picture>
-                            <source media="(width >= 768px)" srcset="assets/avatars/mayim-bialik.jpeg">
-                            <img src="assets/avatars/mayim-bialik.jpeg" alt="Mayim Bialik" class="review-avatar" width="48" height="48" loading="lazy">
-                        </picture>
-                    </div>
+            <!-- Awards -->
+            <section class="awards-section promo-awards" id="awards" aria-label="Awards">
+                <div>
+                    <picture class="fade-in-image shine">
+                        <source media="(width >= 768px)" srcset="assets/graphics/dogg-award01_144dpi_400x400.png">
+                        <img src="assets/graphics/dogg-award01_72dpi_400x400.png" alt="Dogg Best Apple App 2026" loading="lazy" width="200" height="200">
+                    </picture>
+                    <picture class="fade-out-image shine">
+                        <source media="(width >= 768px)" srcset="assets/graphics/dogg-award02_144dpi_400x400.png">
+                        <img src="assets/graphics/dogg-award02_72dpi_400x400.png" alt="Dogg Best Apple App 2026" loading="lazy" width="200" height="200">
+                    </picture>
                 </div>
-            </label>
-
-            <label for="slide-2" class="slider__item slider__item--2 slider-card">
-                <div class="review">
-                    <blockquote class="review-quote">
-                        <div class="review-openquote" aria-hidden="true"></div>
-                        <p>One star. The typeface wasn’t properly capitalised.</p>
-                    </blockquote>
-                    <div class="stars review-stars">
-                        <input id="review-02" type="range" min=".5" step=".5" value="1" max="5" aria-label="Rating: 1 out of 5">
-                    </div>
-                    <div class="review-attribution">
-                        <cite class="review-name">Sheldon<span class="review-location">, L.A.</span></cite>
-                        <picture>
-                            <source media="(width >= 768px)" srcset="assets/avatars/sheldon.jpg">
-                            <img src="assets/avatars/sheldon.jpg" alt="Sheldon" class="review-avatar" width="48" height="48" loading="lazy">
-                        </picture>
-                    </div>
-                </div>
-            </label>
-
-            <label for="slide-3" class="slider__item slider__item--3 slider-card">
-                <div class="review">
-                    <blockquote class="review-quote">
-                        <div class="review-openquote" aria-hidden="true"></div>
-                        <p>A great party ice breaker!</p>
-                    </blockquote>
-                    <div class="stars review-stars">
-                        <input id="review-03" type="range" min=".5" step=".5" value="4.5" max="5" aria-label="Rating: 4.5 out of 5">
-                    </div>
-                    <div class="review-attribution">
-                        <cite class="review-name">Ben<span class="review-location">, Cockermouth</span></cite>
-                        <picture>
-                            <source media="(width >= 768px)" srcset="assets/avatars/ben-shapiro.jpeg">
-                            <img src="assets/avatars/ben-shapiro.jpeg" alt="Ben" class="review-avatar" width="48" height="48" loading="lazy">
-                        </picture>
-                    </div>
-                </div>
-            </label>
-
-            <label for="slide-4" class="slider__item slider__item--4 slider-card">
-                <div class="review">
-                    <blockquote class="review-quote">
-                        <div class="review-openquote" aria-hidden="true"></div>
-                        <p>One star. The typeface wasn’t properly capitalised.</p>
-                    </blockquote>
-                    <div class="stars review-stars">
-                        <input id="review-04" type="range" min=".5" step=".5" value="1" max="5" aria-label="Rating: 1 out of 5">
-                    </div>
-                    <div class="review-attribution">
-                        <cite class="review-name">Jeff<span class="review-location">, Springfield</span></cite>
-                        <picture>
-                            <source media="(width >= 768px)" srcset="assets/avatars/jeff-albertson.jpeg">
-                            <img src="assets/avatars/jeff-albertson.jpeg" alt="Jeff Albertson" class="review-avatar" width="48" height="48" loading="lazy">
-                        </picture>
-                    </div>
-                </div>
-            </label>
-
-            </div><!-- slider__holder -->
-        
-            <div class="bullets">
-            
-                <label for="slide-1" class="bullets__item bullets__item--1">1</label>
-                <label for="slide-2" class="bullets__item bullets__item--2">2</label>
-                <label for="slide-3" class="bullets__item bullets__item--3">3</label>
-                <label for="slide-4" class="bullets__item bullets__item--4">4</label>
-            
-            </div> <!-- Bullets -->
-            
-        </section>
-
-
-
-        <!-- Awards -->
-        <section class="awards-section promo-awards" id="awards" aria-label="Awards">
-            <picture>
-                <source media="(width >= 768px)" srcset="assets/graphics/dogg-award.png">
-                <img src="assets/graphics/dogg-award.png" alt="Dogg Best Apple App 2026" loading="lazy" width="200" height="200">
-            </picture>
-        </section>
-
-<section class="footer-section" id="footer" aria-label="Footer">
-
-        <!-- 1240 x 572 -->
-            <img
-                src="assets/components/that-aiguy-logo.svg"
-                alt="That AI Guy"
-                class="promo-logo3"
-                width="310"
-                height="143"
-            >
-</section>
-
-
+            </section>
+        </div>
 
     </main>
 
     <footer>
-
+        <section class="footer-section" id="footer" aria-label="Footer">
+                <!-- 1240 x 572 -->
+                    <img
+                        src="assets/components/that-aiguy-logo.svg"
+                        alt="That AI Guy"
+                        class="promo-logo3"
+                        width="310"
+                        height="143"
+                    >
+        </section>
 
     </footer>
 
@@ -348,7 +356,7 @@
         </a>
         <a href="privacy.html" class="bottom-nav-item">
             <img
-                src="assets/privacy-policy.svg"
+                src="assets/icons/privacy-policy.svg"
                 alt=""
                 class="bottom-nav-icon"
                 width="28"
