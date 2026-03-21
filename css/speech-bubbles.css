@@ -1,0 +1,112 @@
+/* ==========================================================================
+   THEME — That AI Guy Promo Phone Speech bubbles
+   ==========================================================================
+   1.  Speech bubbles
+   ========================================================================== */
+
+/* ==========================================================================
+   1. Speech bubbles
+   ========================================================================== */
+   
+/* Phone + speech bubbles container */
+.promo-phone-wrap {
+    flex-shrink: 0;
+    position: relative;
+    width: 80%;
+}
+
+@media (width >= 76.8rem) {
+    .promo-phone-wrap {
+        width: 42%;
+    }
+}
+
+.promo-phone-wrap figure {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    height: auto;
+    position: absolute;
+}
+.promo-phone-wrap figure figcaption {
+    position: absolute;
+    z-index: 1;
+}
+
+.promo-phone {
+    display: block;
+    height: auto;
+    width: 50%;
+}
+
+/* Speech bubbles — absolutely positioned within phone container.
+   Use imgresize- prefix classes to resize once correct-sized images arrive. */
+.promo-phone-wrap > figure:first-child {
+    height: auto;
+    position: absolute;
+}
+
+.promo-phone-wrap figcaption {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: var(--letter-space-sm);
+    line-height: var(--line-height-component);
+}
+
+/* bulle3 — REALLY!? — top right */
+.imgresize-bubble-1 {
+    left: 23%;
+    top: -7.5rem;
+    width: 42%;
+}
+
+.imgresize-bubble-1 figcaption {
+    left: 3.2rem;
+    top: 3.75rem;
+    transform: rotate(-20deg);
+    transform-origin: left;
+}
+
+
+/* bulle2 — FEWER, NOT LESS — upper right */
+.imgresize-bubble-2 {
+    left: 32%;
+    top: -4rem;
+    width: 46%;
+}
+
+.imgresize-bubble-2 figcaption {
+  top: 3rem;
+  left: 3rem; 
+}
+
+/* bulle6 — NONSENSE!! — mid right */
+.imgresize-bubble-3 {
+    left: 32%;
+    top: 3.5rem;
+    width: 40%;
+}
+
+.imgresize-bubble-3 figcaption {
+    top: 3rem;
+    left: 3rem;
+    letter-spacing: 0;
+    font-size: var(--font-size-lg);
+    font-weight: 300;
+}
+
+/* bulle8 — FIGURATIVELY? — lower right */
+.imgresize-bubble-4 {
+    left: 40%;
+    top: 11.25rem;
+    width: 35%;
+}
+
+.imgresize-bubble-4 figcaption {
+  top: 3rem;
+  left: 1.33rem;
+    letter-spacing: 0;
+    font-size: var(--font-size-lg);
+    font-weight: 400;
+}
+

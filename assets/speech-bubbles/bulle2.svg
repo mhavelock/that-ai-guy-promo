@@ -11,8 +11,8 @@
     xmlns:ns1="http://sozi.baierouge.fr"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     id="svg3884"
-    sodipodi:docname="bulle1.svg"
-    viewBox="0 0 150 130.25"
+    sodipodi:docname="bulle7.svg"
+    viewBox="0 0 150 130.53"
     version="1.1"
     inkscape:version="0.47pre4 r22446"
   >
@@ -20,17 +20,17 @@
       id="defs3886"
     >
     <filter
-        id="filter3839"
-        width="1.2207"
-        y="-.13149"
-        x="-.11036"
-        height="1.263"
+        id="filter4076-9"
+        width="1.221"
+        y="-.13130"
+        x="-.11049"
+        height="1.2626"
         color-interpolation-filters="sRGB"
         inkscape:collect="always"
       >
       <feGaussianBlur
-          id="feGaussianBlur3841"
-          stdDeviation="1.609375"
+          id="feGaussianBlur4078-0"
+          stdDeviation="1.525"
           inkscape:collect="always"
       />
     </filter
@@ -50,8 +50,8 @@
       showgrid="false"
       borderopacity="1.0"
       inkscape:current-layer="layer1"
-      inkscape:cx="96.033268"
-      inkscape:cy="59.746333"
+      inkscape:cx="133.53322"
+      inkscape:cy="52.597261"
       inkscape:window-width="1366"
       inkscape:pageopacity="0.0"
       inkscape:document-units="px"
@@ -60,21 +60,24 @@
       id="layer1"
       inkscape:label="Calque 1"
       inkscape:groupmode="layer"
-      transform="translate(-286.79 -415.57)"
+      transform="translate(-249.29 -408.14)"
     >
     <g
-        id="g2870"
-        transform="matrix(3.5108 0 0 3.5108 -839.79 -176.66)"
+        id="g3927"
+        transform="translate(-100.27 72.303)"
       >
       <path
-          id="path3815-9"
-          style="filter:url(#filter3839);fill:#7a7a7a"
-          d="m325.38 201.92 6.125-7.5v-4.5h-5.75l3-4.5-4-4.375 6.875-0.625-0.375-5.125 7 1 3.5-3.75 4.5 4.75 6.25-1.75 0.375 5 5.625 0.375-3.25 3.875 4.5 4.25-5.875 1.125-1.375 6.375-5.75-3.75-4.625 5.375-3.125-4.125-2.625-0.25-11 8.125z"
+          id="path4042-5-1"
+          d="m336.05 190.79c1.8491 0.32186 3.9808 0.5 6.2096 0.5h4.8125c7.479 0 13.5-2.0251 13.5-4.5625v-12.062c0-2.5374-6.021-4.5625-13.5-4.5625h-4.8125c-7.479 0-13.5 2.0251-13.5 4.5625v12.062c0 1.3721 1.7629 2.5995 4.5625 3.4375-1.4319 2.8048-3.7626 5.3479-5.875 7.8125 2.6339-1.8388 4.764-2.7396 8.5938-7.1875"
+          sodipodi:nodetypes="cccccccccccc"
+          style="filter:url(#filter4076-9);fill:#7a7a7a"
+          transform="matrix(3.7087 0 0 3.7087 -851.28 -281.17)"
       />
       <path
-          id="path3815"
-          style="stroke-linejoin:round;stroke:#000000;stroke-width:.28483px;fill:#ffffff"
-          d="m326.12 198.86 6.125-7.5v-4.5h-5.75l3-4.5-4-4.375 6.875-0.625-0.375-5.125 7 1 3.5-3.75 4.5 4.75 6.25-1.75 0.375 5 5.625 0.375-3.25 3.875 4.5 4.25-5.875 1.125-1.375 6.375-5.75-3.75-4.625 5.375-3.125-4.125-2.625-0.25-11 8.125z"
+          id="path4042-7"
+          sodipodi:nodetypes="cccccccccccc"
+          style="stroke-linejoin:round;stroke:#000000;stroke-linecap:round;stroke-dasharray:4, 4;fill:#ffffff"
+          d="m389.91 419.95c6.8577 1.1937 14.764 1.8544 23.03 1.8544h17.848c27.738 0 50.068-7.5105 50.068-16.921v-44.737c0-9.4106-22.33-16.921-50.068-16.921h-17.848c-27.738 0-50.068 7.5105-50.068 16.921v44.737c0 5.0887 6.5381 9.6408 16.921 12.749-5.3106 10.402-13.955 19.834-21.789 28.975 9.7683-6.8195 17.669-10.161 31.872-26.657"
       />
     </g
     >
@@ -111,13 +114,13 @@
           >Speech bubble</dc:title
         >
         <dc:date
-          >2010-04-06T21:01:14</dc:date
+          >2010-04-06T21:03:21</dc:date
         >
         <dc:description
           >Speech bubble</dc:description
         >
         <dc:source
-          >https://openclipart.org/detail/38599/speech-bubble-by-pascallapalme-38599</dc:source
+          >https://openclipart.org/detail/38641/speech-bubble-by-pascallapalme-38641</dc:source
         >
         <dc:creator
           >

@@ -6,7 +6,7 @@
    
 .grid-4x4 {
   display: grid;
-  gap: 2rem;
+  gap: 3rem;
   /* 2 columns by default (mobile) */
   grid-template-columns: repeat(2, 1fr); 
   justify-content: center;
@@ -15,7 +15,7 @@
   .grid-4x4 {
     /* 4 columns on desktop */
     grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
+    gap: 4rem;
   }
 }
 
@@ -24,13 +24,14 @@
   grid-template-columns: repeat(1, 1fr); 
   grid-template-rows: repeat(2, 1fr);
   gap: 2rem;
-  align-items: center;
   justify-content: center;
+  align-items: start; 
 }
 @media (width >= 76.8rem) {
   .grid-1x2 {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(1, 1fr);
     gap: 3rem;
+    align-items: center;
   }
 }

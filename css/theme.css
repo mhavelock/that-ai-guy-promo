@@ -20,12 +20,11 @@
 /* ==========================================================================
    Imports
    ========================================================================== */
-
+@import url("svg-variables.css");
 @import url("stars.css");
 @import url("slider.css");
 @import url("reviews.css");
-/* components.css removed — empty stub */
-
+@import url("speech-bubbles.css");
 
 /* ==========================================================================
    1. Font
@@ -37,6 +36,17 @@
 /* ==========================================================================
    2. Theme tokens
    ========================================================================== */
+
+
+:root {
+    --font-body: 'Trebuchet MS', 'Palatino', 'Baskerville', sans-serif;
+    --font-heading: 'Gill Sans', Verdana, Arial, sans-serif;
+    --font-brand: 'Fredoka', Verdana, Arial, sans-serif;
+    --font-custom1: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    --font-custom2: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    --font-custom3: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 
 :root[data-theme="light"] {
     /* Colour */
@@ -75,9 +85,11 @@
     --nav-text:                   #1d1f24;
     --toggle-bg:                  rgba(0, 0, 0, 0.08);
     --toggle-border:              rgba(0, 0, 0, 0.12);
-    --font-body:                  'Trebuchet MS', 'Palatino', 'Baskerville', sans-serif;
-    --font-heading:               'Gill Sans', Verdana, Arial, sans-serif;
-
+    --text-gradient:                radial-gradient(circle at 100% 30%, rgba(22, 65, 255, 0.8), rgba(31, 81, 196, 0.2) 80%), 
+                                    radial-gradient(circle at 100% 40%, rgba(20, 114, 255, 0.8), rgba(60, 190, 246, 0.1) 50%), 
+                                    radial-gradient(circle at 55% 300%, rgba(20,25,250,.87), rgba(70, 155, 230, 0.5) 80%), 
+                                    radial-gradient(circle at 50% 50%, rgba(22, 5, 119, 0.87), rgba(25, 36, 111, 0.5) 80%), 
+                                    radial-gradient(circle at 20% 100%, rgba(71, 175, 240, 0.95), rgba(200,222,255,.70) 90%);
 }
 
 :root[data-theme="dark"] {
@@ -116,6 +128,13 @@
     --nav-text:                   #a1b1ca;
     --toggle-bg:                  rgba(255, 255, 255, 0.10);
     --toggle-border:              rgba(255, 255, 255, 0.15);
+    --text-gradient:                radial-gradient(circle at 20% 100%, rgba(71, 175, 240, 0.95), rgba(200,222,255,.70) 90%),
+                                    radial-gradient(circle at 50% 50%, rgba(22, 5, 119, 0.87), rgba(25, 36, 111, 0.5) 80%), 
+                                    radial-gradient(circle at 55% 300%, rgba(20,25,250,.87), rgba(70, 155, 230, 0.5) 80%),
+                                    radial-gradient(circle at 100% 40%, rgba(20, 114, 255, 0.8), rgba(60, 190, 246, 0.1) 50%), 
+                                    radial-gradient(circle at 100% 40%, rgba(20, 114, 255, 0.8), rgba(60, 190, 246, 0.1) 50%), 
+                                    radial-gradient(circle at 100% 40%, rgba(20, 114, 255, 0.8), rgba(60, 190, 246, 0.1) 50%), 
+                                    radial-gradient(circle at 100% 30%, rgba(22, 65, 255, 0.8), rgba(31, 81, 196, 0.2) 80%),
 }
 
 
@@ -206,6 +225,38 @@ p {
     margin-top: 1.5rem;
 }
 
+.promo-text p span {
+    font-size: 120%;
+    font-family: var(--font-custom1);
+    letter-spacing: var(--letter-space-sm);
+    background: var(--text-gradient);
+    background-clip: text;
+    color: transparent;
+    mix-blend-mode: plus-lighter;
+}
+
+.promo-text span > strong {
+    font-family: var(--font-custom2);
+    font-size: 130%;
+    letter-spacing: 0.05rem;
+}
+
+.promo-text span > strong > span {
+    font-size: 150%;
+    font-family: var(--font-custom3);
+}
+
+.promo-text em {
+    display: inline-block;
+    background-image: var(--thataiguySVG);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: contain;
+    width: 15rem;
+    height: auto;
+    font-size: 0;
+    color: var(--color-white);
+}
 
 /* ==========================================================================
    3a. Background decorators (mobile only)
@@ -296,6 +347,7 @@ body::after {
     flex-direction: column;
     gap: 3rem;
     overflow-x: clip;
+    margin-top: 9rem;
 }
 
 @media (width >= 76.8rem) {
@@ -320,74 +372,6 @@ body::after {
     min-width: 0;
 }
 
-/* Phone + speech bubbles container */
-.promo-phone-wrap {
-    flex-shrink: 0;
-    position: relative;
-    width: 80%;
-}
-
-@media (width >= 76.8rem) {
-    .promo-phone-wrap {
-        width: 42%;
-    }
-}
-
-.promo-phone-wrap figure {
-    display: flex;
-    justify-items: center;
-    align-items: center;
-    height: auto;
-    position: absolute;
-}
-.promo-phone-wrap figure figcaption {
-    position: absolute;
-    z-index: 1;
-}
-
-
-
-
-.promo-phone {
-    display: block;
-    height: auto;
-    width: 50%;
-}
-
-/* Speech bubbles — absolutely positioned within phone container.
-   Use imgresize- prefix classes to resize once correct-sized images arrive. */
-.promo-phone-wrap > figure:first-child {
-    height: auto;
-    position: absolute;
-}
-
-/* bulle3 — REALLY!? — top right */
-.imgresize-bubble-1 {
-    right: -14%;
-    top: 5%;
-    width: 40%;
-}
-
-/* bulle2 — FEWER, NOT LESS — upper right */
-.imgresize-bubble-2 {
-    right: -22%;
-    top: 20%;
-    width: 46%;
-}
-
-/* bulle6 — NONSENSE!! — mid right */
-.imgresize-bubble-3 {
-    right: -16%;
-    top: 43%;
-    width: 40%;
-}
-
-/* bulle8 — FIGURATIVELY? — lower right */
-.imgresize-bubble-4 {
-    bottom: 20%;
-    right: -10%;
-    width: 38%;
-}
 
 
 /* ==========================================================================
@@ -504,7 +488,7 @@ body::after {
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    font-family: 'Fredoka', Verdana, Arial, sans-serif;
+    font-family: var(--font-brand);
     font-size: 0.55rem;
     font-weight: bold;
     gap: 0.2rem;

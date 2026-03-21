@@ -10,16 +10,32 @@
    1. Circle Badges
    ========================================================================== */
 
+.promo-badges {
+  display: flex;
+  justify-content: center;
+}
+
 .badges.grid-4x4 {
   margin: 3rem;
+}
+
+@media (width >= 76.8rem) {
+  .grid-4x4 {
+    max-width: 80rem;
+  }
 }
 
 .badges dl {
   clip-path: circle(50% at 50% 50%); /* Shape #1 */
   position: relative;
-  transition: scale 0.25s;
+  transition: scale 0.25s, all .3s ease-out;
   cursor: grabbing;
   min-width: 140px;
+  background: var(--text-gradient);
+  background-clip: text;
+  color: transparent;
+  mix-blend-mode: plus-lighter;
+  letter-spacing: var(--letter-space-sm);
 }
 
 .badges dl:active,
@@ -42,10 +58,12 @@
   display: flex;
   /* MOBILE: 20px (2rem) -> 36px (3.6rem) between 450px and 768px */
   /* clamp(MIN, OFFSET + SLOPE, MAX) */
-  font-size: clamp(2rem, -0.26rem + 5.03vw, 3rem);
+  font-size: clamp(2rem, -0.26rem + 5.03vw, 2.25rem);
   justify-content: center;
   padding: 10px;
   white-space: nowrap;
+  transition: .3s ease-out;
+  font-family: var(--font-custom3);
 }
 
 /* DESKTOP: 16px (1.6rem) -> 36px (3.6rem) between 768px and 1224px */
@@ -55,7 +73,6 @@
     font-size: clamp(1.6rem, -1.77rem + 3.9vw, 3rem);
   }
 }
-
 
 .badges dd {
   align-items: center;
@@ -84,6 +101,7 @@
   overflow: hidden;
   text-indent: -999em;
   visibility: hidden;
+  transition: 1s linear(/* from https://linear-easing-generator.netlify.app/ */);
 }
 
 .badges dl:active dd,
@@ -91,14 +109,15 @@
   display: flex;
   scale: 1.45;
   flex-direction: column;
+  transition: 1s linear(/* from https://linear-easing-generator.netlify.app/ */);
 }
 
 .badges dl:active dd:after,
 .badges dl:focus dd:after {
   content: "🗯️";
   display: inline-block;
-  font-size: 3rem;
-  padding-bottom: 1rem;
+  font-size: 2rem;
+  padding: 0.75rem 0 1.5rem;
   margin-top: 0;
 }
 .badges dl:nth-child(1):active dd:after,

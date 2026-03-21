@@ -54,7 +54,7 @@
     /* Typography */
     --font-body:                  Arial, Helvetica, sans-serif;
     --font-heading:               Verdana, Arial, sans-serif;
-    --font-size-base:             1.6rem;
+    --font-size-base:             1.8rem;
     --font-size-sm:               0.875rem;
     --font-size-lg:               1.75rem;
     --font-size-xl:               2rem;
@@ -65,7 +65,7 @@
     --font-weight-heading:        700;
     --line-height-body:           1.5;
     --line-height-heading:        1.66;
-    
+    --line-height-component:      1.125;
 
     /* Spacing (rem) */
     --space-1:   0.25rem;
@@ -81,6 +81,8 @@
     --space-20:  5rem;
     --space-24:  6rem;
     --letter-space:   0.085rem;
+    --letter-space-lg:   0.125rem;
+    --letter-space-sm:   0.01rem;
 
     /* Layout */
     --max-width:          1440px;
