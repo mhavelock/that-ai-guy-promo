@@ -53,6 +53,12 @@
 - [x] Mobile (< 768px) fixed font sizes: `p` = 1.2rem / lh 1.5; headings 1.25–1.5rem
 - [x] Desktop (≥ 768px): `clamp()` fluid scaling; `p` max 2rem
 
+### Session 2026-03-22 — Intro layout refinements + asset tidy
+
+- [x] **Intro logo fluid scaling** — `clamp()` growth from 150px (450px vp) → 200px (768px+); shape-outside floats scale in sync
+- [x] **Codewall text trimmed** — removed lower Swift/TTS/CoreML block; codewall ends at Russell circumplex line
+- [x] **Asset tidy** — `assets/iphones/` + `assets/speech-bubbles/` moved to `assets/graphics/iphones/` + `assets/graphics/speech-bubbles/`; WebP 1x/2x pairs generated; all `src` paths updated
+
 ### Session 2026-03-22 — Conventions, audit, and intro layout
 
 - [x] **CLAUDE.md** — added full Coding conventions section (HTML/CSS/JS rules, units, layout, glass modifier, images, accessibility)
@@ -82,15 +88,15 @@
 
 ---
 
-## Priority 2 — Asset tidy
+## Priority 2 — Asset tidy ✅ Complete
 
-- [ ] Move `assets/available-on-the-app store.png` → `assets/components/available-on-the-app-store.png` (remove space)
-- [ ] Move `assets/privacy-policy.svg` → `assets/icons/privacy-policy.svg`
-- [ ] Move `assets/speech-bubbles/` → `assets/graphics/speech-bubbles/`
-- [ ] Move `assets/iphones/` → `assets/graphics/iphones/`
-- [ ] Update all `src` references in HTML/CSS after moves
-- [ ] Convert `assets/iphones/iphone-ss-*.png` to WebP (1x + 2x)
-- [ ] Convert `assets/graphics/dogg-award.png` to WebP
+- [x] Move `assets/available-on-the-app store.png` → `assets/components/available-on-the-app-store.png` (remove space)
+- [x] Move `assets/privacy-policy.svg` → `assets/icons/privacy-policy.svg`
+- [x] Move `assets/speech-bubbles/` → `assets/graphics/speech-bubbles/`
+- [x] Move `assets/iphones/` → `assets/graphics/iphones/`
+- [x] Update all `src` references in HTML/CSS after moves
+- [x] Convert `assets/iphones/iphone-ss-*.png` to WebP (1x + 2x) — `_72dpi.webp` + `_144dpi.webp` pairs
+- [x] Convert `assets/graphics/dogg-award*.png` to WebP — 1x (`72dpi_200x200`) + 2x (`144dpi_400x400`) pairs
 
 ---
 
@@ -115,7 +121,7 @@
 
 ## Open questions
 
-- [ ] **OPEN** — should `main.js` load before `theme.js`? (currently: main → theme → logger)
+- [x] **RESOLVED** — `main.js` loads before `theme.js` (order: main → theme → logger)
 - [ ] **Accessibility + schema pass** — ARIA audit, `schema.org` markup *(moved to end — low priority)*
 
 ---

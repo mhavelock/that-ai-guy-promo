@@ -107,30 +107,30 @@
       <div class="codewall-phone-l">
         <div class="promo-phone-wrap">
           <picture>
-            <source media="(width >= 768px)" srcset="assets/iphones/iphone-ss-01.png">
+            <source type="image/webp" srcset="assets/graphics/iphones/iphone-ss-01_72dpi.webp 1x, assets/graphics/iphones/iphone-ss-01_144dpi.webp 2x">
             <img
-              src="assets/iphones/iphone-ss-01.png"
+              src="assets/graphics/iphones/iphone-ss-01.png"
               alt=""
               class="promo-phone"
-              width="600"
-              height="752"
+              width="300"
+              height="376"
               loading="lazy"
             >
           </picture>
           <figure class="imgresize-bubble-1">
-            <img src="assets/speech-bubbles/bulle1.svg" alt="" width="150" height="112" aria-hidden="true">
+            <img src="assets/graphics/speech-bubbles/bulle1.svg" alt="" width="150" height="112" aria-hidden="true">
             <figcaption>Really!?</figcaption>
           </figure>
           <figure class="imgresize-bubble-2">
-            <img src="assets/speech-bubbles/bulle2.svg" alt="" width="150" height="131" aria-hidden="true">
+            <img src="assets/graphics/speech-bubbles/bulle2.svg" alt="" width="150" height="131" aria-hidden="true">
             <figcaption>Fewer,<br>not less</figcaption>
           </figure>
           <figure class="imgresize-bubble-3">
-            <img src="assets/speech-bubbles/bulle3.svg" alt="" width="150" height="130" aria-hidden="true">
+            <img src="assets/graphics/speech-bubbles/bulle3.svg" alt="" width="150" height="130" aria-hidden="true">
             <figcaption>NONSENSE!!</figcaption>
           </figure>
           <figure class="imgresize-bubble-4">
-            <img src="assets/speech-bubbles/bulle4.svg" alt="" width="150" height="128" aria-hidden="true">
+            <img src="assets/graphics/speech-bubbles/bulle4.svg" alt="" width="150" height="128" aria-hidden="true">
             <figcaption>Figuratively?</figcaption>
           </figure>
         </div>
@@ -183,102 +183,41 @@
       tagDistribution (n=<span class="cw-n">847</span>): noun <span class="cw-n">0.387</span>&nbsp;&nbsp;verb <span class="cw-n">0.214</span>&nbsp;&nbsp;adj <span class="cw-n">0.163</span>&nbsp;&nbsp;adv <span class="cw-n">0.071</span><br>
       sentimentScore → <span class="cw-n">-0.74</span>&nbsp;&nbsp; dominance: <span class="cw-n">0.31</span>&nbsp;&nbsp; arousal: <span class="cw-n">0.66</span>&nbsp;&nbsp; valence: <span class="cw-n">-0.82</span><br>
       Russell circumplex: quadrant IV (hostile / low-pleasure)<br>
-      <br>
-      <span class="cw-c">// MARK: — LLMGateway.swift</span><br>
-      <span class="cw-k">var</span> request = <span class="cw-k">URLRequest</span>(url: <span class="cw-k">URL</span>(string: endpoint)!)<br>
-      request.httpMethod&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span class="cw-s">"POST"</span><br>
-      request.timeoutInterval&nbsp;&nbsp;&nbsp;&nbsp;= <span class="cw-n">30.0</span><br>
-      request.setValue(<span class="cw-s">"application/json"</span>, forHTTPHeaderField: <span class="cw-s">"Content-Type"</span>)<br>
-      request.setValue(<span class="cw-s">"Bearer \(apiKey)"</span>, forHTTPHeaderField: <span class="cw-s">"Authorization"</span>)<br>
 
       <!-- Three screenshot phones — float right mobile + desktop, inserted at ~65% of text -->
       <div class="codewall-phones-r">
         <picture>
-          <source media="(width >= 768px)" srcset="assets/iphones/iphone-ss-02-roastoptions.png">
+          <source type="image/webp" srcset="assets/graphics/iphones/iphone-ss-02-roastoptions_72dpi.webp 1x, assets/graphics/iphones/iphone-ss-02-roastoptions_144dpi.webp 2x">
           <img
-            src="assets/iphones/iphone-ss-02-roastoptions.png"
+            src="assets/graphics/iphones/iphone-ss-02-roastoptions.png"
             alt=""
-            width="600"
-            height="1262"
+            width="300"
+            height="631"
             loading="lazy"
           >
         </picture>
         <picture>
-          <source media="(width >= 768px)" srcset="assets/iphones/iphone-ss-03-settings.png">
+          <source type="image/webp" srcset="assets/graphics/iphones/iphone-ss-03-settings_72dpi.webp 1x, assets/graphics/iphones/iphone-ss-03-settings_144dpi.webp 2x">
           <img
-            src="assets/iphones/iphone-ss-03-settings.png"
+            src="assets/graphics/iphones/iphone-ss-03-settings.png"
             alt=""
-            width="600"
-            height="1262"
+            width="300"
+            height="631"
             loading="lazy"
           >
         </picture>
         <picture>
-          <source media="(width >= 768px)" srcset="assets/iphones/iphone-ss-04-victimsettings.png">
+          <source type="image/webp" srcset="assets/graphics/iphones/iphone-ss-04-victimsettings_72dpi.webp 1x, assets/graphics/iphones/iphone-ss-04-victimsettings_144dpi.webp 2x">
           <img
-            src="assets/iphones/iphone-ss-04-victimsettings.png"
+            src="assets/graphics/iphones/iphone-ss-04-victimsettings.png"
             alt=""
-            width="600"
-            height="1262"
+            width="300"
+            height="376"
             loading="lazy"
           >
         </picture>
       </div>
 
-      <!-- Text part 2: flows alongside right phones on both mobile and desktop -->
-      <span class="cw-k">let</span> payload: [<span class="cw-k">String</span>: <span class="cw-k">Any</span>] = [<br>
-      &nbsp;&nbsp;<span class="cw-s">"model"</span>: <span class="cw-s">"gpt-4o-mini"</span>,&nbsp;&nbsp; <span class="cw-s">"temperature"</span>: <span class="cw-n">0.92</span>,&nbsp;&nbsp; <span class="cw-s">"max_tokens"</span>: <span class="cw-n">180</span>,<br>
-      &nbsp;&nbsp;<span class="cw-s">"stream"</span>: <span class="cw-s">false</span>,&nbsp;&nbsp; <span class="cw-s">"system"</span>: <span class="cw-s">"[REDACTED — Configuration.plist → LLMSystemPrompt]"</span>,<br>
-      &nbsp;&nbsp;<span class="cw-s">"messages"</span>: [[<span class="cw-s">"role"</span>: <span class="cw-s">"user"</span>, <span class="cw-s">"content"</span>: buildPrompt(from: transcript)]]<br>
-      ]<br>
-      <br>
-      <span class="cw-c">// Response schema</span><br>
-      <span class="cw-k">struct</span> LLMResponse: <span class="cw-k">Codable</span> {<br>
-      &nbsp;&nbsp;<span class="cw-k">let</span> id: <span class="cw-k">String</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cw-c">// "chatcmpl-9zBxK4…"</span><br>
-      &nbsp;&nbsp;<span class="cw-k">let</span> object: <span class="cw-k">String</span>&nbsp;&nbsp; <span class="cw-c">// "chat.completion"</span><br>
-      &nbsp;&nbsp;<span class="cw-k">let</span> created: <span class="cw-k">Int</span>&nbsp;&nbsp;&nbsp;&nbsp; <span class="cw-c">// epoch timestamp</span><br>
-      &nbsp;&nbsp;<span class="cw-k">let</span> model: <span class="cw-k">String</span>&nbsp;&nbsp;&nbsp; <span class="cw-c">// "gpt-4o-mini-2024-07-18"</span><br>
-      &nbsp;&nbsp;<span class="cw-k">let</span> usage: <span class="cw-k">Usage</span>&nbsp;&nbsp;&nbsp;&nbsp; <span class="cw-c">// prompt:42 completion:67 total:109</span><br>
-      &nbsp;&nbsp;<span class="cw-k">struct</span> Choice: <span class="cw-k">Codable</span> {<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;<span class="cw-k">let</span> finishReason: <span class="cw-k">String</span>&nbsp;&nbsp; <span class="cw-c">// "stop" | "length" | "content_filter"</span><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;<span class="cw-k">let</span> message: <span class="cw-k">Message</span><br>
-      &nbsp;&nbsp;}<br>
-      }<br>
-      <br>
-      <span class="cw-c">// MARK: — CoreML offline fallback</span><br>
-      <span class="cw-k">let</span> config = <span class="cw-k">MLModelConfiguration</span>()<br>
-      config.computeUnits&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span class="cw-e">.cpuAndNeuralEngine</span><br>
-      config.allowLowPrecisionAccumulationOnGPU = <span class="cw-s">true</span><br>
-      config.preferredMetalDevice&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span class="cw-k">MTLCreateSystemDefaultDevice</span>()<br>
-      <span class="cw-k">let</span> model = <span class="cw-k">try</span> ThatAIGuy_Retort_v1(configuration: config)<br>
-      <span class="cw-k">let</span> prediction = <span class="cw-k">try</span> model.prediction(text_input: transcript, sentiment_vector: vector)<br>
-      <br>
-      <span class="cw-c">// Inference buffer memory layout</span><br>
-      <span class="cw-n">0x00007fff5bc4a210</span>&nbsp;&nbsp;[<span class="cw-k">MLMultiArray</span>] Float32[<span class="cw-n">1×128</span>]&nbsp;&nbsp;refcount:<span class="cw-n">2</span>&nbsp;&nbsp;pinned:<span class="cw-s">true</span><br>
-      <span class="cw-n">0x00007fff5bc4a2f0</span>&nbsp;&nbsp;[<span class="cw-k">MLMultiArray</span>] Float32[<span class="cw-n">1×256</span>]&nbsp;&nbsp;refcount:<span class="cw-n">1</span>&nbsp;&nbsp;pinned:<span class="cw-s">true</span><br>
-      <span class="cw-n">0x00007fff5bc4a3d0</span>&nbsp;&nbsp;[<span class="cw-k">NSString</span>]&nbsp;&nbsp;&nbsp;&nbsp; UTF-<span class="cw-n">8</span>&nbsp;&nbsp;len:<span class="cw-n">94</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;refcount:<span class="cw-n">4</span>&nbsp;&nbsp;tagged:<span class="cw-s">false</span><br>
-      <span class="cw-n">0x00007fff5bc4a450</span>&nbsp;&nbsp;[<span class="cw-k">NSData</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bytes:<span class="cw-n">3712</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;refcount:<span class="cw-n">1</span>&nbsp;&nbsp;mmap:<span class="cw-s">true</span><br>
-      <br>
-      <span class="cw-c">// Threading model</span><br>
-      <span class="cw-k">DispatchQueue</span>.global(qos: <span class="cw-e">.userInitiated</span>)&nbsp;&nbsp;→&nbsp;&nbsp;recognition + NLP pipeline<br>
-      <span class="cw-k">DispatchQueue</span>.global(qos: <span class="cw-e">.background</span>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→&nbsp;&nbsp;LLM HTTP transport + retry<br>
-      <span class="cw-k">DispatchQueue</span>.global(qos: <span class="cw-e">.utility</span>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→&nbsp;&nbsp;CoreML inference (fallback)<br>
-      <span class="cw-k">DispatchQueue</span>.main&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→&nbsp;&nbsp;UI updates + TTS dispatch<br>
-      <br>
-      <span class="cw-c">// TTS — AVSpeechSynthesizer</span><br>
-      <span class="cw-k">let</span> utterance = <span class="cw-k">AVSpeechUtterance</span>(string: response)<br>
-      utterance.voice&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span class="cw-k">AVSpeechSynthesisVoice</span>(language: <span class="cw-s">"en-GB"</span>)<br>
-      utterance.rate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span class="cw-n">0.48</span>&nbsp;&nbsp;<span class="cw-c">// default: 0.50</span><br>
-      utterance.pitchMultiplier&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span class="cw-n">1.1</span><br>
-      utterance.postUtteranceDelay&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span class="cw-n">0.4</span><br>
-      <br>
-      <span class="cw-c">// Build configuration — Release</span><br>
-      SWIFT_OPTIMIZATION_LEVEL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span class="cw-s">-O</span><br>
-      ENABLE_BITCODE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span class="cw-s">NO</span><br>
-      SWIFT_STRICT_CONCURRENCY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span class="cw-s">complete</span><br>
-      OTHER_SWIFT_FLAGS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span class="cw-s">-Xfrontend -enable-actor-data-race-checks</span><br>
-      MARKETING_VERSION&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span class="cw-s">1.0.0</span><br>
-      CURRENT_PROJECT_VERSION&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span class="cw-n">2847</span><br>
 
     </section>
 
@@ -396,12 +335,12 @@
       <section class="awards-section promo-awards" id="awards" aria-label="Awards">
         <div>
           <picture class="fade-in-image shine">
-            <source media="(width >= 768px)" srcset="assets/graphics/dogg-award01_144dpi_400x400.png">
-            <img src="assets/graphics/dogg-award01_72dpi_400x400.png" alt="Dogg Best Apple App 2026" loading="lazy" width="200" height="200">
+            <source type="image/webp" srcset="assets/graphics/dogg-award01_72dpi_200x200.webp 1x, assets/graphics/dogg-award01_144dpi_400x400.webp 2x">
+            <img src="assets/graphics/dogg-award01_72dpi_200x200.png" alt="Dogg Best Apple App 2026" loading="lazy" width="200" height="200">
           </picture>
           <picture class="fade-out-image shine">
-            <source media="(width >= 768px)" srcset="assets/graphics/dogg-award02_144dpi_400x400.png">
-            <img src="assets/graphics/dogg-award02_72dpi_400x400.png" alt="Dogg Best Apple App 2026" loading="lazy" width="200" height="200">
+            <source type="image/webp" srcset="assets/graphics/dogg-award02_72dpi_200x200.webp 1x, assets/graphics/dogg-award02_144dpi_400x400.webp 2x">
+            <img src="assets/graphics/dogg-award02_72dpi_200x200.png" alt="Dogg Best Apple App 2026" loading="lazy" width="200" height="200">
           </picture>
         </div>
       </section>

@@ -339,14 +339,32 @@ body::after {
   position: absolute;
   top: 0;
   transform: translateX(-50%);
-  width: 15rem;
+  width: 15rem; /* 150px at 10px root */
   z-index: -1;
+}
+
+/* Fluid logo + shape growth: 150px at 450px → 200px at 768px */
+@media (width >= 45rem) {
+  .promo-logo {
+    width: clamp(15rem, calc(15rem + 5rem * (100vw - 45rem) / 31.8rem), 20rem);
+  }
+
+  .promo-col-l::before,
+  .promo-col-r::before {
+    height: clamp(15rem, calc(15rem + 5rem * (100vw - 45rem) / 31.8rem), 20rem);
+    shape-outside: circle(clamp(7.5rem, calc(7.5rem + 2.5rem * (100vw - 45rem) / 31.8rem), 10rem) at 100% 50%);
+    width: clamp(7.5rem, calc(7.5rem + 2.5rem * (100vw - 45rem) / 31.8rem), 10rem);
+  }
+
+  .promo-col-r::before {
+    shape-outside: circle(clamp(7.5rem, calc(7.5rem + 2.5rem * (100vw - 45rem) / 31.8rem), 10rem) at 0% 50%);
+  }
 }
 
 /* Two-column flex wrapper */
 .promo-text-wrap {
   display: flex;
-  gap: 0;
+  gap: 1rem;
 }
 
 .promo-col-l,
@@ -380,18 +398,18 @@ body::after {
 
 @media (width >= 76.8rem) {
   .promo-logo {
-    width: 18rem;
+    width: 20rem; /* 200px — locked */
   }
 
   .promo-col-l::before,
   .promo-col-r::before {
-    height: 18rem;
-    shape-outside: circle(9rem at 100% 50%);
-    width: 9rem;
+    height: 20rem;
+    shape-outside: circle(10rem at 100% 50%);
+    width: 10rem;
   }
 
   .promo-col-r::before {
-    shape-outside: circle(9rem at 0% 50%);
+    shape-outside: circle(10rem at 0% 50%);
   }
 }
 
