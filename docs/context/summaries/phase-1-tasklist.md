@@ -64,6 +64,13 @@
 - [x] **Inline flow fix** — `codewall-phones-r` changed from `<div>` → `<span>`; avoids anonymous block splitting that was breaking float wrapping
 - [x] **`overflow-wrap: anywhere`** on `.promo-codewall` — prevents long tokens (e.g. `SpeechRecognitionCoordinator.swift`) from gapping below the float
 
+### Session 2026-03-22 — Intro logo + shape-outside refinements
+
+- [x] **Logo fluid scaling revised** — single continuous `clamp()` formula: 12rem (320px) → 22rem (768px), locked above; no stepped breakpoints; `height: auto` added to prevent HTML attr capping the size; HTML attrs updated to `220×220`
+- [x] **Shape-outside fluid scaling** — `::before` pseudo height + width + circle radius all use same `clamp()` formula in lockstep with logo; no breakpoints needed
+- [x] **Right column extra space** — right `::before` circle radius `2rem` wider than left (8rem→13rem vs 6rem→11rem); float width matches radius exactly to prevent browser clipping the shape (clipped shapes produce straight vertical text edges instead of curves)
+- [x] **Screenshot workflow documented** — `docs/context/summaries/screenshot-workflow-investigation.md`; root cause: VS Code + Claude Code CLI fighting over same Playwright Chrome user-data-dir; fix: remove Playwright MCP from VS Code
+
 ### Session 2026-03-22 — Intro layout refinements + asset tidy
 
 - [x] **Intro logo fluid scaling** — `clamp()` growth from 150px (450px vp) → 200px (768px+); shape-outside floats scale in sync

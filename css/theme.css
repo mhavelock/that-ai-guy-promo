@@ -334,31 +334,15 @@ body::after {
 }
 
 /* Logo sits behind both columns, near the top */
+/* Fluid: 12rem at 320px → 22rem at 768px, locked above */
 .promo-logo {
+  height: auto;
   left: 50%;
   position: absolute;
   top: 0;
   transform: translateX(-50%);
-  width: 15rem; /* 150px at 10px root */
+  width: clamp(12rem, calc(12rem + 10rem * (100vw - 32rem) / 44.8rem), 22rem);
   z-index: -1;
-}
-
-/* Fluid logo + shape growth: 150px at 450px → 200px at 768px */
-@media (width >= 45rem) {
-  .promo-logo {
-    width: clamp(15rem, calc(15rem + 5rem * (100vw - 45rem) / 31.8rem), 20rem);
-  }
-
-  .promo-col-l::before,
-  .promo-col-r::before {
-    height: clamp(15rem, calc(15rem + 5rem * (100vw - 45rem) / 31.8rem), 20rem);
-    shape-outside: circle(clamp(7.5rem, calc(7.5rem + 2.5rem * (100vw - 45rem) / 31.8rem), 10rem) at 100% 50%);
-    width: clamp(7.5rem, calc(7.5rem + 2.5rem * (100vw - 45rem) / 31.8rem), 10rem);
-  }
-
-  .promo-col-r::before {
-    shape-outside: circle(clamp(7.5rem, calc(7.5rem + 2.5rem * (100vw - 45rem) / 31.8rem), 10rem) at 0% 50%);
-  }
 }
 
 /* Two-column flex wrapper */
@@ -374,21 +358,23 @@ body::after {
 }
 
 /* Left column: float pushes text away from the centre (logo) on the right */
+/* Fluid half-width: 6rem at 320px → 11rem at 768px, locked above */
 .promo-col-l::before {
   content: '';
   float: right;
-  height: 15rem;
-  shape-outside: circle(7.5rem at 100% 50%);
-  width: 7.5rem;
+  height: clamp(12rem, calc(12rem + 10rem * (100vw - 32rem) / 44.8rem), 22rem);
+  shape-outside: circle(clamp(6rem, calc(6rem + 5rem * (100vw - 32rem) / 44.8rem), 11rem) at 100% 50%);
+  width: clamp(6rem, calc(6rem + 5rem * (100vw - 32rem) / 44.8rem), 11rem);
 }
 
 /* Right column: float pushes text away from the centre (logo) on the left */
+/* Width = radius so the circle is never clipped by the float box */
 .promo-col-r::before {
   content: '';
   float: left;
-  height: 15rem;
-  shape-outside: circle(7.5rem at 0% 50%);
-  width: 7.5rem;
+  height: clamp(12rem, calc(12rem + 10rem * (100vw - 32rem) / 44.8rem), 22rem);
+  shape-outside: circle(clamp(8rem, calc(8rem + 5rem * (100vw - 32rem) / 44.8rem), 13rem) at 0% 50%);
+  width: clamp(8rem, calc(8rem + 5rem * (100vw - 32rem) / 44.8rem), 13rem);
 }
 
 /* Full-width paragraph below the two columns */
@@ -396,22 +382,6 @@ body::after {
   margin-top: 1.5rem;
 }
 
-@media (width >= 76.8rem) {
-  .promo-logo {
-    width: 20rem; /* 200px — locked */
-  }
-
-  .promo-col-l::before,
-  .promo-col-r::before {
-    height: 20rem;
-    shape-outside: circle(10rem at 100% 50%);
-    width: 10rem;
-  }
-
-  .promo-col-r::before {
-    shape-outside: circle(10rem at 0% 50%);
-  }
-}
 
 
 /* ==========================================================================
