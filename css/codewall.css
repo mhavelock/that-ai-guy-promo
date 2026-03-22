@@ -1,0 +1,125 @@
+/* ==========================================================================
+   CODEWALL — Decorative technical text wrap around phones
+   ==========================================================================
+   Purely decorative. aria-hidden="true" on the section.
+
+   Left phone:
+     Mobile:  block element above text. promo-phone-wrap shows at its natural
+              60% width (from speech-bubbles.css — not overridden here).
+              overflow-x: clip on the section contains bubble overflow.
+     Desktop: codewall-phone-l floats left at 42%. promo-phone-wrap is
+              overridden to 100% to fill the float container. Text wraps right.
+              Speech bubbles may overlap the text area — both are decorative.
+
+   Right phones:
+     Mobile:  float right 50% — text wraps left side only
+     Desktop: float right 42% — text wraps left side (inserted ~65% through)
+
+   aspect-ratio: 2100/1262 on codewall-phones-r constrains container height to
+   3 phones wide : 1 phone tall. The wider third phone (flex:1.5) overflows
+   below and is clipped by overflow:hidden.
+========================================================================== */
+
+/* ==========================================================================
+   Container
+========================================================================== */
+
+.promo-codewall {
+  color: #1e2460;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9375rem;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+  margin-bottom: 3rem;
+  overflow-x: clip; /* clip speech bubble overflow on mobile */
+  padding: 0 var(--space-section-x, 1.25rem);
+}
+
+/* Clearfix — contains floats */
+.promo-codewall::after {
+  clear: both;
+  content: '';
+  display: block;
+}
+
+@media (width >= 76.8rem) {
+  .promo-codewall {
+    margin-bottom: 5rem;
+  }
+}
+
+/* ==========================================================================
+   Left phone — speech bubble phone
+   Mobile:  block above text; promo-phone-wrap stays at natural 60%
+   Desktop: float left 42%; promo-phone-wrap overridden to fill the float
+========================================================================== */
+
+.codewall-phone-l {
+  display: block;
+  margin-bottom: 2rem;
+}
+
+@media (width >= 76.8rem) {
+  .codewall-phone-l {
+    float: left;
+    margin-bottom: 1rem;
+    margin-right: 2.5rem;
+    width: 42%;
+  }
+
+  /* Fill the float container — overrides the 42% set in speech-bubbles.css */
+  .codewall-phone-l .promo-phone-wrap {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   Right phones (three screenshots)
+   Mobile:  float right 50% — text wraps left side only
+   Desktop: float right 42% — text wraps left side (inserted ~65% through)
+========================================================================== */
+
+.codewall-phones-r {
+  align-items: flex-start;
+  aspect-ratio: 2100 / 1262;
+  display: flex;
+  float: right;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  margin-left: 1rem;
+  overflow: hidden;
+  width: 50%;
+}
+
+@media (width >= 76.8rem) {
+  .codewall-phones-r {
+    width: 42%;
+  }
+}
+
+.codewall-phones-r picture {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Third screenshot: wider, shows more horizontal content, clipped at bottom */
+.codewall-phones-r picture:last-child {
+  flex: 1.5;
+}
+
+.codewall-phones-r img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+/* ==========================================================================
+   Colour tokens — distinct hues, all medium-dark
+========================================================================== */
+
+.cw-c { color: #6a1aaa; } /* comment / MARK — rich purple    */
+.cw-k { color: #1a4aaa; } /* keyword / type — vivid navy      */
+.cw-s { color: #aa1a30; } /* string / value — strong crimson  */
+.cw-n { color: #8a1a70; } /* number / hex   — deep magenta    */
+.cw-p { color: #1a7a7a; } /* property / path — teal           */
+.cw-e { color: #3a7a1a; } /* enum / case    — forest green    */

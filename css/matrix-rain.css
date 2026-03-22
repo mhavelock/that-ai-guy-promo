@@ -1,0 +1,244 @@
+/* ==========================================================================
+   MATRIX RAIN — Horizontal code rain, streaming right
+   ==========================================================================
+   Pure CSS. aria-hidden="true" on the section.
+
+   Technique:
+     - 20 .rain-stream elements, positioned absolutely at 1.8rem intervals
+     - Each stream moves right via transform: translateX(-100vw → 200vw)
+     - mask-image gradient creates comet tail (transparent tail → bright lead)
+     - background-clip: text applies colour gradient to glyphs
+     - text-shadow for terminal glow behind transparent text
+     - @property --brightness enables smooth brightness pulse via CSS animation
+     - color-mix(in oklch) for lead-edge colour mixing
+     - @layer for clean cascade containment
+
+   Performance:
+     - transform-only animation — GPU compositor, no layout/paint
+     - will-change: transform pre-promotes compositor layers
+     - 20 elements: well within browser limits
+     - filter: brightness() post-processing is compositor-accelerated
+     - prefers-reduced-motion: animation disabled, static texture remains
+========================================================================== */
+
+/* @property must be at document scope, outside @layer */
+@property --brightness {
+  inherits: false;
+  initial-value: 80%;
+  syntax: '<percentage>';
+}
+
+@layer matrix {
+
+  /* ==========================================================================
+     Container
+  ========================================================================== */
+
+  .promo-matrix {
+    background: #06080f;
+    height: 28rem;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  @media (width >= 76.8rem) {
+    .promo-matrix {
+      height: 36rem;
+    }
+  }
+
+  /* CRT scanline overlay */
+  .promo-matrix::before {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 1px,
+      rgba(0, 0, 0, 0.14) 1px,
+      rgba(0, 0, 0, 0.14) 2px
+    );
+    content: '';
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+    z-index: 2;
+  }
+
+  /* Edge vignette — streams emerge from dark left, vanish into dark right */
+  .promo-matrix::after {
+    background:
+      linear-gradient(to right, #06080f 0%, transparent 9%, transparent 87%, #06080f 100%),
+      radial-gradient(ellipse at center, transparent 35%, rgba(6, 8, 15, 0.65) 100%);
+    content: '';
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+    z-index: 1;
+  }
+
+  /* ==========================================================================
+     Base stream
+  ========================================================================== */
+
+  .rain-stream {
+    --brightness: 80%; /* fallback for browsers without @property support */
+    animation-direction: normal, alternate;
+    animation-iteration-count: infinite, infinite;
+    animation-name: matrix-right, brightness-pulse;
+    animation-timing-function: linear, ease-in-out;
+    background-clip: text;
+    color: transparent;
+    filter: brightness(var(--brightness));
+    font-family: 'Courier New', Courier, monospace;
+    left: 0;
+    letter-spacing: 0.06em;
+    line-height: 1;
+    /* Comet tail: transparent at left (trailing edge), opaque at right (lead) */
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(255, 255, 255, 0.04) 4%,
+      rgba(255, 255, 255, 0.2)  9%,
+      rgba(255, 255, 255, 0.55) 19%,
+      rgba(255, 255, 255, 0.88) 30%,
+      white 43%,
+      white 100%
+    );
+    position: absolute;
+    white-space: nowrap;
+    will-change: transform;
+  }
+
+  /* ==========================================================================
+     Colour variants
+     Each has a gradient: transparent tail → deep hue → bright hue → near-white tip
+     text-shadow provides the terminal glow behind the gradient-clipped glyphs
+  ========================================================================== */
+
+  /* Blue — navy → electric blue → pale sky */
+  .rs-a {
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      color-mix(in oklch, #1a4aaa, black 25%) 10%,
+      #1a4aaa 23%,
+      #4a8fff 62%,
+      color-mix(in oklch, #4a8fff, white 52%) 85%,
+      white 97%
+    );
+    text-shadow:
+      0 0 6px  rgba(74, 143, 255, 0.75),
+      0 0 18px rgba(74, 143, 255, 0.38),
+      0 0 38px rgba(74, 143, 255, 0.18);
+  }
+
+  /* Purple — deep violet → bright lavender */
+  .rs-b {
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      color-mix(in oklch, #6a1aaa, black 25%) 10%,
+      #6a1aaa 23%,
+      #aa44ff 62%,
+      color-mix(in oklch, #aa44ff, white 52%) 85%,
+      white 97%
+    );
+    text-shadow:
+      0 0 6px  rgba(170, 68, 255, 0.75),
+      0 0 18px rgba(170, 68, 255, 0.38),
+      0 0 38px rgba(170, 68, 255, 0.18);
+  }
+
+  /* Crimson — deep wine → vivid red-pink */
+  .rs-c {
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      color-mix(in oklch, #aa1a30, black 25%) 10%,
+      #aa1a30 23%,
+      #ff4466 62%,
+      color-mix(in oklch, #ff4466, white 52%) 85%,
+      white 97%
+    );
+    text-shadow:
+      0 0 6px  rgba(255, 68, 100, 0.75),
+      0 0 18px rgba(255, 68, 100, 0.38),
+      0 0 38px rgba(255, 68, 100, 0.18);
+  }
+
+  /* Teal — deep ocean → cyan */
+  .rs-d {
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      color-mix(in oklch, #1a7a7a, black 25%) 10%,
+      #1a7a7a 23%,
+      #33cccc 62%,
+      color-mix(in oklch, #33cccc, white 52%) 85%,
+      white 97%
+    );
+    text-shadow:
+      0 0 6px  rgba(51, 204, 204, 0.75),
+      0 0 18px rgba(51, 204, 204, 0.38),
+      0 0 38px rgba(51, 204, 204, 0.18);
+  }
+
+  /* ==========================================================================
+     Keyframes
+  ========================================================================== */
+
+  /* Stream travels from fully off-left to fully off-right (300vw total) */
+  @keyframes matrix-right {
+    from { transform: translateX(-100vw); }
+    to   { transform: translateX(200vw); }
+  }
+
+  /* Brightness pulse — @property enables smooth interpolation */
+  @keyframes brightness-pulse {
+    from { --brightness: 52%; }
+    to   { --brightness: 118%; }
+  }
+
+  /* ==========================================================================
+     Stream positions and timing
+     Column 1: vertical position (1.8rem intervals, 20 rows = 36rem)
+     Column 2: font-size variation for visual depth
+     Column 3: movement duration, glow-pulse duration
+     Column 4: movement delay (negative = already in transit on load), glow delay
+     Opacity < 1 on some streams = background depth layer
+  ========================================================================== */
+
+  .rain-stream:nth-child(1)  { top:  0.0rem; font-size: 0.75rem; animation-duration: 7.0s, 2.3s; animation-delay:  -1.0s, -0.3s; }
+  .rain-stream:nth-child(2)  { top:  1.8rem; font-size: 0.70rem; animation-duration: 5.5s, 3.1s; animation-delay:  -3.2s, -1.1s; opacity: 0.65; }
+  .rain-stream:nth-child(3)  { top:  3.6rem; font-size: 0.80rem; animation-duration: 6.0s, 2.7s; animation-delay:  -0.5s, -0.7s; }
+  .rain-stream:nth-child(4)  { top:  5.4rem; font-size: 0.70rem; animation-duration: 8.0s, 3.5s; animation-delay:  -4.1s, -1.8s; opacity: 0.55; }
+  .rain-stream:nth-child(5)  { top:  7.2rem; font-size: 0.75rem; animation-duration: 4.5s, 2.1s; animation-delay:  -2.0s, -0.9s; }
+  .rain-stream:nth-child(6)  { top:  9.0rem; font-size: 0.65rem; animation-duration: 7.5s, 4.2s; animation-delay:  -5.8s, -2.4s; opacity: 0.60; }
+  .rain-stream:nth-child(7)  { top: 10.8rem; font-size: 0.80rem; animation-duration: 5.0s, 2.9s; animation-delay:  -1.7s, -0.4s; }
+  .rain-stream:nth-child(8)  { top: 12.6rem; font-size: 0.70rem; animation-duration: 6.5s, 3.7s; animation-delay:  -3.5s, -1.5s; opacity: 0.65; }
+  .rain-stream:nth-child(9)  { top: 14.4rem; font-size: 0.75rem; animation-duration: 9.0s, 2.5s; animation-delay:  -0.9s, -0.2s; }
+  .rain-stream:nth-child(10) { top: 16.2rem; font-size: 0.65rem; animation-duration: 4.8s, 3.9s; animation-delay:  -6.2s, -2.8s; opacity: 0.55; }
+  .rain-stream:nth-child(11) { top: 18.0rem; font-size: 0.80rem; animation-duration: 6.2s, 2.2s; animation-delay:  -2.8s, -1.2s; }
+  .rain-stream:nth-child(12) { top: 19.8rem; font-size: 0.75rem; animation-duration: 7.8s, 3.3s; animation-delay:  -4.5s, -0.6s; opacity: 0.70; }
+  .rain-stream:nth-child(13) { top: 21.6rem; font-size: 0.70rem; animation-duration: 5.3s, 2.6s; animation-delay:  -1.3s, -1.9s; opacity: 0.60; }
+  .rain-stream:nth-child(14) { top: 23.4rem; font-size: 0.65rem; animation-duration: 8.5s, 4.8s; animation-delay:  -7.1s, -3.2s; opacity: 0.50; }
+  .rain-stream:nth-child(15) { top: 25.2rem; font-size: 0.75rem; animation-duration: 4.2s, 2.0s; animation-delay:  -3.8s, -0.8s; }
+  .rain-stream:nth-child(16) { top: 27.0rem; font-size: 0.80rem; animation-duration: 6.8s, 3.0s; animation-delay:  -0.4s, -0.5s; }
+  .rain-stream:nth-child(17) { top: 28.8rem; font-size: 0.70rem; animation-duration: 5.8s, 3.6s; animation-delay:  -5.3s, -2.1s; opacity: 0.65; }
+  .rain-stream:nth-child(18) { top: 30.6rem; font-size: 0.75rem; animation-duration: 7.2s, 2.4s; animation-delay:  -2.1s, -1.4s; }
+  .rain-stream:nth-child(19) { top: 32.4rem; font-size: 0.65rem; animation-duration: 4.6s, 4.1s; animation-delay:  -6.8s, -3.5s; opacity: 0.55; }
+  .rain-stream:nth-child(20) { top: 34.2rem; font-size: 0.80rem; animation-duration: 8.2s, 2.8s; animation-delay:  -1.6s, -0.9s; }
+
+  /* ==========================================================================
+     Reduced motion — freeze animation, show as static low-opacity texture
+  ========================================================================== */
+
+  @media (prefers-reduced-motion: reduce) {
+    .rain-stream {
+      animation: none;
+      filter: brightness(35%);
+      transform: translateX(0);
+    }
+  }
+
+} /* end @layer matrix */

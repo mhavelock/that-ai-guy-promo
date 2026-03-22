@@ -96,11 +96,11 @@
 
 ## Priority 3 — Styling features *(mobile only)*
 
-- [ ] **Glassify** — apply `.glass` modifier to: badges, slider/review cards (do not touch stars)
 - [ ] **Download button** — cycle through 9 neumorphic keyframe styles (1s transition, 4s hold); overlay App Store SVG
 - [ ] **Badge click** → morph to speech bubble `clip-path` shape (match 4 SVG assets)
   - Reference: `clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%)`
 - [ ] **Claude icon** — `assets/icons/claude-ai-icon.svg` fixed bottom-left; scroll-driven rotation (clockwise down, anticlockwise up)
+- [ ] **Glassify** — apply `.glass` modifier to: badges, slider/review cards (do not touch stars)
 
 ---
 
@@ -116,7 +116,7 @@
 ## Open questions
 
 - [ ] **OPEN** — should `main.js` load before `theme.js`? (currently: main → theme → logger)
-- [ ] **Accessibility + schema pass** — ARIA audit, `schema.org` markup
+- [ ] **Accessibility + schema pass** — ARIA audit, `schema.org` markup *(moved to end — low priority)*
 
 ---
 
