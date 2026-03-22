@@ -6,3 +6,10 @@ _archive/
 
 tmp/
 docs/discovery/workshop.css
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
