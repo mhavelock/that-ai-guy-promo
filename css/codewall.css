@@ -138,13 +138,14 @@
 ========================================================================== */
 
 @keyframes cw-wave {
-  0%, 100% { font-size: 0.9375rem; letter-spacing: 0.01em; }
-  50%      { font-size: 0.975rem;  letter-spacing: 0.013em; }
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.04); }
 }
 
 .cw-wave {
   animation: cw-wave 12s ease-in-out infinite;
   animation-delay: calc(var(--wave-n) * 2s);
+  display: inline-block; /* required for transform on inline spans; layout unchanged by animation */
 }
 
 @media (prefers-reduced-motion: reduce) {

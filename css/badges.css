@@ -61,7 +61,6 @@ display: flex;
 font-size: clamp(2rem, -0.26rem + 5.03vw, 2.25rem);
 justify-content: center;
 padding: 10px;
-white-space: nowrap;
 transition: .3s ease-out;
 font-family: var(--font-custom3);
 }
@@ -97,8 +96,8 @@ font-family: var(--font-custom3);
 /* Active states */
 .badges dl:active dt,
 .badges dl:focus dt {
+  opacity: 0; /* hides dt text — composited, zero layout effect */
   transition: 1s linear(0, 0.024, 0.068 1%, 0.22 2.2%, 0.968 6.1%, 1.221 7.7%, 1.314, 1.383, 1.426 10%, 1.438, 1.445, 1.447, 1.445 11.4%, 1.432, 1.405, 1.365 13.4%, 1.272 14.6%, 1.004 17.7%, 0.892 19.3%, 0.855, 0.828, 0.811, 0.802, 0.802, 0.808, 0.819, 0.837 24.8%, 0.879 26.1%, 0.998 29.1%, 1.048 30.8%, 1.076 32.2%, 1.084, 1.088 33.6%, 1.086, 1.077, 1.059 37.2%, 1.006 40.3%, 0.984 41.7%, 0.968 43.4%, 0.963, 0.961 45%, 0.962, 0.966 47.3%, 1.007 53.2%, 1.014, 1.017 56.4%, 1.015 58.8%, 0.997 64.6%, 0.992 67.8%, 0.993 70.2%, 1.001 75.9%, 1.003 78.9%, 0.999 90.2%, 1);
-  visibility: hidden; /* hides dt text — no layout effect unlike overflow:hidden */
 }
 
 .badges dl:active dd,
