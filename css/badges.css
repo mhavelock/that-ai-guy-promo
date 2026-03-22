@@ -16,7 +16,7 @@ justify-content: center;
 }
 
 .badges.grid-4x4 {
-margin: 3rem;
+margin: 0;
 }
 
 @media (width >= 76.8rem) {
@@ -60,7 +60,7 @@ display: flex;
 /* clamp(MIN, OFFSET + SLOPE, MAX) */
 font-size: clamp(2rem, -0.26rem + 5.03vw, 2.25rem);
 justify-content: center;
-padding: 10px;
+padding: 3rem;
 transition: .3s ease-out;
 font-family: var(--font-custom3);
 }
@@ -115,6 +115,11 @@ font-size: 2rem;
 padding: 0.75rem 0 1.5rem;
 margin-top: 0;
 }
+.badges dl:nth-child(1):active,
+.badges dl:nth-child(1):focus {
+  clip-path: polygon(12.6% 81.5%, 26.9% 61.1%, 26.9% 49%, 13.1% 49%, 20.1% 36.8%, 10.7% 25%, 26.8% 23.4%, 26.6% 9.5%, 43% 12.2%, 51.2% 2.1%, 61.7% 15%, 76.4% 10.2%, 77.2% 23.7%, 89.7% 24.7%, 82.1% 35.2%, 92.5% 46.6%, 78.6% 49.7%, 75.4% 66.9%, 61.9% 56.7%, 51.1% 71.2%, 43.8% 60.1%, 37.9% 59.4%);
+}
+
 .badges dl:nth-child(1):active dd:after,
 .badges dl:nth-child(1):focus dd:after {
 content: "💬";

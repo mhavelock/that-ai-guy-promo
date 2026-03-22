@@ -156,6 +156,7 @@
 ## Desktop *(audit after mobile is complete)*
 
 - [ ] **Codewall `padding-top`** — at 1228px the speech bubble overlaps the section above. Current `padding-top: 9rem` at `76.8rem+` may need increasing or a fluid `clamp()` between breakpoints
+- [ ] **Codewall `min-height`** — mobile value `clamp(70rem, 300vw, 80rem)` set to prevent CLS from `cw-wave` animation. Desktop breakpoint should override with a lower value (layout is different at 76.8rem+)
 - [ ] **Codewall phone overlap** — at 76.8rem+ the left phone (42%) + phones-r (63%) = 105%, they overlap. Fix: reduce phones-r desktop width, or rethink layout at that breakpoint
 - [ ] Desktop layout pass (bottom nav, typography, spacing)
 
