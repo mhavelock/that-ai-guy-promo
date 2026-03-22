@@ -15,11 +15,11 @@
    12. Navigation
    13. Footer
    14. Utilities
-   ========================================================================== */
+========================================================================== */
 
 /* ==========================================================================
    Imports
-   ========================================================================== */
+========================================================================== */
 
 @import url("grid.css");
 @import url("utilities.css");
@@ -28,180 +28,181 @@
 
 /* ==========================================================================
    1. Design tokens
-   ========================================================================== */
+========================================================================== */
 
 :root {
-    /* Colour — light mode */
-    --color-bg:                   #ffffff;
-    --color-surface:              #f2f4f7;
-    --color-border:               #dde1ea;
-    --color-text:                 #1d1f24;
-    --color-text-muted:           #5a6375;
-    --color-btn-primary-bg:       #a1b1ca;
-    --color-btn-primary-text:     #1d1f24;
-    --color-btn-secondary-bg:     #3e3b1b;
-    --color-btn-secondary-text:   #a1b1ca;
-    --color-focus:                #4a7fcb;
-    --color-alert-info-bg:        #eaf2ff;
-    --color-alert-info-text:      #1d3a6b;
-    --color-alert-success-bg:     #e8f9ef;
-    --color-alert-success-text:   #1a5c35;
-    --color-alert-warning-bg:     #fff8e6;
-    --color-alert-warning-text:   #6b4800;
-    --color-alert-error-bg:       #ffeaea;
-    --color-alert-error-text:     #6b1a1a;
+  /* Colour — light mode */
+  --color-bg:                   #ffffff;
+  --color-surface:              #f2f4f7;
+  --color-border:               #dde1ea;
+  --color-text:                 #1d1f24;
+  --color-text-muted:           #5a6375;
+  --color-btn-primary-bg:       #a1b1ca;
+  --color-btn-primary-text:     #1d1f24;
+  --color-btn-secondary-bg:     #3e3b1b;
+  --color-btn-secondary-text:   #a1b1ca;
+  --color-focus:                #4a7fcb;
+  --color-alert-info-bg:        #eaf2ff;
+  --color-alert-info-text:      #1d3a6b;
+  --color-alert-success-bg:     #e8f9ef;
+  --color-alert-success-text:   #1a5c35;
+  --color-alert-warning-bg:     #fff8e6;
+  --color-alert-warning-text:   #6b4800;
+  --color-alert-error-bg:       #ffeaea;
+  --color-alert-error-text:     #6b1a1a;
 
-    /* Typography */
-    --font-body:                  Arial, Helvetica, sans-serif;
-    --font-heading:               Verdana, Arial, sans-serif;
-    --font-size-base:             1.8rem;
-    --font-size-xsm:              0.875rem;
-    --font-size-sm:               0.2rem;
-    --font-size-md:               1.8rem;
-    --font-size-lg:               2rem;
-    --font-size-xl:               2.25rem;
-    --font-size-2xl:              2.5rem;
-    --font-size-3xl:              2.75rem;
-    --font-size-4xl:              3rem;
-    --font-weight-light:          300;
-    --font-weight-body:           400;
-    --font-weight-heading:        700;
-    --line-height-body:           1.5;
-    --line-height-heading:        1.66;
-    --line-height-component:      1.125;
+  /* Typography */
+  --font-body:                  Arial, Helvetica, sans-serif;
+  --font-heading:               Verdana, Arial, sans-serif;
+  --font-size-base:             1.8rem;
+  --font-size-xsm:              0.875rem;
+  --font-size-sm:               1.2rem;
+  --font-size-md:               1.8rem;
+  --font-size-lg:               2rem;
+  --font-size-xl:               2.25rem;
+  --font-size-2xl:              2.5rem;
+  --font-size-3xl:              2.75rem;
+  --font-size-4xl:              3rem;
+  --font-weight-light:          300;
+  --font-weight-body:           400;
+  --font-weight-heading:        700;
+  --line-height-body:           1.5;
+  --line-height-heading:        1.66;
+  --line-height-component:      1.125;
 
-    /* Spacing (rem) */
-    --space-1:   0.25rem;
-    --space-2:   0.5rem;
-    --space-3:   0.75rem;
-    --space-4:   1rem;
-    --space-5:   1.25rem;
-    --space-6:   1.5rem;
-    --space-8:   2rem;
-    --space-10:  2.5rem;
-    --space-12:  3rem;
-    --space-16:  4rem;
-    --space-20:  5rem;
-    --space-24:  6rem;
-    --letter-space:   0.085rem;
-    --letter-space-lg:   0.125rem;
-    --letter-space-sm:   0.01rem;
+  /* Spacing (rem) */
+  --space-1:   0.25rem;
+  --space-2:   0.5rem;
+  --space-3:   0.75rem;
+  --space-4:   1rem;
+  --space-5:   1.25rem;
+  --space-6:   1.5rem;
+  --space-8:   2rem;
+  --space-10:  2.5rem;
+  --space-12:  3rem;
+  --space-16:  4rem;
+  --space-20:  5rem;
+  --space-24:  6rem;
+  --letter-space:   0.085rem;
+  --letter-space-lg:   0.125rem;
+  --letter-space-sm:   0.01rem;
 
-    /* Layout */
-    --max-width:          1280px;
-    --min-element-width:  288px;
-    --grid-gutter:        1rem;
-    --grid-cols:          12;
+  /* Layout */
+  --max-width:          1280px;
+  --min-width:          320px;
+  --min-element-width:  288px;
+  --grid-gutter:        1rem;
+  --grid-cols:          12;
 
-    /* Border radius */
-    --radius-sm:    0.25rem;
-    --radius-md:    0.5rem;
-    --radius-lg:    1rem;
-    --radius-xl:    1.5rem;
-    --radius-pill:  9999px;
+  /* Border radius */
+  --radius-sm:    0.25rem;
+  --radius-md:    0.5rem;
+  --radius-lg:    1rem;
+  --radius-xl:    1.5rem;
+  --radius-pill:  9999px;
 
-    /* Shadows */
-    --shadow-sm:  0 1px 3px rgb(0 0 0 / 0.08);
-    --shadow-md:  0 4px 12px rgb(0 0 0 / 0.1);
-    --shadow-lg:  0 8px 24px rgb(0 0 0 / 0.14);
+  /* Shadows */
+  --shadow-sm:  0 1px 3px rgb(0 0 0 / 0.08);
+  --shadow-md:  0 4px 12px rgb(0 0 0 / 0.1);
+  --shadow-lg:  0 8px 24px rgb(0 0 0 / 0.14);
 
-    /* Transitions */
-    --transition-fast:  150ms ease;
-    --transition-base:  250ms ease;
-    --transition-slow:  400ms ease;
+  /* Transitions */
+  --transition-fast:  150ms ease;
+  --transition-base:  250ms ease;
+  --transition-slow:  400ms ease;
 }
 
 /* Dark mode tokens are on :root[data-theme="dark"] in theme.css.
-   The early-init script in <head> seeds data-theme from localStorage
-   or prefers-color-scheme before any paint, so no CSS media query
-   is needed here. */
+The early-init script in <head> seeds data-theme from localStorage
+or prefers-color-scheme before any paint, so no CSS media query
+is needed here. */
 
 
 /* ==========================================================================
    2. Reset
-   ========================================================================== */
+========================================================================== */
 
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    scroll-behavior: smooth;
-    -webkit-text-size-adjust: 100%;
-    font-size: 62.5%; 
-    background-color: var(--color-bg);
-    color: var(--color-text);
-    font-family: var(--font-body);
-    line-height: var(--line-height-body);
-    letter-spacing: 0.085em;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  font-size: 62.5%; 
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: var(--line-height-body);
+  letter-spacing: 0.085em;
 }
 
 body {
-    min-height: 100dvh;
+  min-height: 100dvh;
 }
 
 
 @media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
+  html {
+    scroll-behavior: auto;
+  }
 
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 img,
 video,
 svg {
-    display: block;
-    max-width: 100%;
+  display: block;
+  max-width: 100%;
 }
 
 input,
 button,
 textarea,
 select {
-    font: inherit;
+  font: inherit;
 }
 
 
 /* ==========================================================================
    3. Base elements
-   ========================================================================== */
+========================================================================== */
 
 :focus-visible {
-    border-radius: var(--radius-sm);
-    outline: 2px solid var(--color-focus);
-    outline-offset: 3px;
+  border-radius: var(--radius-sm);
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
 }
 
 ::selection {
-    background-color: var(--color-btn-primary-bg);
-    color: var(--color-btn-primary-text);
+  background-color: var(--color-btn-primary-bg);
+  color: var(--color-btn-primary-text);
 }
 
 hr {
-    border: none;
-    border-top: 1px solid var(--color-border);
-    margin-block: var(--space-8);
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin-block: var(--space-8);
 }
 
 
 /* ==========================================================================
    4. Typography
-   ========================================================================== */
+========================================================================== */
 
 h1,
 h2,
@@ -209,9 +210,9 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: var(--font-heading);
-    font-weight: var(--font-weight-heading);
-    line-height: var(--line-height-heading);
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-heading);
+  line-height: var(--line-height-heading);
 }
 
 h1 { font-size: var(--font-size-4xl); }
@@ -224,37 +225,37 @@ h6 { font-size: var(--font-size-xsm); }
 /* Desktop heading fluid overrides are in theme.css — do not add here */
 
 p {
-    font-size: var(--font-size-lg);
-    max-width: 65ch; /* prose default — override in theme.css for promo context */
+  font-size: var(--font-size-lg);
+  max-width: 65ch; /* prose default — override in theme.css for promo context */
 }
 
 a {
-    color: var(--color-text);
-    transition: opacity var(--transition-fast);
+  color: var(--color-text);
+  transition: opacity var(--transition-fast);
 }
 
 a:hover {
-    opacity: 0.75;
+  opacity: 0.75;
 }
 
 strong {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 em {
-    font-style: italic;
+  font-style: italic;
 }
 
 small {
-    font-size: var(--font-size-xsm);
+  font-size: var(--font-size-xsm);
 }
 
 address {
-    font-style: normal;
+  font-style: normal;
 }
 
 time {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
 /* Prose content (long-form pages like privacy) */
@@ -265,109 +266,109 @@ time {
 
 .prose-content ul,
 .prose-content ol {
-    margin-bottom: var(--space-4);
-    padding-inline-start: var(--space-6);
+  margin-bottom: var(--space-4);
+  padding-inline-start: var(--space-6);
 }
 
 .prose-content li {
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--space-2);
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-2);
 }
 
 .prose-header {
-    border-bottom: 1px solid var(--color-border);
-    margin-bottom: var(--space-8);
-    padding-bottom: var(--space-6);
-    padding-top: var(--space-12);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-8);
+  padding-bottom: var(--space-6);
+  padding-top: var(--space-12);
 }
 
 .prose-meta {
-    color: var(--color-text-muted);
-    font-size: var(--font-size-xsm);
-    margin-block-start: var(--space-2);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xsm);
+  margin-block-start: var(--space-2);
 }
 
 .prose-footer-note {
-    border-top: 1px solid var(--color-border);
-    color: var(--color-text-muted);
-    font-size: var(--font-size-xsm);
-    margin-top: var(--space-12);
-    padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xsm);
+  margin-top: var(--space-12);
+  padding-top: var(--space-6);
 }
 
 
 /* ==========================================================================
    5. Layout
-   ========================================================================== */
+========================================================================== */
 
 /* Base space */
 main {
-    margin-inline: auto;
-    min-width: var(--min-width);
-    max-width: var(--max-width);
-    padding: 1.2rem 1.2rem 0;
-    position: relative;
-    z-index: 1;
+  margin-inline: auto;
+  min-width: var(--min-width);
+  max-width: var(--max-width);
+  padding: 1.2rem 1.2rem 0;
+  position: relative;
+  z-index: 1;
 }
 
 @media (width >= 76.8rem) {
-    main {
-        padding: 2.4rem 2.4rem 0;
-    }
+  main {
+    padding: 2.4rem 2.4rem 0;
+  }
 }
 
 .container {
-    margin-inline: auto;
-    max-width: var(--max-width);
-    padding-inline: var(--grid-gutter);
-    width: 100%;
+  margin-inline: auto;
+  max-width: var(--max-width);
+  padding-inline: var(--grid-gutter);
+  width: 100%;
 }
 
 @media (width >= 76.8rem) {
-    .container {
-        padding-inline: calc(var(--grid-gutter) * 2);
-    }
+  .container {
+    padding-inline: calc(var(--grid-gutter) * 2);
+  }
 }
 
 @media (width >= 128rem) {
-    .container {
-        padding-inline: calc(var(--grid-gutter) * 4);
-    }
+  .container {
+    padding-inline: calc(var(--grid-gutter) * 4);
+  }
 }
 
 .grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--grid-gutter);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--grid-gutter);
 }
 
 .section {
-    padding-block: var(--space-16);
+  padding-block: var(--space-16);
 }
 
 @media (width >= 76.8rem) {
-    .section {
-        padding-block: var(--space-24);
-    }
+  .section {
+    padding-block: var(--space-24);
+  }
 }
 
 .section-alt {
-    background-color: var(--color-surface);
+  background-color: var(--color-surface);
 }
 
 .section-header {
-    margin-bottom: var(--space-12);
-    margin-inline: auto;
-    max-width: 48rem;
-    text-align: center;
+  margin-bottom: var(--space-12);
+  margin-inline: auto;
+  max-width: 48rem;
+  text-align: center;
 }
 
 .section-title {
-    margin-bottom: var(--space-3);
+  margin-bottom: var(--space-3);
 }
 
 .section-subtitle {
-    color: var(--color-text-muted);
+  color: var(--color-text-muted);
 }
 
 
@@ -375,293 +376,293 @@ main {
 
 /* ==========================================================================
    6. Components — Buttons
-   ========================================================================== */
+========================================================================== */
 
 .btn {
-    align-items: center;
-    border: 2px solid transparent;
-    border-radius: var(--radius-pill);
-    cursor: pointer;
-    display: inline-flex;
-    font-family: var(--font-body);
-    font-size: var(--font-size-base);
-    font-weight: bold;
-    gap: var(--space-2);
-    justify-content: center;
-    line-height: 1;
-    min-height: 2.75rem;
-    padding-block: 0.75em;
-    padding-inline: 1.5em;
-    text-decoration: none;
-    transition: filter var(--transition-fast), transform var(--transition-fast);
-    white-space: nowrap;
+  align-items: center;
+  border: 2px solid transparent;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: bold;
+  gap: var(--space-2);
+  justify-content: center;
+  line-height: 1;
+  min-height: 2.75rem;
+  padding-block: 0.75em;
+  padding-inline: 1.5em;
+  text-decoration: none;
+  transition: filter var(--transition-fast), transform var(--transition-fast);
+  white-space: nowrap;
 }
 
 .btn:hover {
-    filter: brightness(1.08);
-    opacity: 1;
-    transform: translateY(-1px);
+  filter: brightness(1.08);
+  opacity: 1;
+  transform: translateY(-1px);
 }
 
 .btn:active {
-    filter: brightness(0.96);
-    transform: translateY(0);
+  filter: brightness(0.96);
+  transform: translateY(0);
 }
 
 .btn-primary {
-    background-color: var(--color-btn-primary-bg);
-    color: var(--color-btn-primary-text);
+  background-color: var(--color-btn-primary-bg);
+  color: var(--color-btn-primary-text);
 }
 
 .btn-secondary {
-    background-color: var(--color-btn-secondary-bg);
-    color: var(--color-btn-secondary-text);
+  background-color: var(--color-btn-secondary-bg);
+  color: var(--color-btn-secondary-text);
 }
 
 .btn-outline {
-    background-color: transparent;
-    border-color: var(--color-text);
-    color: var(--color-text);
+  background-color: transparent;
+  border-color: var(--color-text);
+  color: var(--color-text);
 }
 
 .btn-outline:hover {
-    background-color: var(--color-text);
-    color: var(--color-bg);
+  background-color: var(--color-text);
+  color: var(--color-bg);
 }
 
 .btn-lg {
-    font-size: var(--font-size-lg);
-    min-height: 3.5rem;
-    padding-block: 1em;
-    padding-inline: 2em;
+  font-size: var(--font-size-lg);
+  min-height: 3.5rem;
+  padding-block: 1em;
+  padding-inline: 2em;
 }
 
 .btn-sm {
-    font-size: var(--font-size-xsm);
-    min-height: 2.25rem;
-    padding-block: 0.5em;
-    padding-inline: 1em;
+  font-size: var(--font-size-xsm);
+  min-height: 2.25rem;
+  padding-block: 0.5em;
+  padding-inline: 1em;
 }
 
 .btn-icon-only {
-    align-items: center;
-    background: transparent;
-    border: none;
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    display: inline-flex;
-    justify-content: center;
-    min-height: 2.75rem;
-    min-width: 2.75rem;
-    padding: var(--space-2);
-    transition: background-color var(--transition-fast);
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  padding: var(--space-2);
+  transition: background-color var(--transition-fast);
 }
 
 .btn-icon-only:hover {
-    background-color: var(--color-surface);
+  background-color: var(--color-surface);
 }
 
 .btn-icon {
-    flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 
 /* ==========================================================================
    7. Components — Forms
-   ========================================================================== */
+========================================================================== */
 
 .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    margin-bottom: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
 }
 
 .form-label {
-    font-size: var(--font-size-xsm);
-    font-weight: bold;
+  font-size: var(--font-size-xsm);
+  font-weight: bold;
 }
 
 .form-input,
 .form-select,
 .form-textarea {
-    background-color: var(--color-bg);
-    border: 2px solid var(--color-border);
-    border-radius: var(--radius-md);
-    color: var(--color-text);
-    display: block;
-    font-family: var(--font-body);
-    font-size: var(--font-size-lg);
-    min-height: 3rem;
-    padding-block: var(--space-3);
-    padding-inline: var(--space-4);
-    transition: border-color var(--transition-fast);
-    width: 100%;
+  background-color: var(--color-bg);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--font-size-lg);
+  min-height: 3rem;
+  padding-block: var(--space-3);
+  padding-inline: var(--space-4);
+  transition: border-color var(--transition-fast);
+  width: 100%;
 }
 
 .form-input:focus,
 .form-select:focus,
 .form-textarea:focus {
-    border-color: var(--color-focus);
-    outline: none;
+  border-color: var(--color-focus);
+  outline: none;
 }
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-    color: var(--color-text-muted);
+  color: var(--color-text-muted);
 }
 
 .form-textarea {
-    min-height: 8rem;
-    resize: vertical;
+  min-height: 8rem;
+  resize: vertical;
 }
 
 .form-hint {
-    color: var(--color-text-muted);
-    font-size: var(--font-size-xsm);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xsm);
 }
 
 .form-error {
-    color: var(--color-alert-error-text);
-    font-size: var(--font-size-xsm);
+  color: var(--color-alert-error-text);
+  font-size: var(--font-size-xsm);
 }
 
 .form-input.is-invalid,
 .form-textarea.is-invalid {
-    border-color: var(--color-alert-error-text);
+  border-color: var(--color-alert-error-text);
 }
 
 
 /* ==========================================================================
    8. Components — Tooltips
-   ========================================================================== */
+========================================================================== */
 
 [data-tooltip] {
-    position: relative;
+  position: relative;
 }
 
 [data-tooltip]::after {
-    background-color: var(--color-text);
-    border-radius: var(--radius-sm);
-    bottom: calc(100% + var(--space-2));
-    color: var(--color-bg);
-    content: attr(data-tooltip);
-    font-size: var(--font-size-xsm);
-    left: 50%;
-    opacity: 0;
-    padding-block: var(--space-1);
-    padding-inline: var(--space-3);
-    pointer-events: none;
-    position: absolute;
-    transform: translateX(-50%) translateY(var(--space-2));
-    transition: opacity var(--transition-fast), transform var(--transition-fast);
-    white-space: nowrap;
-    z-index: 100;
+  background-color: var(--color-text);
+  border-radius: var(--radius-sm);
+  bottom: calc(100% + var(--space-2));
+  color: var(--color-bg);
+  content: attr(data-tooltip);
+  font-size: var(--font-size-xsm);
+  left: 50%;
+  opacity: 0;
+  padding-block: var(--space-1);
+  padding-inline: var(--space-3);
+  pointer-events: none;
+  position: absolute;
+  transform: translateX(-50%) translateY(var(--space-2));
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  white-space: nowrap;
+  z-index: 100;
 }
 
 [data-tooltip]:hover::after,
 [data-tooltip]:focus-visible::after {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 
 /* ==========================================================================
    9. Components — Modal / Dialog
-   ========================================================================== */
+========================================================================== */
 
 .modal {
-    background-color: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-lg);
-    max-width: min(90vw, 34rem);
-    padding: 0;
-    width: 100%;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  max-width: min(90vw, 34rem);
+  padding: 0;
+  width: 100%;
 }
 
 .modal::backdrop {
-    background-color: rgb(0 0 0 / 0.6);
-    backdrop-filter: blur(2px);
+  background-color: rgb(0 0 0 / 0.6);
+  backdrop-filter: blur(2px);
 }
 
 .modal-inner {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-header {
-    align-items: center;
-    border-bottom: 1px solid var(--color-border);
-    display: flex;
-    justify-content: space-between;
-    padding: var(--space-5) var(--space-6);
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-5) var(--space-6);
 }
 
 .modal-title {
-    font-size: var(--font-size-xl);
+  font-size: var(--font-size-xl);
 }
 
 .modal-body {
-    padding: var(--space-6);
+  padding: var(--space-6);
 }
 
 .modal-footer {
-    border-top: 1px solid var(--color-border);
-    display: flex;
-    gap: var(--space-3);
-    justify-content: flex-end;
-    padding: var(--space-5) var(--space-6);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  gap: var(--space-3);
+  justify-content: flex-end;
+  padding: var(--space-5) var(--space-6);
 }
 
 .modal-close {
-    color: var(--color-text-muted);
+  color: var(--color-text-muted);
 }
 
 
 /* ==========================================================================
    10. Components — Alerts
-   ========================================================================== */
+========================================================================== */
 
 .alert {
-    border-left: 4px solid currentColor;
-    border-radius: var(--radius-md);
-    font-size: var(--font-size-base);
-    padding: var(--space-4) var(--space-5);
+  border-left: 4px solid currentColor;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  padding: var(--space-4) var(--space-5);
 }
 
 .alert-info {
-    background-color: var(--color-alert-info-bg);
-    color: var(--color-alert-info-text);
+  background-color: var(--color-alert-info-bg);
+  color: var(--color-alert-info-text);
 }
 
 .alert-success {
-    background-color: var(--color-alert-success-bg);
-    color: var(--color-alert-success-text);
+  background-color: var(--color-alert-success-bg);
+  color: var(--color-alert-success-text);
 }
 
 .alert-warning {
-    background-color: var(--color-alert-warning-bg);
-    color: var(--color-alert-warning-text);
+  background-color: var(--color-alert-warning-bg);
+  color: var(--color-alert-warning-text);
 }
 
 .alert-error {
-    background-color: var(--color-alert-error-bg);
-    color: var(--color-alert-error-text);
+  background-color: var(--color-alert-error-bg);
+  color: var(--color-alert-error-text);
 }
 
 
 /* ==========================================================================
    11. Components — Icons
-   ========================================================================== */
+========================================================================== */
 
 .icon {
-    display: inline-block;
-    fill: currentColor;
-    flex-shrink: 0;
-    height: 1em;
-    vertical-align: middle;
-    width: 1em;
+  display: inline-block;
+  fill: currentColor;
+  flex-shrink: 0;
+  height: 1em;
+  vertical-align: middle;
+  width: 1em;
 }
 
 .icon-sm { height: 1rem; width: 1rem; }
@@ -671,137 +672,137 @@ main {
 
 /* ==========================================================================
    12. Navigation
-   ========================================================================== */
+========================================================================== */
 
 .site-header {
-    background-color: var(--color-bg);
-    border-bottom: 1px solid var(--color-border);
-    left: 0;
-    position: sticky;
-    right: 0;
-    top: 0;
-    z-index: 50;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  left: 0;
+  position: sticky;
+  right: 0;
+  top: 0;
+  z-index: 50;
 }
 
 .site-header-inner {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    min-height: 4rem;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  min-height: 4rem;
 }
 
 .site-logo {
-    flex-shrink: 0;
-    text-decoration: none;
+  flex-shrink: 0;
+  text-decoration: none;
 }
 
 .site-logo-img {
-    height: auto;
-    max-height: 2.25rem;
-    width: auto;
+  height: auto;
+  max-height: 2.25rem;
+  width: auto;
 }
 
 .site-nav {
-    align-items: center;
-    display: flex;
-    gap: var(--space-6);
+  align-items: center;
+  display: flex;
+  gap: var(--space-6);
 }
 
 .site-nav-link {
-    color: var(--color-text);
-    font-weight: bold;
-    text-decoration: none;
+  color: var(--color-text);
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .site-nav-link:hover {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 
 /* ==========================================================================
    13. Footer
-   ========================================================================== */
+========================================================================== */
 
 .site-footer {
-    background-color: var(--color-surface);
-    border-top: 1px solid var(--color-border);
-    padding-block: var(--space-8);
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding-block: var(--space-8);
 }
 
 .site-footer-inner {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  text-align: center;
 }
 
 @media (width >= 600px) {
-    .site-footer-inner {
-        flex-direction: row;
-        justify-content: space-between;
-        text-align: start;
-    }
+  .site-footer-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: start;
+  }
 }
 
 .footer-copy {
-    color: var(--color-text-muted);
-    font-size: var(--font-size-xsm);
-    max-width: none;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xsm);
+  max-width: none;
 }
 
 .footer-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-4);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
 }
 
 .footer-nav-link {
-    color: var(--color-text-muted);
-    font-size: var(--font-size-xsm);
-    text-decoration: none;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xsm);
+  text-decoration: none;
 }
 
 .footer-nav-link:hover {
-    color: var(--color-text);
-    opacity: 1;
+  color: var(--color-text);
+  opacity: 1;
 }
 
 
 /* ==========================================================================
    14. Utilities
-   ========================================================================== */
+========================================================================== */
 
 /* Skip link — visually hidden until focused */
 .u-skip-link {
-    background-color: var(--color-bg);
-    border: 2px solid var(--color-focus);
-    border-radius: var(--radius-sm);
-    color: var(--color-text);
-    font-weight: bold;
-    left: var(--space-4);
-    padding: var(--space-3) var(--space-5);
-    position: absolute;
-    text-decoration: none;
-    top: var(--space-4);
-    transform: translateY(-200%);
-    transition: transform var(--transition-fast);
-    z-index: 9999;
+  background-color: var(--color-bg);
+  border: 2px solid var(--color-focus);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  font-weight: bold;
+  left: var(--space-4);
+  padding: var(--space-3) var(--space-5);
+  position: absolute;
+  text-decoration: none;
+  top: var(--space-4);
+  transform: translateY(-200%);
+  transition: transform var(--transition-fast);
+  z-index: 9999;
 }
 
 .u-skip-link:focus {
-    transform: translateY(0);
+  transform: translateY(0);
 }
 
 /* Visually hidden — accessible but invisible */
 .u-visually-hidden {
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 /* Text alignment */
@@ -824,7 +825,7 @@ main {
 
 /* Orientation */
 @media (orientation: landscape) and (max-height: 500px) {
-    .u-hide-landscape-mobile {
-        display: none;
-    }
+  .u-hide-landscape-mobile {
+    display: none;
+  }
 }

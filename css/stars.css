@@ -3,74 +3,74 @@
    ==========================================================================
    1. Rating star component 
    2. Control by adjusting the attributes
-   ========================================================================== */
+========================================================================== */
 
 
 /* ==========================================================================
    1. Container
-   ========================================================================== */
+========================================================================== */
 
 .stars {
-  margin: 0;
-  display: grid;
-  place-content: center;
+margin: 0;
+display: grid;
+place-content: center;
 }
 
 /* ==========================================================================
    1. Stars
-   ========================================================================== */
+========================================================================== */
 
 @property --val {
-  syntax: "<number>";
-  inherits: true;
-  initial-value: 0; 
+syntax: "<number>";
+inherits: true;
+initial-value: 0; 
 }
 
 .stars input[type="range"] {
-  --s: 30px;
-  --min: attr(min type(<number>), 1);
-  --max: attr(max type(<number>), 5); /* Set to 5 for your aspect ratio */
-  
-  height: var(--s);
-  aspect-ratio: var(--max);
-  
-  /* 1. ENCODED SVG - Keeping your original pointy star path */
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 5 L79 95 L2 40 L98 40 L21 95 Z'/%3E%3C/svg%3E") 
-        0 / var(--s) var(--_m,);
+--s: 30px;
+--min: attr(min type(<number>), 1);
+--max: attr(max type(<number>), 5); /* Set to 5 for your aspect ratio */
 
-  background:
-    linear-gradient(90deg,
-      var(--color-star-active) calc(var(--val) * 100% / var(--max)),
-      var(--color-star-inactive) 0
-    );
+height: var(--s);
+aspect-ratio: var(--max);
 
-  appearance: none;
-  cursor: pointer;
-  timeline-scope: --val;
-  animation: --val linear both;
-  animation-timeline: --val;
-  animation-range: entry 100% exit 0%;
-  overflow: hidden;
+/* 1. ENCODED SVG - Keeping your original pointy star path */
+mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 5 L79 95 L2 40 L98 40 L21 95 Z'/%3E%3C/svg%3E") 
+    0 / var(--s) var(--_m,);
+
+background:
+  linear-gradient(90deg,
+  var(--color-star-active) calc(var(--val) * 100% / var(--max)),
+  var(--color-star-inactive) 0
+  );
+
+appearance: none;
+cursor: pointer;
+timeline-scope: --val;
+animation: --val linear both;
+animation-timeline: --val;
+animation-range: entry 100% exit 0%;
+overflow: hidden;
 }
 
 @keyframes --val {
-  0% {--val: var(--max)}
-  to {--val: var(--min)}
+0% {--val: var(--max)}
+to {--val: var(--min)}
 }
 
 .stars input[type="range"]::-webkit-slider-thumb {
-  opacity: 0;
-  view-timeline: --val inline;
+opacity: 0;
+view-timeline: --val inline;
 }
 
 .stars input[type="range"]::-moz-range-thumb {
-  opacity: 0;
-  view-timeline: --val inline;
+opacity: 0;
+view-timeline: --val inline;
 }
 
 .stars input[type="range"]:focus-visible {
-  outline: 2px solid var(--color-focus);
-  outline-offset: -2px;
-  --_m:,conic-gradient(from 90deg at 2px 2px, transparent 25%, var(--color-focus) 0) 0 0/calc(100% - 2px) calc(100% - 2px);
+outline: 2px solid var(--color-focus);
+outline-offset: -2px;
+--_m:,conic-gradient(from 90deg at 2px 2px, transparent 25%, var(--color-focus) 0) 0 0/calc(100% - 2px) calc(100% - 2px);
 }
 

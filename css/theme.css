@@ -15,11 +15,11 @@
    11. Section: Download
    12. Bottom navigation — Liquid Glass
    13. Theme toggle button
-   ========================================================================== */
+========================================================================== */
 
 /* ==========================================================================
    Imports
-   ========================================================================== */
+========================================================================== */
 @import url("svg-variables.css");
 @import url("stars.css");
 @import url("slider.css");
@@ -28,135 +28,135 @@
 
 /* ==========================================================================
    1. Font
-   ========================================================================== */
+========================================================================== */
 
 /* Fredoka variable (300–700) loaded via Google Fonts in HTML <head> */
 
 
 /* ==========================================================================
    2. Theme tokens
-   ========================================================================== */
+========================================================================== */
 
 
 :root {
-    --font-body: 'Trebuchet MS', 'Palatino', 'Baskerville', sans-serif;
-    --font-heading: 'Gill Sans', Verdana, Arial, sans-serif;
-    --font-brand: 'Fredoka', Verdana, Arial, sans-serif;
-    --font-custom1: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    --font-custom2: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    --font-custom3: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-body: 'Trebuchet MS', 'Palatino', 'Baskerville', sans-serif;
+  --font-heading: 'Gill Sans', Verdana, Arial, sans-serif;
+  --font-brand: 'Fredoka', Verdana, Arial, sans-serif;
+  --font-custom1: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  --font-custom2: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  --font-custom3: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 
 :root[data-theme="light"] {
-    /* Colour */
-    --color-tg:                   #045ada;
-    --color-bg:                   #ffffff;
-    --color-surface:              #f2f4f7;
-    --color-border:               #dde1ea;
-    --color-text:                 #1d1f24;
-    --color-text-muted:           #5a6375;
-    --color-btn-primary-bg:       #a1b1ca;
-    --color-btn-primary-text:     #1d1f24;
-    --color-btn-secondary-bg:     #3e3b1b;
-    --color-btn-secondary-text:   #a1b1ca;
-    --color-focus:                #4a7fcb;
-    --color-alert-info-bg:        #eaf2ff;
-    --color-alert-info-text:      #1d3a6b;
-    --color-alert-success-bg:     #e8f9ef;
-    --color-alert-success-text:   #1a5c35;
-    --color-alert-warning-bg:     #fff8e6;
-    --color-alert-warning-text:   #6b4800;
-    --color-alert-error-bg:       #ffeaea;
-    --color-alert-error-text:     #6b1a1a;
-    --shadow-sm:                  0 1px 3px rgb(0 0 0 / 0.08);
-    --shadow-md:                  0 4px 12px rgb(0 0 0 / 0.1);
-    --shadow-lg:                  0 8px 24px rgb(0 0 0 / 0.14);
-    /* Stars */
-    --color-star-active:          #a1b1ca;
-    --color-star-inactive:        #5a6375;
-    /* Navigation */
-    --nav-glass-bg:               rgba(255, 255, 255, 0.40);
-    --nav-glass-border:           rgba(255, 255, 255, 0.65);
-    --nav-glass-shadow:           rgba(0, 0, 0, 0.14);
-    --nav-glass-highlight:        rgba(255, 255, 255, 0.85);
-    --nav-active-bg:              rgba(255, 255, 255, 0.45);
-    --nav-active-glow:            rgba(200, 220, 255, 0.7);
-    --nav-text:                   #1d1f24;
-    --toggle-bg:                  rgba(0, 0, 0, 0.08);
-    --toggle-border:              rgba(0, 0, 0, 0.12);
-    --text-gradient:                radial-gradient(circle at 100% 30%, rgba(22, 65, 255, 0.8), rgba(31, 81, 196, 0.2) 80%), 
-                                    radial-gradient(circle at 100% 40%, rgba(20, 114, 255, 0.8), rgba(60, 190, 246, 0.1) 50%), 
-                                    radial-gradient(circle at 55% 300%, rgba(20,25,250,.87), rgba(70, 155, 230, 0.5) 80%), 
-                                    radial-gradient(circle at 50% 50%, rgba(22, 5, 119, 0.87), rgba(25, 36, 111, 0.5) 80%), 
-                                    radial-gradient(circle at 20% 100%, rgba(71, 175, 240, 0.95), rgba(200,222,255,.70) 90%);
+  /* Colour */
+  --color-tg:                   #045ada;
+  --color-bg:                   #ffffff;
+  --color-surface:              #f2f4f7;
+  --color-border:               #dde1ea;
+  --color-text:                 #1d1f24;
+  --color-text-muted:           #5a6375;
+  --color-btn-primary-bg:       #a1b1ca;
+  --color-btn-primary-text:     #1d1f24;
+  --color-btn-secondary-bg:     #3e3b1b;
+  --color-btn-secondary-text:   #a1b1ca;
+  --color-focus:                #4a7fcb;
+  --color-alert-info-bg:        #eaf2ff;
+  --color-alert-info-text:      #1d3a6b;
+  --color-alert-success-bg:     #e8f9ef;
+  --color-alert-success-text:   #1a5c35;
+  --color-alert-warning-bg:     #fff8e6;
+  --color-alert-warning-text:   #6b4800;
+  --color-alert-error-bg:       #ffeaea;
+  --color-alert-error-text:     #6b1a1a;
+  --shadow-sm:                  0 1px 3px rgb(0 0 0 / 0.08);
+  --shadow-md:                  0 4px 12px rgb(0 0 0 / 0.1);
+  --shadow-lg:                  0 8px 24px rgb(0 0 0 / 0.14);
+  /* Stars */
+  --color-star-active:          #a1b1ca;
+  --color-star-inactive:        #5a6375;
+  /* Navigation */
+  --nav-glass-bg:               rgba(255, 255, 255, 0.40);
+  --nav-glass-border:           rgba(255, 255, 255, 0.65);
+  --nav-glass-shadow:           rgba(0, 0, 0, 0.14);
+  --nav-glass-highlight:        rgba(255, 255, 255, 0.85);
+  --nav-active-bg:              rgba(255, 255, 255, 0.45);
+  --nav-active-glow:            rgba(200, 220, 255, 0.7);
+  --nav-text:                   #1d1f24;
+  --toggle-bg:                  rgba(0, 0, 0, 0.08);
+  --toggle-border:              rgba(0, 0, 0, 0.12);
+  --text-gradient:                radial-gradient(circle at 100% 30%, rgba(22, 65, 255, 0.8), rgba(31, 81, 196, 0.2) 80%), 
+                  radial-gradient(circle at 100% 40%, rgba(20, 114, 255, 0.8), rgba(60, 190, 246, 0.1) 50%), 
+                  radial-gradient(circle at 55% 300%, rgba(20,25,250,.87), rgba(70, 155, 230, 0.5) 80%), 
+                  radial-gradient(circle at 50% 50%, rgba(22, 5, 119, 0.87), rgba(25, 36, 111, 0.5) 80%), 
+                  radial-gradient(circle at 20% 100%, rgba(71, 175, 240, 0.95), rgba(200,222,255,.70) 90%);
 }
 
 :root[data-theme="dark"] {
-    /* Colour */
-    --color-bg:                   #111318;
-    --color-surface:              #1a1d28;
-    --color-border:               #2c3044;
-    --color-text:                 #a1b1ca;
-    --color-text-muted:           #6b7a94;
-    --color-btn-primary-bg:       #1d1f24;
-    --color-btn-primary-text:     #a1b1ca;
-    --color-btn-secondary-bg:     #ebe6b7;
-    --color-btn-secondary-text:   #1d1f24;
-    --color-focus:                #7aaff0;
-    --color-alert-info-bg:        #1a2540;
-    --color-alert-info-text:      #90b8f0;
-    --color-alert-success-bg:     #152a1e;
-    --color-alert-success-text:   #7fcfa0;
-    --color-alert-warning-bg:     #2a2005;
-    --color-alert-warning-text:   #d4a845;
-    --color-alert-error-bg:       #2a0f0f;
-    --color-alert-error-text:     #d48080;
-    --shadow-sm:                  0 1px 3px rgb(0 0 0 / 0.3);
-    --shadow-md:                  0 4px 12px rgb(0 0 0 / 0.4);
-    --shadow-lg:                  0 8px 24px rgb(0 0 0 / 0.5);
-    /* Stars */
-    --color-star-active:          #a1b1ca;
-    --color-star-inactive:        #6b7a94;
-    /* Navigation */
-    --nav-glass-bg:               rgba(15, 18, 28, 0.65);
-    --nav-glass-border:           rgba(255, 255, 255, 0.12);
-    --nav-glass-shadow:           rgba(0, 0, 0, 0.55);
-    --nav-glass-highlight:        rgba(255, 255, 255, 0.10);
-    --nav-active-bg:              rgba(255, 255, 255, 0.14);
-    --nav-active-glow:            rgba(80, 140, 255, 0.50);
-    --nav-text:                   #a1b1ca;
-    --toggle-bg:                  rgba(255, 255, 255, 0.10);
-    --toggle-border:              rgba(255, 255, 255, 0.15);
-    --text-gradient:                radial-gradient(circle at 20% 100%, rgba(71, 175, 240, 0.95), rgba(200,222,255,.70) 90%),
-                                    radial-gradient(circle at 50% 50%, rgba(22, 5, 119, 0.87), rgba(25, 36, 111, 0.5) 80%), 
-                                    radial-gradient(circle at 55% 300%, rgba(20,25,250,.87), rgba(70, 155, 230, 0.5) 80%),
-                                    radial-gradient(circle at 100% 40%, rgba(20, 114, 255, 0.8), rgba(60, 190, 246, 0.1) 50%), 
-                                    radial-gradient(circle at 100% 40%, rgba(20, 114, 255, 0.8), rgba(60, 190, 246, 0.1) 50%), 
-                                    radial-gradient(circle at 100% 40%, rgba(20, 114, 255, 0.8), rgba(60, 190, 246, 0.1) 50%), 
-                                    radial-gradient(circle at 100% 30%, rgba(22, 65, 255, 0.8), rgba(31, 81, 196, 0.2) 80%),
+  /* Colour */
+  --color-bg:                   #111318;
+  --color-surface:              #1a1d28;
+  --color-border:               #2c3044;
+  --color-text:                 #a1b1ca;
+  --color-text-muted:           #6b7a94;
+  --color-btn-primary-bg:       #1d1f24;
+  --color-btn-primary-text:     #a1b1ca;
+  --color-btn-secondary-bg:     #ebe6b7;
+  --color-btn-secondary-text:   #1d1f24;
+  --color-focus:                #7aaff0;
+  --color-alert-info-bg:        #1a2540;
+  --color-alert-info-text:      #90b8f0;
+  --color-alert-success-bg:     #152a1e;
+  --color-alert-success-text:   #7fcfa0;
+  --color-alert-warning-bg:     #2a2005;
+  --color-alert-warning-text:   #d4a845;
+  --color-alert-error-bg:       #2a0f0f;
+  --color-alert-error-text:     #d48080;
+  --shadow-sm:                  0 1px 3px rgb(0 0 0 / 0.3);
+  --shadow-md:                  0 4px 12px rgb(0 0 0 / 0.4);
+  --shadow-lg:                  0 8px 24px rgb(0 0 0 / 0.5);
+  /* Stars */
+  --color-star-active:          #a1b1ca;
+  --color-star-inactive:        #6b7a94;
+  /* Navigation */
+  --nav-glass-bg:               rgba(15, 18, 28, 0.65);
+  --nav-glass-border:           rgba(255, 255, 255, 0.12);
+  --nav-glass-shadow:           rgba(0, 0, 0, 0.55);
+  --nav-glass-highlight:        rgba(255, 255, 255, 0.10);
+  --nav-active-bg:              rgba(255, 255, 255, 0.14);
+  --nav-active-glow:            rgba(80, 140, 255, 0.50);
+  --nav-text:                   #a1b1ca;
+  --toggle-bg:                  rgba(255, 255, 255, 0.10);
+  --toggle-border:              rgba(255, 255, 255, 0.15);
+  --text-gradient:                radial-gradient(circle at 20% 100%, rgba(71, 175, 240, 0.95), rgba(200,222,255,.70) 90%),
+                  radial-gradient(circle at 50% 50%, rgba(22, 5, 119, 0.87), rgba(25, 36, 111, 0.5) 80%), 
+                  radial-gradient(circle at 55% 300%, rgba(20,25,250,.87), rgba(70, 155, 230, 0.5) 80%),
+                  radial-gradient(circle at 100% 40%, rgba(20, 114, 255, 0.8), rgba(60, 190, 246, 0.1) 50%), 
+                  radial-gradient(circle at 100% 40%, rgba(20, 114, 255, 0.8), rgba(60, 190, 246, 0.1) 50%), 
+                  radial-gradient(circle at 100% 40%, rgba(20, 114, 255, 0.8), rgba(60, 190, 246, 0.1) 50%), 
+                  radial-gradient(circle at 100% 30%, rgba(22, 65, 255, 0.8), rgba(31, 81, 196, 0.2) 80%),
 }
 
 
 /* ==========================================================================
    3. Global type overrides
-   ========================================================================== */
+========================================================================== */
 
 html {
-    background-color: var(--color-bg);
-    color: var(--color-text);
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-family: var(--font-body);
-    letter-spacing: var(--letter-space);
-    line-height: var(--line-height-body);
-    font-weight: var(--font-weight-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: var(--font-body);
+  letter-spacing: var(--letter-space);
+  line-height: var(--line-height-body);
+  font-weight: var(--font-weight-body);
 }
 
 /* Mobile: fixed font sizes — base for all inherited elements */
 body {
-    font-size: var(--font-size-lg);
-    /* Extra bottom padding so content clears the fixed nav */
-    padding-bottom: calc(8rem + env(safe-area-inset-bottom, 0px));
+  font-size: var(--font-size-lg);
+  /* Extra bottom padding so content clears the fixed nav */
+  padding-bottom: calc(8rem + env(safe-area-inset-bottom, 0px));
 }
 
 h1,
@@ -165,9 +165,9 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: var(--font-heading);
-    font-weight: var(--font-weight-heading);
-    line-height: var(--line-height-heading);
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-heading);
+  line-height: var(--line-height-heading);
 }
 
 h1 { font-size: var(--font-size-xl); }
@@ -178,417 +178,417 @@ h5,
 h6 { font-size: var(--font-size-base); }
 
 p {
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-body);
-    margin: 0;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-body);
+  margin: 0;
 }
 
 /* Desktop: fluid font sizes — scale from mobile base → proportional max at 1280px.
-   Formula: clamp(mobile-rem, linear-interp(768px→1280px), max-rem)
-   Linear form: calc(b + m*vw) avoids mixed rem/px division in calc.
-   Exceptions (badges, reviews, stars) are pinned in their own stylesheets. */
+Formula: clamp(mobile-rem, linear-interp(768px→1280px), max-rem)
+Linear form: calc(b + m*vw) avoids mixed rem/px division in calc.
+Exceptions (badges, reviews, stars) are pinned in their own stylesheets. */
 @media (width >= 76.8rem) {
-    body {
-        /* 1.2rem → 2rem */
-        font-size: clamp(var(--font-size-base), -1.77rem + 3.9vw, var(--font-size-lg));
-    }
+  body {
+    /* 1.2rem → 2rem */
+    font-size: clamp(var(--font-size-base), -1.77rem + 3.9vw, var(--font-size-lg));
+  }
 
-    h1 {
-        /* 1.5rem → 2.5rem */
-        font-size: clamp(var(--font-size-xl), -1.77rem + 3.9vw, var(--font-size-2xl));
-    }
+  h1 {
+    /* 1.5rem → 2.5rem */
+    font-size: clamp(var(--font-size-xl), -1.77rem + 3.9vw, var(--font-size-2xl));
+  }
 
-    h2,
-    h3,
-    h4 {
-        /* 1.333rem → 2.2rem */
-        font-size: clamp(var(--font-size-base), -1.77rem + 3.9vw, var(--font-size-xl));
-    }
+  h2,
+  h3,
+  h4 {
+    /* 1.333rem → 2.2rem */
+    font-size: clamp(var(--font-size-base), -1.77rem + 3.9vw, var(--font-size-xl));
+  }
 
-    h5,
-    h6 {
-        /* 1.25rem → 2rem */
-        font-size: clamp(var(--font-size-base), -1.77rem + 3.9vw, var(--font-size-lg));
-    }
+  h5,
+  h6 {
+    /* 1.25rem → 2rem */
+    font-size: clamp(var(--font-size-base), -1.77rem + 3.9vw, var(--font-size-lg));
+  }
 
-    p {
-        /* 1.2rem → 2rem */
-        font-size: clamp(var(--font-size-base), -1.77rem + 3.9vw, var(--font-size-lg));
-    }
+  p {
+    /* 1.2rem → 2rem */
+    font-size: clamp(var(--font-size-base), -1.77rem + 3.9vw, var(--font-size-lg));
+  }
 }
 
 .promo-text p {
-    max-width: none; /* override global.css 65ch prose cap */
+  max-width: none; /* override global.css 65ch prose cap */
 }
 
 .promo-text p + p {
-    margin-top: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .promo-text p span {
-    font-size: 120%;
-    font-family: var(--font-custom1);
-    letter-spacing: var(--letter-space-sm);
-    background: var(--text-gradient);
-    background-clip: text;
-    color: transparent;
-    mix-blend-mode: plus-lighter;
+  font-size: 120%;
+  font-family: var(--font-custom1);
+  letter-spacing: var(--letter-space-sm);
+  background: var(--text-gradient);
+  background-clip: text;
+  color: transparent;
+  mix-blend-mode: plus-lighter;
 }
 
 .promo-text span > strong {
-    font-family: var(--font-custom2);
-    font-size: 130%;
-    letter-spacing: 0.05rem;
+  font-family: var(--font-custom2);
+  font-size: 130%;
+  letter-spacing: 0.05rem;
 }
 
 .promo-text span > strong > span {
-    font-size: 150%;
-    font-family: var(--font-custom3);
+  font-size: 150%;
+  font-family: var(--font-custom3);
 }
 
 .promo-text em {
-    display: inline-block;
-    background-image: var(--thataiguySVG);
-    background-repeat: no-repeat;
-    background-position: 0 0;
-    background-size: contain;
-    width: 15rem;
-    height: auto;
-    font-size: 0;
-    color: var(--color-bg);
+  display: inline-block;
+  background-image: var(--thataiguySVG);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: contain;
+  width: 15rem;
+  height: auto;
+  font-size: 0;
+  color: var(--color-bg);
 }
 
 /* ==========================================================================
    3a. Background decorators (mobile only)
-   ========================================================================== */
+========================================================================== */
 
 body::before,
 body::after {
-    background-image: url('../assets/bgs/wavegrid-bg.webp'), url('../assets/bgs/wavegrid-bgr.webp');
-    background-position: left bottom, right bottom;
-    background-repeat: no-repeat;
-    background-size: 40% 100%;
-    content: '';
-    display: inline-block;
-    height: 100vh;
-    opacity: 0.33;
-    position: fixed;
-    width: 100%;
+  background-image: url('../assets/bgs/wavegrid-bg.webp'), url('../assets/bgs/wavegrid-bgr.webp');
+  background-position: left bottom, right bottom;
+  background-repeat: no-repeat;
+  background-size: 40% 100%;
+  content: '';
+  display: inline-block;
+  height: 100vh;
+  opacity: 0.33;
+  position: fixed;
+  width: 100%;
 }
 
 body::after {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 @media (width >= 76.8rem) {
-    body::before,
-    body::after {
-        display: none;
-    }
+  body::before,
+  body::after {
+    display: none;
+  }
 }
 
 
 /* ==========================================================================
    4. Hide default header
-   ========================================================================== */
+========================================================================== */
 
 .site-header {
-    display: none;
+  display: none;
 }
 
 
 /* ==========================================================================
    5. Promo page — global layout
-   ========================================================================== */
+========================================================================== */
 
 /* Section spacing */
 .promo-section {
-    margin-bottom: 3rem;
+  margin-bottom: 3rem;
 }
 
 @media (width >= 76.8rem) {
-    .promo-section {
-        margin-bottom: 5rem;
-    }
+  .promo-section {
+    margin-bottom: 5rem;
+  }
 }
 
 /* ==========================================================================
    6. Section: Intro — logo float + text wrap (shape-outside)
-   ========================================================================== */
+========================================================================== */
 
 .promo-intro {
-    overflow: hidden; /* contain float */
+  overflow: hidden; /* contain float */
 }
 
 /* Mobile: 30% width; desktop: natural SVG dimensions */
 .promo-logo {
-    float: left;
-    margin: 0 2.5rem 1rem 0;
-    shape-margin: 1.5rem;
-    shape-outside: circle(50%);
-    width: 30%;
+  float: left;
+  margin: 0 2.5rem 1rem 0;
+  shape-margin: 1.5rem;
+  shape-outside: circle(50%);
+  width: 30%;
 }
 
 @media (width >= 76.8rem) {
-    .promo-logo {
-        width: auto;
-        max-width: 14rem;
-    }
+  .promo-logo {
+    width: auto;
+    max-width: 14rem;
+  }
 }
 
 
 /* ==========================================================================
    7. Section: Features — text left, phone + speech bubbles right
-   ========================================================================== */
+========================================================================== */
 
 /* Mobile: stack vertically; desktop: side-by-side */
 .promo-features {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    overflow-x: clip;
-    margin-top: 9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  overflow-x: clip;
+  margin-top: 9rem;
 }
 
 @media (width >= 76.8rem) {
-    .promo-features {
-        align-items: flex-start;
-        flex-direction: row;
-    }
+  .promo-features {
+    align-items: flex-start;
+    flex-direction: row;
+  }
 }
 
 .promo-logo2 {
-    width: 20%;
+  width: 20%;
 }
 
 @media (width >= 76.8rem) {
-    .promo-logo2 {
-        width: 10%;
-    }
+  .promo-logo2 {
+    width: 10%;
+  }
 }
 
 .promo-text {
-    flex: 1;
-    min-width: 0;
+  flex: 1;
+  min-width: 0;
 }
 
 
 
 /* ==========================================================================
    8. Section: Roast — phones left, text right
-   ========================================================================== */
+========================================================================== */
 
 /* Mobile: stack vertically; desktop: phones left, text right */
 .promo-roast {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
 
 @media (width >= 76.8rem) {
-    .promo-roast {
-        align-items: flex-start;
-        flex-direction: row;
-    }
+  .promo-roast {
+    align-items: flex-start;
+    flex-direction: row;
+  }
 }
 
 .promo-phone-wrap--duo {
-    display: flex;
-    flex-shrink: 0;
-    gap: 1rem;
-    width: 100%;
+  display: flex;
+  flex-shrink: 0;
+  gap: 1rem;
+  width: 100%;
 }
 
 @media (width >= 76.8rem) {
-    .promo-phone-wrap--duo {
-        width: 34%;
-    }
+  .promo-phone-wrap--duo {
+    width: 34%;
+  }
 }
 
 .imgresize-phone-sm {
-    flex: 1;
-    height: auto;
-    min-width: 0;
-    width: 0; /* flex children share available width equally */
+  flex: 1;
+  height: auto;
+  min-width: 0;
+  width: 0; /* flex children share available width equally */
 }
 
 
 /* ==========================================================================
    9. Section: Reviews / Slider
-   ========================================================================== */
+========================================================================== */
 
 /* Clip background slide cards that translateX off-screen left/right.
-   overflow-x: clip does not create a scroll container so z-index is unaffected. */
+overflow-x: clip does not create a scroll container so z-index is unaffected. */
 .promo-reviews {
-    overflow-x: clip;
+  overflow-x: clip;
 }
 
 
 /* ==========================================================================
    10. Section: Sign-off
-   ========================================================================== */
+========================================================================== */
 
 .promo-sign p {
-    font-style: italic;
+  font-style: italic;
 }
 
 .promo-sign p + p {
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 
 /* ==========================================================================
    11. Section: Download
-   ========================================================================== */
+========================================================================== */
 
 .promo-logo3 {
-    width: 40%;
+  width: 40%;
 }
 
 @media (width >= 76.8rem) {
-    .promo-logo3 {
-        width: auto;
-    }
+  .promo-logo3 {
+    width: auto;
+  }
 }
 
 
 
 /* ==========================================================================
    12. Bottom navigation — Liquid Glass
-   ========================================================================== */
+========================================================================== */
 
 /* Structure */
 .bottom-nav {
-    border-radius: 9999px;
-    bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
-    display: flex;
-    gap: 0;
-    left: 50%;
-    padding: 0.4rem 0.6rem;
-    position: fixed;
-    transform: translateX(-50%);
-    z-index: 100;
+  border-radius: 9999px;
+  bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  gap: 0;
+  left: 50%;
+  padding: 0.4rem 0.6rem;
+  position: fixed;
+  transform: translateX(-50%);
+  z-index: 100;
 }
 
 /* Glass appearance — applied via .glass modifier in HTML */
 .bottom-nav.glass {
-    backdrop-filter: blur(24px) saturate(200%);
-    background: var(--nav-glass-bg);
-    border: 1px solid var(--nav-glass-border);
-    box-shadow:
-        0 8px 32px var(--nav-glass-shadow),
-        inset 0 1px 0 var(--nav-glass-highlight),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(24px) saturate(200%);
+  background: var(--nav-glass-bg);
+  border: 1px solid var(--nav-glass-border);
+  box-shadow:
+    0 8px 32px var(--nav-glass-shadow),
+    inset 0 1px 0 var(--nav-glass-highlight),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .bottom-nav-item {
-    align-items: center;
-    border-radius: 9999px;
-    color: var(--nav-text);
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    font-family: var(--font-brand);
-    font-size: 0.55rem;
-    font-weight: bold;
-    gap: 0.2rem;
-    letter-spacing: 0.07em;
-    padding: 0.5rem 1.1rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+  align-items: center;
+  border-radius: 9999px;
+  color: var(--nav-text);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-brand);
+  font-size: 0.55rem;
+  font-weight: bold;
+  gap: 0.2rem;
+  letter-spacing: 0.07em;
+  padding: 0.5rem 1.1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
 }
 
 .bottom-nav-icon {
-    height: 1.75rem;
-    object-fit: contain;
-    width: 1.75rem;
+  height: 1.75rem;
+  object-fit: contain;
+  width: 1.75rem;
 }
 
 .bottom-nav-label {
-    display: block;
+  display: block;
 }
 
 /* Active state — glow */
 .bottom-nav-item.is-active {
-    background: var(--nav-active-bg);
-    box-shadow:
-        0 0 18px var(--nav-active-glow),
-        inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  background: var(--nav-active-bg);
+  box-shadow:
+    0 0 18px var(--nav-active-glow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
 }
 
 /* Hover */
 @media (hover: hover) {
-    .bottom-nav-item:not(.is-active):hover {
-        background: rgba(255, 255, 255, 0.15);
-    }
+  .bottom-nav-item:not(.is-active):hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
 }
 
 /* Press */
 .bottom-nav-item:active {
-    transform: scale(0.93);
+  transform: scale(0.93);
 }
 
 /* Desktop: 3× scale */
 @media (width >= 76.8rem) {
-    .bottom-nav {
-        padding: 1rem 1.5rem;
-    }
+  .bottom-nav {
+    padding: 1rem 1.5rem;
+  }
 
-    .bottom-nav-item {
-        font-size: 1.65rem;
-        gap: 0.6rem;
-        padding: 1.5rem 3.5rem;
-    }
+  .bottom-nav-item {
+    font-size: 1.65rem;
+    gap: 0.6rem;
+    padding: 1.5rem 3.5rem;
+  }
 
-    .bottom-nav-icon {
-        height: 5.25rem;
-        width: 5.25rem;
-    }
+  .bottom-nav-icon {
+    height: 5.25rem;
+    width: 5.25rem;
+  }
 }
 
 /* ==========================================================================
    13. Theme toggle button
-   ========================================================================== */
+========================================================================== */
 
 /* Structure */
 .theme-toggle {
-    border-radius: 9999px;
-    bottom: calc(6.5rem + env(safe-area-inset-bottom, 0px));
-    cursor: pointer;
-    font-size: 1.1rem;
-    height: 2.75rem;
-    line-height: 1;
-    position: fixed;
-    right: 1.5rem;
-    transition: background-color 0.2s ease, transform 0.15s ease;
-    width: 2.75rem;
-    z-index: 100;
+  border-radius: 9999px;
+  bottom: calc(6.5rem + env(safe-area-inset-bottom, 0px));
+  cursor: pointer;
+  font-size: 1.1rem;
+  height: 2.75rem;
+  line-height: 1;
+  position: fixed;
+  right: 1.5rem;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  width: 2.75rem;
+  z-index: 100;
 }
 
 /* Glass appearance — applied via .glass modifier in HTML */
 .theme-toggle.glass {
-    backdrop-filter: blur(12px);
-    background: var(--toggle-bg);
-    border: 1px solid var(--toggle-border);
+  backdrop-filter: blur(12px);
+  background: var(--toggle-bg);
+  border: 1px solid var(--toggle-border);
 }
 
 .theme-toggle.glass:hover {
-    background: var(--nav-glass-bg);
+  background: var(--nav-glass-bg);
 }
 
 .theme-toggle:active {
-    transform: scale(0.93);
+  transform: scale(0.93);
 }
 
 @media (width >= 76.8rem) {
-    .theme-toggle {
-        bottom: calc(12rem + env(safe-area-inset-bottom, 0px));
-        font-size: 2rem;
-        height: 4.5rem;
-        right: 2.5rem;
-        width: 4.5rem;
-    }
+  .theme-toggle {
+    bottom: calc(12rem + env(safe-area-inset-bottom, 0px));
+    font-size: 2rem;
+    height: 4.5rem;
+    right: 2.5rem;
+    width: 4.5rem;
+  }
 }
 
 

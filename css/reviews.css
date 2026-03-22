@@ -6,126 +6,126 @@
    3. Quote text
    4. Stars
    5. Attribution (name + avatar)
-   ========================================================================== */
+========================================================================== */
 
 
 /* ==========================================================================
    1. Card layout
-   ========================================================================== */
+========================================================================== */
 
 .review {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    height: 100%;
-    padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 100%;
+  padding: 1.25rem;
 }
 
 
 /* ==========================================================================
    2. Open-quote header — large " left, horizontal rule extends right
-   ========================================================================== */
+========================================================================== */
 
 .review-openquote {
-    align-items: center;
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 /* The " character */
 .review-openquote::before {
-    color: var(--color-text);
-    content: '\201C';
-    flex-shrink: 0;
-    font-size: 8rem;
-    font-style: normal;
-    font-weight: bold;
-    height: 2.9rem;
-    line-height: 0.75;
-    overflow: hidden;
+  color: var(--color-text);
+  content: '\201C';
+  flex-shrink: 0;
+  font-size: 8rem;
+  font-style: normal;
+  font-weight: bold;
+  height: 2.9rem;
+  line-height: 0.75;
+  overflow: hidden;
 }
 
 /* The line extending to the right */
 .review-openquote::after {
-    background: var(--color-border);
-    content: '';
-    flex: 1;
-    height: 3px;
+  background: var(--color-border);
+  content: '';
+  flex: 1;
+  height: 3px;
 }
 
 
 /* ==========================================================================
    3. Quote text
-   ========================================================================== */
+========================================================================== */
 
 .review-quote {
-    flex: 1;
-    margin: 0;
-    padding: 0;
+  flex: 1;
+  margin: 0;
+  padding: 0;
 }
 
 .review-quote p {
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    display: -webkit-box;
-    font-size: 2rem;
-    font-style: italic;
-    font-weight: bold;
-    line-height: 1.4;
-    margin: 0;
-    min-height: 9rem;
-    overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  font-size: 2rem;
+  font-style: italic;
+  font-weight: bold;
+  line-height: 1.4;
+  margin: 0;
+  min-height: 9rem;
+  overflow: hidden;
 }
 
 
 /* ==========================================================================
    4. Stars — centered, not restyled
-   ========================================================================== */
+========================================================================== */
 
 .review-stars {
-    display: grid;
-    place-content: center;
+  display: grid;
+  place-content: center;
 }
 
 
 /* ==========================================================================
    5. Attribution — [short rule] [name, location] [avatar]
-   ========================================================================== */
+========================================================================== */
 
 .review-attribution {
-    align-items: center;
-    display: flex;
-    gap: 0.75rem;
+  align-items: center;
+  display: flex;
+  gap: 0.75rem;
 }
 
 /* Short horizontal rule to the left of the name */
 .review-attribution::before {
-    background: var(--color-border);
-    content: '';
-    display: block;
-    flex-shrink: 0;
-    height: 3px;
-    width: 7.5rem;
+  background: var(--color-border);
+  content: '';
+  display: block;
+  flex-shrink: 0;
+  height: 3px;
+  width: 7.5rem;
 }
 
 .review-name {
-    flex: 1;
-    font-size: 1.3rem;
-    font-style: normal;
-    font-weight: bold;
-    line-height: 1.2;
+  flex: 1;
+  font-size: 1.3rem;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 1.2;
 }
 
 .review-location {
-    color: var(--color-text-muted);
-    font-weight: normal;
+  color: var(--color-text-muted);
+  font-weight: normal;
 }
 
 .review-avatar {
-    border-radius: 50%;
-    flex-shrink: 0;
-    height: 3.5rem;
-    object-fit: cover;
-    width: 3.5rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+  height: 3.5rem;
+  object-fit: cover;
+  width: 3.5rem;
 }

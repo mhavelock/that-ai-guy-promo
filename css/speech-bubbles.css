@@ -7,176 +7,171 @@
 /* ==========================================================================
    1. Speech bubbles
    ========================================================================== */
-   
+
 /* Phone + speech bubbles container */
 .promo-phone-wrap {
-    flex-shrink: 0;
-    position: relative;
-    width: 60%;
+  flex-shrink: 0;
+  position: relative;
+  width: 60%;
 }
 
 @media (width >= 76.8rem) {
-    .promo-phone-wrap {
-        width: 42%;
-    }
+  .promo-phone-wrap {
+    width: 42%;
+  }
 }
 
 .promo-phone-wrap figure {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    position: absolute;
+  align-items: center;
+  display: flex;
+  height: auto;
+  justify-content: center;
+  position: absolute;
 }
+
 .promo-phone-wrap figure figcaption {
-    position: absolute;
-    z-index: 1;
+  position: absolute;
+  z-index: 1;
 }
 
 .promo-phone {
-    display: block;
-    height: auto;
-    width: 100%;
+  display: block;
+  height: auto;
+  width: 100%;
 }
 
 /* Speech bubbles — absolutely positioned within phone container.
    Use imgresize- prefix classes to resize once correct-sized images arrive. */
 .promo-phone-wrap > figure:first-child {
-    height: auto;
-    position: absolute;
+  height: auto;
+  position: absolute;
   text-align: center;
 }
 
 .promo-phone-wrap figcaption {
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: var(--letter-space-sm);
-    line-height: var(--line-height-component);
+  font-weight: bold;
+  letter-spacing: var(--letter-space-sm);
+  line-height: var(--line-height-component);
+  text-transform: uppercase;
 }
 
 /* bulle3 — REALLY!? — top right */
 .imgresize-bubble-1 {
-    left: 45%;
-    top: -23%;
-    width: 57%;
-    min-width: 14rem;
+  left: 45%;
+  min-width: 14rem;
+  top: -23%;
+  width: 57%;
 }
 
 .imgresize-bubble-1 figcaption {
-    left: 22%;
-    top:  34%;
-    transform: rotate(-20deg);
-    transform-origin: left;
-    font-size: clamp(1.75rem, -1.77rem + 3.9vw, 2rem);
+  font-size: clamp(1.75rem, -1.77rem + 3.9vw, 2.75rem);
+  margin-left: -0.5rem;
+  top: 34%;
+  transform: rotate(-20deg);
+  transform-origin: left;
 }
-
 
 /* bulle2 — FEWER, NOT LESS — upper right */
 .imgresize-bubble-2 {
-    left: 65%;
-    top: -10%;
-    width: 53%;
-    min-width: 15.5rem;
+  left: 62%;
+  min-width: 15.5rem;
+  top: -10%;
+  width: 53%;
 }
 
 .imgresize-bubble-2 figcaption {
+  font-size: clamp(1.75rem, -1.77rem + 3.9vw, 2.5rem);
+  margin-left: -0.5rem;
   top: 22%;
-  left: 24%;
-  font-size: clamp(1.75rem, -1.77rem + 3.9vw, 2rem);
 }
 
 /* bulle6 — NONSENSE!! — mid right */
 .imgresize-bubble-3 {
-    left: 66%;
-    top: 12%;
-    width: 67%;
-    min-width: 15rem;
+  left: 66%;
+  min-width: 15rem;
+  top: 12%;
+  width: 67%;
 }
 
 .imgresize-bubble-3 figcaption {
-    top: 28%;
-    left:  30%;
-    letter-spacing: 0;
-    font-size: clamp(2.25rem, -1.77rem + 3.9vw, 2rem);
-    font-weight: var(--font-weight-light);
+  font-size: clamp(1.75rem, -1.77rem + 3.9vw, 2.25rem);
+  font-weight: var(--font-weight-light);
+  letter-spacing: 0;
+  margin-left: 0.5rem;
+  top: 28%;
 }
 
 /* bulle8 — FIGURATIVELY? — lower right */
 .imgresize-bubble-4 {
-    left: 90%;
-    top: 50%;
-    width: 61%;
-    min-width: 15rem;
+  left: 90%;
+  min-width: 15rem;
+  top: 50%;
+  width: 61%;
 }
 
 .imgresize-bubble-4 figcaption {
-    top: 30%;
-    left: 20%;
-    letter-spacing: 0;
-    font-size: 0.75em;
-    font-size: clamp(2rem, -1.77rem + 3.9vw, 2.5rem);
-    font-weight: var(--font-weight-heading);
+  font-size: clamp(1.5rem, -1.77rem + 3.9vw, 2.75rem);
+  font-weight: var(--font-weight-heading);
+  letter-spacing: 0;
+  margin-left: -1rem;
+  top: 30%;
 }
 
 @media (width >= 76.8rem) {
   /* bulle3 — REALLY!? — top right */
   .imgresize-bubble-1 {
-      left: 50%;
-      top: -7.5rem;
-      width: 26%;
-      min-width: 55rem;
-      min-width: 30rem;
+    left: 50%;
+    min-width: 30rem;
+    top: -7.5rem;
+    width: 26%;
   }
 
   .imgresize-bubble-1 figcaption {
-      left: 3.2rem;
-      top: 44%;
-      transform: rotate(-20deg);
-      transform-origin: left;
+    margin-left: -1rem;
+    top: 44%;
+    transform: rotate(-20deg);
+    transform-origin: left;
   }
-
 
   /* bulle2 — FEWER, NOT LESS — upper right */
   .imgresize-bubble-2 {
-      left: 69%;
-      top: 7%;
-      width: 50%;
+    left: 69%;
+    top: 7%;
+    width: 50%;
   }
 
   .imgresize-bubble-2 figcaption {
-      top: 3rem;
-      margin-left: -0.55em;
+    margin-left: -0.55em;
+    top: 5rem;
   }
 
   /* bulle6 — NONSENSE!! — mid right */
   .imgresize-bubble-3 {
-      left: 74%;
-        top: 25%;
-        width: 55%;
-        text-align: center;
+    left: 74%;
+    text-align: center;
+    top: 25%;
+    width: 55%;
   }
 
   .imgresize-bubble-3 figcaption {
-              top: 7.5rem;
-        margin-left: -0.55em;
-        letter-spacing: 0;
-        font-size: 1.5em;
-      font-weight: var(--font-weight-light);
+    font-size: 1.5em;
+    font-weight: var(--font-weight-light);
+    letter-spacing: 0;
+    margin-left: 0.33em;
+    top: 7.5rem;
   }
 
   /* bulle8 — FIGURATIVELY? — lower right */
   .imgresize-bubble-4 {
-      left: 93%;
-      top: 56%;
-      width: 50%;
+    left: 93%;
+    top: 56%;
+    width: 50%;
   }
 
   .imgresize-bubble-4 figcaption {
-      top: 4rem;
-      margin-left: -0.33rem;
-      letter-spacing: 0;
-      font-size: 1.5em;
-      font-weight: var(--font-weight-body);
+    font-weight: var(--font-weight-body);
+    letter-spacing: 0;
+    margin-left: -0.33rem;
+    top: 4rem;
   }
-
 }

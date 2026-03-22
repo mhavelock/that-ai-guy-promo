@@ -1,373 +1,373 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>That AI Guy — The App That Won't Stay Quiet</title>
-    <meta name="description" content="That AI Guy is the iOS app that listens to your conversations and interrupts with pedantic corrections and put-downs. Download free on the App Store.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>That AI Guy — The App That Won't Stay Quiet</title>
+  <meta name="description" content="That AI Guy is the iOS app that listens to your conversations and interrupts with pedantic corrections and put-downs. Download free on the App Store.">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="That AI Guy">
-    <meta property="og:description" content="The AI that listens, waits, and interrupts — at exactly the wrong moment.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://thataiguy.app/">
-    <meta property="og:image" content="https://thataiguy.app/assets/og-image.png">
+  <!-- Open Graph -->
+  <meta property="og:title" content="That AI Guy">
+  <meta property="og:description" content="The AI that listens, waits, and interrupts — at exactly the wrong moment.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thataiguy.app/">
+  <meta property="og:image" content="https://thataiguy.app/assets/og-image.png">
 
-    <!-- Theme colour for mobile browsers -->
-    <meta name="theme-color" content="#f2f4f7" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#111318" media="(prefers-color-scheme: dark)">
+  <!-- Theme colour for mobile browsers -->
+  <meta name="theme-color" content="#f2f4f7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111318" media="(prefers-color-scheme: dark)">
 
-    <!-- Favicons -->
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="manifest" href="site.webmanifest">
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
 
-    <!-- iOS / App Store -->
-    <!-- Smart App Banner — uncomment and update app-id once live on the App Store -->
-    <!-- <meta name="apple-itunes-app" content="app-id=PLACEHOLDER"> -->
+  <!-- iOS / App Store -->
+  <!-- Smart App Banner — uncomment and update app-id once live on the App Store -->
+  <!-- <meta name="apple-itunes-app" content="app-id=PLACEHOLDER"> -->
 
-    <!-- Early theme init — prevents flash of wrong theme.
-         Reads saved preference from localStorage; falls back to system preference.
-         Must run inline before CSS is applied. -->
-    <script>
-        (function () {
-            var saved = localStorage.getItem('thaiaiguy:theme');
-            var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-            document.documentElement.dataset.theme = theme;
-        }());
-    </script>
+  <!-- Early theme init — prevents flash of wrong theme.
+    Reads saved preference from localStorage; falls back to system preference.
+    Must run inline before CSS is applied. -->
+  <script>
+    (function () {
+      var saved = localStorage.getItem('thaiaiguy:theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.dataset.theme = theme;
+    }());
+  </script>
 
-    <!-- Fredoka variable font (300–700) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap">
+  <!-- Fredoka variable font (300–700) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap">
 
-    <!-- Critical styles -->
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/theme.css">
+  <!-- Critical styles -->
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/theme.css">
 </head>
 <body>
 
-    <a class="u-skip-link" href="#main-content">Skip to main content</a>
+  <a class="u-skip-link" href="#main-content">Skip to main content</a>
 
-    <main id="main-content" class="promo-main">
-        <!-- Intro: logo floats left, text wraps around it -->
-        <section class="promo-section promo-intro" aria-label="Introduction">
-                <img
-                    src="assets/components/logo-tg.svg"
-                    alt="That AI Guy"
-                    class="promo-logo"
-                    width="120"
-                    height="120"
-                >
+  <main id="main-content" class="promo-main">
+    <!-- Intro: logo floats left, text wraps around it -->
+    <section class="promo-section promo-intro" aria-label="Introduction">
+        <img
+          src="assets/components/logo-tg.svg"
+          alt="That AI Guy"
+          class="promo-logo"
+          width="120"
+          height="120"
+        >
 
-                <div class="promo-text">
-                    <p><span><strong><span>B</span>ring</strong> the infinite wisdom and infinite annoyance of AI in to your own home.</span>  Have <em>That AI Guy</em> insult you &amp; your guests — caustic, pedantic, and relentless.</p>
-                    <p>At the press of a button, <em>That AI Guy</em> will listen into your conversation and keep interrupting you with pedantic corrections, caustic judgements, petty insults, smug remarks, and backhanded compliments.</p>
-                    <p>Flagellate yourself with an unrelenting onslaught of unsolicited, rude &amp; condescending personal attacks.</p>
-                    <p>Yours faithfully,</p>
-                    <p><em>That AI Guy</em></p>
-                </div>
-        </section>
-
-        <!-- Badges - grid layout, Squishy badge shapes -->
-        <section class="badges-section promo-badges" aria-label="Badges">
-            <h2 class="sr-only">Badges</h2>
-
-            <div class="grid-4x4 badges">
-                <dl>
-                    <dt>Pedantry</dt><dd>Weak<br>press</dd>
-                </dl>
-                <dl>
-                    <dt>Roasting</dt><dd>Greasy<br>digit</dd>
-                </dl>
-                <dl>
-                    <dt>Configurable</dt><dd>Try harder</dd>
-                </dl>
-                <dl>
-                    <dt>AI Powered</dt><dd>Dainty fingers!</dd>
-                </dl>
-            </div>
-        </section>
-
-        <!-- Features: text left, phone + speech bubbles right -->
-        <section class="promo-section promo-features" aria-label="Features">
-            <div class="promo-phone-wrap">
-                <picture>
-                    <source media="(width >= 768px)" srcset="assets/iphones/iphone-ss-01.png">
-                    <img
-                        src="assets/iphones/iphone-ss-01.png"
-                        alt="That AI Guy app — listening screen"
-                        class="promo-phone"
-                        width="100%"
-                        height="auto"
-                    >
-                </picture>
-                <!-- Speech bubbles, absolutely positioned within phone container -->
-                <figure class="imgresize-bubble-1">
-                    <img
-                    src="assets/speech-bubbles/bulle1.svg"
-                    alt="NONSENSE!!"
-                    width="100%"
-                    height="auto"
-                    aria-hidden="true"
-                >
-                    <figcaption>Really!?</figcaption>
-                </figure>
-                <figure class="imgresize-bubble-2">
-                    <img
-                    src="assets/speech-bubbles/bulle2.svg"
-                    alt="FEWER, NOT LESS"
-                    width="100%"
-                    height="auto"
-                    aria-hidden="true"
-                >
-                    <figcaption>Fewer,<br>not less</figcaption>
-                </figure>
-                <figure class="imgresize-bubble-3">
-                    <img
-                    src="assets/speech-bubbles/bulle3.svg"
-                    alt="REALLY!?"
-                    width="100%"
-                    height="auto"
-                    aria-hidden="true"
-                >
-                    <figcaption>NONSENSE!!</figcaption>
-                </figure>
-                <figure class="imgresize-bubble-4">
-                    <img
-                    src="assets/speech-bubbles/bulle4.svg"
-                    alt="FIGURATIVELY?"
-                    width="100%"
-                    height="auto"
-                    aria-hidden="true"
-                >
-                    <figcaption>Figuratively?</figcaption>
-                </figure>
-            </div>
-        </section>
-
-        <!-- Roast: two phones left, text right -->
-        <section class="promo-section promo-roast" aria-label="Roast mode">
-            <div class="promo-phone-wrap--duo">
-                <picture>
-                    <source media="(width >= 768px)" srcset="assets/iphones/iphone-ss-02-roastoptions.png">
-                    <img
-                        src="assets/iphones/iphone-ss-02-roastoptions.png"
-                        alt="That AI Guy app — Victim Profile screen"
-                        class="imgresize-phone-sm"
-                        width="600"
-                        height="1262"
-                        loading="lazy"
-                    >
-                </picture>
-                <picture>
-                    <source media="(width >= 768px)" srcset="assets/iphones/iphone-ss-03-settings.png">
-                    <img
-                        src="assets/iphones/iphone-ss-03-settings.png"
-                        alt="That AI Guy app — Settings screen"
-                        class="imgresize-phone-sm"
-                        width="600"
-                        height="1262"
-                        loading="lazy"
-                    >
-                </picture>
-            </div>
-            <div class="promo-text">
-                <!-- 633 x 633 -->
-                <img
-                    src="assets/components/thataiguy-button.svg"
-                    alt="That AI Guy"
-                    class="promo-logo2"
-                    width="200"
-                    height="200"
-                >
-                <p>Alternatively, there&rsquo;s an option to tell That AI Guy your friend&rsquo;s name and a few things that describe them and what they love &mdash; and he&rsquo;ll give them a good-natured roasting.</p>
-                <p>Enter a name and a few details about your victim. That AI Guy does the rest &mdash; tailored, personal, and merciless.</p>
-                <p>Use at your own risk.</p>
-            </div>
-        </section>
-
-        <!-- Sign-off -->
-        <section class="promo-section promo-sign" aria-label="Sign-off">
-             <p>Flagellate yourself with an unrelenting onslaught of unsolicited, rude &amp; condescending personal attacks.</p>
-            <p>Yours faithfully,</p>
-            <p>That AI Guy</p>
-        </section>
-
-        <!-- Download -->
-        <section class="promo-section promo-download" id="download" aria-label="Download">
-            <a href="#" class="btn-appstore" aria-label="Download That AI Guy on the App Store">Download That AI Guy on the App Store</a>
-        </section>
-
-        <div class="grid-1x2">
-            <section class="reviews-section promo-reviews slider" id="reviews" aria-label="Reviews">
-
-                <input type="radio" name="slider" id="slide-1" class="slider__radio" checked>
-                <input type="radio" name="slider" id="slide-2" class="slider__radio">
-                <input type="radio" name="slider" id="slide-3" class="slider__radio">
-                <input type="radio" name="slider" id="slide-4" class="slider__radio">
-                
-                <div class="slider__holder">
-
-                <label for="slide-1" class="slider__item slider__item--1 slider-card">
-                    <div class="review">
-                        <blockquote class="review-quote">
-                            <div class="review-openquote" aria-hidden="true"></div>
-                            <p>A great party ice breaker!</p>
-                        </blockquote>
-                        <div class="stars review-stars">
-                            <input id="review-01" type="range" min=".5" step=".5" value="4.5" max="5" aria-label="Rating: 4.5 out of 5">
-                        </div>
-                        <div class="review-attribution">
-                            <cite class="review-name">Mayim<span class="review-location">, Los Angeles</span></cite>
-                            <picture>
-                                <source media="(width >= 768px)" srcset="assets/avatars/mayim-bialik.jpeg">
-                                <img src="assets/avatars/mayim-bialik.jpeg" alt="Mayim Bialik" class="review-avatar" width="48" height="48" loading="lazy">
-                            </picture>
-                        </div>
-                    </div>
-                </label>
-
-                <label for="slide-2" class="slider__item slider__item--2 slider-card">
-                    <div class="review">
-                        <blockquote class="review-quote">
-                            <div class="review-openquote" aria-hidden="true"></div>
-                            <p>One star. The typeface wasn’t properly capitalised.</p>
-                        </blockquote>
-                        <div class="stars review-stars">
-                            <input id="review-02" type="range" min=".5" step=".5" value="1" max="5" aria-label="Rating: 1 out of 5">
-                        </div>
-                        <div class="review-attribution">
-                            <cite class="review-name">Sheldon<span class="review-location">, L.A.</span></cite>
-                            <picture>
-                                <source media="(width >= 768px)" srcset="assets/avatars/sheldon.jpg">
-                                <img src="assets/avatars/sheldon.jpg" alt="Sheldon" class="review-avatar" width="48" height="48" loading="lazy">
-                            </picture>
-                        </div>
-                    </div>
-                </label>
-
-                <label for="slide-3" class="slider__item slider__item--3 slider-card">
-                    <div class="review">
-                        <blockquote class="review-quote">
-                            <div class="review-openquote" aria-hidden="true"></div>
-                            <p>We haven't had this much fun since Hungry Hungry Hippo.</p>
-                        </blockquote>
-                        <div class="stars review-stars">
-                            <input id="review-03" type="range" min=".5" step=".5" value="4.5" max="5" aria-label="Rating: 4.5 out of 5">
-                        </div>
-                        <div class="review-attribution">
-                            <cite class="review-name">Ben<span class="review-location">, Cockermouth</span></cite>
-                            <picture>
-                                <source media="(width >= 768px)" srcset="assets/avatars/ben-shapiro.jpeg">
-                                <img src="assets/avatars/ben-shapiro.jpeg" alt="Ben" class="review-avatar" width="48" height="48" loading="lazy">
-                            </picture>
-                        </div>
-                    </div>
-                </label>
-
-                <label for="slide-4" class="slider__item slider__item--4 slider-card">
-                    <div class="review">
-                        <blockquote class="review-quote">
-                            <div class="review-openquote" aria-hidden="true"></div>
-                            <p>I noticed some grammatical errors.</p>
-                        </blockquote>
-                        <div class="stars review-stars">
-                            <input id="review-04" type="range" min=".5" step=".5" value="1" max="5" aria-label="Rating: 1 out of 5">
-                        </div>
-                        <div class="review-attribution">
-                            <cite class="review-name">Jeff<span class="review-location">, Springfield</span></cite>
-                            <picture>
-                                <source media="(width >= 768px)" srcset="assets/avatars/jeff-albertson.jpeg">
-                                <img src="assets/avatars/jeff-albertson.jpeg" alt="Jeff Albertson" class="review-avatar" width="48" height="48" loading="lazy">
-                            </picture>
-                        </div>
-                    </div>
-                </label>
-
-                </div><!-- slider__holder -->
-            
-                <div class="bullets">
-                
-                    <label for="slide-1" class="bullets__item bullets__item--1">1</label>
-                    <label for="slide-2" class="bullets__item bullets__item--2">2</label>
-                    <label for="slide-3" class="bullets__item bullets__item--3">3</label>
-                    <label for="slide-4" class="bullets__item bullets__item--4">4</label>
-                
-                </div> <!-- Bullets -->
-            </section>
-
-            <!-- Awards -->
-            <section class="awards-section promo-awards" id="awards" aria-label="Awards">
-                <div>
-                    <picture class="fade-in-image shine">
-                        <source media="(width >= 768px)" srcset="assets/graphics/dogg-award01_144dpi_400x400.png">
-                        <img src="assets/graphics/dogg-award01_72dpi_400x400.png" alt="Dogg Best Apple App 2026" loading="lazy" width="200" height="200">
-                    </picture>
-                    <picture class="fade-out-image shine">
-                        <source media="(width >= 768px)" srcset="assets/graphics/dogg-award02_144dpi_400x400.png">
-                        <img src="assets/graphics/dogg-award02_72dpi_400x400.png" alt="Dogg Best Apple App 2026" loading="lazy" width="200" height="200">
-                    </picture>
-                </div>
-            </section>
+        <div class="promo-text">
+          <p><span><strong><span>B</span>ring</strong> the infinite wisdom and infinite annoyance of AI in to your own home.</span>  Have <em>That AI Guy</em> insult you &amp; your guests — caustic, pedantic, and relentless.</p>
+          <p>At the press of a button, <em>That AI Guy</em> will listen into your conversation and keep interrupting you with pedantic corrections, caustic judgements, petty insults, smug remarks, and backhanded compliments.</p>
+          <p>Flagellate yourself with an unrelenting onslaught of unsolicited, rude &amp; condescending personal attacks.</p>
+          <p>Yours faithfully,</p>
+          <p><em>That AI Guy</em></p>
         </div>
+    </section>
 
-    </main>
+    <!-- Badges - grid layout, Squishy badge shapes -->
+    <section class="badges-section promo-badges" aria-label="Badges">
+      <h2 class="sr-only">Badges</h2>
 
-    <footer>
-        <section class="footer-section" id="footer" aria-label="Footer">
-                <!-- 1240 x 572 -->
-                    <img
-                        src="assets/components/that-aiguy-logo.svg"
-                        alt="That AI Guy"
-                        class="promo-logo3"
-                        width="310"
-                        height="143"
-                    >
-        </section>
+      <div class="grid-4x4 badges">
+        <dl>
+          <dt>Pedantry</dt><dd>Weak<br>press</dd>
+        </dl>
+        <dl>
+          <dt>Roasting</dt><dd>Greasy<br>digit</dd>
+        </dl>
+        <dl>
+          <dt>Configurable</dt><dd>Try harder</dd>
+        </dl>
+        <dl>
+          <dt>AI Powered</dt><dd>Dainty fingers!</dd>
+        </dl>
+      </div>
+    </section>
 
-    </footer>
+    <!-- Features: text left, phone + speech bubbles right -->
+    <section class="promo-section promo-features" aria-label="Features">
+      <div class="promo-phone-wrap">
+        <picture>
+          <source media="(width >= 768px)" srcset="assets/iphones/iphone-ss-01.png">
+          <img
+            src="assets/iphones/iphone-ss-01.png"
+            alt="That AI Guy app — listening screen"
+            class="promo-phone"
+            width="100%"
+            height="auto"
+          >
+        </picture>
+        <!-- Speech bubbles, absolutely positioned within phone container -->
+        <figure class="imgresize-bubble-1">
+          <img
+          src="assets/speech-bubbles/bulle1.svg"
+          alt="NONSENSE!!"
+          width="100%"
+          height="auto"
+          aria-hidden="true"
+        >
+          <figcaption>Really!?</figcaption>
+        </figure>
+        <figure class="imgresize-bubble-2">
+          <img
+          src="assets/speech-bubbles/bulle2.svg"
+          alt="FEWER, NOT LESS"
+          width="100%"
+          height="auto"
+          aria-hidden="true"
+        >
+          <figcaption>Fewer,<br>not less</figcaption>
+        </figure>
+        <figure class="imgresize-bubble-3">
+          <img
+          src="assets/speech-bubbles/bulle3.svg"
+          alt="REALLY!?"
+          width="100%"
+          height="auto"
+          aria-hidden="true"
+        >
+          <figcaption>NONSENSE!!</figcaption>
+        </figure>
+        <figure class="imgresize-bubble-4">
+          <img
+          src="assets/speech-bubbles/bulle4.svg"
+          alt="FIGURATIVELY?"
+          width="100%"
+          height="auto"
+          aria-hidden="true"
+        >
+          <figcaption>Figuratively?</figcaption>
+        </figure>
+      </div>
+    </section>
 
-    <!-- Theme toggle -->
-    <button
-        class="theme-toggle glass"
-        id="theme-toggle-btn"
-        type="button"
-        aria-label="Toggle light and dark theme"
-    >◐</button>
+    <!-- Roast: two phones left, text right -->
+    <section class="promo-section promo-roast" aria-label="Roast mode">
+      <div class="promo-phone-wrap--duo">
+        <picture>
+          <source media="(width >= 768px)" srcset="assets/iphones/iphone-ss-02-roastoptions.png">
+          <img
+            src="assets/iphones/iphone-ss-02-roastoptions.png"
+            alt="That AI Guy app — Victim Profile screen"
+            class="imgresize-phone-sm"
+            width="600"
+            height="1262"
+            loading="lazy"
+          >
+        </picture>
+        <picture>
+          <source media="(width >= 768px)" srcset="assets/iphones/iphone-ss-03-settings.png">
+          <img
+            src="assets/iphones/iphone-ss-03-settings.png"
+            alt="That AI Guy app — Settings screen"
+            class="imgresize-phone-sm"
+            width="600"
+            height="1262"
+            loading="lazy"
+          >
+        </picture>
+      </div>
+      <div class="promo-text">
+        <!-- 633 x 633 -->
+        <img
+          src="assets/components/thataiguy-button.svg"
+          alt="That AI Guy"
+          class="promo-logo2"
+          width="200"
+          height="200"
+        >
+        <p>Alternatively, there&rsquo;s an option to tell That AI Guy your friend&rsquo;s name and a few things that describe them and what they love &mdash; and he&rsquo;ll give them a good-natured roasting.</p>
+        <p>Enter a name and a few details about your victim. That AI Guy does the rest &mdash; tailored, personal, and merciless.</p>
+        <p>Use at your own risk.</p>
+      </div>
+    </section>
 
-    <!-- Bottom navigation — Liquid Glass -->
-    <nav class="bottom-nav glass" aria-label="Site navigation">
-        <a href="index.html" class="bottom-nav-item is-active" aria-current="page">
-            <img
-                src="assets/components/logo-tg.svg"
-                alt=""
-                class="bottom-nav-icon"
-                width="28"
-                height="28"
-                aria-hidden="true"
-            >
-            <span class="bottom-nav-label">Home</span>
-        </a>
-        <a href="privacy.html" class="bottom-nav-item">
-            <img
-                src="assets/icons/privacy-policy.svg"
-                alt=""
-                class="bottom-nav-icon"
-                width="28"
-                height="28"
-                aria-hidden="true"
-            >
-            <span class="bottom-nav-label">Privacy</span>
-        </a>
-    </nav>
+    <!-- Sign-off -->
+    <section class="promo-section promo-sign" aria-label="Sign-off">
+      <p>Flagellate yourself with an unrelenting onslaught of unsolicited, rude &amp; condescending personal attacks.</p>
+      <p>Yours faithfully,</p>
+      <p>That AI Guy</p>
+    </section>
 
-    <script src="js/main.js" defer></script>
-    <script src="js/theme.js" defer></script>
-    <script src="js/logger.js" defer></script>
-    
+    <!-- Download -->
+    <section class="promo-section promo-download" id="download" aria-label="Download">
+      <a href="#" class="btn-appstore" aria-label="Download That AI Guy on the App Store">Download That AI Guy on the App Store</a>
+    </section>
+
+    <div class="grid-1x2">
+      <section class="reviews-section promo-reviews slider" id="reviews" aria-label="Reviews">
+
+        <input type="radio" name="slider" id="slide-1" class="slider__radio" checked>
+        <input type="radio" name="slider" id="slide-2" class="slider__radio">
+        <input type="radio" name="slider" id="slide-3" class="slider__radio">
+        <input type="radio" name="slider" id="slide-4" class="slider__radio">
+        
+        <div class="slider__holder">
+
+        <label for="slide-1" class="slider__item slider__item--1 slider-card">
+          <div class="review">
+            <blockquote class="review-quote">
+              <div class="review-openquote" aria-hidden="true"></div>
+              <p>A great party ice breaker!</p>
+            </blockquote>
+            <div class="stars review-stars">
+              <input id="review-01" type="range" min=".5" step=".5" value="4.5" max="5" aria-label="Rating: 4.5 out of 5">
+            </div>
+            <div class="review-attribution">
+              <cite class="review-name">Mayim<span class="review-location">, Los Angeles</span></cite>
+              <picture>
+                <source media="(width >= 768px)" srcset="assets/avatars/mayim-bialik.jpeg">
+                <img src="assets/avatars/mayim-bialik.jpeg" alt="Mayim Bialik" class="review-avatar" width="48" height="48" loading="lazy">
+              </picture>
+            </div>
+          </div>
+        </label>
+
+        <label for="slide-2" class="slider__item slider__item--2 slider-card">
+          <div class="review">
+            <blockquote class="review-quote">
+              <div class="review-openquote" aria-hidden="true"></div>
+              <p>One star. The typeface wasn’t properly capitalised.</p>
+            </blockquote>
+            <div class="stars review-stars">
+              <input id="review-02" type="range" min=".5" step=".5" value="1" max="5" aria-label="Rating: 1 out of 5">
+            </div>
+            <div class="review-attribution">
+              <cite class="review-name">Sheldon<span class="review-location">, L.A.</span></cite>
+              <picture>
+                <source media="(width >= 768px)" srcset="assets/avatars/sheldon.jpg">
+                <img src="assets/avatars/sheldon.jpg" alt="Sheldon" class="review-avatar" width="48" height="48" loading="lazy">
+              </picture>
+            </div>
+          </div>
+        </label>
+
+        <label for="slide-3" class="slider__item slider__item--3 slider-card">
+          <div class="review">
+            <blockquote class="review-quote">
+              <div class="review-openquote" aria-hidden="true"></div>
+              <p>We haven't had this much fun since Hungry Hungry Hippo.</p>
+            </blockquote>
+            <div class="stars review-stars">
+              <input id="review-03" type="range" min=".5" step=".5" value="4.5" max="5" aria-label="Rating: 4.5 out of 5">
+            </div>
+            <div class="review-attribution">
+              <cite class="review-name">Ben<span class="review-location">, Cockermouth</span></cite>
+              <picture>
+                <source media="(width >= 768px)" srcset="assets/avatars/ben-shapiro.jpeg">
+                <img src="assets/avatars/ben-shapiro.jpeg" alt="Ben" class="review-avatar" width="48" height="48" loading="lazy">
+              </picture>
+            </div>
+          </div>
+        </label>
+
+        <label for="slide-4" class="slider__item slider__item--4 slider-card">
+          <div class="review">
+            <blockquote class="review-quote">
+              <div class="review-openquote" aria-hidden="true"></div>
+              <p>I noticed some grammatical errors.</p>
+            </blockquote>
+            <div class="stars review-stars">
+              <input id="review-04" type="range" min=".5" step=".5" value="1" max="5" aria-label="Rating: 1 out of 5">
+            </div>
+            <div class="review-attribution">
+              <cite class="review-name">Jeff<span class="review-location">, Springfield</span></cite>
+              <picture>
+                <source media="(width >= 768px)" srcset="assets/avatars/jeff-albertson.jpeg">
+                <img src="assets/avatars/jeff-albertson.jpeg" alt="Jeff Albertson" class="review-avatar" width="48" height="48" loading="lazy">
+              </picture>
+            </div>
+          </div>
+        </label>
+
+        </div><!-- slider__holder -->
+      
+        <div class="bullets">
+        
+          <label for="slide-1" class="bullets__item bullets__item--1">1</label>
+          <label for="slide-2" class="bullets__item bullets__item--2">2</label>
+          <label for="slide-3" class="bullets__item bullets__item--3">3</label>
+          <label for="slide-4" class="bullets__item bullets__item--4">4</label>
+        
+        </div> <!-- Bullets -->
+      </section>
+
+      <!-- Awards -->
+      <section class="awards-section promo-awards" id="awards" aria-label="Awards">
+        <div>
+          <picture class="fade-in-image shine">
+            <source media="(width >= 768px)" srcset="assets/graphics/dogg-award01_144dpi_400x400.png">
+            <img src="assets/graphics/dogg-award01_72dpi_400x400.png" alt="Dogg Best Apple App 2026" loading="lazy" width="200" height="200">
+          </picture>
+          <picture class="fade-out-image shine">
+            <source media="(width >= 768px)" srcset="assets/graphics/dogg-award02_144dpi_400x400.png">
+            <img src="assets/graphics/dogg-award02_72dpi_400x400.png" alt="Dogg Best Apple App 2026" loading="lazy" width="200" height="200">
+          </picture>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <footer>
+    <section class="footer-section" id="footer" aria-label="Footer">
+        <!-- 1240 x 572 -->
+          <img
+            src="assets/components/that-aiguy-logo.svg"
+            alt="That AI Guy"
+            class="promo-logo3"
+            width="310"
+            height="143"
+          >
+    </section>
+
+  </footer>
+
+  <!-- Theme toggle -->
+  <button
+    class="theme-toggle glass"
+    id="theme-toggle-btn"
+    type="button"
+    aria-label="Toggle light and dark theme"
+  >◐</button>
+
+  <!-- Bottom navigation — Liquid Glass -->
+  <nav class="bottom-nav glass" aria-label="Site navigation">
+    <a href="index.html" class="bottom-nav-item is-active" aria-current="page">
+      <img
+        src="assets/components/logo-tg.svg"
+        alt=""
+        class="bottom-nav-icon"
+        width="28"
+        height="28"
+        aria-hidden="true"
+      >
+      <span class="bottom-nav-label">Home</span>
+    </a>
+    <a href="privacy.html" class="bottom-nav-item">
+      <img
+        src="assets/icons/privacy-policy.svg"
+        alt=""
+        class="bottom-nav-icon"
+        width="28"
+        height="28"
+        aria-hidden="true"
+      >
+      <span class="bottom-nav-label">Privacy</span>
+    </a>
+  </nav>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/theme.js" defer></script>
+  <script src="js/logger.js" defer></script>
+  
 </body>
 </html>
