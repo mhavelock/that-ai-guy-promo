@@ -34,6 +34,11 @@
   z-index: 1;
 }
 
+.promo-phone-wrap figure img {
+  height: auto;
+  width: 100%;
+}
+
 .promo-phone {
   display: block;
   height: auto;
