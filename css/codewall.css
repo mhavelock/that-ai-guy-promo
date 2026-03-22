@@ -31,8 +31,9 @@
   letter-spacing: 0.01em;
   line-height: 1.4;
   margin-bottom: 3rem;
+  overflow-wrap: anywhere; /* break long tokens at float column edge */
   overflow-x: clip; /* clip speech bubble overflow on mobile */
-  padding: 0 var(--space-section-x, 1.25rem);
+  padding: 0; /* full viewport width — no side gutters */
 }
 
 /* Clearfix — contains floats */
@@ -75,25 +76,26 @@
 
 /* ==========================================================================
    Right phones (three screenshots)
-   Mobile:  float right 50% — text wraps left side only
-   Desktop: float right 42% — text wraps left side (inserted ~65% through)
+   Mobile:  float right 75%; Desktop: float right 63%.
+   picture:last-child flex:1.685 = 1262/752 — matches 600×752 angled image
+   height to the 600×1262 pair at any viewport width (100% img on all).
 ========================================================================== */
 
 .codewall-phones-r {
   align-items: flex-start;
-  aspect-ratio: 2100 / 1262;
   display: flex;
   float: right;
   gap: 0.5rem;
   margin-bottom: 0.75rem;
   margin-left: 1rem;
+  max-width: 40.5rem; /* caps phone height at ~225px; kicks in above ~560px vw */
   overflow: hidden;
-  width: 50%;
+  width: 75%;
 }
 
 @media (width >= 76.8rem) {
   .codewall-phones-r {
-    width: 42%;
+    width: 63%;
   }
 }
 
@@ -102,9 +104,10 @@
   min-width: 0;
 }
 
-/* Third screenshot: wider, shows more horizontal content, clipped at bottom */
+/* Third screenshot: flex 1.685 = 1262/752 — makes 600×752 image render
+   at the same height as the 600×1262 pair at 100% width */
 .codewall-phones-r picture:last-child {
-  flex: 1.5;
+  flex: 1.685;
 }
 
 .codewall-phones-r img {
@@ -113,13 +116,137 @@
   width: 100%;
 }
 
+/* Angled screenshot: align-self: initial prevents flex stretch distortion */
+.codewall-phones-r__angled {
+  align-self: initial;
+}
+
 /* ==========================================================================
-   Colour tokens — distinct hues, all medium-dark
+   Colour tokens + animated gradient sweep
+   Each class uses background-clip: text so the gradient paints the glyphs.
+   A comet streak (transparent → base → bright → base → transparent) sweeps
+   right-to-left on a staggered loop per class. text-shadow adds terminal glow.
+   Occasional scale pulses make individual tokens bob and magnify.
 ========================================================================== */
 
-.cw-c { color: #6a1aaa; } /* comment / MARK — rich purple    */
-.cw-k { color: #1a4aaa; } /* keyword / type — vivid navy      */
-.cw-s { color: #aa1a30; } /* string / value — strong crimson  */
-.cw-n { color: #8a1a70; } /* number / hex   — deep magenta    */
-.cw-p { color: #1a7a7a; } /* property / path — teal           */
-.cw-e { color: #3a7a1a; } /* enum / case    — forest green    */
+/* ==========================================================================
+   Black text wave — traveling bulge (font-size pulse) top → bottom
+   6 groups, each offset by 2s. Wave passes through all text in 12s, pauses,
+   repeats. Only inline-safe properties (font-size, letter-spacing) are used.
+========================================================================== */
+
+@keyframes cw-wave {
+  0%, 100% { font-size: 0.9375rem; letter-spacing: 0.01em; }
+  50%      { font-size: 0.975rem;  letter-spacing: 0.013em; }
+}
+
+.cw-wave {
+  animation: cw-wave 12s ease-in-out infinite;
+  animation-delay: calc(var(--wave-n) * 2s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cw-wave { animation: none; }
+}
+
+/* Sweep: comet streak moves right-to-left across each span's background */
+@keyframes cw-sweep {
+  from { background-position: 200% 0; }
+  to   { background-position: -200% 0; }
+}
+
+/* Breathe: very subtle opacity pulse — gives life without distraction */
+@keyframes cw-breathe {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.82; }
+}
+
+/* Base: all syntax spans paint their gradient onto the glyph shapes */
+.cw-c,
+.cw-k,
+.cw-s,
+.cw-n,
+.cw-p,
+.cw-e {
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 300% 100%;
+  color: transparent;
+  display: inline;
+}
+
+/* comment / MARK — rich purple */
+.cw-c {
+  animation: cw-sweep 7s linear infinite 0s, cw-breathe 9s ease-in-out infinite 0.5s;
+  background-image: linear-gradient(90deg,
+    transparent 0%, #6a1aaa 15%,
+    #cc88ff 48%, #e0aaff 50%, #cc88ff 52%,
+    #6a1aaa 85%, transparent 100%
+  );
+  text-shadow: 0 0 8px rgba(106, 26, 170, 0.45);
+}
+
+/* keyword / type — vivid navy */
+.cw-k {
+  animation: cw-sweep 6s linear infinite -2s, cw-breathe 11s ease-in-out infinite 2s;
+  background-image: linear-gradient(90deg,
+    transparent 0%, #1a4aaa 15%,
+    #6699ff 48%, #99bbff 50%, #6699ff 52%,
+    #1a4aaa 85%, transparent 100%
+  );
+  text-shadow: 0 0 8px rgba(26, 74, 170, 0.45);
+}
+
+/* string / value — strong crimson */
+.cw-s {
+  animation: cw-sweep 8s linear infinite -4s, cw-breathe 7s ease-in-out infinite 1s;
+  background-image: linear-gradient(90deg,
+    transparent 0%, #aa1a30 15%,
+    #ff6680 48%, #ffaaaa 50%, #ff6680 52%,
+    #aa1a30 85%, transparent 100%
+  );
+  text-shadow: 0 0 8px rgba(170, 26, 48, 0.45);
+}
+
+/* number / hex — deep magenta */
+.cw-n {
+  animation: cw-sweep 5s linear infinite -1s, cw-breathe 13s ease-in-out infinite 3.5s;
+  background-image: linear-gradient(90deg,
+    transparent 0%, #8a1a70 15%,
+    #ee55cc 48%, #ffaaee 50%, #ee55cc 52%,
+    #8a1a70 85%, transparent 100%
+  );
+  text-shadow: 0 0 8px rgba(138, 26, 112, 0.45);
+}
+
+/* property / path — teal */
+.cw-p {
+  animation: cw-sweep 9s linear infinite -3s, cw-breathe 10s ease-in-out infinite 0s;
+  background-image: linear-gradient(90deg,
+    transparent 0%, #1a7a7a 15%,
+    #44dddd 48%, #aaffff 50%, #44dddd 52%,
+    #1a7a7a 85%, transparent 100%
+  );
+  text-shadow: 0 0 8px rgba(26, 122, 122, 0.45);
+}
+
+/* enum / case — forest green */
+.cw-e {
+  animation: cw-sweep 6.5s linear infinite -5s, cw-breathe 8s ease-in-out infinite 4s;
+  background-image: linear-gradient(90deg,
+    transparent 0%, #3a7a1a 15%,
+    #88ee44 48%, #ccff99 50%, #88ee44 52%,
+    #3a7a1a 85%, transparent 100%
+  );
+  text-shadow: 0 0 8px rgba(58, 122, 26, 0.45);
+}
+
+/* Reduce motion: keep colours, drop animation */
+@media (prefers-reduced-motion: reduce) {
+  .cw-c { animation: none; background-image: linear-gradient(#6a1aaa, #6a1aaa); }
+  .cw-k { animation: none; background-image: linear-gradient(#1a4aaa, #1a4aaa); }
+  .cw-s { animation: none; background-image: linear-gradient(#aa1a30, #aa1a30); }
+  .cw-n { animation: none; background-image: linear-gradient(#8a1a70, #8a1a70); }
+  .cw-p { animation: none; background-image: linear-gradient(#1a7a7a, #1a7a7a); }
+  .cw-e { animation: none; background-image: linear-gradient(#3a7a1a, #3a7a1a); }
+}

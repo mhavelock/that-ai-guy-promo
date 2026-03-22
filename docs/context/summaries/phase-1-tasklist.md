@@ -53,6 +53,17 @@
 - [x] Mobile (< 768px) fixed font sizes: `p` = 1.2rem / lh 1.5; headings 1.25–1.5rem
 - [x] Desktop (≥ 768px): `clamp()` fluid scaling; `p` max 2rem
 
+### Session 2026-03-22 — Codewall animations + phones layout
+
+- [x] **Codewall syntax animations** — `background-clip: text` gradient sweeps on 6 syntax classes (`.cw-c/k/s/n/p/e`); comet streak (`cw-sweep`) + opacity breathing (`cw-breathe`) per class with staggered durations; `prefers-reduced-motion` fallbacks to flat colour
+- [x] **Codewall wave animation** — font-size pulse (`cw-wave`) traveling top→bottom via `--wave-n` × 2s delay; 6 wave groups in HTML; inline-safe (font-size + letter-spacing only)
+- [x] **Codewall full-width text** — removed padding from `.promo-codewall`; text runs edge-to-edge
+- [x] **Phones-r 1.5× size increase** — width 50%→75% (mobile), 42%→63% (desktop)
+- [x] **Victimsettings height match** — `flex: 1.685` on `picture:last-child` (derived: 1262/752 = 1.678); `align-self: initial`; all imgs `width: 100%`; height matches 600×1262 pair at any viewport
+- [x] **Phones max-height cap** — `max-width: 40.5rem` on `.codewall-phones-r`; caps phone height at ~225px above ~560px viewport
+- [x] **Inline flow fix** — `codewall-phones-r` changed from `<div>` → `<span>`; avoids anonymous block splitting that was breaking float wrapping
+- [x] **`overflow-wrap: anywhere`** on `.promo-codewall` — prevents long tokens (e.g. `SpeechRecognitionCoordinator.swift`) from gapping below the float
+
 ### Session 2026-03-22 — Intro layout refinements + asset tidy
 
 - [x] **Intro logo fluid scaling** — `clamp()` growth from 150px (450px vp) → 200px (768px+); shape-outside floats scale in sync
@@ -138,6 +149,7 @@
 ## Phase 2 *(later)*
 
 - [ ] Desktop layout pass (bottom nav, typography, spacing)
+- [ ] **Codewall desktop layout** — at 76.8rem+ the left phone floats left (42%) and phones-r floats right (63%) = 105% total, they overlap. Fix: reduce phones-r desktop width, or rethink layout at that breakpoint
 - [ ] **Speech bubble animation** (iterative): jiggle → jiggle-pause loop → dart toward iPhone → desync → scroll-triggered → viewport-width triggered
 - [ ] **Light effect** (dark mode): default light → dark on = 3s pause + `pull-chord-on.mp3` + overhead radial glow → dark off = `pull-chord-off.mp3` + glow removed
 - [ ] Deploy to GitHub Pages + custom domain

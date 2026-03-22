@@ -136,56 +136,28 @@
         </div>
       </div>
 
-      <!-- Text part 1: flows alongside left phone on desktop -->
-      <span class="cw-c">// MARK: — AudioSessionManager.swift  [ThatAIGuy v3.2.1 / build 2847]</span><br>
+      <span class="cw-wave" style="--wave-n: 0"><span class="cw-c">// MARK: — AudioSessionManager.swift  [ThatAIGuy v3.2.1 / build 2847]</span><br>
       <span class="cw-k">AVAudioSession</span>.sharedInstance()<br>
       &nbsp;&nbsp;.setCategory(<span class="cw-e">.playAndRecord</span>, mode: <span class="cw-e">.measurement</span>,<br>
       &nbsp;&nbsp;&nbsp;&nbsp;options: [<span class="cw-e">.defaultToSpeaker</span>, <span class="cw-e">.allowBluetooth</span>, <span class="cw-e">.allowBluetoothA2DP</span>])<br>
       &nbsp;&nbsp;.setActive(<span class="cw-s">true</span>, options: <span class="cw-e">.notifyOthersOnDeactivation</span>)<br>
       sampleRate: <span class="cw-n">44100.0</span> Hz&nbsp;&nbsp; ioBufferDuration: <span class="cw-n">0.005208</span> s&nbsp;&nbsp; channels: <span class="cw-n">1</span><br>
-      <span class="cw-k">AVAudioFormat</span> pcmFloat32 @<span class="cw-n">44.1</span>kHz&nbsp;&nbsp;mono&nbsp;&nbsp;interleaved:<span class="cw-s">false</span><br>
+      <span class="cw-k">AVAudioFormat</span> pcmFloat32 @<span class="cw-n">44.1</span>kHz&nbsp;&nbsp;mono&nbsp;&nbsp;interleaved:<span class="cw-s">false</span><br></span>
       <br>
-      <span class="cw-k">let</span> engine = <span class="cw-k">AVAudioEngine</span>()<br>
+      <span class="cw-wave" style="--wave-n: 1"><span class="cw-k">let</span> engine = <span class="cw-k">AVAudioEngine</span>()<br>
       <span class="cw-k">let</span> inputNode = engine.inputNode<br>
       <span class="cw-k">let</span> recordingFormat = inputNode.outputFormat(forBus: <span class="cw-n">0</span>)<br>
       inputNode.installTap(onBus: <span class="cw-n">0</span>, bufferSize: <span class="cw-n">1024</span>, format: recordingFormat)<br>
       &nbsp;&nbsp;{ [<span class="cw-k">weak self</span>] buffer, _ <span class="cw-k">in</span><br>
       &nbsp;&nbsp;&nbsp;&nbsp;self?.recognitionRequest.append(buffer)<br>
-      &nbsp;&nbsp;}<br>
+      &nbsp;&nbsp;}<br></span>
       <br>
-      <span class="cw-c">// AudioBufferList memory layout</span><br>
+      <span class="cw-wave" style="--wave-n: 2"><span class="cw-c">// AudioBufferList memory layout</span><br>
       ptr: <span class="cw-n">0x00007f9a4c201020</span>&nbsp;&nbsp; capacity: <span class="cw-n">1</span>&nbsp;&nbsp; mNumberBuffers: <span class="cw-n">1</span><br>
-      &nbsp;&nbsp;mData: <span class="cw-n">0x00007f9a4c3a0000</span>&nbsp;&nbsp; mDataByteSize: <span class="cw-n">4096</span><br>
+      &nbsp;&nbsp;mData: <span class="cw-n">0x00007f9a4c3a0000</span>&nbsp;&nbsp; mDataByteSize: <span class="cw-n">4096</span><br></span>
       <br>
-      <span class="cw-c">// MARK: — SpeechRecognitionCoordinator.swift</span><br>
-      <span class="cw-k">SFSpeechRecognizer</span>(locale: <span class="cw-k">Locale</span>(identifier: <span class="cw-s">"en-GB"</span>))<br>
-      &nbsp;&nbsp;.isAvailable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→ <span class="cw-s">true</span><br>
-      &nbsp;&nbsp;.supportsOnDevice&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→ <span class="cw-s">false</span><br>
-      &nbsp;&nbsp;.defaultTaskHint&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→ <span class="cw-e">.dictation</span><br>
-      <br>
-      <span class="cw-k">SFSpeechAudioBufferRecognitionRequest</span>()<br>
-      &nbsp;&nbsp;.shouldReportPartialResults&nbsp;&nbsp;&nbsp;= <span class="cw-s">true</span><br>
-      &nbsp;&nbsp;.requiresOnDeviceRecognition&nbsp;&nbsp;= <span class="cw-s">false</span><br>
-      &nbsp;&nbsp;.taskHint&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span class="cw-e">.dictation</span><br>
-      &nbsp;&nbsp;.contextualStrings&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= [<span class="cw-s">"pedantry"</span>, <span class="cw-s">"flagellate"</span>, <span class="cw-s">"epistemological"</span>,<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;<span class="cw-s">"condescending"</span>, <span class="cw-s">"remonstrate"</span>, <span class="cw-s">"supercilious"</span>, <span class="cw-s">"tautological"</span>]<br>
-      <br>
-      <span class="cw-c">// Recognition task state machine</span><br>
-      <span class="cw-k">enum</span> RecognitionState { <span class="cw-k">case</span> idle, listening, processing, transmitting, error }<br>
-      &nbsp;&nbsp;idle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→ <span class="cw-n">0x00</span>&nbsp;&nbsp; listening&nbsp;&nbsp;&nbsp;&nbsp;→ <span class="cw-n">0x01</span>&nbsp;&nbsp; processing&nbsp;&nbsp;&nbsp;→ <span class="cw-n">0x02</span><br>
-      &nbsp;&nbsp;transmitting → <span class="cw-n">0x03</span>&nbsp;&nbsp; error&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→ <span class="cw-n">0xFF</span>&nbsp;&nbsp; retry limit: <span class="cw-n">3</span><br>
-      <br>
-      <span class="cw-c">// NLP: multi-scheme token classification</span><br>
-      <span class="cw-k">NLTagger</span>(tagSchemes: [<span class="cw-e">.tokenType</span>, <span class="cw-e">.language</span>, <span class="cw-e">.lexicalClass</span>, <span class="cw-e">.sentimentScore</span>])<br>
-      &nbsp;&nbsp;.dominantLanguage → <span class="cw-k">NLLanguage</span>(<span class="cw-s">"en"</span>)<br>
-      &nbsp;&nbsp;.tags(unit: <span class="cw-e">.word</span>, options: [<span class="cw-e">.joinNames</span>, <span class="cw-e">.omitWhitespace</span>])<br>
-      <br>
-      tagDistribution (n=<span class="cw-n">847</span>): noun <span class="cw-n">0.387</span>&nbsp;&nbsp;verb <span class="cw-n">0.214</span>&nbsp;&nbsp;adj <span class="cw-n">0.163</span>&nbsp;&nbsp;adv <span class="cw-n">0.071</span><br>
-      sentimentScore → <span class="cw-n">-0.74</span>&nbsp;&nbsp; dominance: <span class="cw-n">0.31</span>&nbsp;&nbsp; arousal: <span class="cw-n">0.66</span>&nbsp;&nbsp; valence: <span class="cw-n">-0.82</span><br>
-      Russell circumplex: quadrant IV (hostile / low-pleasure)<br>
-
-      <!-- Three screenshot phones — float right mobile + desktop, inserted at ~65% of text -->
-      <div class="codewall-phones-r">
+      <!-- Three screenshot phones — float right mid-text; span preserves inline flow -->
+      <span class="codewall-phones-r">
         <picture>
           <source type="image/webp" srcset="assets/graphics/iphones/iphone-ss-02-roastoptions_72dpi.webp 1x, assets/graphics/iphones/iphone-ss-02-roastoptions_144dpi.webp 2x">
           <img
@@ -206,7 +178,7 @@
             loading="lazy"
           >
         </picture>
-        <picture>
+        <picture class="codewall-phones-r__angled">
           <source type="image/webp" srcset="assets/graphics/iphones/iphone-ss-04-victimsettings_72dpi.webp 1x, assets/graphics/iphones/iphone-ss-04-victimsettings_144dpi.webp 2x">
           <img
             src="assets/graphics/iphones/iphone-ss-04-victimsettings.png"
@@ -216,8 +188,33 @@
             loading="lazy"
           >
         </picture>
-      </div>
-
+      </span>
+      <span class="cw-wave" style="--wave-n: 3"><span class="cw-c">// MARK: — SpeechRecognitionCoordinator.swift</span><br>
+      <span class="cw-k">SFSpeechRecognizer</span>(locale: <span class="cw-k">Locale</span>(identifier: <span class="cw-s">"en-GB"</span>))<br>
+      &nbsp;&nbsp;.isAvailable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→ <span class="cw-s">true</span><br>
+      &nbsp;&nbsp;.supportsOnDevice&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→ <span class="cw-s">false</span><br>
+      &nbsp;&nbsp;.defaultTaskHint&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→ <span class="cw-e">.dictation</span><br></span>
+      <br>
+      <span class="cw-wave" style="--wave-n: 4"><span class="cw-k">SFSpeechAudioBufferRecognitionRequest</span>()<br>
+      &nbsp;&nbsp;.shouldReportPartialResults&nbsp;&nbsp;&nbsp;= <span class="cw-s">true</span><br>
+      &nbsp;&nbsp;.requiresOnDeviceRecognition&nbsp;&nbsp;= <span class="cw-s">false</span><br>
+      &nbsp;&nbsp;.taskHint&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span class="cw-e">.dictation</span><br>
+      &nbsp;&nbsp;.contextualStrings&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= [<span class="cw-s">"pedantry"</span>, <span class="cw-s">"flagellate"</span>, <span class="cw-s">"epistemological"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="cw-s">"condescending"</span>, <span class="cw-s">"remonstrate"</span>, <span class="cw-s">"supercilious"</span>, <span class="cw-s">"tautological"</span>]<br></span>
+      <br>
+      <span class="cw-wave" style="--wave-n: 5"><span class="cw-c">// Recognition task state machine</span><br>
+      <span class="cw-k">enum</span> RecognitionState { <span class="cw-k">case</span> idle, listening, processing, transmitting, error }<br>
+      &nbsp;&nbsp;idle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→ <span class="cw-n">0x00</span>&nbsp;&nbsp; listening&nbsp;&nbsp;&nbsp;&nbsp;→ <span class="cw-n">0x01</span>&nbsp;&nbsp; processing&nbsp;&nbsp;&nbsp;→ <span class="cw-n">0x02</span><br>
+      &nbsp;&nbsp;transmitting → <span class="cw-n">0x03</span>&nbsp;&nbsp; error&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→ <span class="cw-n">0xFF</span>&nbsp;&nbsp; retry limit: <span class="cw-n">3</span><br>
+      <br>
+      <span class="cw-c">// NLP: multi-scheme token classification</span><br>
+      <span class="cw-k">NLTagger</span>(tagSchemes: [<span class="cw-e">.tokenType</span>, <span class="cw-e">.language</span>, <span class="cw-e">.lexicalClass</span>, <span class="cw-e">.sentimentScore</span>])<br>
+      &nbsp;&nbsp;.dominantLanguage → <span class="cw-k">NLLanguage</span>(<span class="cw-s">"en"</span>)<br>
+      &nbsp;&nbsp;.tags(unit: <span class="cw-e">.word</span>, options: [<span class="cw-e">.joinNames</span>, <span class="cw-e">.omitWhitespace</span>])<br>
+      <br>
+      tagDistribution (n=<span class="cw-n">847</span>): noun <span class="cw-n">0.387</span>&nbsp;&nbsp;verb <span class="cw-n">0.214</span>&nbsp;&nbsp;adj <span class="cw-n">0.163</span>&nbsp;&nbsp;adv <span class="cw-n">0.071</span><br>
+      sentimentScore → <span class="cw-n">-0.74</span>&nbsp;&nbsp; dominance: <span class="cw-n">0.31</span>&nbsp;&nbsp; arousal: <span class="cw-n">0.66</span>&nbsp;&nbsp; valence: <span class="cw-n">-0.82</span><br>
+      Russell circumplex: quadrant IV (hostile / low-pleasure)<br></span>
 
     </section>
 
