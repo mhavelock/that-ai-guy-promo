@@ -95,7 +95,8 @@
 
 :root[data-theme="dark"] {
   /* Colour */
-  --color-bg:                   #111318;
+  --color-bg:                   #0b0d10;
+  --color-tg:                   #3a7abf;
   --color-surface:              #1a1d28;
   --color-border:               #2c3044;
   --color-text:                 #a1b1ca;
@@ -129,13 +130,11 @@
   --nav-text:                   #a1b1ca;
   --toggle-bg:                  rgba(255, 255, 255, 0.10);
   --toggle-border:              rgba(255, 255, 255, 0.15);
-  --text-gradient:                radial-gradient(circle at 20% 100%, rgba(71, 175, 240, 0.95), rgba(200,222,255,.70) 90%),
-                  radial-gradient(circle at 50% 50%, rgba(22, 5, 119, 0.87), rgba(25, 36, 111, 0.5) 80%), 
-                  radial-gradient(circle at 55% 300%, rgba(20,25,250,.87), rgba(70, 155, 230, 0.5) 80%),
-                  radial-gradient(circle at 100% 40%, rgba(20, 114, 255, 0.8), rgba(60, 190, 246, 0.1) 50%), 
-                  radial-gradient(circle at 100% 40%, rgba(20, 114, 255, 0.8), rgba(60, 190, 246, 0.1) 50%), 
-                  radial-gradient(circle at 100% 40%, rgba(20, 114, 255, 0.8), rgba(60, 190, 246, 0.1) 50%), 
-                  radial-gradient(circle at 100% 30%, rgba(22, 65, 255, 0.8), rgba(31, 81, 196, 0.2) 80%),
+  --text-gradient:                radial-gradient(circle at 100% 30%, rgba(100, 150, 255, 0.95), rgba(150, 190, 255, 0.40) 80%),
+                  radial-gradient(circle at 100% 40%, rgba(80, 180, 255, 0.90), rgba(140, 220, 255, 0.30) 50%),
+                  radial-gradient(circle at 55% 300%, rgba(90, 120, 255, 0.90), rgba(120, 180, 255, 0.50) 80%),
+                  radial-gradient(circle at 50% 50%, rgba(140, 80, 255, 0.85), rgba(170, 140, 255, 0.50) 80%),
+                  radial-gradient(circle at 20% 100%, rgba(100, 210, 255, 0.95), rgba(200, 235, 255, 0.80) 90%);
 }
 
 
@@ -291,11 +290,22 @@ body::after {
   transform: rotateY(180deg);
 }
 
+[data-theme="dark"] body::before,
+[data-theme="dark"] body::after {
+  filter: invert(1);
+}
+
 @media (width >= 76.8rem) {
   body::before,
   body::after {
     display: none;
   }
+}
+
+
+/* Dark mode: codewall base text — overrides hardcoded #1e2460 in codewall.css */
+[data-theme="dark"] .promo-codewall {
+  color: #8090b8;
 }
 
 

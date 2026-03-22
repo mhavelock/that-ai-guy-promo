@@ -11,3 +11,7 @@
 :root {
   --thataiguySVG: url('../assets/components/that-aiguy-logo.svg');
 }
+
+:root[data-theme="dark"] {
+  --thataiguySVG: url('../assets/components/that-aiguy-logo-dark.svg');
+}
