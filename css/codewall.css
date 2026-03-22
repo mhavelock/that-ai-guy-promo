@@ -33,7 +33,8 @@
   margin-bottom: 3rem;
   overflow-wrap: anywhere; /* break long tokens at float column edge */
   overflow-x: clip; /* clip speech bubble overflow on mobile */
-  padding: 0; /* full viewport width — no side gutters */
+  padding: 0; /* no side gutters — full viewport width */
+  padding-top: clamp(4rem, 20vw, 7.5rem); /* headroom for top speech bubble (bubble-1 at top: -23% of phone wrap ≈ 17.3vw) */
 }
 
 /* Clearfix — contains floats */
@@ -46,6 +47,7 @@
 @media (width >= 76.8rem) {
   .promo-codewall {
     margin-bottom: 5rem;
+    padding-top: 9rem; /* bubble-1 at top: -7.5rem on desktop; 9rem gives ~1.5rem breathing room */
   }
 }
 
