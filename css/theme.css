@@ -323,26 +323,74 @@ body::after {
 }
 
 /* ==========================================================================
-   6. Section: Intro — logo float + text wrap (shape-outside)
+   6. Section: Intro — logo centred behind two columns, shape-outside circles
 ========================================================================== */
 
 .promo-intro {
-  overflow: hidden; /* contain float */
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
 }
 
-/* Mobile: 30% width; desktop: natural SVG dimensions */
+/* Logo sits behind both columns, near the top */
 .promo-logo {
+  left: 50%;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  width: 15rem;
+  z-index: -1;
+}
+
+/* Two-column flex wrapper */
+.promo-text-wrap {
+  display: flex;
+  gap: 0;
+}
+
+.promo-col-l,
+.promo-col-r {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Left column: float pushes text away from the centre (logo) on the right */
+.promo-col-l::before {
+  content: '';
+  float: right;
+  height: 15rem;
+  shape-outside: circle(7.5rem at 100% 50%);
+  width: 7.5rem;
+}
+
+/* Right column: float pushes text away from the centre (logo) on the left */
+.promo-col-r::before {
+  content: '';
   float: left;
-  margin: 0 2.5rem 1rem 0;
-  shape-margin: 1.5rem;
-  shape-outside: circle(50%);
-  width: 30%;
+  height: 15rem;
+  shape-outside: circle(7.5rem at 0% 50%);
+  width: 7.5rem;
+}
+
+/* Full-width paragraph below the two columns */
+.promo-full-width {
+  margin-top: 1.5rem;
 }
 
 @media (width >= 76.8rem) {
   .promo-logo {
-    width: auto;
-    max-width: 14rem;
+    width: 18rem;
+  }
+
+  .promo-col-l::before,
+  .promo-col-r::before {
+    height: 18rem;
+    shape-outside: circle(9rem at 100% 50%);
+    width: 9rem;
+  }
+
+  .promo-col-r::before {
+    shape-outside: circle(9rem at 0% 50%);
   }
 }
 

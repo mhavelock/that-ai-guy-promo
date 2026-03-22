@@ -189,6 +189,7 @@ A single-page promotional website encouraging visitors to download the **That AI
 ### CSS — architecture
 - Separate concerns: common utilities like glassmorphism live in their own modifier class (`.glass`), separate from structural component classes. Apply both in HTML: `class="bottom-nav glass"`.
 - Be generous giving large self-contained style groups their own `.css` file — e.g. `badges.css`, `speech-bubbles.css`, `reviews.css`.
+- **Indentation**: 2 spaces throughout — HTML and CSS.
 - CSS properties alphabetised within each rule.
 - Clean modern CSS — no vendor prefixes for well-supported properties. Target modern browsers only; do not use CSS techniques with poor browser support (check caniuse.com).
 
