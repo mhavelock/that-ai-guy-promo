@@ -176,15 +176,46 @@ A single-page promotional website encouraging visitors to download the **That AI
 
 ---
 
-## CSS conventions
+## Coding conventions
 
-- CSS custom properties for all colours, spacing, and type scales.
-- Properties alphabetised within each rule.
-- Clean modern CSS — no vendor prefixes for supported properties.
-- `cursor: pointer` on all buttons and button-styled links.
-- **Mobile-first**: base rules are for mobile. Desktop overrides use `@media (width >= 768px)`. Never use `max-width` breakpoints (exception: `slider.css`).
-- **Glass modifier**: glassmorphism on `.glass` modifier only — never on the structural class. See *Technical development approach* above.
-- **Fluid typography**: mobile sizes are fixed (`p` = 1.2rem, `h1` = 1.5rem, etc.). Desktop scales via `clamp()` from 768px to 1248px. Badges, reviews, and stars are exceptions — their font sizes are pinned in their own files.
+### Language
+- HTML and CSS only. JavaScript only when pre-agreed (e.g. class switcher for light/dark toggle). Prefer CSS transitions, animations, and effects to add interactivity.
+
+### HTML
+- Keep HTML clean, semantic, and class-free where possible. Use element specificity to target elements — e.g. `.promo-block > p ~ span:first-child + em { color: red }`. Reserve classes for reusable components or when specificity cannot cleanly target the element.
+- `width` and `height` attributes on `<img>` must be integers (pixels) — no `%`, `px` suffix, or `auto`. Use CSS for sizing.
+- All `<img>` must have explicit `width` and `height` attributes (even if CSS overrides them) to prevent CLS.
+
+### CSS — architecture
+- Separate concerns: common utilities like glassmorphism live in their own modifier class (`.glass`), separate from structural component classes. Apply both in HTML: `class="bottom-nav glass"`.
+- Be generous giving large self-contained style groups their own `.css` file — e.g. `badges.css`, `speech-bubbles.css`, `reviews.css`.
+- CSS properties alphabetised within each rule.
+- Clean modern CSS — no vendor prefixes for well-supported properties. Target modern browsers only; do not use CSS techniques with poor browser support (check caniuse.com).
+
+### CSS — variables
+- Use custom properties for all visual styles: color, font-family, line-height, letter-spacing, font-weight. Hard-coded values are a convention violation (exceptions: percentage-relative sizes like `120%` where a variable adds no value).
+
+### CSS — typography
+- **Font size units**: `em` for font sizes, `rem` for spacing/dimensions. Fixed shapes (icons, border-radius) may use `px`.
+- **Line height**: always unitless multipliers (e.g. `1.5`) — never px or rem.
+- **Mobile**: fixed font sizes. **Desktop**: `clamp()` fluid scaling. Many intentional exceptions (badges, reviews, stars, speech-bubble captions) — these are pinned in their own files.
+
+### CSS — layout
+- **Flex** for main responsive fluid layout (page sections, nav, attribution rows, etc.).
+- **Grid** only for specific components where it is the more appropriate tool (e.g. badge grid).
+- **Mobile-first**: base rules target smallest screen — no media queries needed for mobile. Desktop overrides use `@media (width >= 768px)` (stored as `76.8rem` to match the 62.5% `font-size` root). **Never** use `max-width` breakpoints. Exception: `slider.css` (third-party — do not refactor).
+
+### CSS — glass modifier
+- Glassmorphism (`backdrop-filter`, `background: rgba()`, `border: 1px solid rgba()`, `box-shadow`) lives on `.glass` only. Never bake it into the structural component class.
+
+### Images
+- **Format**: always WebP.
+- **Retina**: `72dpi` = 1x, `144dpi` = 2x. Serve via `srcset` in native `<picture>`.
+- **Desktop**: serve larger image variants via `<source media="(width >= 768px)" srcset="...">` inside `<picture>`. Use the same image initially — correct-size variants will be supplied later.
+- **LCP images**: add `<link rel="preload" fetchPriority="high">`.
+
+### Accessibility
+- Include accessibility features (ARIA labels, `alt` text, skip links, visible focus states, keyboard navigation) wherever possible, as long as it doesn't compromise the design.
 
 ---
 

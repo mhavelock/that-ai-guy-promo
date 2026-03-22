@@ -55,12 +55,15 @@
     --font-body:                  Arial, Helvetica, sans-serif;
     --font-heading:               Verdana, Arial, sans-serif;
     --font-size-base:             1.8rem;
-    --font-size-sm:               0.875rem;
-    --font-size-lg:               1.75rem;
-    --font-size-xl:               2rem;
-    --font-size-2xl:              2.255rem;
-    --font-size-3xl:              2.5rem;
+    --font-size-xsm:              0.875rem;
+    --font-size-sm:               0.2rem;
+    --font-size-md:               1.8rem;
+    --font-size-lg:               2rem;
+    --font-size-xl:               2.25rem;
+    --font-size-2xl:              2.5rem;
+    --font-size-3xl:              2.75rem;
     --font-size-4xl:              3rem;
+    --font-weight-light:          300;
     --font-weight-body:           400;
     --font-weight-heading:        700;
     --line-height-body:           1.5;
@@ -85,7 +88,7 @@
     --letter-space-sm:   0.01rem;
 
     /* Layout */
-    --max-width:          1440px;
+    --max-width:          1280px;
     --min-element-width:  288px;
     --grid-gutter:        1rem;
     --grid-cols:          12;
@@ -207,7 +210,7 @@ h4,
 h5,
 h6 {
     font-family: var(--font-heading);
-    font-weight: var(--main-font-heading);
+    font-weight: var(--font-weight-heading);
     line-height: var(--line-height-heading);
 }
 
@@ -216,7 +219,7 @@ h2 { font-size: var(--font-size-3xl); }
 h3 { font-size: var(--font-size-xl); }
 h4 { font-size: var(--font-size-lg); }
 h5 { font-size: var(--font-size-base); }
-h6 { font-size: var(--font-size-sm); }
+h6 { font-size: var(--font-size-xsm); }
 
 /* Desktop heading fluid overrides are in theme.css — do not add here */
 
@@ -243,7 +246,7 @@ em {
 }
 
 small {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xsm);
 }
 
 address {
@@ -280,14 +283,14 @@ time {
 
 .prose-meta {
     color: var(--color-text-muted);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xsm);
     margin-block-start: var(--space-2);
 }
 
 .prose-footer-note {
     border-top: 1px solid var(--color-border);
     color: var(--color-text-muted);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xsm);
     margin-top: var(--space-12);
     padding-top: var(--space-6);
 }
@@ -300,8 +303,8 @@ time {
 /* Base space */
 main {
     margin-inline: auto;
-    min-width: 320px;
-    max-width: 1440px;
+    min-width: var(--min-width);
+    max-width: var(--max-width);
     padding: 1.2rem 1.2rem 0;
     position: relative;
     z-index: 1;
@@ -434,7 +437,7 @@ main {
 }
 
 .btn-sm {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xsm);
     min-height: 2.25rem;
     padding-block: 0.5em;
     padding-inline: 1em;
@@ -475,7 +478,7 @@ main {
 }
 
 .form-label {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xsm);
     font-weight: bold;
 }
 
@@ -515,12 +518,12 @@ main {
 
 .form-hint {
     color: var(--color-text-muted);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xsm);
 }
 
 .form-error {
     color: var(--color-alert-error-text);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xsm);
 }
 
 .form-input.is-invalid,
@@ -543,7 +546,7 @@ main {
     bottom: calc(100% + var(--space-2));
     color: var(--color-bg);
     content: attr(data-tooltip);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xsm);
     left: 50%;
     opacity: 0;
     padding-block: var(--space-1);
@@ -743,7 +746,7 @@ main {
 
 .footer-copy {
     color: var(--color-text-muted);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xsm);
     max-width: none;
 }
 
@@ -755,7 +758,7 @@ main {
 
 .footer-nav-link {
     color: var(--color-text-muted);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xsm);
     text-decoration: none;
 }
 
