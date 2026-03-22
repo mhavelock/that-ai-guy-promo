@@ -153,10 +153,16 @@
 
 ---
 
+## Desktop *(audit after mobile is complete)*
+
+- [ ] **Codewall `padding-top`** — at 1228px the speech bubble overlaps the section above. Current `padding-top: 9rem` at `76.8rem+` may need increasing or a fluid `clamp()` between breakpoints
+- [ ] **Codewall phone overlap** — at 76.8rem+ the left phone (42%) + phones-r (63%) = 105%, they overlap. Fix: reduce phones-r desktop width, or rethink layout at that breakpoint
+- [ ] Desktop layout pass (bottom nav, typography, spacing)
+
+---
+
 ## Phase 2 *(later)*
 
-- [ ] Desktop layout pass (bottom nav, typography, spacing)
-- [ ] **Codewall desktop layout** — at 76.8rem+ the left phone floats left (42%) and phones-r floats right (63%) = 105% total, they overlap. Fix: reduce phones-r desktop width, or rethink layout at that breakpoint
 - [ ] **Speech bubble animation** (iterative): jiggle → jiggle-pause loop → dart toward iPhone → desync → scroll-triggered → viewport-width triggered
 - [ ] **Light effect** (dark mode): default light → dark on = 3s pause + `pull-chord-on.mp3` + overhead radial glow → dark off = `pull-chord-off.mp3` + glow removed
 - [ ] Deploy to GitHub Pages + custom domain
