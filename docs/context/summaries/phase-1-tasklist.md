@@ -133,7 +133,6 @@
 
 | Issue | File | Notes |
 |-------|------|-------|
-| `.badges dd` hardcoded dark gradient | `css/badges.css` | Not theme tokens — dark mode appearance untested |
 
 ---
 
