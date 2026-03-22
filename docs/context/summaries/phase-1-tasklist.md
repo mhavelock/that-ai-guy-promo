@@ -121,10 +121,11 @@
 ## Priority 3 — Styling features *(mobile only)*
 
 - [ ] **Download button** — cycle through 9 neumorphic keyframe styles (1s transition, 4s hold); overlay App Store SVG
-- [ ] **Badge click** → morph to speech bubble `clip-path` shape (match 4 SVG assets)
-  - Reference: `clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%)`
+- [x] **Badge hover** → springy `clip-path` morph circle → speech bubble per badge; unique shape derived from bulle1–4 SVGs; spring easing via `linear()` token (`--spring`); `display:none` → `opacity:0` so fade transition works; per-badge circle default polygon (r=58%) ensures `dt` border never clipped
+- [x] **Custom cursors** — `.cur` files in `assets/cursors/`; per-badge via `cursor: url()` with `pointer` fallback (sadpepe / idk / dogeinglasses / patrick)
+- [ ] **Download button** — cycle through 9 neumorphic keyframe styles (1s transition, 4s hold); overlay App Store SVG
 - [ ] **Claude icon** — `assets/icons/claude-ai-icon.svg` fixed bottom-left; scroll-driven rotation (clockwise down, anticlockwise up)
-- [ ] **Glassify** — apply `.glass` modifier to: badges, slider/review cards (do not touch stars)
+- [ ] **Glassify** — apply `.glass` modifier to: badges, slider/review cards — deferred to whole-page glass pass
 
 ---
 
@@ -132,8 +133,7 @@
 
 | Issue | File | Notes |
 |-------|------|-------|
-| `.badges dd` hardcoded dark gradient | `css/badges.css:47` | Not theme tokens — dark mode appearance untested |
-| Badge hover-only interaction | `css/badges.css` | No click/active state for mobile touch |
+| `.badges dd` hardcoded dark gradient | `css/badges.css` | Not theme tokens — dark mode appearance untested |
 
 ---
 
