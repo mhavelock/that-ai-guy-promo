@@ -48,10 +48,19 @@
   <!-- Critical styles -->
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/contect-form.css">
 </head>
 <body>
 
   <a class="u-skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Sent confirmation modal — shown via :target when redirected with #sent -->
+  <div id="sent" role="alertdialog" aria-modal="true" aria-label="Message sent">
+    <div class="sent-modal glass">
+      <p class="sent-message">✓ Message sent</p>
+      <a href="#" class="sent-close" aria-label="Close notification">×</a>
+    </div>
+  </div>
 
   <main id="main-content" class="promo-main">
     <!-- Intro: logo centred behind two text columns, each with shape-outside circle -->
@@ -354,7 +363,7 @@
         <h2>Contact Us</h2>
         <p>Sorry, the complaints department is currently closed</p>
 
-        <form action="https://formzero.mat-havelock.workers.dev/api/forms/a1f3c2e8-4b7d-4e9a-8c6f-1d2e3f4a5b6c/submissions" method="POST">
+        <form action="https://formzero.mat-havelock.workers.dev/api/forms/a1f3c2e8-4b7d-4e9a-8c6f-1d2e3f4a5b6c/submissions?redirect=https://that-ai-guy.app/full.html%23sent" method="POST">
           <div class="input-field">
             <i>👤</i>
             <input type="text" name="name" placeholder="name" required>
