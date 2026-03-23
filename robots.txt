@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /full.html
+
+Sitemap: https://that-ai-guy.app/sitemap.xml
