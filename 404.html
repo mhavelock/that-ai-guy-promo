@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>404 — Page Not Found — That AI Guy</title>
+  <meta name="description" content="That page doesn't exist. We checked. Twice.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Theme colour for mobile browsers -->
+  <meta name="theme-color" content="#f2f4f7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b0d10" media="(prefers-color-scheme: dark)">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Fredoka variable font (300–700) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap">
+
+  <style>
+    /* ==========================================================================
+       Box model
+    ========================================================================== */
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    /* ==========================================================================
+       Design tokens — light (default)
+    ========================================================================== */
+
+    :root {
+      --color-bg:           #ffffff;
+      --color-surface:      #f2f4f7;
+      --color-text:         #1d1f24;
+      --color-text-muted:   #5a6375;
+      --color-border:       #dde1ea;
+      --font-brand:         'Fredoka', Verdana, Arial, sans-serif;
+      --text-gradient:
+        radial-gradient(circle at 100% 30%, rgba(22, 65, 255, 0.8), rgba(31, 81, 196, 0.2) 80%),
+        radial-gradient(circle at 100% 40%, rgba(20, 114, 255, 0.8), rgba(60, 190, 246, 0.1) 50%),
+        radial-gradient(circle at 55% 300%, rgba(20, 25, 250, 0.87), rgba(70, 155, 230, 0.5) 80%),
+        radial-gradient(circle at 50% 50%, rgba(22, 5, 119, 0.87), rgba(25, 36, 111, 0.5) 80%),
+        radial-gradient(circle at 20% 100%, rgba(71, 175, 240, 0.95), rgba(200, 222, 255, 0.70) 90%);
+      --bg-texture-opacity: 0.05;
+    }
+
+    /* ==========================================================================
+       Dark mode tokens
+    ========================================================================== */
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-bg:           #0b0d10;
+        --color-surface:      #1a1d28;
+        --color-text:         #a1b1ca;
+        --color-text-muted:   #6b7a94;
+        --color-border:       #2c3044;
+        --text-gradient:
+          radial-gradient(circle at 100% 30%, rgba(58, 122, 191, 0.95), rgba(31, 81, 196, 0.2) 80%),
+          radial-gradient(circle at 100% 40%, rgba(40, 140, 255, 0.7), rgba(60, 190, 246, 0.1) 50%),
+          radial-gradient(circle at 55% 300%, rgba(20, 25, 250, 0.5), rgba(70, 155, 230, 0.3) 80%),
+          radial-gradient(circle at 50% 50%, rgba(80, 120, 200, 0.7), rgba(50, 80, 160, 0.5) 80%),
+          radial-gradient(circle at 20% 100%, rgba(71, 175, 240, 0.8), rgba(161, 177, 202, 0.5) 90%);
+        --bg-texture-opacity: 0.1;
+      }
+    }
+
+    /* ==========================================================================
+       Base
+    ========================================================================== */
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-brand);
+      font-size: 16px;
+      min-height: 100svh;
+    }
+
+    /* ==========================================================================
+       Skip link
+    ========================================================================== */
+
+    .u-skip-link {
+      background: var(--color-bg);
+      clip-path: inset(50%);
+      color: var(--color-text);
+      font-size: 0.875rem;
+      left: 1rem;
+      overflow: hidden;
+      padding: 0.5rem 1rem;
+      position: absolute;
+      top: 1rem;
+      white-space: nowrap;
+      width: 1px;
+    }
+
+    .u-skip-link:focus {
+      clip-path: none;
+      overflow: visible;
+      width: auto;
+      z-index: 100;
+    }
+
+    /* ==========================================================================
+       Page layout
+    ========================================================================== */
+
+    .holding-page {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100svh;
+      padding: 3rem 1.5rem;
+      position: relative;
+      text-align: center;
+    }
+
+    /* Subtle background texture */
+    .holding-page::before {
+      background-image: url('assets/bgs/wavegrid-bg.webp');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      content: '';
+      inset: 0;
+      opacity: var(--bg-texture-opacity);
+      position: absolute;
+      z-index: 0;
+    }
+
+    .holding-inner {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      max-width: 38rem;
+      position: relative;
+      width: 100%;
+      z-index: 1;
+    }
+
+    /* ==========================================================================
+       Logo
+    ========================================================================== */
+
+    .holding-logo {
+      height: auto;
+      margin-bottom: 2.5rem;
+      width: clamp(14rem, 60vw, 22rem);
+    }
+
+    /* ==========================================================================
+       Badge
+    ========================================================================== */
+
+    .holding-badge {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 100px;
+      color: var(--color-text-muted);
+      display: inline-block;
+      font-size: 0.75em;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      margin-bottom: 1.75rem;
+      padding: 0.4em 1.2em;
+      text-transform: uppercase;
+    }
+
+    /* ==========================================================================
+       Headline
+    ========================================================================== */
+
+    .holding-headline {
+      background: var(--text-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+      margin: 0 0 1.25rem;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ==========================================================================
+       Sub-headline
+    ========================================================================== */
+
+    .holding-subhead {
+      color: var(--color-text-muted);
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-weight: 400;
+      line-height: 1.65;
+      margin: 0 0 2.5rem;
+      max-width: 28rem;
+    }
+
+    /* ==========================================================================
+       Divider
+    ========================================================================== */
+
+    .holding-divider {
+      background: var(--color-border);
+      border: none;
+      height: 1px;
+      margin: 0 auto 2rem;
+      width: 3rem;
+    }
+
+    /* ==========================================================================
+       Sign-off
+    ========================================================================== */
+
+    .holding-signoff {
+      color: var(--color-text-muted);
+      font-size: 1em;
+      font-weight: 300;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .holding-signoff + .holding-signoff {
+      margin-top: 1.2em;
+    }
+
+    .holding-signoff strong {
+      color: var(--color-text);
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       Back link
+    ========================================================================== */
+
+    .holding-back {
+      color: var(--color-text-muted);
+      display: inline-block;
+      font-size: 0.875em;
+      font-weight: 400;
+      margin-top: 2.5rem;
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
+
+    .holding-back:hover,
+    .holding-back:focus {
+      color: var(--color-text);
+    }
+
+    /* ==========================================================================
+       Social links — fixed bottom-right
+    ========================================================================== */
+
+    /* Adapted from https://github.com/nicholasgasior/bluesky-flutterby (MIT) */
+
+    nav ul.links {
+      bottom: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: fixed;
+      right: 1.25rem;
+    }
+
+    nav ul.links a {
+      align-items: center;
+      display: flex;
+    }
+
+    .bsky-flutter {
+      color: #0085ff;
+      display: block;
+      height: 2rem;
+      transition: transform 200ms;
+      width: 2rem;
+    }
+
+    .bsky-flutter .left {
+      transform-origin: center;
+    }
+
+    .bsky-flutter .right {
+      transform: scale(-1, 1);
+      transform-origin: center;
+    }
+
+    .bsky-flutter:hover,
+    .bsky-flutter:focus {
+      transform: rotate(-5deg);
+      transition: transform 500ms;
+    }
+
+    .bsky-flutter:hover .left,
+    .bsky-flutter:focus .left {
+      animation: bsky-flutter 430ms ease-in-out;
+      --flip: 1;
+    }
+
+    .bsky-flutter:hover .right,
+    .bsky-flutter:focus .right {
+      animation: bsky-flutter 500ms ease-in-out;
+      --flip: -1;
+    }
+
+    @keyframes bsky-flutter {
+      10%  { transform: scale(calc(var(--flip) * 1), 0.9); }
+      20%  { transform: scale(calc(var(--flip) * 0.5), 1); }
+      40%  { transform: scale(calc(var(--flip) * 0.9), 0.95); }
+      60%  { transform: scale(calc(var(--flip) * 0.3), 1); }
+      80%  { transform: scale(calc(var(--flip) * 0.9), 0.95); }
+      100% { transform: scale(calc(var(--flip) * 1), 1); }
+    }
+
+    /* ==========================================================================
+       Reduced motion
+    ========================================================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="u-skip-link" href="#main-content">Skip to main content</a>
+
+  <main id="main-content" class="holding-page">
+    <div class="holding-inner">
+
+      <picture>
+        <source
+          srcset="assets/components/that-aiguy-logo-dark.svg"
+          media="(prefers-color-scheme: dark)"
+        >
+        <img
+          src="assets/components/that-aiguy-logo.svg"
+          alt="That AI Guy"
+          class="holding-logo"
+          width="264"
+          height="122"
+          fetchpriority="high"
+        >
+      </picture>
+
+      <span class="holding-badge" aria-label="Error: 404 — Page not found">404 — Not Found</span>
+
+      <h1 class="holding-headline">That page doesn't&nbsp;exist.<br>We checked.</h1>
+
+      <p class="holding-subhead">
+        You've navigated to a URL that isn't here. This is, technically, your fault.
+        We would correct you — but there's nothing to correct you <em>to</em>.
+      </p>
+
+      <hr class="holding-divider" aria-hidden="true">
+
+      <p class="holding-signoff">
+        The address you entered was wrong.<br>
+        This is not ambiguous.
+      </p>
+      <p class="holding-signoff">
+        Yours pedantically,<br>
+        <strong>That AI Guy</strong>
+      </p>
+
+      <a class="holding-back" href="/">← Back to the homepage</a>
+
+    </div>
+  </main>
+
+  <nav aria-label="Social links">
+    <ul class="links">
+      <li>
+        <!-- https://github.com/philhawksworth/bluesky-flutterby -->
+        <a href="https://bsky.app/profile/that-ai-guy1.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Follow That AI Guy on Bluesky">
+          <svg class="bsky-flutter" viewBox="0 0 566 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <defs>
+              <path id="bsky-wing" fill="currentColor" d="M 123.244 35.008 C 188.248 83.809 283.836 176.879 283.836 235.857 C 283.836 316.899 283.879 235.845 283.836 376.038 C 283.889 375.995 282.67 376.544 280.212 383.758 C 266.806 423.111 214.487 576.685 94.841 453.913 C 31.843 389.269 61.013 324.625 175.682 305.108 C 110.08 316.274 36.332 297.827 16.093 225.504 C 10.271 204.699 0.343 76.56 0.343 59.246 C 0.343 -27.451 76.342 -0.206 123.244 35.008 Z" />
+            </defs>
+            <use href="#bsky-wing" class="left" />
+            <use href="#bsky-wing" class="right" />
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+</body>
+</html>

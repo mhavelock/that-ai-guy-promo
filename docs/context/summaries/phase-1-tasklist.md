@@ -77,6 +77,10 @@
 - [x] **Codewall text trimmed** — removed lower Swift/TTS/CoreML block; codewall ends at Russell circumplex line
 - [x] **Asset tidy** — `assets/iphones/` + `assets/speech-bubbles/` moved to `assets/graphics/iphones/` + `assets/graphics/speech-bubbles/`; WebP 1x/2x pairs generated; all `src` paths updated
 
+### Session 2026-03-23 — 404 page
+
+- [x] **`404.html`** — custom 404 page based on `holding.html` design; pedantic comedy copy; `noindex, nofollow`; "back to homepage" link; Cloudflare Pages picks this up automatically for unmatched routes — no dashboard changes needed
+
 ### Session 2026-03-22 — Conventions, audit, and intro layout
 
 - [x] **CLAUDE.md** — added full Coding conventions section (HTML/CSS/JS rules, units, layout, glass modifier, images, accessibility)
