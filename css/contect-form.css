@@ -76,6 +76,31 @@
   color: #666;
 }
 
+.contact-form .input-field:has(.input-message) i {
+  top: 14px;
+  transform: none;
+}
+
+.contact-form .input-message {
+  width: 100%;
+  padding: 12px 45px;
+  border: none;
+  border-radius: 15px;
+  background: #e0e5ec;
+  box-shadow: inset 6px 6px 10px #a3b1c6,
+    inset -6px -6px 10px #ffffff;
+  font-size: 0.95rem;
+  color: #333;
+  outline: none;
+  overflow-y: auto;
+  resize: none;
+  scrollbar-width: none;
+}
+
+.contact-form .input-message::-webkit-scrollbar {
+  display: none;
+}
+
 .contact-form .btn {
   width: 100%;
   padding: 12px;
