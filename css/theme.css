@@ -285,6 +285,7 @@ body::after {
   opacity: 0.33;
   position: fixed;
   width: 100%;
+  z-index: -1;
 }
 
 body::after {

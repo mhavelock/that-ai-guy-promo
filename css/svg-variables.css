@@ -9,9 +9,11 @@
    ========================================================================== */
 
 :root {
+  --thataiguyLogo: url('../assets/components/logo-tg.svg');
   --thataiguySVG: url('../assets/components/that-aiguy-logo.svg');
 }
 
 :root[data-theme="dark"] {
+  --thataiguyLogo: url('../assets/components/logo-tg.svg');
   --thataiguySVG: url('../assets/components/that-aiguy-logo-dark.svg');
 }
