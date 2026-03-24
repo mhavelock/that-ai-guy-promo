@@ -27,6 +27,12 @@
   /* Shared */
   --glass-blur:              blur(24px) saturate(200%);
 
+  /* Download button glass — light */
+  --glass-btn-bg:            rgba(255, 255, 255, 0.28);
+  --glass-btn-border:        rgba(255, 255, 255, 0.65);
+  --glass-btn-shine:         rgba(255, 255, 255, 0.90);
+  --glass-btn-shadow:        rgba(0, 0, 0, 0.10);
+
   /* Form glass — light */
   --glass-form-bg:           rgba(255, 255, 255, 0.35);
   --glass-form-input-bg:     rgba(255, 255, 255, 0.50);
@@ -66,6 +72,12 @@
   --glass-review-border:     rgba(255, 255, 255, 0.12);
   --glass-review-shine:      rgba(255, 255, 255, 0.10);
   --glass-review-shadow:     rgba(0, 0, 0, 0.45);
+
+  /* Download button glass — dark */
+  --glass-btn-bg:            rgba(255, 255, 255, 0.06);
+  --glass-btn-border:        rgba(255, 255, 255, 0.13);
+  --glass-btn-shine:         rgba(255, 255, 255, 0.10);
+  --glass-btn-shadow:        rgba(0, 0, 0, 0.40);
 
   /* Badge glass — dark */
   --glass-badge-bg:          rgba(100, 130, 210, 0.03);
@@ -222,4 +234,44 @@
     inset 0 1.5px 0 var(--glass-review-shine),
     inset 0 0 0 1px var(--glass-review-border),
     0 8px 24px var(--glass-review-shadow);
+}
+
+
+/* ==========================================================================
+   5. Download button — .promo-download.glass
+   ==========================================================================
+   Stops the neumorphic keyframe animation — replaces it with a static
+   frosted glass surface. Reuses form neumorphic tokens for shadow depth.
+   Dark mode uses existing dark glass tokens.
+========================================================================== */
+
+/* Stop animation, apply glass surface */
+.promo-download.glass .btn-appstore,
+.promo-download.glass .btn-appstore:hover {
+  animation: none;
+  backdrop-filter: var(--glass-blur);
+  background: var(--glass-btn-bg);
+  box-shadow:
+    inset 0 1.5px 0 var(--glass-btn-shine),
+    inset 0 0 0 1px var(--glass-btn-border),
+    0 8px 32px var(--glass-btn-shadow),
+    10px 10px 20px var(--glass-form-neu-lo),
+    -10px -10px 20px var(--glass-form-neu-hi);
+}
+
+.promo-download.glass .btn-appstore:hover {
+  background: rgba(255, 255, 255, 0.38);
+}
+
+/* Active / focus — inset glass press */
+.promo-download.glass .btn-appstore:active,
+.promo-download.glass .btn-appstore:focus-visible {
+  animation: none;
+  backdrop-filter: var(--glass-blur);
+  background: var(--glass-btn-bg);
+  box-shadow:
+    inset 0 2px 8px rgba(0, 0, 0, 0.18),
+    inset 0 0 0 1px var(--glass-btn-border),
+    5px 5px 15px var(--glass-form-neu-lo),
+    -5px -5px 15px var(--glass-form-neu-hi);
 }
