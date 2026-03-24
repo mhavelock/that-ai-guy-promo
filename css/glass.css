@@ -12,7 +12,8 @@
    Components:
    1. Tokens
    2. Badges  (.badges.glass)
-   3. Reserved: Slider / Review cards
+   3. Contact form  (.contact-form.glass)
+   4. Reserved: Slider / Review cards
 
    Dark mode tokens follow [data-theme="dark"] — same scope as theme.css.
 ========================================================================== */
@@ -26,6 +27,15 @@
   /* Shared */
   --glass-blur:              blur(24px) saturate(200%);
 
+  /* Form glass — light */
+  --glass-form-bg:           rgba(255, 255, 255, 0.35);
+  --glass-form-input-bg:     rgba(255, 255, 255, 0.50);
+  --glass-form-border:       rgba(255, 255, 255, 0.65);
+  --glass-form-shine:        rgba(255, 255, 255, 0.90);
+  --glass-form-shadow:       rgba(0, 0, 0, 0.12);
+  --glass-form-neu-lo:       #a3b1c6;
+  --glass-form-neu-hi:       #ffffff;
+
   /* Badge glass — light */
   --glass-badge-bg:          rgba(210, 220, 248, 0.10);
   --glass-badge-fill:        rgba(190, 210, 255, 0.72);
@@ -36,6 +46,15 @@
 }
 
 [data-theme="dark"] {
+  /* Form glass — dark */
+  --glass-form-bg:           rgba(255, 255, 255, 0.07);
+  --glass-form-input-bg:     rgba(255, 255, 255, 0.05);
+  --glass-form-border:       rgba(255, 255, 255, 0.14);
+  --glass-form-shine:        rgba(255, 255, 255, 0.10);
+  --glass-form-shadow:       rgba(0, 0, 0, 0.45);
+  --glass-form-neu-lo:       #0a0c12;
+  --glass-form-neu-hi:       #272c3d;
+
   /* Badge glass — dark */
   --glass-badge-bg:          rgba(100, 130, 210, 0.03);
   --glass-badge-fill:        rgba(22, 48, 108, 0.75);
@@ -84,4 +103,94 @@
 .badges.glass dl dd {
   background: var(--glass-badge-fill);
   border-color: var(--glass-badge-border);
+}
+
+
+/* ==========================================================================
+   3. Contact form — .contact-form.glass
+   ==========================================================================
+   Replaces the neumorphic card/pill with frosted glass. Inputs go transparent
+   with a glass border. Button keeps its teal CTA identity, gains a glass shine.
+   .sent-modal already has .glass in HTML — picks up these same form tokens.
+========================================================================== */
+
+/* Form container */
+.contact-form.glass {
+  backdrop-filter: var(--glass-blur);
+  background: var(--glass-form-bg);
+  box-shadow:
+    inset 0 1.5px 0 var(--glass-form-shine),
+    inset 0 0 0 1px var(--glass-form-border),
+    0 8px 32px var(--glass-form-shadow),
+    10px 10px 20px var(--glass-form-neu-lo),
+    -10px -10px 20px var(--glass-form-neu-hi);
+}
+
+/* Text — replace hardcoded colours with design system tokens */
+.contact-form.glass h2 { color: var(--color-text); }
+.contact-form.glass p  { color: var(--color-text-muted); }
+.contact-form.glass .input-field i { color: var(--color-text-muted); }
+
+/* Inputs — transparent glass fields */
+.contact-form.glass .input-field input {
+  background: var(--glass-form-input-bg);
+  box-shadow:
+    inset 0 0 0 1px var(--glass-form-border),
+    inset 6px 6px 10px var(--glass-form-neu-lo),
+    inset -6px -6px 10px var(--glass-form-neu-hi);
+  color: var(--color-text);
+}
+
+.contact-form.glass .input-field input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.contact-form.glass .input-field input:focus-visible {
+  box-shadow:
+    inset 0 0 0 1px var(--glass-form-border),
+    0 0 0 2px rgba(64, 169, 195, 0.45);
+}
+
+/* Button — teal glass capsule */
+.contact-form.glass .btn {
+  backdrop-filter: var(--glass-blur);
+  background: linear-gradient(
+    180deg,
+    rgba(80, 195, 220, 0.88) 0%,
+    rgba(50, 155, 180, 0.88) 100%
+  );
+  box-shadow:
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.55),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.25),
+    0 4px 14px rgba(64, 169, 195, 0.45),
+    5px 5px 15px var(--glass-form-neu-lo),
+    -5px -5px 15px var(--glass-form-neu-hi);
+}
+
+.contact-form.glass .btn:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(90, 205, 230, 0.92) 0%,
+    rgba(60, 165, 190, 0.92) 100%
+  );
+}
+
+.contact-form.glass .btn:active,
+.contact-form.glass .btn:focus-visible {
+  box-shadow:
+    inset 0 2px 8px rgba(0, 0, 0, 0.22),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.20),
+    0 2px 6px rgba(64, 169, 195, 0.30),
+    5px 5px 15px var(--glass-form-neu-lo),
+    -5px -5px 15px var(--glass-form-neu-hi);
+}
+
+/* Sent confirmation modal — already has .glass in HTML */
+.sent-modal.glass {
+  backdrop-filter: var(--glass-blur);
+  background: var(--glass-form-bg);
+  box-shadow:
+    inset 0 1.5px 0 var(--glass-form-shine),
+    inset 0 0 0 1px var(--glass-form-border),
+    0 8px 32px var(--glass-form-shadow);
 }

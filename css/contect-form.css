@@ -24,7 +24,14 @@
 }
 
 .contact-form-logo {
-  display: none;
+  border-radius: 50%;
+  box-shadow:
+    inset 6px 6px 10px rgba(163, 177, 198, 0.5),
+    inset -6px -6px 10px rgba(255, 255, 255, 0.5);
+  display: block;
+  height: 80px;
+  margin: 0 auto 20px;
+  width: 80px;
 }
 
 .contact-form h2 {
@@ -104,6 +111,24 @@
   transform: scale(0.97);
 }
 
+/* ---- Bluesky / options line ---- */
+
+.contact-form .options {
+  color: #555;
+  font-size: 0.85rem;
+  margin-top: 15px;
+}
+
+.contact-form .options a {
+  color: #111;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact-form .options a:hover {
+  text-decoration: underline;
+}
+
 /* ==========================================================================
    Dark mode
    ========================================================================== */
@@ -159,6 +184,14 @@
   outline: none;
 }
 
+[data-theme="dark"] .contact-form .options {
+  color: #6a7a8a;
+}
+
+[data-theme="dark"] .contact-form .options a {
+  color: #a1b1ca;
+}
+
 /* ==========================================================================
    Desktop — horizontal pill bar
    ========================================================================== */
@@ -177,13 +210,19 @@
   }
 
   .contact-form h2,
-  .contact-form p {
+  .contact-form p,
+  .contact-form .options {
     display: none;
   }
 
   .contact-form-logo {
+    border-radius: 0;
+    box-shadow: none;
     display: block;
     flex-shrink: 0;
+    height: 36px;
+    margin: 0;
+    width: 36px;
   }
 
   .contact-form form {
