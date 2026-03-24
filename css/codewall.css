@@ -91,8 +91,10 @@
   margin-bottom: 0.75rem;
   margin-left: 1rem;
   max-width: 40.5rem; /* caps phone height at ~225px; kicks in above ~560px vw */
-  overflow: hidden;
+  overflow: visible;
+  position: relative;
   width: 75%;
+  z-index: 1;
 }
 
 @media (width >= 76.8rem) {
@@ -104,6 +106,23 @@
 .codewall-phones-r picture {
   flex: 1;
   min-width: 0;
+  position: relative;
+  transition: transform 0.3s ease, z-index 0s;
+  z-index: 1;
+}
+
+.codewall-phones-r picture:not(:last-child):hover {
+  cursor: crosshair;
+  transform: scale(1.1);
+  z-index: 3;
+}
+
+.codewall-phones-r picture:not(:last-child):hover img {
+  border-radius: 0.5rem;
+  box-shadow:
+    0 0 0 2px rgba(99, 179, 255, 0.6),
+    0 0 20px 6px rgba(99, 179, 255, 0.4),
+    0 8px 24px rgba(0, 0, 0, 0.45);
 }
 
 /* Third screenshot: flex 1.685 = 1262/752 — makes 600×752 image render
@@ -115,6 +134,7 @@
 .codewall-phones-r img {
   display: block;
   height: auto;
+  transition: box-shadow 0.3s ease;
   width: 100%;
 }
 
