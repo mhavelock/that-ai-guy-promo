@@ -145,7 +145,7 @@
 .cw-wave {
   animation: cw-wave 12s ease-in-out infinite;
   animation-delay: calc(var(--wave-n) * 2s);
-  display: inline-block; /* required for transform on inline spans; layout unchanged by animation */
+  display: block; /* block enables float text wrapping; transform animation still works on block elements */
 }
 
 @media (prefers-reduced-motion: reduce) {

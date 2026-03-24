@@ -158,7 +158,7 @@ html {
 body {
   font-size: var(--font-size-lg);
   /* Top padding creates the stage for the fixed logo circle peeking from top */
-  padding-top: 10rem;
+  padding-top: 5rem;
   /* Extra bottom padding so content clears the fixed nav */
   padding-bottom: calc(14rem + env(safe-area-inset-bottom, 0px));
 }
@@ -230,12 +230,13 @@ Exceptions (badges, reviews, stars) are pinned in their own stylesheets. */
 }
 
 .promo-text p span {
-  font-size: 120%;
-  font-family: var(--font-custom1);
-  letter-spacing: var(--letter-space-sm);
   background: var(--text-gradient);
   background-clip: text;
   color: transparent;
+  font-family: var(--font-custom1);
+  font-size: 120%;
+  letter-spacing: var(--letter-space-sm);
+  line-height: var(--line-height-component);
   mix-blend-mode: plus-lighter;
 }
 
@@ -369,6 +370,48 @@ body::after {
   .promo-section {
     margin-bottom: 5rem;
   }
+}
+
+/* Section divider — subtle liquid-glass rule with centred speech emoji */
+.section-divider {
+  border: none;
+  margin: 5rem var(--grid-gutter);
+  opacity: 0.4;
+  position: relative;
+  text-align: center;
+}
+
+/* The horizontal rule line — fades out at edges, inset shadow for depth */
+.section-divider::before {
+  background: linear-gradient(to right,
+    transparent,
+    color-mix(in srgb, var(--color-text) 15%, transparent) 30%,
+    color-mix(in srgb, var(--color-text) 15%, transparent) 70%,
+    transparent);
+  box-shadow: 0 1px 2px color-mix(in srgb, #000000 20%, transparent);
+  content: '';
+  display: block;
+  height: 1px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+
+/* The emoji pill — bg matches page to cut the line, x-padding creates visual gap, inset shadow sinks it */
+.section-divider::after {
+  background: var(--color-bg);
+  border-radius: 4rem;
+  box-shadow:
+    inset 0 2px 4px color-mix(in srgb, #000000 25%, transparent),
+    inset 0 1px 2px color-mix(in srgb, #000000 15%, transparent);
+  content: attr(data-emoji);
+  display: inline-block;
+  font-size: 1.44rem;
+  line-height: 1;
+  padding: 0.5rem 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 /* ==========================================================================

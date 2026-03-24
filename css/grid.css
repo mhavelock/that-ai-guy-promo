@@ -20,12 +20,12 @@ justify-content: center;
 }
 
 .grid-1x2 {
-display: grid;
-grid-template-columns: repeat(1, 1fr); 
-grid-template-rows: repeat(2, 1fr);
-gap: 2rem;
-justify-content: center;
-align-items: start; 
+  align-items: start;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: auto auto;
+  justify-content: center;
 }
 @media (width >= 76.8rem) {
 .grid-1x2 {

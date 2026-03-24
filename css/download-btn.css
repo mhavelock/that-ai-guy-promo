@@ -14,6 +14,7 @@
 
 .btn-appstore {
   animation: btn-appstore-cycle 30s linear infinite;
+  max-width: 28rem;
   background: #e0e0e0;
   border-radius: 14px;
   box-shadow: 25px 25px 49px #cecece, -25px -25px 49px #f2f2f2;
@@ -41,7 +42,7 @@
 .btn-appstore img {
   display: block;
   height: auto;
-  width: clamp(10rem, 30vw, 16rem);
+  width: clamp(20rem, 60vw, 32rem);
 }
 
 /* ==========================================================================
