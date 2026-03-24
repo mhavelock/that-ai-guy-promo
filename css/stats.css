@@ -1,22 +1,17 @@
 /* ==========================================================================
-   STATS COUNTERS — 3 animated performance metrics
+   STATS COUNTERS — 3 live performance metrics
    Original idea & technique: cbolson — https://codepen.io/cbolson/pen/PwqBVqB
    Also inspired by: educationalworks88 — https://codepen.io/educationalworks88/pen/oNQvWNJ
    ==========================================================================
-   Desktop only — hidden on mobile.
-   CSS-only: @property animates --count integer; counter() displays it.
-   Scroll-driven: animation-timeline: view() triggers as card enters viewport.
-   Progress bar grows in sync. No JavaScript.
+   Desktop only. CSS @property animates --count integer; counter() displays it.
 
-   Stats (marketing fluff / comedy benchmarks):
-     1. 847   — pedantic corrections delivered
-     2. 99    — annoyance effectiveness (%)
-     3. 300   — interruption latency (ms)
+   Default: looping animation (counts 0→target, holds, repeats).
+   Enhanced: scroll-driven via animation-timeline: view() — single play on entry.
 
-   Set --target and --bar-pct as inline styles on each .stat-card.
+   Visual: "control panel" aesthetic matching the codewall section.
+   Courier New labels, gradient numbers, glowing progress line.
 ========================================================================== */
 
-/* @property: allows animating an integer custom property */
 @property --count {
   syntax: '<integer>';
   initial-value: 0;
@@ -37,114 +32,186 @@
     padding: 0 var(--grid-gutter);
   }
 
-  /* Glass panel container */
-  .stats-grid {
-    backdrop-filter: blur(24px) saturate(180%);
-    background: var(--glass-panel-bg);
-    border: 1px solid var(--glass-panel-border);
-    border-radius: var(--glass-panel-radius, 2rem);
-    box-shadow:
-      inset 0 1px 0 var(--glass-panel-shine),
-      0 8px 32px var(--glass-panel-shadow);
-    display: grid;
-    gap: 0;
-    grid-template-columns: repeat(3, 1fr);
-    overflow: hidden;
-    padding: 0;
+  /* Section header — matches codewall code aesthetic */
+  .stats-heading {
+    color: color-mix(in srgb, var(--color-tg) 60%, transparent);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    margin-bottom: 1.2rem;
+    padding-left: 0.2rem;
+    text-transform: uppercase;
   }
 
-  /* Dividers between cards — inset border */
+  /* Glass control panel — slightly darker surface, blue-tinted border */
+  .stats-grid {
+    backdrop-filter: blur(28px) saturate(200%);
+    background: color-mix(in srgb, var(--color-bg) 65%, var(--color-tg));
+    border: 1px solid color-mix(in srgb, var(--color-tg) 30%, transparent);
+    border-radius: 1.25rem;
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--color-tg) 25%, transparent),
+      inset 0 -1px 0 color-mix(in srgb, var(--color-tg) 10%, transparent),
+      0 0 0 1px color-mix(in srgb, var(--color-tg) 8%, transparent),
+      0 12px 40px color-mix(in srgb, var(--color-tg) 10%, rgba(0,0,0,0.25));
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow: hidden;
+  }
+
+  /* Dividers between cards */
   .stat-card + .stat-card {
-    border-left: 1px solid var(--glass-panel-border);
+    border-left: 1px solid color-mix(in srgb, var(--color-tg) 20%, transparent);
   }
 
   .stat-card {
     align-items: center;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    padding: 2.5rem 2rem;
+    gap: 0.9rem;
+    padding: 2.25rem 1.75rem;
+    position: relative;
     text-align: center;
   }
 
-  /* The animated number */
+  /* Per-card data icon via ::before */
+  .stat-card[data-icon]::before {
+    content: attr(data-icon);
+    display: block;
+    font-size: 1.5rem;
+    line-height: 1;
+    opacity: 0.7;
+  }
+
+  /* Number row */
   .stat-value {
     align-items: baseline;
-    color: var(--color-tg);
     display: flex;
-    font-family: var(--font-brand);
-    font-size: clamp(2.5rem, 4vw, 4rem);
-    font-weight: 600;
-    gap: 0.2em;
-    letter-spacing: -0.02em;
+    gap: 0.15em;
+    justify-content: center;
     line-height: 1;
   }
 
-  /* Counter displays as ::after content using counter() */
+  /* Animated counter */
+  .stat-count {
+    background: var(--text-gradient);
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    font-family: var(--font-brand);
+    font-size: clamp(2.8rem, 4vw, 4.2rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+  }
+
   .stat-count::after {
     content: counter(count);
     counter-reset: count var(--count);
   }
 
   .stat-unit {
-    color: color-mix(in srgb, var(--color-tg) 65%, transparent);
-    font-size: 0.5em;
+    color: color-mix(in srgb, var(--color-tg) 60%, transparent);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
     font-weight: 400;
+    letter-spacing: 0.05em;
   }
 
-  /* Progress bar track */
+  /* Progress line — thin glowing bar (instrumentation style) */
   .stat-bar {
-    background: color-mix(in srgb, var(--color-tg) 12%, transparent);
+    background: color-mix(in srgb, var(--color-tg) 10%, transparent);
     border-radius: 99px;
-    height: 4px;
-    overflow: hidden;
+    height: 2px;
+    overflow: visible;
     width: 100%;
   }
 
-  /* Progress bar fill */
   .stat-bar-fill {
     background: linear-gradient(
       to right,
-      color-mix(in srgb, var(--color-tg) 70%, white),
+      transparent,
+      var(--color-tg) 20%,
+      color-mix(in srgb, var(--color-tg) 70%, white) 70%,
       var(--color-tg)
     );
     border-radius: 99px;
+    box-shadow: 0 0 8px 2px color-mix(in srgb, var(--color-tg) 50%, transparent);
     height: 100%;
     width: 0;
   }
 
-  /* Label */
+  /* Labels — Courier New matching codewall */
   .stat-label {
     color: var(--color-text-muted);
-    font-family: var(--font-brand);
-    font-size: 0.85rem;
-    letter-spacing: 0.04em;
-    line-height: 1.4;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    line-height: 1.5;
     text-transform: uppercase;
   }
 
   .stat-label small {
-    color: color-mix(in srgb, var(--color-text-muted) 70%, transparent);
+    color: color-mix(in srgb, var(--color-text-muted) 60%, transparent);
     display: block;
     font-size: 0.85em;
     letter-spacing: 0.02em;
     text-transform: none;
   }
 
-  /* Scroll-driven animations — trigger as card enters viewport */
+  /* ==========================================================================
+     Card entrance — staggered slide-up + fade
+  ========================================================================== */
+
+  .stat-card {
+    animation: stat-card-appear 0.7s ease-out both;
+    animation-delay: calc(var(--card-i, 0) * 0.15s + 0.2s);
+  }
+
+  .stat-card:nth-child(1) { --card-i: 0; }
+  .stat-card:nth-child(2) { --card-i: 1; }
+  .stat-card:nth-child(3) { --card-i: 2; }
+
+  /* ==========================================================================
+     Looping counter + bar (default — plays immediately, loops)
+  ========================================================================== */
+
+  @media (prefers-reduced-motion: no-preference) {
+
+    .stat-count {
+      animation: stat-count-loop 4s ease-in-out infinite;
+      animation-delay: calc(var(--card-i, 0) * 0.3s);
+    }
+
+    .stat-bar-fill {
+      animation: stat-bar-loop 4s ease-in-out infinite;
+      animation-delay: calc(var(--card-i, 0) * 0.3s);
+    }
+
+  }
+
+  /* ==========================================================================
+     Scroll-driven override — single play as section enters viewport
+  ========================================================================== */
+
   @supports (animation-timeline: view()) {
     @media (prefers-reduced-motion: no-preference) {
+
+      .stat-card {
+        animation: stat-card-appear 0.7s ease-out both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 60%;
+      }
 
       .stat-count {
         animation: stat-count-up 1s linear both;
         animation-timeline: view();
-        animation-range: entry 10% entry 75%;
+        animation-range: entry 0% entry 80%;
       }
 
       .stat-bar-fill {
         animation: stat-bar-grow 1s ease-out both;
         animation-timeline: view();
-        animation-range: entry 10% entry 75%;
+        animation-range: entry 0% entry 80%;
       }
 
     }
@@ -152,6 +219,31 @@
 
 }
 
+/* Keyframes — outside media queries so they load for all viewports */
+
+@keyframes stat-card-appear {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Looping: count up, hold at top, restart */
+@keyframes stat-count-loop {
+  0%        { --count: 0; }
+  70%, 100% { --count: var(--target, 100); }
+}
+
+@keyframes stat-bar-loop {
+  0%        { width: 0; }
+  70%, 100% { width: var(--bar-pct, 80%); }
+}
+
+/* Scroll-driven: single play */
 @keyframes stat-count-up {
   from { --count: 0; }
   to   { --count: var(--target, 100); }

@@ -1,58 +1,127 @@
 /* ==========================================================================
-   FLIP TEXT — 3D card flip on .taig-lg sign-off
+   FLIP TEXT — scroll-driven 3D flip on sign-off
    Original idea & technique: cbolson — https://codepen.io/cbolson/pen/bNGjarJ
    ==========================================================================
-   The "That AI Guy" sign-off flips on hover to reveal "Your Intellectual
-   Superior". Desktop only — mobile is static text.
+   "That AI Guy" SVG (front) flips to reveal "Naturally." (back) as the
+   intro section scrolls past the viewport midpoint.
 
-   Technique: CSS 3D perspective + backface-visibility on grid-stacked spans.
-   Both .flip-front and .flip-back occupy the same grid cell (1/1).
-   Hover rotates front out (rotateX -180°) and back in (rotateX 0°).
+   Desktop only. Mobile: .flip-card is invisible to layout (display: contents),
+   em.taig-lg behaves exactly as it did before.
+
+   Technique:
+     - .flip-card takes over em.taig-lg's positioning on desktop
+     - .flip-front (em) and .flip-back (span) absolute-stacked inside
+     - Individual face animations via animation-timeline: view()
+     - Fallback: hover flip (when view() not supported)
+
+   Note: em.taig-lg renders the logo as SVG background-image (font-size: 0).
+   The back face .taig-back is a separate span with real text + gradient.
 ========================================================================== */
 
-/* Mobile: render as normal inline text, hide the back */
+/* Mobile: .flip-card is invisible to layout; em.taig-lg positions itself normally */
 .flip-card {
-  display: inline;
+  display: contents;
 }
 
-.flip-back {
+.taig-back {
   display: none;
 }
 
 @media (width >= 76.8rem) {
 
+  /* flip-card takes over taig-lg's sizing + positioning */
   .flip-card {
-    --flip-duration: 0.65s;
-    --flip-ease: cubic-bezier(0.66, 0, 0.34, 1);
-    cursor: default;
-    display: inline-grid;
-    perspective: 700px;
-    vertical-align: middle;
+    display: inline-block;
+    height: 7rem;
+    margin-bottom: -3.3rem;
+    perspective: 600px;
+    position: relative;
+    top: -3.3rem;
+    width: 15rem;
   }
 
-  /* Stack front and back in the same grid cell */
+  /* em.taig-lg inside flip-card: fill the container, don't self-position */
+  .flip-card em.taig-lg {
+    display: block;
+    height: 100%;
+    margin-bottom: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  /* Both faces: absolutely stacked, backface hidden */
   .flip-front,
-  .flip-back {
+  .taig-back {
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    grid-area: 1 / 1;
-    transition: transform var(--flip-duration) var(--flip-ease);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 
-  /* Back starts face-down */
-  .flip-back {
-    display: block;
-    transform: rotateX(180deg);
+  /* Back face: gradient text matching page copy style */
+  .taig-back {
+    align-items: center;
+    background: var(--text-gradient);
+    background-clip: text;
+    color: transparent;
+    display: flex;
+    font-family: var(--font-brand);
+    font-size: 3rem;
+    font-weight: 600;
+    justify-content: center;
+    mix-blend-mode: plus-lighter;
+    transform: rotateX(90deg); /* starts face-down */
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    .flip-card:hover .flip-front {
-      transform: rotateX(-180deg);
+  /* ==========================================================================
+     Scroll-driven flip — front rotates out, back rotates in
+     as the intro section scrolls past viewport midpoint
+  ========================================================================== */
+
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+
+      .flip-front {
+        animation: flip-out-x linear both;
+        animation-timeline: view();
+        animation-range: cover 30% cover 52%;
+      }
+
+      .taig-back {
+        animation: flip-in-x linear both;
+        animation-timeline: view();
+        animation-range: cover 48% cover 68%;
+      }
+
     }
+  }
 
-    .flip-card:hover .flip-back {
-      transform: rotateX(0deg);
+  /* Fallback: hover flip when scroll API unavailable */
+  @supports not (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .flip-front {
+        transition: transform 0.6s cubic-bezier(0.66, 0, 0.34, 1);
+      }
+      .taig-back {
+        transition: transform 0.6s cubic-bezier(0.66, 0, 0.34, 1);
+      }
+      .flip-card:hover .flip-front  { transform: rotateX(-90deg); }
+      .flip-card:hover .taig-back   { transform: rotateX(0deg);   }
     }
   }
 
+}
+
+@keyframes flip-out-x {
+  from { transform: rotateX(0deg);   }
+  to   { transform: rotateX(-90deg); }
+}
+
+@keyframes flip-in-x {
+  from { transform: rotateX(90deg); }
+  to   { transform: rotateX(0deg);  }
 }
