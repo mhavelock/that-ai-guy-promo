@@ -354,10 +354,10 @@
 
         <div class="bullets">
 
-          <label for="slide-1" class="bullets__item bullets__item--1">1</label>
-          <label for="slide-2" class="bullets__item bullets__item--2">2</label>
-          <label for="slide-3" class="bullets__item bullets__item--3">3</label>
-          <label for="slide-4" class="bullets__item bullets__item--4">4</label>
+          <label for="slide-1" class="bullets__item bullets__item--1" tabindex="0">1</label>
+          <label for="slide-2" class="bullets__item bullets__item--2" tabindex="0">2</label>
+          <label for="slide-3" class="bullets__item bullets__item--3" tabindex="0">3</label>
+          <label for="slide-4" class="bullets__item bullets__item--4" tabindex="0">4</label>
 
         </div> <!-- Bullets -->
       </section>
@@ -395,18 +395,18 @@
 
         <form action="https://formzero.mat-havelock.workers.dev/api/forms/a1f3c2e8-4b7d-4e9a-8c6f-1d2e3f4a5b6c/submissions?redirect=https://that-ai-guy.app/full.html%23sent" method="POST">
           <div class="input-field">
-            <i>👤</i>
-            <input type="text" name="name" placeholder="name" required>
+            <i aria-hidden="true">👤</i>
+            <input type="text" name="name" placeholder="name" aria-label="Your name" autocomplete="name" required>
           </div>
 
           <div class="input-field">
-            <i>🌀</i>
-            <input type="email" name="email" placeholder="email" required>
+            <i aria-hidden="true">🌀</i>
+            <input type="email" name="email" placeholder="email" aria-label="Your email address" autocomplete="email" required>
           </div>
 
           <div class="input-field">
-            <i>📩</i>
-            <input type="text" name="message" class="input-message" placeholder="message" required>
+            <i aria-hidden="true">📩</i>
+            <input type="text" name="message" class="input-message" placeholder="message" aria-label="Your message" required>
           </div>
 
           <button class="btn" type="submit">Contact</button>

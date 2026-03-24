@@ -129,3 +129,21 @@
   object-fit: cover;
   width: 3.5rem;
 }
+
+
+/* ==========================================================================
+   6. Slider — keyboard accessibility
+   bullets__item labels need tabindex="0" in HTML to receive focus.
+   slider__item labels (cards) get a visible ring when focused by keyboard.
+========================================================================== */
+
+.bullets__item:focus-visible {
+  background: var(--color-text);
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.slider__item:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: -2px;
+}

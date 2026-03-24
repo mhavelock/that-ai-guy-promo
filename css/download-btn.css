@@ -32,11 +32,16 @@
 }
 
 .btn-appstore:active,
-.btn-appstore:focus {
+.btn-appstore:focus-visible {
   animation-duration: 3s;
   animation-name: btn-appstore-active;
+  outline: none;
   transform: scale(0.95);
   transition: transform 0.08s ease-in;
+}
+
+.btn-appstore:visited {
+  opacity: 0.9;
 }
 
 .btn-appstore img {
@@ -59,12 +64,13 @@
 }
 
 [data-theme="dark"] .btn-appstore:active,
-[data-theme="dark"] .btn-appstore:focus {
+[data-theme="dark"] .btn-appstore:focus-visible {
   animation: none;
   background: #1a1d28;
   border-radius: 14px;
   box-shadow: inset 6px 6px 12px #0a0c12,
     inset -6px -6px 12px #272c3d;
+  outline: none;
 }
 
 [data-theme="dark"] .btn-appstore img {

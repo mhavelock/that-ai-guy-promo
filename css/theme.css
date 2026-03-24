@@ -658,6 +658,7 @@ overflow-x: clip does not create a scroll container so z-index is unaffected. */
   box-shadow:
     0 0 18px var(--nav-active-glow),
     inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  opacity: 1; /* override a:visited dim */
 }
 
 /* Hover */
@@ -669,6 +670,16 @@ overflow-x: clip does not create a scroll container so z-index is unaffected. */
 
 /* Press */
 .bottom-nav-item:active {
+  transform: scale(0.93);
+}
+
+/* Focus — matches active (scale + glow) */
+.bottom-nav-item:focus-visible {
+  background: var(--nav-active-bg);
+  box-shadow:
+    0 0 18px var(--nav-active-glow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  outline: none;
   transform: scale(0.93);
 }
 
@@ -721,6 +732,13 @@ overflow-x: clip does not create a scroll container so z-index is unaffected. */
 }
 
 .theme-toggle:active {
+  transform: scale(0.93);
+}
+
+/* Focus — matches active */
+.theme-toggle:focus-visible {
+  background: var(--nav-glass-bg);
+  outline: none;
   transform: scale(0.93);
 }
 

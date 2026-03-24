@@ -238,6 +238,14 @@ a:hover {
   opacity: 0.75;
 }
 
+a:active {
+  opacity: 0.85;
+}
+
+a:visited {
+  opacity: 0.9;
+}
+
 strong {
   font-weight: bold;
 }

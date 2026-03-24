@@ -67,6 +67,13 @@
   transform: translateY(-50%);
 }
 
+.contact-form .input-field input:focus-visible {
+  box-shadow: inset 4px 4px 8px #8fa3ba,
+    inset -4px -4px 8px #f0f8ff,
+    0 0 0 2px rgba(64, 169, 195, 0.4);
+  outline: none;
+}
+
 /* ---- Button ---- */
 
 .contact-form .btn {
@@ -80,12 +87,21 @@
   font-size: 1rem;
   font-weight: 600;
   padding: 12px;
-  transition: background 0.2s;
+  transition: background 0.2s, box-shadow 0.15s, transform 0.1s;
   width: 100%;
 }
 
 .contact-form .btn:hover {
   background: #3a97af;
+}
+
+.contact-form .btn:active,
+.contact-form .btn:focus-visible {
+  background: #3a97af;
+  box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.18),
+    inset -2px -2px 6px rgba(255, 255, 255, 0.15);
+  outline: none;
+  transform: scale(0.97);
 }
 
 /* ==========================================================================
@@ -123,10 +139,24 @@
   color: #a1b1ca;
 }
 
+[data-theme="dark"] .contact-form .input-field input:focus-visible {
+  box-shadow: inset 4px 4px 8px #080a0f,
+    inset -4px -4px 8px #2a3045,
+    0 0 0 2px rgba(80, 160, 220, 0.4);
+  outline: none;
+}
+
 [data-theme="dark"] .contact-form .btn {
   box-shadow: 5px 5px 15px #0a0c12,
     -5px -5px 15px #272c3d;
   color: #1d1f24;
+}
+
+[data-theme="dark"] .contact-form .btn:active,
+[data-theme="dark"] .contact-form .btn:focus-visible {
+  box-shadow: inset 4px 4px 10px #080a0f,
+    inset -2px -2px 6px #2a3045;
+  outline: none;
 }
 
 /* ==========================================================================
@@ -232,8 +262,14 @@
   text-decoration: none;
 }
 
-.sent-close:hover {
+.sent-close:hover,
+.sent-close:focus-visible {
   opacity: 1;
+  outline: none;
+}
+
+.sent-close:visited {
+  opacity: 0.9;
 }
 
 @keyframes sent-overlay {

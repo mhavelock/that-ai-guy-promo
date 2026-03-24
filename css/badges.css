@@ -108,6 +108,12 @@
   width: 100%;
 }
 
+/* Press */
+.badges dl:active {
+  transform: scale(0.95);
+  transition: transform 0.1s ease-out;
+}
+
 /* Hover / focus states */
 .badges dl:hover dt,
 .badges dl:focus-visible dt {
