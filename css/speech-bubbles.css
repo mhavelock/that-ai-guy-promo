@@ -71,7 +71,7 @@
 }
 
 .imgresize-bubble-1 figcaption {
-  font-size: clamp(1.75rem, -1.77rem + 3.9vw, 1.75rem);
+  font-size: 1.75rem;
   margin-left: -0.5rem;
   top: 34%;
   transform: rotate(-20deg);
@@ -87,7 +87,7 @@
 }
 
 .imgresize-bubble-2 figcaption {
-  font-size: clamp(1.75rem, -1.77rem + 3.9vw, 1.75rem);
+  font-size: 1.75rem;
   margin-left: -0.5rem;
   top: 22%;
 }
@@ -101,7 +101,7 @@
 }
 
 .imgresize-bubble-3 figcaption {
-  font-size: clamp(1.75rem, -1.77rem + 3.9vw, 1.75rem);
+  font-size: 1.75rem;
   font-weight: var(--font-weight-light);
   letter-spacing: 0;
   margin-left: 0.5rem;

@@ -18,9 +18,9 @@
   border-radius: 25px;
   box-shadow: 10px 10px 20px #a3b1c6,
     -10px -10px 20px #ffffff;
-  padding: 50px 40px;
+  padding: 5rem 4rem;
   text-align: center;
-  width: 340px;
+  width: 34rem;
 }
 
 .contact-form-logo {
@@ -163,7 +163,7 @@
    Desktop — horizontal pill bar
    ========================================================================== */
 
-@media (width >= 768px) {
+@media (width >= 76.8rem) {
   .contact-form {
     align-items: center;
     border-radius: 2rem;

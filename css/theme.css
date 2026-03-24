@@ -26,7 +26,6 @@
 @import url("reviews.css");
 @import url("speech-bubbles.css");
 @import url("codewall.css");
-@import url("contect-form.css");
 @import url("top-bg-fx.css");
 
 /* ==========================================================================
@@ -479,80 +478,9 @@ body::after {
    7. Section: Features — text left, phone + speech bubbles right
 ========================================================================== */
 
-/* Mobile: stack vertically; desktop: side-by-side */
-.promo-features {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  overflow-x: clip;
-  margin-top: 9rem;
-}
-
-@media (width >= 76.8rem) {
-  .promo-features {
-    align-items: flex-start;
-    flex-direction: row;
-  }
-}
-
-.promo-logo2 {
-  width: 20%;
-}
-
-@media (width >= 76.8rem) {
-  .promo-logo2 {
-    width: 10%;
-  }
-}
-
 .promo-text {
   flex: 1;
   min-width: 0;
-}
-
-
-
-/* ==========================================================================
-   8. Section: Roast — phones left, text right
-========================================================================== */
-
-/* Mobile: stack vertically; desktop: phones left, text right */
-.promo-roast {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-}
-
-@media (width >= 76.8rem) {
-  .promo-roast {
-    align-items: flex-start;
-    flex-direction: row;
-  }
-}
-
-.promo-phone-wrap--duo {
-  display: flex;
-  flex-shrink: 0;
-  gap: 1rem;
-  width: 100%;
-}
-
-@media (width >= 76.8rem) {
-  .promo-phone-wrap--duo {
-    width: 34%;
-  }
-}
-
-/* Each picture shares width equally as a flex child */
-.promo-phone-wrap--duo > picture {
-  flex: 1;
-  min-width: 0;
-}
-
-.promo-phone-wrap--duo > picture > img {
-  display: block;
-  height: auto;
-  width: 100%;
 }
 
 
@@ -568,31 +496,8 @@ overflow-x: clip does not create a scroll container so z-index is unaffected. */
 
 
 /* ==========================================================================
-   10. Section: Sign-off
+   10. Section: Download
 ========================================================================== */
-
-.promo-sign p {
-  font-style: italic;
-}
-
-.promo-sign p + p {
-  margin-top: 0.5rem;
-}
-
-
-/* ==========================================================================
-   11. Section: Download
-========================================================================== */
-
-.promo-logo3 {
-  width: 40%;
-}
-
-@media (width >= 76.8rem) {
-  .promo-logo3 {
-    width: auto;
-  }
-}
 
 
 
@@ -605,7 +510,7 @@ overflow-x: clip does not create a scroll container so z-index is unaffected. */
   border-radius: 9999px;
   bottom: calc(3.66rem + env(safe-area-inset-bottom, 0px));
   display: flex;
-  gap: 20px;
+  gap: 2rem;
   left: 50%;
   padding: 0.6rem 0.9rem;
   position: fixed;
