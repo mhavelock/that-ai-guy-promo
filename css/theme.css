@@ -304,6 +304,39 @@ body::after {
   }
 }
 
+/* Parallax drift — mobile only (desktop elements are display:none above).
+   Both pseudo-elements are position:fixed so they are stationary by default.
+   Keyframes run from -Xvh → 0 (element starts above viewport, drifts down to
+   natural position at scroll bottom). Height is extended by the same Xvh so
+   the bottom edge always reaches the viewport bottom — no gap at either end.
+   Uses CSS individual `translate` so it composes with ::after's transform: rotateY(180deg). */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    body::before {
+      animation-name:            bg-parallax-slow;
+      animation-timing-function: linear;
+      animation-timeline:        scroll();
+      height: 135vh; /* 100vh + 35vh drift */
+    }
+    body::after {
+      animation-name:            bg-parallax-fast;
+      animation-timing-function: linear;
+      animation-timeline:        scroll();
+      height: 180vh; /* 100vh + 80vh drift */
+    }
+  }
+}
+
+@keyframes bg-parallax-slow {
+  from { translate: 0 -35vh; }
+  to   { translate: 0 0; }
+}
+
+@keyframes bg-parallax-fast {
+  from { translate: 0 -80vh; }
+  to   { translate: 0 0; }
+}
+
 
 /* Dark mode: codewall base text — overrides hardcoded #1e2460 in codewall.css */
 [data-theme="dark"] .promo-codewall {
