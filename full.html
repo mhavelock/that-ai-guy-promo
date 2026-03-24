@@ -357,9 +357,15 @@
 
   <footer>
     <section class="footer-section" id="footer" aria-label="Footer">
-      <!-- Jerome Rassweiler : https://codepen.io/jerora98/pen/qEbzzMY -->
       <div class="contact-form">
-        <div class="profile-img"></div>
+        <img
+          class="contact-form-logo"
+          src="assets/components/logo-tg.svg"
+          alt="That AI Guy"
+          width="36"
+          height="36"
+          aria-hidden="true"
+        >
         <h2>Contact Us</h2>
         <p>Sorry, the complaints department is currently closed</p>
 
@@ -376,14 +382,10 @@
 
           <div class="input-field">
             <i>📩</i>
-            <textarea name="message" class="input-message" placeholder="message" rows="2" required></textarea>
+            <input type="text" name="message" class="input-message" placeholder="message" required>
           </div>
 
           <button class="btn" type="submit">Contact</button>
-
-          <div class="options">
-            Publicly complain, criticise or become the fanbase @ Bluesky? <a href="https://bsky.app/profile/that-ai-guy.app">That AI Guy in the Bluesky</a>
-          </div>
         </form>
       </div>
     </section>

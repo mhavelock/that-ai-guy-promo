@@ -79,7 +79,7 @@
 
 ## What the NEXT Session Should Do
 
-1. **First**: confirm live form test passed (check D1: `SELECT * FROM submissions;`)
+1. **First**: style the sent confirmation modal (`#sent` / `.sent-modal`) in `css/contect-form.css` — match neumorphic aesthetic, dark mode via `[data-theme]` tokens, centred, small card with subtle backdrop
 2. **Then**: redesign contact form — horizontal bar layout, dark mode, logo at start, contact button at end, message field wider than name/email, all other text removed
 3. **CSS scope**: `css/contect-form.css` — full rewrite of layout section; keep FormZero action wiring in `full.html` untouched
 
@@ -95,7 +95,8 @@
 
 ## Open Questions Requiring User Input
 
-- [ ] Live form test result — did submission land in D1 from staging?
+- [x] Live form test confirmed — 5 submissions in D1, Gmail notifications working
+- [ ] App Store URL — `href="#"` on `.btn-appstore` in `full.html` still a placeholder
 - [ ] App Store URL — `href="#"` on `.btn-appstore` in `full.html` still a placeholder
 - [ ] Mat's 9 neumorphic `box-shadow` styles — needed for download button build (carried from previous session)
 

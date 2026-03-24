@@ -81,6 +81,25 @@
 
 - [x] **`404.html`** — custom 404 page based on `holding.html` design; pedantic comedy copy; `noindex, nofollow`; "back to homepage" link; Cloudflare Pages picks this up automatically for unmatched routes — no dashboard changes needed
 
+### Session 2026-03-23 — Contact form + FormZero integration
+
+- [x] **FormZero deployed** — self-hosted form backend on Cloudflare Workers at `formzero.mat-havelock.workers.dev`; D1 database bound as `DB`; free plan (note: signup/login hit CPU limit 1102 — manage via D1 console only)
+- [x] **FormZero user + form seeded via D1 SQL** — bypassed bcrypt signup; user `mat@that-ai-guy.app` + form `Contact` inserted directly; form ID: `a1f3c2e8-4b7d-4e9a-8c6f-1d2e3f4a5b6c`
+- [x] **Gmail SMTP configured** — `settings` table in FormZero D1 seeded with Gmail App Password; `smtp.gmail.com:587` STARTTLS; notifications to `m.j.havelock@gmail.com` confirmed working
+- [x] **Contact form wired** — `full.html` form action → FormZero endpoint with `?redirect=https://that-ai-guy.app/full.html%23sent`; `method="POST"`; `name` attrs on all inputs
+- [x] **Message textarea added** — 2-line height, hidden scrollbar (all browsers), 📩 icon, `name="message"`
+- [x] **`css/contect-form.css` created + linked** — neumorphic contact form styles; linked in `full.html`
+- [x] **Sent confirmation modal** — CSS-only `:target` on `#sent` hash; fades in on FormZero redirect, auto-fades out after 5s; `×` close link; `full.html#sent` shows it directly for testing
+- [x] **`wrangler.jsonc` fixed** — removed unsupported `assets` field that was blocking Pages deploys
+- [x] **Deploy workflow established** — Claude commits → Mat pushes to git → Mat deploys; `protect-commands.sh` hard-blocks `git push` and `--branch=main` deploys from Claude
+
+---
+
+### Session 2026-03-24 — Contact form responsive layout
+
+- [x] **Sent modal** — CSS-only `:target` fade; dark mode via `[data-theme]` tokens; glass modifier applied; complete
+- [x] **Contact form desktop layout** — `@media (width >= 768px)` horizontal pill bar: logo → name → email → message (flex-grow) → Contact button; h2/p hidden at desktop, shown mobile; dark mode neumorphic shadows via `[data-theme="dark"]`; message field `<input type="text">` (single-line horizontal scroll); max-width `90rem`, width `100%`; specificity bug fixed (`.input-field input.input-message` override)
+
 ### Session 2026-03-22 — Conventions, audit, and intro layout
 
 - [x] **CLAUDE.md** — added full Coding conventions section (HTML/CSS/JS rules, units, layout, glass modifier, images, accessibility)

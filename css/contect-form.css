@@ -1,14 +1,17 @@
 /* ==========================================================================
-   THEME — That AI Guy Utilities
-   ==========================================================================
-   1. Screen-reader only (visually-hidden)
-========================================================================== */
+   Contact form
+   Mobile: centred neumorphic card, fields stacked
+   Desktop (>= 768px): horizontal pill bar with logo, fields inline
+   ========================================================================== */
 
 .footer-section {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
+  padding: 2rem 1rem;
 }
+
+/* ---- Card (mobile) ---- */
 
 .contact-form {
   background: #e0e5ec;
@@ -16,26 +19,12 @@
   box-shadow: 10px 10px 20px #a3b1c6,
     -10px -10px 20px #ffffff;
   padding: 50px 40px;
-  width: 340px;
   text-align: center;
+  width: 340px;
 }
 
-.contact-form .profile-img {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 20px;
-  border-radius: 50%;
-  background-color: #e0e5ec;
-  background-image: var(--thataiguyLogo);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: inset 6px 6px 10px rgb(163,177,198, 0.5),
-    inset -6px -6px 10px rgb(255,255,255, 0.5);
-  overflow: hidden;
+.contact-form-logo {
+  display: none;
 }
 
 .contact-form h2 {
@@ -45,91 +34,155 @@
 }
 
 .contact-form p {
-  font-size: 0.9rem;
   color: #666;
+  font-size: 0.9rem;
   margin-bottom: 25px;
 }
 
+/* ---- Inputs ---- */
+
 .contact-form .input-field {
-  position: relative;
   margin-bottom: 20px;
+  position: relative;
 }
 
 .contact-form .input-field input {
-  width: 100%;
-  padding: 12px 45px;
+  background: #e0e5ec;
   border: none;
   border-radius: 15px;
-  background: #e0e5ec;
   box-shadow: inset 6px 6px 10px #a3b1c6,
     inset -6px -6px 10px #ffffff;
-  font-size: 0.95rem;
   color: #333;
+  font-size: 0.95rem;
   outline: none;
+  padding: 1.2rem 1.5rem 1.2rem 4.5rem;
+  width: 100%;
 }
 
 .contact-form .input-field i {
-  position: absolute;
+  color: #666;
   left: 15px;
+  position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  color: #666;
 }
 
-.contact-form .input-field:has(.input-message) i {
-  top: 14px;
-  transform: none;
-}
-
-.contact-form .input-message {
-  width: 100%;
-  padding: 12px 45px;
-  border: none;
-  border-radius: 15px;
-  background: #e0e5ec;
-  box-shadow: inset 6px 6px 10px #a3b1c6,
-    inset -6px -6px 10px #ffffff;
-  font-size: 0.95rem;
-  color: #333;
-  outline: none;
-  overflow-y: auto;
-  resize: none;
-  scrollbar-width: none;
-}
-
-.contact-form .input-message::-webkit-scrollbar {
-  display: none;
-}
+/* ---- Button ---- */
 
 .contact-form .btn {
-  width: 100%;
-  padding: 12px;
+  background: #40a9c3;
   border: none;
   border-radius: 20px;
-  background: #40a9c3;
-  color: white;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
   box-shadow: 5px 5px 15px #a3b1c6,
     -5px -5px 15px #ffffff;
-  transition: 0.2s;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px;
+  transition: background 0.2s;
+  width: 100%;
 }
 
 .contact-form .btn:hover {
   background: #3a97af;
 }
 
-.contact-form .options {
-  margin-top: 15px;
-  font-size: 0.85rem;
-  color: #555;
+/* ==========================================================================
+   Dark mode
+   ========================================================================== */
+
+[data-theme="dark"] .contact-form h2 {
+  color: #a1b1ca;
 }
 
-.contact-form .options a {
-  color: #111;
-  font-weight: 600;
-  text-decoration: none;
+[data-theme="dark"] .contact-form p {
+  color: #6a7a8a;
+}
+
+[data-theme="dark"] .contact-form {
+  background: #1a1d28;
+  box-shadow: 10px 10px 20px #0a0c12,
+    -10px -10px 20px #272c3d;
+}
+
+[data-theme="dark"] .contact-form .input-field input,
+[data-theme="dark"] .contact-form .input-message {
+  background: #1a1d28;
+  box-shadow: inset 6px 6px 10px #0a0c12,
+    inset -6px -6px 10px #272c3d;
+  color: #a1b1ca;
+}
+
+[data-theme="dark"] .contact-form .input-field input::placeholder,
+[data-theme="dark"] .contact-form .input-message::placeholder {
+  color: #6a7a8a;
+}
+
+[data-theme="dark"] .contact-form .input-field i {
+  color: #a1b1ca;
+}
+
+[data-theme="dark"] .contact-form .btn {
+  box-shadow: 5px 5px 15px #0a0c12,
+    -5px -5px 15px #272c3d;
+  color: #1d1f24;
+}
+
+/* ==========================================================================
+   Desktop — horizontal pill bar
+   ========================================================================== */
+
+@media (width >= 768px) {
+  .contact-form {
+    align-items: center;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    max-width: 90rem;
+    padding: 1rem 1.5rem;
+    text-align: left;
+    width: 100%;
+  }
+
+  .contact-form h2,
+  .contact-form p {
+    display: none;
+  }
+
+  .contact-form-logo {
+    display: block;
+    flex-shrink: 0;
+  }
+
+  .contact-form form {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    gap: 0.75rem;
+  }
+
+  .contact-form .input-field {
+    flex: 1;
+    margin-bottom: 0;
+    min-width: 0;
+  }
+
+  .contact-form .input-field:has(.input-message) {
+    flex: 2;
+  }
+
+  .contact-form .input-message {
+    height: auto;
+  }
+
+  .contact-form .btn {
+    flex-shrink: 0;
+    padding: 1.2rem 1.5rem;
+    width: auto;
+  }
 }
 
 /* ==========================================================================
