@@ -42,6 +42,36 @@
 
 ---
 
+## Improvements made this session
+
+### Accessibility
+- All interactive elements now have visible `:focus-visible` states — site is fully keyboard-navigable
+- Slider bullets focusable via keyboard (`tabindex="0"`) — was inaccessible before
+- Form inputs have `aria-label` and `autocomplete` — screen readers and autofill now work correctly
+- Decorative emoji icons marked `aria-hidden` — no longer announced by screen readers
+
+### Animation / performance
+- Badge hover morph now respects `prefers-reduced-motion` — was running a paint-intensive 22-point polygon transition for all users regardless of OS setting
+- Full animation audit completed — confirmed all scroll-driven and time-based animations are compositor-safe or already gated
+
+### Code quality
+- Removed `contect-form.css` double-load — styles were being parsed and applied twice (once via `@import`, once via `<link>`)
+- Removed ~6 dead CSS blocks from `theme.css` (`.promo-features`, `.promo-logo2`, etc.) — classes that no longer exist in HTML
+- Hardcoded `px` values converted to `rem` in `badges.css` and `contect-form.css`
+- `gap: 20px` → `gap: 2rem` on `.bottom-nav` — convention compliance
+- `@media (width >= 768px)` → `@media (width >= 76.8rem)` in `contect-form.css` — was inconsistent with the rest of the codebase
+
+### CSS architecture
+- Self-contained unused design system components (Tooltips, Modal, Icons, site-header, site-footer) extracted from `global.css` into `global-xtra.css` — `global.css` is now leaner and only contains actively used or scheme-relevant styles
+
+### Bug fixes (`privacy.html`)
+- `.glass` modifier was missing from `.bottom-nav` and `.theme-toggle` — glassmorphism effect was absent on the privacy page
+- Broken logo image path (`assets/logo-tg.svg` → `assets/components/logo-tg.svg`)
+- Broken privacy icon path (`assets/privacy-policy.svg` → `assets/icons/privacy-policy.svg`)
+- Script load order corrected (`logger.js` must precede `main.js` per CLAUDE.md)
+
+---
+
 ## Commits this session
 
 ```
