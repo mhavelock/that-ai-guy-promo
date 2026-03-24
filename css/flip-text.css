@@ -3,18 +3,26 @@
    Original idea & technique: cbolson — https://codepen.io/cbolson/pen/bNGjarJ
    ==========================================================================
    "That AI Guy" SVG (front) gently spins on Y-axis as the intro section
-   scrolls past, revealing "Naturally." (back) — parallax-paced via scroll.
+   scrolls away, revealing "Naturally." (back).
 
    Desktop only. Mobile: .flip-card is invisible to layout (display: contents),
    em.taig-lg behaves exactly as it did before.
 
+   Why named timeline (not view()):
+     The flip-card is in the viewport on page load. view() on the element
+     itself starts its cover range at negative scroll — so the animation
+     is already mid-state when the page loads. Instead we track the parent
+     .promo-intro section (--promo-intro named timeline) and fire the flip
+     as that section scrolls out of view — reliable parallax timing.
+
    Technique:
-     - .flip-card takes over em.taig-lg's positioning on desktop
+     - .flip-card takes over em.taig-lg's sizing/positioning on desktop
      - .flip-front (em) and .taig-back (span) absolute-stacked inside
-     - Spin axis: rotateY — horizontal coin-flip, not top-flop
-     - Perspective: 1200px — large value = subtle, gentle depth
-     - Scroll-driven via animation-timeline: view(); wide ranges = slow parallax
-     - Fallback: hover spin (when view() not supported)
+     - Spin axis: rotateY — horizontal coin-flip feel
+     - Perspective: 1200px on container — subtle, gentle depth
+     - transform-style: preserve-3d — renders children in true 3D space
+     - Scroll-driven via --promo-intro named timeline
+     - Fallback: hover spin (when scroll API not supported)
 
    Note: em.taig-lg renders the logo as SVG background-image (font-size: 0).
    The back face .taig-back is a separate span with real text.
@@ -31,6 +39,12 @@
 
 @media (width >= 76.8rem) {
 
+  /* Named timeline on the intro section — used by flip children below */
+  .promo-intro {
+    view-timeline-name: --promo-intro;
+    view-timeline-axis: block;
+  }
+
   /* flip-card takes over taig-lg's sizing + positioning */
   .flip-card {
     display: inline-block;
@@ -39,6 +53,7 @@
     perspective: 1200px;
     position: relative;
     top: -3.3rem;
+    transform-style: preserve-3d;
     width: 15rem;
   }
 
@@ -77,30 +92,31 @@
   }
 
   /* ==========================================================================
-     Scroll-driven spin — front rotates out, back rotates in on Y axis.
-     Wide animation-range = slow, parallax-paced unwind as user scrolls.
+     Scroll-driven spin via named timeline on .promo-intro.
+     Fires as the intro section scrolls out of view — smooth parallax.
+     cover 45%→65% / 60%→80% = user has scrolled a few hundred px down.
   ========================================================================== */
 
-  @supports (animation-timeline: view()) {
+  @supports (animation-timeline: scroll()) {
     @media (prefers-reduced-motion: no-preference) {
 
       .flip-front {
         animation: flip-out-y linear both;
-        animation-timeline: view();
-        animation-range: cover 20% cover 50%;
+        animation-timeline: --promo-intro;
+        animation-range: cover 45% cover 65%;
       }
 
       .taig-back {
         animation: flip-in-y linear both;
-        animation-timeline: view();
-        animation-range: cover 46% cover 76%;
+        animation-timeline: --promo-intro;
+        animation-range: cover 60% cover 80%;
       }
 
     }
   }
 
   /* Fallback: hover spin when scroll API unavailable */
-  @supports not (animation-timeline: view()) {
+  @supports not (animation-timeline: scroll()) {
     @media (prefers-reduced-motion: no-preference) {
       .flip-front {
         transition: transform 0.8s cubic-bezier(0.66, 0, 0.34, 1);
