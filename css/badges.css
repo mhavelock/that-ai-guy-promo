@@ -177,3 +177,38 @@
 .badges dl:nth-child(4):focus-visible {
   clip-path: polygon(6.1% 0%, 83.1% 0%, 83.1% 63.6%, 23% 63.6%, 7.8% 86.4%, 13.6% 63.6%, 6.1% 63.6%);
 }
+
+
+/* ==========================================================================
+   Animated blob badge dt — desktop only
+   Original idea & technique: starrifyx — https://codepen.io/starrifyx/pen/yLrWVVq
+   The badge title circle morphs slowly between organic blob shapes.
+   Each badge is staggered via animation-delay so they breathe independently.
+   Idle-state only — dt fades out on hover (existing transition untouched).
+========================================================================== */
+
+@media (width >= 76.8rem) {
+  @media (prefers-reduced-motion: no-preference) {
+
+    .badges dt {
+      animation: badge-blob 9s ease-in-out infinite;
+    }
+
+    .badges dl:nth-child(1) dt { animation-delay:    0s; }
+    .badges dl:nth-child(2) dt { animation-delay:  -3s; }
+    .badges dl:nth-child(3) dt { animation-delay:  -6s; }
+    .badges dl:nth-child(4) dt { animation-delay: -1.5s; }
+
+  }
+}
+
+@keyframes badge-blob {
+  0%   { border-radius: 50%; }
+  15%  { border-radius: 58% 42% 34% 66% / 55% 37% 63% 45%; }
+  30%  { border-radius: 40% 60% 62% 38% / 50% 66% 34% 50%; }
+  45%  { border-radius: 65% 35% 44% 56% / 38% 55% 45% 62%; }
+  60%  { border-radius: 44% 56% 58% 42% / 62% 40% 60% 38%; }
+  75%  { border-radius: 52% 48% 36% 64% / 45% 60% 40% 55%; }
+  90%  { border-radius: 47% 53% 55% 45% / 56% 43% 57% 44%; }
+  100% { border-radius: 50%; }
+}

@@ -1,0 +1,89 @@
+/* ==========================================================================
+   MARQUEE STRIP — That AI Guy
+   ==========================================================================
+   Desktop-only scrolling text ticker.
+   Hidden on mobile (display: none base; shown at 76.8rem+).
+   Pure CSS — no JS. Seamless loop via 2× content duplication in HTML.
+   Reduced-motion: strip shows but track is static (no scroll).
+========================================================================== */
+
+/* Hidden on mobile */
+.marquee-strip {
+  display: none;
+}
+
+@media (width >= 76.8rem) {
+
+  .marquee-strip {
+    border-bottom: 1px solid color-mix(in srgb, var(--color-tg) 22%, transparent);
+    border-top:    1px solid color-mix(in srgb, var(--color-tg) 22%, transparent);
+    display: block;
+    margin: 2rem 0;
+    overflow: hidden;
+    padding: 0.9rem 0;
+    position: relative;
+  }
+
+  /* Soft fade at left and right edges */
+  .marquee-strip::before,
+  .marquee-strip::after {
+    bottom: 0;
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 10rem;
+    z-index: 1;
+  }
+
+  .marquee-strip::before {
+    background: linear-gradient(to right, var(--color-bg), transparent);
+    left: 0;
+  }
+
+  .marquee-strip::after {
+    background: linear-gradient(to left, var(--color-bg), transparent);
+    right: 0;
+  }
+
+  /* Track — inline flex so items sit in a single row */
+  .marquee-track {
+    display: inline-flex;
+    white-space: nowrap;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .marquee-track {
+      animation: marquee-scroll 55s linear infinite;
+    }
+
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+  }
+
+  .marquee-item {
+    color: var(--color-tg);
+    font-family: var(--font-brand);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    opacity: 0.75;
+    padding: 0 0.25rem;
+    text-transform: uppercase;
+    user-select: none;
+  }
+
+  .marquee-sep {
+    color: color-mix(in srgb, var(--color-tg) 50%, transparent);
+    font-size: 0.7rem;
+    padding: 0 1rem;
+    vertical-align: middle;
+  }
+
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
