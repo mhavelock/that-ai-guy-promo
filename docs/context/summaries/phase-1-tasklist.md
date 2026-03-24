@@ -158,9 +158,9 @@
 
 - [x] **Download button** — 9 neumorphic keyframe styles (4s hold + 1s transition, 45s cycle) in `css/download-btn.css`; App Store SVG overlay (`fill:#1d1f24`, transparent bg); dark mode: animation off, dark neumorphic surface + `filter:invert(1)` for white logo; `prefers-reduced-motion` fallback; URL placeholder — update when App Store ID known
 - [x] **Badge hover** → springy `clip-path` morph circle → speech bubble per badge; unique shape derived from bulle1–4 SVGs; spring easing via `linear()` token (`--spring`); `display:none` → `opacity:0` so fade transition works; per-badge circle default polygon (r=58%) ensures `dt` border never clipped
-- [x] **Custom cursors** — `.cur` files in `assets/cursors/`; per-badge via `cursor: url()` with `pointer` fallback (sadpepe / idk / dogeinglasses / patrick)
+- [x] **Custom cursors** — `.cur` files replaced with PNG assets (`thumbsup-01–04.png`); extracted from SVG wrappers (browsers block embedded resources in cursor context); badge 2–4 resized to 100px wide; cursor definitions in `badges.css` lines 50–53
+- [x] **Glassify** — `css/glass.css` created; `.glass` modifier applied to: `.badges` (frosted surface, gradient preserved on `dt`, morph untouched), `.contact-form` (frosted glass + neumorphic dual-shadow), `.promo-reviews` (slider-card only — transforms untouched), `.promo-download` / `.btn-appstore` (animation stopped, static glass surface + neumorphic depth); tokens in `:root` + `[data-theme="dark"]`
 - [ ] **Claude icon** — `assets/icons/claude-ai-icon.svg` fixed bottom-left; scroll-driven rotation (clockwise down, anticlockwise up)
-- [ ] **Glassify** — apply `.glass` modifier to: badges, slider/review cards — deferred to whole-page glass pass
 
 ---
 
