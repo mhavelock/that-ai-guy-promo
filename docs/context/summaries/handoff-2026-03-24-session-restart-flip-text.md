@@ -5,7 +5,7 @@
 
 ## Context
 
-Previous session crashed (matrix rain / terminal). This session was a clean restart:
+Previous session ended abruptly due to a VS Code issue (not a Claude crash — terminal appeared to go matrix rain but everything was fine). This session was a clean restart:
 orientate from handoffs, tidy up stale state, then fix the outstanding flip-text bug.
 
 ---
