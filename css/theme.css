@@ -27,6 +27,7 @@
 @import url("speech-bubbles.css");
 @import url("codewall.css");
 @import url("contect-form.css");
+@import url("top-bg-fx.css");
 
 /* ==========================================================================
    1. Font
@@ -156,6 +157,8 @@ html {
 /* Mobile: fixed font sizes — base for all inherited elements */
 body {
   font-size: var(--font-size-lg);
+  /* Top padding creates the stage for the fixed logo circle peeking from top */
+  padding-top: 10rem;
   /* Extra bottom padding so content clears the fixed nav */
   padding-bottom: calc(14rem + env(safe-area-inset-bottom, 0px));
 }
@@ -285,7 +288,7 @@ body::after {
   opacity: 0.33;
   position: fixed;
   width: 100%;
-  z-index: -1;
+  z-index: -2;
 }
 
 body::after {

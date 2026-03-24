@@ -1,0 +1,139 @@
+/* ==========================================================================
+   TOP BACKGROUND FX — logo circle + radio-wave ripples
+   ==========================================================================
+   Fixed 192rem positioning container. The visible circle (button, glow, rings)
+   is 54rem — centred inside the container — matching the SVG logo arc that
+   peeks from the top of the viewport.
+
+   Layering (z-index):
+     body::before / ::after  wavegrid parallax          -2
+     .top-bg-fx              logo circle + rings         -1  ← this file
+     page content            normal flow                  0+
+
+   Geometry at top: -117rem, container 192rem tall:
+     Container centre:  -117rem + 96rem  = -21rem from viewport top
+     54rem circle top:  -21rem  - 27rem  = -48rem (above viewport)
+     54rem circle base: -21rem  + 27rem  =  +6rem (peeking in)
+
+   Structure:
+     .top-bg-fx            fixed 192rem positioning container, centred
+     .top-bg-fx::before    54rem circle — gradient fill + glow border
+     .top-bg-fx::after     54rem circle — SVG logo, independently muted
+     .top-bg-ring × 4      54rem rings — expand outward from circle edge
+   ========================================================================== */
+
+/* ==========================================================================
+   1. Container
+   ========================================================================== */
+
+.top-bg-fx {
+  height: 192rem;
+  left: 50%;
+  pointer-events: none;
+  position: fixed;
+  top: -117rem;
+  /* individual translate for X centring — bob animation modifies Y cleanly */
+  translate: -50% 0;
+  width: 192rem;
+  z-index: -1;
+}
+
+/* Subtle bob — simulates a floating transmitter */
+@media (prefers-reduced-motion: no-preference) {
+  .top-bg-fx {
+    animation: logo-bob 5s ease-in-out infinite;
+  }
+}
+
+@keyframes logo-bob {
+  0%, 100% { translate: -50% 0; }
+  50%       { translate: -50% -1.2rem; }
+}
+
+
+/* ==========================================================================
+   Shared centring for circle, SVG, and rings
+   All three are 54rem, centred at the container midpoint so they align
+   exactly with the visible button arc at the top of the viewport.
+   ========================================================================== */
+
+.top-bg-fx::before,
+.top-bg-fx::after,
+.top-bg-ring {
+  border-radius: 50%;
+  height: 54rem;
+  /* calc(50% - 27rem) centres the 54rem element in the 192rem container */
+  left: calc(50% - 27rem);
+  position: absolute;
+  top: calc(50% - 27rem);
+  width: 54rem;
+}
+
+
+/* ==========================================================================
+   2. Circle — gradient fill + glow
+   ========================================================================== */
+
+.top-bg-fx::before {
+  background: radial-gradient(circle at center,
+    var(--color-tg) 0%,
+    color-mix(in srgb, var(--color-tg) 55%, transparent) 55%,
+    transparent 80%);
+  border: 2px solid var(--color-tg);
+  box-shadow:
+    0 0 6rem 2rem  color-mix(in srgb, var(--color-tg) 55%, transparent),
+    0 0 12rem 5rem color-mix(in srgb, var(--color-tg) 30%, transparent);
+  content: '';
+  display: block;
+  opacity: 0.65;
+}
+
+
+/* ==========================================================================
+   3. SVG logo — independently muted
+   ========================================================================== */
+
+.top-bg-fx::after {
+  background: url('../assets/components/logo-tg.svg') center / 80% auto no-repeat;
+  content: '';
+  display: block;
+  opacity: 0.18;
+}
+
+
+/* ==========================================================================
+   4. Ripple rings
+   ========================================================================== */
+
+.top-bg-ring {
+  border: 2px solid var(--color-tg);
+  opacity: 0;
+}
+
+/* Even rings: thinner border for wave variation */
+.top-bg-ring:nth-child(even) {
+  border-width: 1px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .top-bg-ring:nth-child(odd)  { animation: ring-ripple      4s   linear infinite; }
+  .top-bg-ring:nth-child(even) { animation: ring-ripple-soft 4.5s linear infinite; }
+
+  .top-bg-ring:nth-child(1) { animation-delay: 0s; }
+  .top-bg-ring:nth-child(2) { animation-delay: 1s; }
+  .top-bg-ring:nth-child(3) { animation-delay: 2s; }
+  .top-bg-ring:nth-child(4) { animation-delay: 3s; }
+}
+
+/* Rings expand from the 54rem circle edge — scale(1) = exact circumference match */
+@keyframes ring-ripple {
+  0%   { opacity: 0.55; transform: scale(1); }
+  30%  { opacity: 0.30; }
+  100% { opacity: 0;    transform: scale(2.4); }
+}
+
+@keyframes ring-ripple-soft {
+  0%   { opacity: 0.40; transform: scale(1); }
+  30%  { opacity: 0.20; }
+  100% { opacity: 0;    transform: scale(2.1); }
+}
