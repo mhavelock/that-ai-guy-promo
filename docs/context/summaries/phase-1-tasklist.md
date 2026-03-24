@@ -2,7 +2,7 @@
 
 **Phase:** 1 — Foundation
 **Created:** 2026-03-13
-**Updated:** 2026-03-22
+**Updated:** 2026-03-24
 **Status:** In progress
 
 > **Working convention:** Stop and check between each task — show `git diff` when done.
@@ -95,6 +95,19 @@
 
 ---
 
+### Session 2026-03-24 — Site audit: interactive states, accessibility, clean code, animation performance
+
+- [x] **Interactive states** — hover/active/focus-visible/visited added across all interactive elements: `a` (global), `.bottom-nav-item`, `.theme-toggle`, `.btn-appstore`, `.contact-form .btn`, `.contact-form input`, `.sent-close`, `.badges dl`, `.bullets__item`, `.slider__item`
+- [x] **Focus = active** — `:focus-visible` uses same visual language as active/pressed state; `outline: none` with explicit visual replacement throughout
+- [x] **Visited state** — `a:visited { opacity: 0.9 }` in global.css; `.bottom-nav-item.is-active { opacity: 1 }` prevents visited dim overriding current-page indicator
+- [x] **Keyboard accessibility** — `tabindex="0"` on `.bullets__item` labels (slider); `aria-hidden="true"` on `<i>` emoji elements; `aria-label` + `autocomplete` on all 3 form inputs
+- [x] **CSS clean code** — dead CSS removed from `theme.css` (`.promo-features`, `.promo-logo2`, `.promo-roast`, `.promo-phone-wrap--duo`, `.promo-sign`, `.promo-logo3`); `contect-form.css` double-load (`@import` + `<link>`) fixed; `px` → `rem` fixes; `gap: 20px` → `2rem`; media query `768px` → `76.8rem`
+- [x] **`privacy.html` bugs** — `.glass` modifier missing from `.bottom-nav` and `.theme-toggle`; broken logo + privacy icon paths fixed; script load order corrected
+- [x] **Script load order** — both HTML files: `logger.js` → `theme.js` → `main.js`
+- [x] **Animation performance audit** — all animations reviewed; compositor-safe confirmed for top-bg-fx, speech-bubbles, parallax, stars; `cw-sweep` already gated; `btn-appstore-cycle` intentional design; `slider.css transition: all` noted (fragile third-party)
+- [x] **`badges.css` prefers-reduced-motion** — `transition: clip-path 0.7s var(--spring)` moved inside `@media (prefers-reduced-motion: no-preference)` gate (was missing)
+- [x] **`global.css` / `global-xtra.css`** — self-contained unused sections (Tooltips, Modal/Dialog, Icons, site-header Navigation, site-footer) moved to new `global-xtra.css`; imported by `global.css`; scheme-based components (Buttons, Forms, Alerts) kept in `global.css`; index renumbered 1–9
+
 ### Session 2026-03-24 — Contact form responsive layout
 
 - [x] **Sent modal** — CSS-only `:target` fade; dark mode via `[data-theme]` tokens; glass modifier applied; complete
@@ -186,7 +199,6 @@
 ## Phase 2 *(later)*
 
 - [ ] **Speech bubble animation** (iterative): jiggle → jiggle-pause loop → dart toward iPhone → desync → scroll-triggered → viewport-width triggered
-- [ ] **Light effect** (dark mode): default light → dark on = 3s pause + `pull-chord-on.mp3` + overhead radial glow → dark off = `pull-chord-off.mp3` + glow removed
 - [ ] Deploy to GitHub Pages + custom domain
 - [ ] SEO: OG image, sitemap, robots.txt, canonical URL
 - [ ] Analytics (if required)
