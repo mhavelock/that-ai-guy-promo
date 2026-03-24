@@ -13,7 +13,7 @@
    1. Tokens
    2. Badges  (.badges.glass)
    3. Contact form  (.contact-form.glass)
-   4. Reserved: Slider / Review cards
+   4. Reviews  (.promo-reviews.glass)
 
    Dark mode tokens follow [data-theme="dark"] — same scope as theme.css.
 ========================================================================== */
@@ -36,6 +36,12 @@
   --glass-form-neu-lo:       #a3b1c6;
   --glass-form-neu-hi:       #ffffff;
 
+  /* Review card glass — light */
+  --glass-review-bg:         rgba(255, 255, 255, 0.35);
+  --glass-review-border:     rgba(255, 255, 255, 0.60);
+  --glass-review-shine:      rgba(255, 255, 255, 0.85);
+  --glass-review-shadow:     rgba(0, 0, 0, 0.12);
+
   /* Badge glass — light */
   --glass-badge-bg:          rgba(210, 220, 248, 0.10);
   --glass-badge-fill:        rgba(190, 210, 255, 0.72);
@@ -54,6 +60,12 @@
   --glass-form-shadow:       rgba(0, 0, 0, 0.45);
   --glass-form-neu-lo:       #0a0c12;
   --glass-form-neu-hi:       #272c3d;
+
+  /* Review card glass — dark */
+  --glass-review-bg:         rgba(255, 255, 255, 0.07);
+  --glass-review-border:     rgba(255, 255, 255, 0.12);
+  --glass-review-shine:      rgba(255, 255, 255, 0.10);
+  --glass-review-shadow:     rgba(0, 0, 0, 0.45);
 
   /* Badge glass — dark */
   --glass-badge-bg:          rgba(100, 130, 210, 0.03);
@@ -193,4 +205,21 @@
     inset 0 1.5px 0 var(--glass-form-shine),
     inset 0 0 0 1px var(--glass-form-border),
     0 8px 32px var(--glass-form-shadow);
+}
+
+
+/* ==========================================================================
+   4. Reviews — .promo-reviews.glass
+   ==========================================================================
+   Targets .slider-card only — .slider__item and all its transforms are
+   untouched. backdrop-filter follows the card's border-radius naturally.
+========================================================================== */
+
+.promo-reviews.glass .slider-card {
+  backdrop-filter: var(--glass-blur);
+  background: var(--glass-review-bg);
+  box-shadow:
+    inset 0 1.5px 0 var(--glass-review-shine),
+    inset 0 0 0 1px var(--glass-review-border),
+    0 8px 24px var(--glass-review-shadow);
 }
