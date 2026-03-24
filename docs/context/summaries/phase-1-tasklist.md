@@ -2,7 +2,7 @@
 
 **Phase:** 1 — Foundation
 **Created:** 2026-03-13
-**Updated:** 2026-03-24 (session 2)
+**Updated:** 2026-03-24 (session 3)
 **Status:** In progress
 
 > **Working convention:** Stop and check between each task — show `git diff` when done.
@@ -207,6 +207,10 @@
 - [ ] Desktop layout pass (bottom nav, typography, spacing)
 - [ ] Hero panel (intro + badges in glass frame)
 - [ ] Footer panel (contact + radar)
+
+## Next session
+
+- [ ] **CSS iPhone** — TBD (next session starting task)
 
 ---
 

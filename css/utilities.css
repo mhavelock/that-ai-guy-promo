@@ -59,6 +59,21 @@ display: none;
 }
 
 
+/* ==========================================================================
+   Desktop-only visibility
+========================================================================== */
+
+.u-desktop {
+  display: none;
+}
+
+@media (width >= 76.8rem) {
+  .u-desktop {
+    display: inline;
+  }
+}
+
+
 /* Picture Transition */
 .promo-awards {
   display: flex;
