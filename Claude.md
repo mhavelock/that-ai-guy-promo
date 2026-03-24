@@ -53,10 +53,11 @@ A single-page promotional website encouraging visitors to download the **That AI
 │   ├── graphics/    # Award/promo graphics
 │   ├── avatars/     # Reviewer avatar images
 │   ├── icons/       # UI icons (SVG)
-│   └── audio/       # pull-chord MP3 sounds (Phase 2)
 ├── css/
 │   ├── global.css   # Design system (tokens, reset, typography, layout, components, utilities)
-│   │                # Imports: grid.css, utilities.css, badges.css
+│   │                # Imports: grid.css, utilities.css, badges.css, global-xtra.css
+│   ├── global-xtra.css # Unused design system components kept for reference (Tooltips, Modal, Icons, site-header Nav, site-footer)
+│   │                # Imported by global.css — remove import when not needed
 │   ├── theme.css    # Promo page layout, dark/light tokens ([data-theme]), bottom-nav, toggle
 │   │                # Imports: stars.css, slider.css, reviews.css
 │   ├── grid.css     # Grid layout utilities (grid-4x4)
