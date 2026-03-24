@@ -160,7 +160,7 @@
 - [x] **Badge hover** → springy `clip-path` morph circle → speech bubble per badge; unique shape derived from bulle1–4 SVGs; spring easing via `linear()` token (`--spring`); `display:none` → `opacity:0` so fade transition works; per-badge circle default polygon (r=58%) ensures `dt` border never clipped
 - [x] **Custom cursors** — `.cur` files replaced with PNG assets (`thumbsup-01–04.png`); extracted from SVG wrappers (browsers block embedded resources in cursor context); badge 2–4 resized to 100px wide; cursor definitions in `badges.css` lines 50–53
 - [x] **Glassify** — `css/glass.css` created; `.glass` modifier applied to: `.badges` (frosted surface, gradient preserved on `dt`, morph untouched), `.contact-form` (frosted glass + neumorphic dual-shadow), `.promo-reviews` (slider-card only — transforms untouched), `.promo-download` / `.btn-appstore` (animation stopped, static glass surface + neumorphic depth); tokens in `:root` + `[data-theme="dark"]`
-- [ ] **Claude icon** — `assets/icons/claude-ai-icon.svg` fixed bottom-left; scroll-driven rotation (clockwise down, anticlockwise up)
+- [~] **Claude icon** — ~~`assets/icons/claude-ai-icon.svg` fixed bottom-left; scroll-driven rotation~~ — NOT DOING, parked 2026-03-24
 
 ---
 
@@ -182,8 +182,8 @@
 
 - [ ] App Store URL — update `href` on `.btn-appstore` in `full.html` (currently `https://www.apple.com/app-store/` placeholder)
 - [ ] Review and sign off privacy policy content
-- [ ] Contact email in privacy policy (`hello@thataiguy.app` — placeholder)
-- [ ] Confirm star ratings: Sheldon + Jeff corrected to `value="1"` — is this right?
+- [x] Contact email in privacy policy — updated to `mat@that-ai-guy.app` (2026-03-24)
+- [x] Star ratings: Sheldon + Jeff — confirmed correct as-is (2026-03-24)
 
 ---
 
