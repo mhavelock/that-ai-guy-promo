@@ -226,9 +226,19 @@
 - [x] **Marquee margin** — `5rem 0` (was `5rem 0 2rem`)
 - [x] **Word carousel margin-top** — `7rem` (was `1rem`)
 
+### Session 2026-03-24 — CSS iPhone mockup + flip-text fixes
+
+- [x] **Screenshot folder** — `ss/` added to `.gitignore`; rule 12 added to `CLAUDE.md`
+- [x] **CSS iPhone mockup** — `css/iphone.css` (894 lines); frame adapted from Wujek_Greg CodePen (upright, fluid scaling via `transform:scale(clamp/430px)`); screen content mimics Victim Profile screen (dark theme, status bar, header, traits list, tab bar); injected into `.promo-download` to the right of App Store button; `aria-hidden`, attribution comments
+- [x] **Download section layout** — `.promo-download` gets `gap: 2rem; padding: 3rem 2rem` for side-by-side button + phone
+- [x] **Flip text — squash on load fixed** — changed `cover` range to `exit` range; `cover` was already ~40% through at scroll=0 for a top-of-page section; `exit 0%` fires only when user starts scrolling → element always flat on load
+- [x] **Flip text — mobile-first** — removed `@media (width >= 76.8rem)` guard; flip now works at all viewport sizes
+- [x] **Flip text — "Be That Guy."** — back face text updated; `letter-spacing: -0.04em` tightened
+- [x] **Flip text — view-timeline moved** — `view-timeline-name: --promo-intro` lifted out of desktop media query to base styles
+
 ## Next session
 
-- [ ] **CSS iPhone** — TBD (next session starting task)
+- [ ] **Review** — visual check of CSS iPhone at 320px and 390px viewports; confirm flip timing feels right on mobile
 
 ---
 

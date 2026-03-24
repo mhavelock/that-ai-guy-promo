@@ -2,134 +2,129 @@
    FLIP TEXT — scroll-driven 3D spin on sign-off
    Original idea & technique: cbolson — https://codepen.io/cbolson/pen/bNGjarJ
    ==========================================================================
-   "That AI Guy" SVG (front) gently spins on Y-axis as the intro section
-   scrolls away, revealing "Naturally." (back).
+   "That AI Guy" SVG (front) spins on Y-axis as the intro section scrolls
+   away, revealing "Be That Guy." (back). Mobile-first — works at all sizes.
 
-   Desktop only. Mobile: .flip-card is invisible to layout (display: contents),
-   em.taig-lg behaves exactly as it did before.
+   Why exit range (not cover):
+     cover 0% fires before scroll=0 when the element is already at the top
+     of the page — so the animation is mid-state on load, causing the squash.
+     exit 0% fires precisely when the user starts scrolling and the section
+     begins to leave the viewport — the element is always flat on load.
 
-   Why named timeline (not view()):
-     The flip-card is in the viewport on page load. view() on the element
-     itself starts its cover range at negative scroll — so the animation
-     is already mid-state when the page loads. Instead we track the parent
-     .promo-intro section (--promo-intro named timeline) and fire the flip
-     as that section scrolls out of view — reliable parallax timing.
+   Why named timeline (not view() on self):
+     The flip-card is tiny; its own view() range would cover range instantly.
+     Tracking the parent .promo-intro section gives smooth, readable timing
+     across the full height of the intro scrolling out.
 
-   Technique:
-     - .flip-card takes over em.taig-lg's sizing/positioning on desktop
-     - .flip-front (em) and .taig-back (span) absolute-stacked inside
-     - Spin axis: rotateY — horizontal coin-flip feel
-     - Perspective: 1200px on container — subtle, gentle depth
-     - transform-style: preserve-3d — renders children in true 3D space
-     - Scroll-driven via --promo-intro named timeline
-     - Fallback: hover spin (when scroll API not supported)
+   Layout:
+     .flip-card wraps em.taig-lg (front SVG) + span.taig-back (back text).
+     Sized to match .taig-lg dimensions so layout is undisturbed.
+     em.taig-lg inside .flip-card is re-positioned to fill the container.
+   ========================================================================== */
 
-   Note: em.taig-lg renders the logo as SVG background-image (font-size: 0).
-   The back face .taig-back is a separate span with real text.
-========================================================================== */
 
-/* Mobile: .flip-card is invisible to layout; em.taig-lg positions itself normally */
+/* ==========================================================================
+   Named scroll timeline — on the parent intro section
+   ========================================================================== */
+
+.promo-intro {
+  view-timeline-name: --promo-intro;
+  view-timeline-axis: block;
+}
+
+
+/* ==========================================================================
+   Flip card container — matches .taig-lg dimensions so layout is undisturbed
+   ========================================================================== */
+
 .flip-card {
-  display: contents;
+  display: inline-block;
+  height: 7rem;
+  margin-bottom: -3.3rem;
+  perspective: 1200px;
+  position: relative;
+  top: -3.3rem;
+  transform-style: preserve-3d;
+  width: 15rem;
 }
 
+/* em.taig-lg inside .flip-card: fill the container (override theme positioning) */
+.flip-card em.taig-lg {
+  display: block;
+  height: 100%;
+  margin-bottom: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+/* Both faces: absolutely stacked, backface hidden */
+.flip-front,
 .taig-back {
-  display: none;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
-@media (width >= 76.8rem) {
-
-  /* Named timeline on the intro section — used by flip children below */
-  .promo-intro {
-    view-timeline-name: --promo-intro;
-    view-timeline-axis: block;
-  }
-
-  /* flip-card takes over taig-lg's sizing + positioning */
-  .flip-card {
-    display: inline-block;
-    height: 7rem;
-    margin-bottom: -3.3rem;
-    perspective: 1200px;
-    position: relative;
-    top: -3.3rem;
-    transform-style: preserve-3d;
-    width: 15rem;
-  }
-
-  /* em.taig-lg inside flip-card: fill the container, don't self-position */
-  .flip-card em.taig-lg {
-    display: block;
-    height: 100%;
-    margin-bottom: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
-
-  /* Both faces: absolutely stacked, backface hidden */
-  .flip-front,
-  .taig-back {
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-
-  /* Back face: brand-blue solid text — gradient avoided (unreliable in 3D transforms) */
-  .taig-back {
-    align-items: center;
-    color: var(--color-tg);
-    display: flex;
-    font-family: var(--font-brand);
-    font-size: 3rem;
-    font-weight: 600;
-    justify-content: center;
-    transform: rotateY(90deg); /* starts face-right, hidden */
-  }
-
-  /* ==========================================================================
-     Scroll-driven spin via named timeline on .promo-intro.
-     Fires as the intro section scrolls out of view — smooth parallax.
-     cover 45%→65% / 60%→80% = user has scrolled a few hundred px down.
-  ========================================================================== */
-
-  @supports (animation-timeline: scroll()) {
-    @media (prefers-reduced-motion: no-preference) {
-
-      .flip-front {
-        animation: flip-out-y linear both;
-        animation-timeline: --promo-intro;
-        animation-range: cover 45% cover 65%;
-      }
-
-      .taig-back {
-        animation: flip-in-y linear both;
-        animation-timeline: --promo-intro;
-        animation-range: cover 60% cover 80%;
-      }
-
-    }
-  }
-
-  /* Fallback: hover spin when scroll API unavailable */
-  @supports not (animation-timeline: scroll()) {
-    @media (prefers-reduced-motion: no-preference) {
-      .flip-front {
-        transition: transform 0.8s cubic-bezier(0.66, 0, 0.34, 1);
-      }
-      .taig-back {
-        transition: transform 0.8s cubic-bezier(0.66, 0, 0.34, 1);
-      }
-      .flip-card:hover .flip-front { transform: rotateY(-90deg); }
-      .flip-card:hover .taig-back  { transform: rotateY(0deg);   }
-    }
-  }
-
+/* Back face — starts face-right (hidden), spins to face-forward */
+.taig-back {
+  align-items: center;
+  color: var(--color-tg);
+  display: flex;
+  font-family: var(--font-brand);
+  font-size: 2.6rem;
+  font-weight: 600;
+  justify-content: center;
+  letter-spacing: -0.04em;
+  transform: rotateY(90deg);
+  white-space: nowrap;
 }
+
+
+/* ==========================================================================
+   Scroll-driven flip — fires on exit range so element is flat at scroll=0
+   ========================================================================== */
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+
+    .flip-front {
+      animation: flip-out-y linear both;
+      animation-timeline: --promo-intro;
+      animation-range: exit 0% exit 30%;
+    }
+
+    .taig-back {
+      animation: flip-in-y linear both;
+      animation-timeline: --promo-intro;
+      animation-range: exit 18% exit 42%;
+    }
+
+  }
+}
+
+/* Hover fallback when scroll API unavailable */
+@supports not (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .flip-front {
+      transition: transform 0.8s cubic-bezier(0.66, 0, 0.34, 1);
+    }
+    .taig-back {
+      transition: transform 0.8s cubic-bezier(0.66, 0, 0.34, 1);
+    }
+    .flip-card:hover .flip-front { transform: rotateY(-90deg); }
+    .flip-card:hover .taig-back  { transform: rotateY(0deg);   }
+  }
+}
+
+
+/* ==========================================================================
+   Keyframes
+   ========================================================================== */
 
 @keyframes flip-out-y {
   from { transform: rotateY(0deg);   }
