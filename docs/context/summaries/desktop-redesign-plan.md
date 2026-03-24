@@ -99,10 +99,16 @@ Group related elements into **inset glass frames** — frosted containers with:
 
 ### T7 — Flip Text
 **Source:** https://codepen.io/cbolson/pen/bNGjarJ
-**Placement:** The intro section sign-off — `"That AI Guy"` SVG (front) flips to reveal "Naturally." (back) as intro scrolls past viewport midpoint.
+**Placement:** The intro section sign-off — `"That AI Guy"` SVG (front) spins on Y-axis to reveal "Naturally." (back) as user scrolls past the intro section.
 **File:** `css/flip-text.css`
 **HTML:** `.flip-card` wrapper around `em.taig-lg.flip-front` + `span.taig-back`
-**Status:** ✅ Done — back face uses `color: var(--color-tg)` solid blue (gradient dropped — unreliable with backface-visibility + 3D transforms)
+**Status:** ✅ Done
+**Key decisions:**
+- Y-axis (`rotateY`) not X — coin-flip / spin feel
+- `perspective: 1200px` + `transform-style: preserve-3d` on `.flip-card`
+- Named timeline `--promo-intro` on `.promo-intro` section — avoids cover-range-at-negative-scroll bug that occurs when element is already in viewport at page load
+- Back face: `color: var(--color-tg)` solid blue — gradient text dropped (unreliable with `backface-visibility` + 3D transforms)
+- Hover fallback for browsers without scroll-driven animation support
 
 ### T8 — Stats Counters + Progress Bars
 **Source:** https://codepen.io/cbolson/pen/PwqBVqB + https://codepen.io/educationalworks88/pen/oNQvWNJ
@@ -152,7 +158,7 @@ Tasks are ordered to maximise early visual impact with minimum breakage risk.
 | 3 | Glass panel system tokens | — | Medium | P1 — foundation for all panels | ✅ Done |
 | 4 | Stats counters section | T8 | Medium | P1 — core new content | ✅ Done |
 | 5 | Animated blob badge `dt` | T6 | Low | P2 | ✅ Done |
-| 6 | Flip text (sign-off) | T7 | Low | P2 | ✅ Done — `.taig-back` back face uses `color: var(--color-tg)` (solid blue; gradient dropped — unreliable in 3D) |
+| 6 | Flip text (sign-off) | T7 | Low | P2 | ✅ Done — Y-axis scroll-driven spin via `--promo-intro` named timeline; `color: var(--color-tg)` back face; `transform-style: preserve-3d` |
 | 7 | Star orbit (nav logo) | T3 | Medium | P2 | ✅ Done |
 | 8 | AI thinking widget | T4 | Medium | P2 | ✅ Done |
 | 9 | Radar widget | T2 | High | P3 | ✅ Done |
