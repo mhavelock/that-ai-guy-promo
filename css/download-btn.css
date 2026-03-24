@@ -1,0 +1,146 @@
+/* ==========================================================================
+   Download button — App Store
+   Neumorphic cycling animation: 9 styles, 4s hold + 1s transition each
+   Total cycle: 45s
+   ========================================================================== */
+
+.promo-download {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+.btn-appstore {
+  animation: btn-appstore-cycle 45s linear infinite;
+  background: #e0e0e0;
+  border-radius: 50px;
+  box-shadow: 25px 25px 49px #cecece, -25px -25px 49px #f2f2f2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 2rem;
+  text-decoration: none;
+}
+
+.btn-appstore img {
+  display: block;
+  height: auto;
+  width: clamp(10rem, 30vw, 16rem);
+}
+
+/* Dark mode — dark neumorphic button, white logo */
+[data-theme="dark"] .btn-appstore {
+  animation: none;
+  background: #1a1d28;
+  border-radius: 50px;
+  box-shadow: 10px 10px 20px #0a0c12,
+    -10px -10px 20px #272c3d;
+}
+
+[data-theme="dark"] .btn-appstore img {
+  filter: invert(1);
+}
+
+/* Reduced motion — hold on style 2 (no animation) */
+@media (prefers-reduced-motion: reduce) {
+  .btn-appstore {
+    animation: none;
+    background: linear-gradient(145deg, #cacaca, #f0f0f0);
+    border-radius: 63px;
+    box-shadow: 9px 9px 18px #c1c1c1, -9px -9px 18px #ffffff;
+  }
+}
+
+/* ==========================================================================
+   Keyframes
+   Slot width: 11.11% (5s). Hold ends at -2.22% before next slot start.
+   Duplicate values at hold-start and hold-end = no change during hold.
+   CSS interpolates in the 2.22% gap between hold-end and next slot start.
+
+   Note: flat ↔ gradient and inset ↔ non-inset transitions will snap
+   (CSS cannot interpolate these). All other transitions are smooth.
+   ========================================================================== */
+
+@keyframes btn-appstore-cycle {
+
+  /* 1 — flat, outer */
+  0%, 8.89% {
+    background: #e0e0e0;
+    border-radius: 50px;
+    box-shadow: 25px 25px 49px #cecece,
+      -25px -25px 49px #f2f2f2;
+  }
+
+  /* 2 — gradient, outer, tight shadow */
+  11.11%, 20% {
+    background: linear-gradient(145deg, #cacaca, #f0f0f0);
+    border-radius: 63px;
+    box-shadow: 9px 9px 18px #c1c1c1,
+      -9px -9px 18px #ffffff;
+  }
+
+  /* 3 — gradient, outer */
+  22.22%, 31.11% {
+    background: linear-gradient(145deg, #cacaca, #f0f0f0);
+    border-radius: 50px;
+    box-shadow: 25px 25px 49px #cecece,
+      -25px -25px 49px #f2f2f2;
+  }
+
+  /* 4 — gradient reversed, outer */
+  33.33%, 42.22% {
+    background: linear-gradient(145deg, #f0f0f0, #cacaca);
+    border-radius: 50px;
+    box-shadow: 25px 25px 49px #a8a8a8,
+      -25px -25px 49px #ffffff;
+  }
+
+  /* 5 — gradient, outer, large radius + shadow */
+  44.44%, 53.33% {
+    background: linear-gradient(145deg, #cacaca, #f0f0f0);
+    border-radius: 17px;
+    box-shadow: 37px 37px 74px #afafaf,
+      -37px -37px 74px #ffffff;
+  }
+
+  /* 6 — flat, inset */
+  55.56%, 64.44% {
+    background: #e0e0e0;
+    border-radius: 50px;
+    box-shadow: inset 25px 25px 49px #cecece,
+      inset -25px -25px 49px #f2f2f2;
+  }
+
+  /* 7 — gradient reversed, outer, large */
+  66.67%, 75.56% {
+    background: linear-gradient(145deg, #f0f0f0, #cacaca);
+    border-radius: 65px;
+    box-shadow: 38px 38px 76px #afafaf,
+      -38px -38px 76px #ffffff;
+  }
+
+  /* 8 — flat, inset, strong dark shadow */
+  77.78%, 86.67% {
+    background: #e0e0e0;
+    border-radius: 50px;
+    box-shadow: inset 9px 9px 18px #777777,
+      inset -9px -9px 18px #ffffff;
+  }
+
+  /* 9 — flat, outer, dark shadow, sharp radius */
+  88.89%, 97.78% {
+    background: #e0e0e0;
+    border-radius: 32px;
+    box-shadow: 9px 9px 18px #777777,
+      -9px -9px 18px #ffffff;
+  }
+
+  /* loop back to 1 */
+  100% {
+    background: #e0e0e0;
+    border-radius: 50px;
+    box-shadow: 25px 25px 49px #cecece,
+      -25px -25px 49px #f2f2f2;
+  }
+}

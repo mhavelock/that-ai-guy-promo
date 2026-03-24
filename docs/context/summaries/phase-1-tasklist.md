@@ -143,10 +143,9 @@
 
 ## Priority 3 — Styling features *(mobile only)*
 
-- [ ] **Download button** — cycle through 9 neumorphic keyframe styles (1s transition, 4s hold); overlay App Store SVG
+- [x] **Download button** — 9 neumorphic keyframe styles (4s hold + 1s transition, 45s cycle) in `css/download-btn.css`; App Store SVG overlay (`fill:#1d1f24`, transparent bg); dark mode: animation off, dark neumorphic surface + `filter:invert(1)` for white logo; `prefers-reduced-motion` fallback; URL placeholder — update when App Store ID known
 - [x] **Badge hover** → springy `clip-path` morph circle → speech bubble per badge; unique shape derived from bulle1–4 SVGs; spring easing via `linear()` token (`--spring`); `display:none` → `opacity:0` so fade transition works; per-badge circle default polygon (r=58%) ensures `dt` border never clipped
 - [x] **Custom cursors** — `.cur` files in `assets/cursors/`; per-badge via `cursor: url()` with `pointer` fallback (sadpepe / idk / dogeinglasses / patrick)
-- [ ] **Download button** — cycle through 9 neumorphic keyframe styles (1s transition, 4s hold); overlay App Store SVG
 - [ ] **Claude icon** — `assets/icons/claude-ai-icon.svg` fixed bottom-left; scroll-driven rotation (clockwise down, anticlockwise up)
 - [ ] **Glassify** — apply `.glass` modifier to: badges, slider/review cards — deferred to whole-page glass pass
 
@@ -168,7 +167,7 @@
 
 ## Content *(whenever)*
 
-- [ ] App Store URL (update `href="#"` on `.btn-appstore`)
+- [ ] App Store URL — update `href` on `.btn-appstore` in `full.html` (currently `https://www.apple.com/app-store/` placeholder)
 - [ ] Review and sign off privacy policy content
 - [ ] Contact email in privacy policy (`hello@thataiguy.app` — placeholder)
 - [ ] Confirm star ratings: Sheldon + Jeff corrected to `value="1"` — is this right?
