@@ -2,7 +2,7 @@
    RADAR WIDGET — CSS-only animated radar, blue colour scheme
    Original idea & technique: Cyril-Bosselut — https://codepen.io/Cyril-Bosselut/pen/MYwGpQa
    ==========================================================================
-   Desktop only — sits alongside the contact form in the footer.
+   Shown on mobile and desktop alongside the dog award.
    Purely decorative: aria-hidden="true" on the HTML element.
    Blue colour scheme (adapted from original green radar).
 
@@ -14,167 +14,207 @@
      .radar-label          — optional "LISTENING..." text below
 ========================================================================== */
 
-/* Hidden on mobile */
 .radar-widget {
-  display: none;
+  --radar-size:  min(42vw, 210px);
+  --radar-color: var(--color-tg);
+  --radar-bg:    color-mix(in srgb, var(--color-bg) 80%, var(--color-tg));
+
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 1.2rem;
 }
 
-@media (width >= 76.8rem) {
+/* The circular radar face */
+.radar-face {
+  aspect-ratio: 1;
+  background: color-mix(in srgb, var(--color-bg) 88%, var(--color-tg));
+  border: 1px solid color-mix(in srgb, var(--radar-color) 35%, transparent);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--radar-color) 15%, transparent),
+    inset 0 0 40px color-mix(in srgb, var(--radar-color) 8%, transparent),
+    0 0 30px 4px color-mix(in srgb, var(--radar-color) 10%, transparent);
+  overflow: hidden;
+  position: relative;
+  width: var(--radar-size);
+}
 
-  .radar-widget {
-    --radar-size:  210px;
-    --radar-color: var(--color-tg);
-    --radar-bg:    color-mix(in srgb, var(--color-bg) 80%, var(--color-tg));
+/* Concentric rings via radial-gradient */
+.radar-face::before {
+  background:
+    radial-gradient(circle, transparent 32%, color-mix(in srgb, var(--radar-color) 22%, transparent) 33%, transparent 34%),
+    radial-gradient(circle, transparent 65%, color-mix(in srgb, var(--radar-color) 16%, transparent) 66%, transparent 67%),
+    radial-gradient(circle, transparent 98%, color-mix(in srgb, var(--radar-color) 35%, transparent) 99%);
+  border-radius: 50%;
+  bottom: 0;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 0;
+}
 
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    flex-shrink: 0;
-    gap: 1.2rem;
-  }
-
-  /* The circular radar face */
-  .radar-face {
-    aspect-ratio: 1;
-    background: color-mix(in srgb, var(--color-bg) 88%, var(--color-tg));
-    border: 1px solid color-mix(in srgb, var(--radar-color) 35%, transparent);
-    border-radius: 50%;
-    box-shadow:
-      0 0 0 1px color-mix(in srgb, var(--radar-color) 15%, transparent),
-      inset 0 0 40px color-mix(in srgb, var(--radar-color) 8%, transparent),
-      0 0 30px 4px color-mix(in srgb, var(--radar-color) 10%, transparent);
-    overflow: hidden;
-    position: relative;
-    width: var(--radar-size);
-  }
-
-  /* Concentric rings via radial-gradient */
-  .radar-face::before {
-    background:
-      radial-gradient(circle, transparent 32%, color-mix(in srgb, var(--radar-color) 22%, transparent) 33%, transparent 34%),
-      radial-gradient(circle, transparent 65%, color-mix(in srgb, var(--radar-color) 16%, transparent) 66%, transparent 67%),
-      radial-gradient(circle, transparent 98%, color-mix(in srgb, var(--radar-color) 35%, transparent) 99%);
-    border-radius: 50%;
-    bottom: 0;
-    content: '';
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 0;
-  }
-
-  /* Crosshair lines */
-  .radar-face::after {
-    background:
-      linear-gradient(
-        to right,
-        transparent calc(50% - 0.5px),
-        color-mix(in srgb, var(--radar-color) 20%, transparent) calc(50% - 0.5px),
-        color-mix(in srgb, var(--radar-color) 20%, transparent) calc(50% + 0.5px),
-        transparent calc(50% + 0.5px)
-      ),
-      linear-gradient(
-        to bottom,
-        transparent calc(50% - 0.5px),
-        color-mix(in srgb, var(--radar-color) 20%, transparent) calc(50% - 0.5px),
-        color-mix(in srgb, var(--radar-color) 20%, transparent) calc(50% + 0.5px),
-        transparent calc(50% + 0.5px)
-      );
-    border-radius: 50%;
-    bottom: 0;
-    content: '';
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 1;
-  }
-
-  /* Rotating sweep — conic gradient */
-  .radar-scan {
-    background: conic-gradient(
-      from 0deg,
-      color-mix(in srgb, var(--radar-color) 55%, transparent) 0deg,
-      color-mix(in srgb, var(--radar-color) 28%, transparent) 25deg,
-      color-mix(in srgb, var(--radar-color) 10%, transparent) 50deg,
-      transparent 70deg
+/* Crosshair lines */
+.radar-face::after {
+  background:
+    linear-gradient(
+      to right,
+      transparent calc(50% - 0.5px),
+      color-mix(in srgb, var(--radar-color) 20%, transparent) calc(50% - 0.5px),
+      color-mix(in srgb, var(--radar-color) 20%, transparent) calc(50% + 0.5px),
+      transparent calc(50% + 0.5px)
+    ),
+    linear-gradient(
+      to bottom,
+      transparent calc(50% - 0.5px),
+      color-mix(in srgb, var(--radar-color) 20%, transparent) calc(50% - 0.5px),
+      color-mix(in srgb, var(--radar-color) 20%, transparent) calc(50% + 0.5px),
+      transparent calc(50% + 0.5px)
     );
-    border-radius: 50%;
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 2;
-  }
+  border-radius: 50%;
+  bottom: 0;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
 
-  @media (prefers-reduced-motion: no-preference) {
-    .radar-scan {
-      animation: radar-sweep 3s linear infinite;
-    }
-  }
+/* Rotating sweep — conic gradient */
+.radar-scan {
+  background: conic-gradient(
+    from 0deg,
+    color-mix(in srgb, var(--radar-color) 55%, transparent) 0deg,
+    color-mix(in srgb, var(--radar-color) 28%, transparent) 25deg,
+    color-mix(in srgb, var(--radar-color) 10%, transparent) 50deg,
+    transparent 70deg
+  );
+  border-radius: 50%;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+}
 
-  /* Centre dot */
-  .radar-centre {
-    background: var(--radar-color);
-    border-radius: 50%;
-    box-shadow: 0 0 6px 2px color-mix(in srgb, var(--radar-color) 60%, transparent);
-    height: 6px;
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 6px;
-    z-index: 4;
+@media (prefers-reduced-motion: no-preference) {
+  .radar-scan {
+    animation: radar-sweep 3s linear infinite;
   }
+}
 
-  /* Signal blips */
+/* Centre dot */
+.radar-centre {
+  background: var(--radar-color);
+  border-radius: 50%;
+  box-shadow: 0 0 6px 2px color-mix(in srgb, var(--radar-color) 60%, transparent);
+  height: 6px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  z-index: 4;
+}
+
+/* Signal blips */
+.radar-blip {
+  border-radius: 50%;
+  height: 5px;
+  position: absolute;
+  width: 5px;
+  z-index: 3;
+}
+
+.radar-blip-1 { background: var(--radar-color); left: 62%; top: 28%; }
+.radar-blip-2 { background: var(--radar-color); left: 32%; top: 60%; }
+.radar-blip-3 { background: var(--radar-color); left: 24%; top: 38%; }
+.radar-blip-4 { background: var(--radar-color); left: 71%; top: 67%; }
+
+@media (prefers-reduced-motion: no-preference) {
   .radar-blip {
-    border-radius: 50%;
-    height: 5px;
-    position: absolute;
-    width: 5px;
-    z-index: 3;
+    animation: blip-ping 2.4s ease-in-out infinite;
   }
+  .radar-blip-2 { animation-delay: -0.8s; }
+  .radar-blip-3 { animation-delay: -1.6s; }
+  .radar-blip-4 { animation-delay: -0.4s; }
+}
 
-  .radar-blip-1 { background: var(--radar-color); left: 62%; top: 28%; }
-  .radar-blip-2 { background: var(--radar-color); left: 32%; top: 60%; }
-  .radar-blip-3 { background: var(--radar-color); left: 24%; top: 38%; }
-  .radar-blip-4 { background: var(--radar-color); left: 71%; top: 67%; }
+/* Label below radar */
+.radar-label {
+  color: color-mix(in srgb, var(--color-tg) 70%, transparent);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
 
-  @media (prefers-reduced-motion: no-preference) {
-    .radar-blip {
-      animation: blip-ping 2.4s ease-in-out infinite;
-    }
-    .radar-blip-2 { animation-delay: -0.8s; }
-    .radar-blip-3 { animation-delay: -1.6s; }
-    .radar-blip-4 { animation-delay: -0.4s; }
-  }
-
-  /* Label below radar */
+@media (prefers-reduced-motion: no-preference) {
   .radar-label {
-    color: color-mix(in srgb, var(--color-tg) 70%, transparent);
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
+    animation: radar-blink 1.4s ease-in-out infinite;
   }
+}
 
-  @media (prefers-reduced-motion: no-preference) {
-    .radar-label {
-      animation: radar-blink 1.4s ease-in-out infinite;
-    }
+/* Neon glass text overlay — centered on radar face */
+.radar-text-overlay {
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+  justify-content: center;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 5;
+}
+
+.radar-text-overlay span {
+  color: #acf3f1;
+  display: block;
+  /* Scales with radar size: 13% gives ~21px at min mobile, ~27px at desktop */
+  font-size: calc(var(--radar-size) * 0.13);
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  line-height: 1.2;
+  opacity: 0.33;
+  text-align: center;
+  text-shadow:
+    0 0 4px var(--color-tg),
+    0 0 12px var(--color-tg),
+    0 0 24px color-mix(in srgb, var(--color-tg) 55%, transparent);
+}
+
+/* TOP */
+.radar-text-overlay span:nth-child(1) {
+  font-family: Impact, Haettenschweiler, sans-serif;
+  line-height: 0.5;
+}
+
+/* TEN */
+.radar-text-overlay span:nth-child(2) {
+  font-family: Impact, Haettenschweiler, sans-serif;
+}
+
+/* AWESOME, APPS */
+.radar-text-overlay span:nth-child(3),
+.radar-text-overlay span:nth-child(4) {
+  font-family: fantasy;
+  letter-spacing: 0.2rem;
+}
+
+/* Desktop: wider gap between award and radar */
+@media (width >= 76.8rem) {
+  .promo-awards {
+    gap: 3rem;
   }
-
-  /* Footer layout: contact form + radar side by side */
-  .footer-section {
-    align-items: center;
-    display: flex;
-    gap: 4rem;
-    justify-content: center;
-  }
-
 }
 
 @keyframes radar-sweep {

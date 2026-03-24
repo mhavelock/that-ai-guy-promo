@@ -208,6 +208,24 @@
 - [ ] Hero panel (intro + badges in glass frame)
 - [ ] Footer panel (contact + radar)
 
+### Session 2026-03-24 — Visual polish (copy, decorative widgets, carousel)
+
+- [x] **Copy review** — Left col rewritten, right col replaced with Friend feature, meta description updated, marquee first item added
+- [x] **Word carousel** — CSS-only vertical rotating carousel (`css/word-carousel.css`) replacing static `.promo-strap`; "▪Unsolicited▪ / 💬 / ▪Unwanted▪ / 💭 / ▪Unstoppable▪"; staggered `animation-delay`; faithful adaptation of freeplayg CodePen keyframes
+- [x] **Radar widget moved** — from footer → right of dog award in `.promo-awards`; neon glass text overlay added (TOP / TEN / AWESOME / APPS in `#acf3f1`, opacity 0.5, Impact/fantasy fonts)
+- [x] **Stats grid** — `opacity: 0.66`
+- [x] **Footer padding** — `10rem` bottom on `.footer-section` so contact form clears nav
+- [x] **Divider tidy** — `💬` divider removed (above word carousel); `🗯` divider hidden on desktop via `marquee.css`; marquee gets `margin-top: 5rem` to sit in its place
+- [x] **`.u-desktop` utility** — added to `utilities.css` for inline desktop-only text
+- [x] **`copy-review-2026-03-24.md`** — copy change log written to `docs/context/summaries/`
+
+### Session 2026-03-24 — Mobile radar + carousel/divider tweaks
+
+- [x] **Radar on mobile** — `css/radar.css` refactored; `display: none` removed; all styles lifted out of desktop media query; `--radar-size: min(42vw, 210px)` fluid sizing; text `calc(--radar-size * 0.13)`; award + radar side by side on mobile via `.promo-awards` base layout
+- [x] **`💭` divider hidden on desktop** — added to selector block in `marquee.css` alongside `🗯`
+- [x] **Marquee margin** — `5rem 0` (was `5rem 0 2rem`)
+- [x] **Word carousel margin-top** — `7rem` (was `1rem`)
+
 ## Next session
 
 - [ ] **CSS iPhone** — TBD (next session starting task)

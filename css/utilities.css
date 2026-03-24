@@ -76,12 +76,15 @@ display: none;
 
 /* Picture Transition */
 .promo-awards {
+  align-items: center;
   display: flex;
+  gap: 1.5rem;
   justify-content: center;
   padding: 0 0 8rem;
 }
 .promo-awards > div:first-child {
-position: relative;
+  position: relative;
+  width: min(42vw, 210px);
 }
 
 .promo-awards picture + picture {

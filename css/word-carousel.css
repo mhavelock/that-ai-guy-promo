@@ -1,0 +1,120 @@
+/* ==========================================================================
+   WORD CAROUSEL — CSS-only vertical rotating text carousel
+   Original idea & technique: freeplayg — https://codepen.io/freeplayg/pen/dyEeevX
+   ==========================================================================
+   5 items: 3 words + 2 speech emoji separators.
+   All li share the same keyframe; staggered animation-delay creates the
+   rotating queue effect. Step size = 20s / 5 items = 4s per item.
+
+   Technique:
+     - All li are position:absolute, stacked at the same origin
+     - rotate-y keyframes: center (active) → translateY down → blur/shrink
+       behind → translateY up → return to center
+     - z-index in keyframes keeps active item above ghost items
+     - prefers-reduced-motion: shows first item statically, no animation
+========================================================================== */
+
+.word-carousel {
+  height: 3.5rem;
+  list-style: none;
+  margin: 7rem auto 4rem;
+  overflow: visible;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.word-carousel li {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: 600;
+  left: 0;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  position: absolute;
+  right: 0;
+  top: 0;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.word-carousel .carousel-emoji {
+  font-size: 3rem;
+  letter-spacing: 0;
+}
+
+/* Static fallback — show only first item when motion is reduced */
+@media (prefers-reduced-motion: reduce) {
+  .word-carousel li + li {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .word-carousel li {
+    animation: word-carousel-rotate 20s linear infinite;
+  }
+
+  .word-carousel li:nth-child(1) { animation-delay:   0s; }
+  .word-carousel li:nth-child(2) { animation-delay:  -4s; }
+  .word-carousel li:nth-child(3) { animation-delay:  -8s; }
+  .word-carousel li:nth-child(4) { animation-delay: -12s; }
+  .word-carousel li:nth-child(5) { animation-delay: -16s; }
+}
+
+@keyframes word-carousel-rotate {
+  /* Active: centred, full size */
+  0%, 100% {
+    filter: blur(0px);
+    opacity: 1;
+    transform: translateY(0%) scale(1.2);
+    z-index: 2;
+  }
+  /* Moving down */
+  12.5% {
+    filter: blur(0px);
+    opacity: .7;
+    transform: translateY(40%);
+    z-index: 1;
+  }
+  /* Shrinking as it exits below */
+  25% {
+    filter: blur(2px);
+    opacity: .5;
+    transform: translateY(50%) scale(.8);
+    z-index: -1;
+  }
+  /* Passing behind — blurred, small */
+  37.5% {
+    filter: blur(4px);
+    opacity: .3;
+    transform: translateY(40%) scale(.65);
+    z-index: -1;
+  }
+  50% {
+    filter: blur(8px);
+    opacity: .3;
+    transform: translateY(0%) scale(.5);
+    z-index: -1;
+  }
+  /* Coming up from behind */
+  62.5% {
+    filter: blur(4px);
+    opacity: .3;
+    transform: translateY(-40%) scale(.65);
+    z-index: -1;
+  }
+  75% {
+    filter: blur(2px);
+    opacity: .5;
+    transform: translateY(-50%) scale(.8);
+    z-index: -1;
+  }
+  /* Approaching from above */
+  87.5% {
+    filter: blur(0px);
+    opacity: .7;
+    transform: translateY(-40%);
+    z-index: 1;
+  }
+}

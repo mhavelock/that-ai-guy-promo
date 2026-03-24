@@ -51,6 +51,7 @@
   <link rel="stylesheet" href="css/glass.css">
   <link rel="stylesheet" href="css/contect-form.css">
   <link rel="stylesheet" href="css/download-btn.css">
+  <link rel="stylesheet" href="css/word-carousel.css">
   <link rel="stylesheet" href="css/desktop.css">
 </head>
 <body>
@@ -93,10 +94,17 @@
         </div>
       </div>
 
-      <hr class="section-divider" data-emoji="💬" aria-hidden="true">
-
       <div class="promo-full-width promo-text">
-        <p class="promo-strap"><strong>Unsolicited.</strong> <strong>Unwanted.</strong> <strong>Unstoppable.</strong></p>
+        <!-- Word carousel — CSS-only vertical rotating text.
+             Original idea & technique: freeplayg — https://codepen.io/freeplayg/pen/dyEeevX
+             Square full stops (▪), speech emoji separators, staggered animation-delay. -->
+        <ul class="word-carousel" aria-label="Unsolicited. Unwanted. Unstoppable.">
+          <li>▪Unsolicited▪</li>
+          <li class="carousel-emoji">💬</li>
+          <li>▪Unwanted▪</li>
+          <li class="carousel-emoji">💭</li>
+          <li>▪Unstoppable▪</li>
+        </ul>
         <p><span><strong><span>F</span>lagellate</strong> yourself</span> with unsolicited condescension, or give a friend a roasting they'll never forgive. <span class="u-desktop">Either way, <em>That AI Guy</em> is here to ensure no one leaves the room feeling good about themselves.</span></p>
         <p>Yours faithfully,</p>
         <!-- Flip text — scroll-driven 3D flip reveals back face on desktop.
@@ -442,6 +450,28 @@
             <img src="assets/graphics/awards/dogg-award02_72dpi_200x200.webp" alt="Dogg Best Apple App 2026" loading="lazy" width="200" height="200">
           </picture>
         </div>
+
+        <!-- Radar widget — decorative; shown alongside dog award on mobile and desktop.
+             Original idea & technique: Cyril-Bosselut — https://codepen.io/Cyril-Bosselut/pen/MYwGpQa
+             Adapted to blue colour scheme. Neon glass text overlay added. -->
+        <div class="radar-widget" aria-hidden="true">
+          <div class="radar-face">
+            <div class="radar-scan"></div>
+            <div class="radar-centre"></div>
+            <div class="radar-blip radar-blip-1"></div>
+            <div class="radar-blip radar-blip-2"></div>
+            <div class="radar-blip radar-blip-3"></div>
+            <div class="radar-blip radar-blip-4"></div>
+            <div class="radar-text-overlay">
+              <span>TOP</span>
+              <span>TEN</span>
+              <span>AWESOME</span>
+              <span>APPS</span>
+            </div>
+          </div>
+          <p class="radar-label">Listening…</p>
+        </div>
+
       </section>
     </div>
 
@@ -483,21 +513,6 @@
             Publicly complain, criticise or become the fanbase @ Bluesky? <a href="https://bsky.app/profile/that-ai-guy.app">That AI Guy in the Bluesky</a>
           </div>
         </form>
-      </div>
-
-      <!-- Radar widget — desktop only; hidden on mobile via CSS.
-           Original idea & technique: Cyril-Bosselut — https://codepen.io/Cyril-Bosselut/pen/MYwGpQa
-           Adapted to blue colour scheme. -->
-      <div class="radar-widget" aria-hidden="true">
-        <div class="radar-face">
-          <div class="radar-scan"></div>
-          <div class="radar-centre"></div>
-          <div class="radar-blip radar-blip-1"></div>
-          <div class="radar-blip radar-blip-2"></div>
-          <div class="radar-blip radar-blip-3"></div>
-          <div class="radar-blip radar-blip-4"></div>
-        </div>
-        <p class="radar-label">Listening…</p>
       </div>
 
     </section>

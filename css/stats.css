@@ -47,6 +47,7 @@
   .stats-grid {
     backdrop-filter: blur(28px) saturate(200%);
     background: color-mix(in srgb, var(--color-bg) 65%, var(--color-tg));
+    opacity: 0.66;
     border: 1px solid color-mix(in srgb, var(--color-tg) 30%, transparent);
     border-radius: 1.25rem;
     box-shadow:
