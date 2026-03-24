@@ -338,6 +338,123 @@
           height="500"
         >
       </a>
+
+      <!--
+        CSS iPhone mockup — decorative representation of the app's Victim Profile screen.
+        Frame technique: "Photorealistic pure CSS mobile phone" by Grzegorz Witczak (Wujek_Greg)
+        Source: https://codepen.io/Wujek_Greg/pen/LmrweG
+        Adapted: upright orientation, fluid scaling, custom screen content. See css/iphone.css.
+        aria-hidden: purely decorative — no information conveyed to screen readers.
+      -->
+      <div class="iphone-mockup" aria-hidden="true">
+        <div class="phone">
+
+          <!-- Back shell with side buttons and bottom port -->
+          <div class="phone-back">
+            <div class="phone-left-side">
+              <div class="phone-antena"></div>
+              <div class="phone-button top"></div>
+              <div class="phone-button"></div>
+              <div class="phone-button bottom"></div>
+              <div class="phone-antena bottom"></div>
+            </div>
+            <div class="phone-bottom">
+              <div class="phone-antena"></div>
+              <div class="bottom-speaker">
+                <div></div><div></div><div></div><div></div><div></div><div></div>
+              </div>
+              <div class="phone-screw"><div></div></div>
+              <div class="phone-charger"></div>
+              <div class="phone-screw right"><div></div></div>
+              <div class="bottom-speaker right">
+                <div></div><div></div><div></div><div></div><div></div><div></div>
+              </div>
+              <div class="phone-antena right"></div>
+            </div>
+          </div>
+
+          <!-- Screen glass layer -->
+          <div class="phone-screen"></div>
+
+          <!-- Display + app content -->
+          <div class="phone-display">
+            <div class="phone-notch"><div class="phone-speaker"></div></div>
+            <div class="display-content">
+
+              <!-- Status bar -->
+              <div class="iph-statusbar">
+                <span class="iph-time">9:41</span>
+                <span class="iph-icons">
+                  <span class="iph-signal">
+                    <i></i><i></i><i></i>
+                  </span>
+                  <span class="iph-wifi"></span>
+                  <span class="iph-battery"></span>
+                </span>
+              </div>
+
+              <!-- App header -->
+              <div class="iph-header">
+                <button class="iph-back" tabindex="-1">&#8249;</button>
+                <span class="iph-title">Victim Profile</span>
+              </div>
+
+              <!-- Subtitle -->
+              <p class="iph-subtitle">The more you tell us, the harder we roast them.</p>
+
+              <!-- Name input -->
+              <div class="iph-input-wrap">
+                <span class="iph-input-label">Add your victim's name</span>
+                <span class="iph-input-value">Mat</span>
+              </div>
+
+              <!-- Traits list -->
+              <ul class="iph-traits">
+                <li>a stutter <span>🔥</span></li>
+                <li>forgets things <span>🔥</span></li>
+                <li>loves his dog <span>🔥</span></li>
+                <li>real ale drinker <span>🔥</span></li>
+                <li>likes cacti <span>🔥</span></li>
+                <li>six foot 1 <span>🔥</span></li>
+                <li>stoner <span>🔥</span></li>
+              </ul>
+
+              <!-- Input placeholder -->
+              <div class="iph-placeholder">e.g. has a questionable haircut</div>
+
+              <!-- Tab bar -->
+              <div class="iph-tabbar">
+                <div class="iph-tab">
+                  <span class="iph-tab-icon">🏠</span>
+                  <span>Home</span>
+                </div>
+                <div class="iph-tab iph-tab--active">
+                  <span class="iph-tab-icon">🎤</span>
+                  <span>Roast</span>
+                </div>
+                <div class="iph-tab">
+                  <span class="iph-tab-icon">⚙️</span>
+                  <span>Settings</span>
+                </div>
+              </div>
+
+            </div><!-- /.display-content -->
+          </div><!-- /.phone-display -->
+
+          <!-- Glass glare reflections -->
+          <div class="phone-reflections">
+            <div class="reflection-1"></div>
+            <div class="reflection-2"></div>
+            <div class="reflection-3"></div>
+            <div class="reflection-4"></div>
+            <div class="reflection-5"></div>
+            <div class="reflection-6"></div>
+            <div class="reflection-7"></div>
+          </div>
+
+        </div><!-- /.phone -->
+      </div><!-- /.iphone-mockup -->
+
     </section>
 
     <div class="grid-1x2">

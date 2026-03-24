@@ -243,6 +243,7 @@ A single-page promotional website encouraging visitors to download the **That AI
 9. Images live in `assets/` — this is a static HTML site, not Next.js. No `public/` directory.
 10. For responsive images, create separate 1x and 2x WebP variants and serve via `srcSet` in a `<picture>` element.
 11. **Deploy flow: Claude commits → Mat pushes to git → Mat deploys (staging or live).** Claude's job ends at `git commit`. Never run `git push` or `npx wrangler pages deploy` — hand off to Mat. He deploys so he sees the URL immediately.
+12. **Screenshots** — save to `ss/` (project root). This folder is gitignored. Delete all files in `ss/` at the end of each session.
 
 ---
 

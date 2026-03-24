@@ -1,0 +1,894 @@
+/* ==========================================================================
+   CSS iPhone Mockup
+   ==========================================================================
+   Phone frame technique: "Photorealistic pure CSS mobile phone"
+   Original author: Grzegorz Witczak (Wujek_Greg)
+   Source: https://codepen.io/Wujek_Greg/pen/LmrweG
+
+   Adapted by: Mat Havelock / Claude Code (2026-03-24)
+   Changes from original:
+     – Background panels removed (not used in layout context)
+     – Rotation / skewX decorative transform removed — phone rendered upright
+     – Fluid scaling via transform:scale() driven by --iphone-w container var
+     – Screen content replaced with That AI Guy "Victim Profile" app mockup
+     – All Sass nested syntax converted to flat standard CSS
+     – rgba(#hex, a) Sass colour functions converted to rgba(r,g,b,a)
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. Wrapper — reserves layout space and drives the scale
+   ========================================================================== */
+
+/*
+ * --iphone-w: fluid width from 100px (tiny mobile) → 200px (wider viewport).
+ * Height is derived from the original 430×734 aspect ratio (≈ 1.707).
+ * The inner .phone is always 430×734px; transform:scale() shrinks it to fit.
+ */
+.iphone-mockup {
+  --iphone-w: clamp(100px, 30vw, 200px);
+  align-self: center;
+  flex-shrink: 0;
+  height: calc(var(--iphone-w) * 1.707);
+  position: relative;
+  width: var(--iphone-w);
+}
+
+/* Inner phone — full 430×734 design, scaled to match container */
+.iphone-mockup .phone {
+  height: 734px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  /* calc(px / px) = unitless — valid CSS per Values Level 4 spec */
+  transform: scale(calc(var(--iphone-w) / 430px));
+  transform-origin: top left;
+  width: 430px;
+}
+
+
+/* ==========================================================================
+   2. Back shell
+   ========================================================================== */
+
+.iphone-mockup .phone-back {
+  background-image: linear-gradient(to bottom, #3a3b3f 70%, #1d1d1f);
+  border-radius: 74px 40px 84px 50px;
+  box-shadow:
+    -6px 6px 6px 0 rgba(0, 0, 0, 0.6),
+    inset 20px 0 15px -6px rgba(0, 0, 0, 0.6),
+    inset 2px 0 1px -2px rgba(255, 255, 255, 0.1),
+    inset 0 -15px 10px -10px rgba(255, 255, 255, 0.15);
+  height: 734px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 430px;
+}
+
+/* Back-shell light reflections */
+.iphone-mockup .phone-back::before {
+  background-color: #fff;
+  border-radius: 20px;
+  bottom: 40px;
+  content: "";
+  display: block;
+  filter: blur(5px);
+  height: 300px;
+  left: 16px;
+  opacity: 0.10;
+  position: absolute;
+  transform: rotate(4deg);
+  width: 100px;
+}
+
+.iphone-mockup .phone-back::after {
+  background-color: #fff;
+  border-radius: 20px;
+  bottom: 40px;
+  content: "";
+  display: block;
+  filter: blur(4px);
+  height: 300px;
+  left: 26px;
+  opacity: 0.25;
+  position: absolute;
+  transform: rotate(2deg);
+  width: 100px;
+}
+
+
+/* ==========================================================================
+   3. Left side — antenna lines and volume / power buttons
+   ========================================================================== */
+
+.iphone-mockup .phone-left-side {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 60px;
+  width: 30px;
+}
+
+/* Antenna seam lines */
+.iphone-mockup .phone-left-side .phone-antena {
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 0 -2px 1px -2px #000;
+  height: 20px;
+  left: -5px;
+  position: absolute;
+  top: 10px;
+  transform: rotate(-40deg) skewX(20deg);
+  width: 50px;
+}
+
+.iphone-mockup .phone-left-side .phone-antena.bottom {
+  bottom: 128px;
+  top: auto;
+}
+
+.iphone-mockup .phone-left-side .phone-antena::after {
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 0 -2px 1px -2px #000;
+  content: "";
+  display: block;
+  height: 20px;
+  left: -5px;
+  position: absolute;
+  top: 3px;
+  transform: rotate(-2deg);
+  width: 50px;
+}
+
+/* Volume / power buttons */
+.iphone-mockup .phone-button {
+  background-color: #010101;
+  border-radius: 30px;
+  box-shadow: -4px 0 4px 0 rgba(0, 0, 0, 0.4);
+  height: 47px;
+  left: 4px;
+  position: absolute;
+  top: 100px;
+  transform: skewY(-40deg);
+  width: 12px;
+}
+
+.iphone-mockup .phone-button.bottom { top: 160px; }
+
+.iphone-mockup .phone-button.top {
+  border-radius: 10px 10px 10px 3px;
+  box-shadow: inset 2px 0 0 -1px rgba(255, 255, 255, 0.25);
+  height: 29px;
+  left: 2px;
+  top: 48px;
+  width: 14px;
+}
+
+.iphone-mockup .phone-button::before {
+  background-image: linear-gradient(to bottom, #6a6b6f 85%, #0b0b0b);
+  border-radius: 20px;
+  content: "";
+  display: block;
+  height: 45px;
+  position: absolute;
+  width: 10px;
+}
+
+.iphone-mockup .phone-button::after {
+  background-color: #2d2d2f;
+  border-radius: 20px;
+  box-shadow: inset -1px -1px 0 -1px rgba(255, 255, 255, 0.6);
+  content: "";
+  display: block;
+  height: 44px;
+  left: -2px;
+  position: absolute;
+  top: -1px;
+  width: 10px;
+}
+
+.iphone-mockup .phone-button.top::before {
+  height: 27px;
+  left: 4px;
+  width: 8px;
+}
+
+.iphone-mockup .phone-button.top::after {
+  box-shadow: 1px 0 0 0 rgba(0, 0, 0, 0.4);
+  height: 28px;
+  left: 6px;
+  width: 8px;
+}
+
+
+/* ==========================================================================
+   4. Bottom — speaker grilles, screws, Lightning port, antenna seams
+   ========================================================================== */
+
+.iphone-mockup .phone-bottom {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+
+/* Speaker grille dots */
+.iphone-mockup .bottom-speaker {
+  bottom: 6px;
+  display: flex;
+  left: calc(50% - 120px);
+  position: absolute;
+  transform: skewX(-50deg);
+}
+
+.iphone-mockup .bottom-speaker.right { left: calc(50% + 45px); }
+
+.iphone-mockup .bottom-speaker div {
+  background-color: #212121;
+  border-radius: 50%;
+  box-shadow:
+    inset -4px -3px 2px -2px rgba(0, 0, 0, 1),
+    1px -1px 0 -1px rgba(255, 255, 255, 0.5);
+  height: 6px;
+  margin: 0 3px;
+  overflow: hidden;
+  position: relative;
+  width: 6px;
+}
+
+.iphone-mockup .bottom-speaker div::after {
+  background-color: #fff;
+  border-radius: 50%;
+  bottom: -1px;
+  content: "";
+  display: block;
+  height: 3px;
+  left: 3px;
+  opacity: 0.4;
+  position: absolute;
+  width: 3px;
+}
+
+/* Screws */
+.iphone-mockup .phone-screw {
+  background-image: linear-gradient(to right, #1A1A1C 30%, #A1A2A7 60%, #1A1A1C 80%);
+  border-radius: 50%;
+  bottom: 5px;
+  height: 9px;
+  left: calc(50% - 38px);
+  position: absolute;
+  transform: translateX(-50%) skewX(-50deg);
+  width: 9px;
+}
+
+.iphone-mockup .phone-screw.right { left: calc(50% + 36px); }
+
+.iphone-mockup .phone-screw div {
+  background-color: #252527;
+  border-radius: 50%;
+  box-shadow:
+    2px 2px 0 0 rgba(0, 0, 0, 0.9),
+    inset -2px 1px 1px -1px rgba(0, 0, 0, 1);
+  height: 6px;
+  position: relative;
+  width: 6px;
+}
+
+.iphone-mockup .phone-screw div::after {
+  background-color: #151515;
+  box-shadow: inset -1px -1px 0 0 rgba(255, 255, 255, 0.6);
+  content: "";
+  display: block;
+  height: 4px;
+  position: absolute;
+  top: 1px;
+  transform: rotate(45deg);
+  width: 4px;
+}
+
+/* Lightning port */
+.iphone-mockup .phone-charger {
+  background-image: linear-gradient(to right, #121214 5%, #434446 20%, #434446 60%, #7a7b80 75%, #1b1b1d 90%);
+  border-radius: 15px 16px 24px 20px;
+  bottom: 2px;
+  box-shadow:
+    1px 1px 1px -1px rgba(255, 255, 255, 0.4),
+    inset -2px -2px 0 -1px #0e0e0e,
+    inset 3px 3px 0 -1px #050505;
+  height: 14px;
+  left: 50%;
+  overflow: hidden;
+  position: absolute;
+  transform: translateX(-50%) skewX(-50deg);
+  width: 48px;
+}
+
+.iphone-mockup .phone-charger::after {
+  background-color: #050505;
+  border-radius: 20px 8px 16px 10px;
+  box-shadow: 1px 1px 0 -1px rgba(255, 255, 255, 0.4);
+  content: "";
+  display: block;
+  height: 10px;
+  width: 42px;
+}
+
+/* Bottom antenna seams */
+.iphone-mockup .phone-bottom .phone-antena {
+  background-color: transparent;
+  border-radius: 40%;
+  bottom: 8px;
+  box-shadow: 0 -2px 1px -2px #000;
+  height: 20px;
+  left: 60px;
+  opacity: 0.7;
+  position: absolute;
+  transform: rotate(-45deg) skewX(20deg) scaleY(-1);
+  width: 50px;
+}
+
+.iphone-mockup .phone-bottom .phone-antena.right {
+  box-shadow:
+    0 -2px 1px -2px #000,
+    19px -2px 0 -2px rgba(255, 255, 255, 0.4);
+  left: auto;
+  right: 70px;
+}
+
+.iphone-mockup .phone-bottom .phone-antena::after {
+  background-color: transparent;
+  border-radius: 40%;
+  box-shadow: 0 -2px 1px -2px #000;
+  content: "";
+  display: block;
+  height: 20px;
+  left: -3px;
+  position: absolute;
+  top: 3px;
+  transform: rotate(-2deg);
+  width: 50px;
+}
+
+.iphone-mockup .phone-bottom .phone-antena.right::after {
+  box-shadow:
+    0 -2px 1px -2px #000,
+    19px -2px 0 -2px rgba(255, 255, 255, 0.4);
+}
+
+
+/* ==========================================================================
+   5. Screen glass — black rounded layer sits above the back shell
+   ========================================================================== */
+
+.iphone-mockup .phone-screen {
+  background-color: #000;
+  border-radius: 48px 40px 52px 45px;
+  box-shadow:
+    -2px 0 0 -1px rgba(255, 255, 255, 0.4),
+    -1px 3px 3px -3px rgba(255, 255, 255, 0.7);
+  height: 710px;
+  left: 15px;
+  position: absolute;
+  top: -4px;
+  width: 400px;
+}
+
+
+/* ==========================================================================
+   6. Display — content window (378×690)
+   ========================================================================== */
+
+.iphone-mockup .phone-display {
+  border-radius: 45px 37px 41px 41px;
+  height: 690px;
+  left: 26px;
+  overflow: hidden;
+  position: absolute;
+  top: -1px;
+  width: 378px;
+  z-index: 1;
+}
+
+/* Notch */
+.iphone-mockup .phone-notch {
+  background-color: #131313;
+  border-radius: 0 0 20px 20px;
+  border-top: 6px solid #000;
+  height: 21px;
+  left: 50%;
+  position: absolute;
+  top: -1px;
+  transform: translateX(-50%);
+  width: 210px;
+  z-index: 3;
+}
+
+.iphone-mockup .phone-notch::after {
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 5px -5px 0 -3px #000;
+  content: "";
+  display: block;
+  height: 12px;
+  left: -12px;
+  position: absolute;
+  top: -5px;
+  width: 12px;
+}
+
+.iphone-mockup .phone-notch::before {
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: -4px -4px 0 -3px #000;
+  content: "";
+  display: block;
+  height: 12px;
+  position: absolute;
+  right: -12px;
+  top: -5px;
+  width: 12px;
+}
+
+/* Ear speaker */
+.iphone-mockup .phone-speaker {
+  background-color: #2b2b2b;
+  border-radius: 20px;
+  box-shadow:
+    0 0 0 1px rgba(54, 54, 55, 1),
+    inset -3px 3px 1px 0 #000,
+    inset -3px 4px 0 -1px rgba(255, 255, 255, 0.5);
+  height: 6px;
+  left: 50%;
+  overflow: hidden;
+  position: absolute;
+  top: 6px;
+  transform: translateX(-50%);
+  width: 58px;
+}
+
+.iphone-mockup .phone-speaker::after {
+  background-color: #87888c;
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 4px;
+  position: absolute;
+  right: -1px;
+  top: -1px;
+  width: 4px;
+}
+
+
+/* ==========================================================================
+   7. App screen content — That AI Guy "Victim Profile" mockup
+   ==========================================================================
+   Colour tokens (dark-theme — matches app screenshot):
+     --iph-bg      Deep dark background
+     --iph-surface Slightly lighter surface (header, input)
+     --iph-tabbar  Darkest — tab bar base
+     --iph-accent  Fire / active accent
+     --iph-text    Primary text (slightly warm white)
+     --iph-muted   Dimmed text / placeholders
+   All sizes are px (this element is inside a transform:scale container — rem
+   would resolve against document root and produce incorrect scaled values).
+   ========================================================================== */
+
+.iphone-mockup .display-content {
+  --iph-bg:      #111020;
+  --iph-surface: #1e1830;
+  --iph-tabbar:  #0c0a18;
+  --iph-accent:  #ff6b35;
+  --iph-text:    #e8e0ff;
+  --iph-muted:   rgba(232, 224, 255, 0.45);
+
+  background-color: var(--iph-bg);
+  border-radius: 45px 37px 41px 41px;
+  color: var(--iph-text);
+  display: flex;
+  flex-direction: column;
+  font-family: system-ui, -apple-system, sans-serif;
+  height: 690px;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 378px;
+}
+
+/* --- Status bar --- */
+
+.iphone-mockup .iph-statusbar {
+  align-items: flex-end;
+  display: flex;
+  font-size: 13px;
+  font-weight: 600;
+  height: 44px;
+  justify-content: space-between;
+  padding: 10px 28px 4px;
+}
+
+.iphone-mockup .iph-icons {
+  align-items: center;
+  display: flex;
+  gap: 6px;
+}
+
+/* Signal bars */
+.iphone-mockup .iph-signal {
+  align-items: flex-end;
+  display: inline-flex;
+  gap: 2px;
+  height: 11px;
+}
+
+.iphone-mockup .iph-signal i {
+  background: var(--iph-text);
+  border-radius: 1px;
+  display: block;
+  font-style: normal;
+  width: 3px;
+}
+
+.iphone-mockup .iph-signal i:nth-child(1) { height: 5px; }
+.iphone-mockup .iph-signal i:nth-child(2) { height: 8px; }
+.iphone-mockup .iph-signal i:nth-child(3) { height: 11px; }
+
+/* WiFi arc */
+.iphone-mockup .iph-wifi {
+  border: 2px solid transparent;
+  border-radius: 50%;
+  border-top-color: var(--iph-text);
+  display: inline-block;
+  height: 10px;
+  position: relative;
+  width: 10px;
+}
+
+.iphone-mockup .iph-wifi::before {
+  border: 2px solid transparent;
+  border-radius: 50%;
+  border-top-color: var(--iph-text);
+  content: "";
+  display: block;
+  height: 4px;
+  left: 50%;
+  position: absolute;
+  top: 3px;
+  transform: translateX(-50%);
+  width: 4px;
+}
+
+/* Battery */
+.iphone-mockup .iph-battery {
+  border: 1.5px solid var(--iph-text);
+  border-radius: 2px;
+  display: inline-block;
+  height: 9px;
+  position: relative;
+  width: 14px;
+}
+
+.iphone-mockup .iph-battery::before {
+  background: var(--iph-text);
+  border-radius: 0 1px 1px 0;
+  content: "";
+  display: block;
+  height: 4px;
+  position: absolute;
+  right: -3px;
+  top: 1.5px;
+  width: 2px;
+}
+
+.iphone-mockup .iph-battery::after {
+  background: var(--iph-text);
+  border-radius: 1px;
+  content: "";
+  display: block;
+  height: 5px;
+  left: 1.5px;
+  position: absolute;
+  top: 1.5px;
+  width: 8px;
+}
+
+/* --- App header bar --- */
+
+.iphone-mockup .iph-header {
+  align-items: center;
+  background-color: var(--iph-surface);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  gap: 10px;
+  height: 54px;
+  padding: 0 20px;
+}
+
+.iphone-mockup .iph-back {
+  background: none;
+  border: none;
+  color: var(--iph-accent);
+  cursor: default;
+  font-size: 32px;
+  font-weight: 200;
+  line-height: 1;
+  padding: 0;
+  position: relative;
+  top: -1px;
+}
+
+.iphone-mockup .iph-title {
+  color: var(--iph-text);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+
+/* --- Subtitle --- */
+
+.iphone-mockup .iph-subtitle {
+  color: var(--iph-muted);
+  font-size: 11px;
+  line-height: 1.4;
+  margin: 0;
+  padding: 8px 20px 6px;
+}
+
+/* --- Name input --- */
+
+.iphone-mockup .iph-input-wrap {
+  align-items: center;
+  background-color: var(--iph-surface);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  height: 46px;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.iphone-mockup .iph-input-label {
+  color: var(--iph-muted);
+  font-size: 12px;
+}
+
+.iphone-mockup .iph-input-value {
+  color: var(--iph-text);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* --- Traits list --- */
+
+.iphone-mockup .iph-traits {
+  flex: 1;
+  list-style: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 4px 0 0;
+}
+
+.iphone-mockup .iph-traits li {
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  font-size: 12px;
+  height: 36px;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+/* --- Placeholder row --- */
+
+.iphone-mockup .iph-placeholder {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--iph-muted);
+  font-size: 11px;
+  opacity: 0.6;
+  padding: 8px 20px;
+}
+
+/* --- Tab bar --- */
+
+.iphone-mockup .iph-tabbar {
+  background-color: var(--iph-tabbar);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-shrink: 0;
+  height: 68px;
+  padding-bottom: 12px;
+}
+
+.iphone-mockup .iph-tab {
+  align-items: center;
+  color: var(--iph-muted);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  font-size: 10px;
+  gap: 3px;
+  justify-content: center;
+}
+
+.iphone-mockup .iph-tab-icon { font-size: 18px; }
+
+.iphone-mockup .iph-tab--active {
+  color: var(--iph-accent);
+}
+
+
+/* ==========================================================================
+   8. Glass reflections — decorative glare layer over the display
+   ========================================================================== */
+
+.iphone-mockup .phone-reflections {
+  background-color: transparent;
+  border-radius: 48px 40px 52px 45px;
+  height: 709px;
+  left: 15px;
+  overflow: hidden;
+  position: absolute;
+  top: -4px;
+  width: 399px;
+  z-index: 4;
+}
+
+.iphone-mockup .reflection-1 {
+  background-color: #fff;
+  height: 200%;
+  left: -320px;
+  opacity: 0.1;
+  position: absolute;
+  top: -200px;
+  transform: rotate(32deg);
+  width: 120%;
+  z-index: 10;
+}
+
+.iphone-mockup .reflection-2 {
+  background-color: #000;
+  border-radius: 100px;
+  height: 100%;
+  left: -94px;
+  position: absolute;
+  top: calc(50% + 14px);
+  transform: translateY(-50%);
+  width: 100px;
+  z-index: 11;
+}
+
+.iphone-mockup .reflection-3 {
+  background-color: #6D6C71;
+  border-radius: 100px;
+  height: 60%;
+  left: -8px;
+  opacity: 0.6;
+  position: absolute;
+  top: 70%;
+  width: 10px;
+  z-index: 11;
+}
+
+.iphone-mockup .reflection-4 {
+  background-color: #67686C;
+  height: 60%;
+  position: absolute;
+  top: 0;
+  width: 16px;
+}
+
+.iphone-mockup .reflection-4::before {
+  background-color: transparent;
+  border-radius: 44px 40px 0 0;
+  box-shadow: -20px 0 0 0 #67686C;
+  content: "";
+  display: block;
+  height: 100px;
+  left: 16px;
+  position: absolute;
+  top: 4px;
+  width: 100px;
+}
+
+.iphone-mockup .reflection-4::after {
+  background-color: transparent;
+  border-radius: 60px 0 0 0;
+  box-shadow: -25px -3px 2px -8px #000;
+  content: "";
+  display: block;
+  height: 80px;
+  left: 0;
+  position: absolute;
+  top: -1px;
+  transform: rotate(15deg);
+  width: 80px;
+}
+
+.iphone-mockup .reflection-5 {
+  background-color: #000;
+  border-radius: 50%;
+  bottom: 0;
+  height: 50%;
+  left: 4px;
+  position: absolute;
+  width: 12px;
+}
+
+.iphone-mockup .reflection-6 {
+  background-color: #000;
+  border-radius: 50%;
+  bottom: -4px;
+  height: 20px;
+  left: -14px;
+  position: absolute;
+  transform: rotate(40deg);
+  width: 80px;
+  z-index: 12;
+}
+
+.iphone-mockup .reflection-6::after {
+  background-color: #000;
+  border-radius: 40%;
+  content: "";
+  display: block;
+  height: 100px;
+  position: absolute;
+  right: -17px;
+  top: -78px;
+  transform: rotate(50deg);
+  width: 20px;
+}
+
+.iphone-mockup .reflection-6::before {
+  background-color: transparent;
+  border-radius: 40%;
+  box-shadow: 4px 15px 1px -10px #000;
+  content: "";
+  display: block;
+  height: 50px;
+  left: 7px;
+  position: absolute;
+  top: -51px;
+  transform: rotate(-20deg);
+  width: 50px;
+}
+
+.iphone-mockup .reflection-7 {
+  background-color: #5c5d61;
+  border-radius: 20px 0 6px 10px;
+  bottom: -4px;
+  height: 20px;
+  left: 10px;
+  position: absolute;
+  transform: skewX(60deg) skewY(-10deg) scaleY(-1) scaleX(-1) scale(0.8);
+  width: 40px;
+  z-index: 13;
+}
+
+.iphone-mockup .reflection-7::after {
+  background-color: #5c5d61;
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 20px;
+  position: absolute;
+  right: 6px;
+  top: -3px;
+  transform: rotate(40deg) skewX(-54deg) skewY(47deg);
+  width: 30px;
+}
+
+.iphone-mockup .reflection-7::before {
+  background-color: #5c5d61;
+  border-radius: 2px;
+  bottom: -6px;
+  content: "";
+  display: block;
+  height: 18px;
+  left: 6px;
+  position: absolute;
+  transform: rotate(253deg) skewX(10deg);
+  width: 15px;
+}

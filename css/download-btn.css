@@ -8,8 +8,9 @@
 .promo-download {
   align-items: center;
   display: flex;
+  gap: 2rem;
   justify-content: center;
-  padding: 3rem 1rem;
+  padding: 3rem 2rem;
 }
 
 .btn-appstore {
