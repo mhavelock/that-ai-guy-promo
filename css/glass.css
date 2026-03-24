@@ -1,0 +1,87 @@
+/* ==========================================================================
+   LIQUID GLASS THEME — That AI Guy
+   ==========================================================================
+   Applies glassmorphism to opted-in components via the .glass modifier class.
+   Structurally independent: link/unlink this file to toggle the theme.
+   Components opt in by adding .glass to their container in HTML.
+
+   Pattern:
+     HTML  → <div class="component glass">
+     CSS   → .component.glass child { ... }   (chained class = theme override)
+
+   Components:
+   1. Tokens
+   2. Badges  (.badges.glass)
+   3. Reserved: Slider / Review cards
+
+   Dark mode tokens follow [data-theme="dark"] — same scope as theme.css.
+========================================================================== */
+
+
+/* ==========================================================================
+   1. Tokens
+========================================================================== */
+
+:root {
+  /* Shared */
+  --glass-blur:              blur(24px) saturate(200%);
+
+  /* Badge glass — light */
+  --glass-badge-bg:          rgba(210, 220, 248, 0.10);
+  --glass-badge-fill:        rgba(190, 210, 255, 0.72);
+  --glass-badge-border:      rgba(255, 255, 255, 0.65);
+  --glass-badge-shine:       rgba(255, 255, 255, 0.90);
+  --glass-badge-shadow:      rgba(0, 0, 0, 0.10);
+  --glass-badge-ring:        rgba(180, 200, 240, 0.60);
+}
+
+[data-theme="dark"] {
+  /* Badge glass — dark */
+  --glass-badge-bg:          rgba(100, 130, 210, 0.03);
+  --glass-badge-fill:        rgba(22, 48, 108, 0.75);
+  --glass-badge-border:      rgba(255, 255, 255, 0.13);
+  --glass-badge-shine:       rgba(255, 255, 255, 0.10);
+  --glass-badge-shadow:      rgba(0, 0, 0, 0.45);
+  --glass-badge-ring:        rgba(255, 255, 255, 0.22);
+}
+
+
+/* ==========================================================================
+   2. Badges — .badges.glass
+   ==========================================================================
+   Base CSS (.badges dl) renders a text gradient on a transparent surface
+   using background-clip: text + mix-blend-mode: plus-lighter.
+
+   Glass variant overrides the surface to frosted glass, then re-applies the
+   gradient directly to dt so badge titles keep their colour. The clip-path
+   morph defined in badges.css is untouched — backdrop-filter follows the
+   morphing polygon automatically.
+========================================================================== */
+
+/* Badge body — frosted glass surface */
+.badges.glass dl {
+  backdrop-filter: var(--glass-blur);
+  background: var(--glass-badge-bg);
+  background-clip: border-box;
+  box-shadow:
+    inset 0 1.5px 0 var(--glass-badge-shine),
+    inset 0 0 0 1px var(--glass-badge-border),
+    0 6px 20px var(--glass-badge-shadow);
+  color: var(--color-text);
+  mix-blend-mode: normal;
+}
+
+/* Badge title — gradient text preserved on glass surface */
+.badges.glass dl dt {
+  background: var(--text-gradient);
+  background-clip: text;
+  border-color: var(--glass-badge-ring);
+  color: transparent;
+  opacity: 0.5;
+}
+
+/* Badge reveal panel — stronger fill for legibility, inherits blur from parent */
+.badges.glass dl dd {
+  background: var(--glass-badge-fill);
+  border-color: var(--glass-badge-border);
+}
