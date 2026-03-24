@@ -1,0 +1,205 @@
+/* ==========================================================================
+   RADAR WIDGET — CSS-only animated radar, blue colour scheme
+   Original idea & technique: Cyril-Bosselut — https://codepen.io/Cyril-Bosselut/pen/MYwGpQa
+   ==========================================================================
+   Desktop only — sits alongside the contact form in the footer.
+   Purely decorative: aria-hidden="true" on the HTML element.
+   Blue colour scheme (adapted from original green radar).
+
+   Structure:
+     .radar-widget         — circular container + concentric rings (::before)
+                             + crosshair lines (::after)
+     .radar-scan           — rotating conic-gradient sweep
+     .radar-blip-N         — individual signal dots with ping animation
+     .radar-label          — optional "LISTENING..." text below
+========================================================================== */
+
+/* Hidden on mobile */
+.radar-widget {
+  display: none;
+}
+
+@media (width >= 76.8rem) {
+
+  .radar-widget {
+    --radar-size:  210px;
+    --radar-color: var(--color-tg);
+    --radar-bg:    color-mix(in srgb, var(--color-bg) 80%, var(--color-tg));
+
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    gap: 1.2rem;
+  }
+
+  /* The circular radar face */
+  .radar-face {
+    aspect-ratio: 1;
+    background: color-mix(in srgb, var(--color-bg) 88%, var(--color-tg));
+    border: 1px solid color-mix(in srgb, var(--radar-color) 35%, transparent);
+    border-radius: 50%;
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--radar-color) 15%, transparent),
+      inset 0 0 40px color-mix(in srgb, var(--radar-color) 8%, transparent),
+      0 0 30px 4px color-mix(in srgb, var(--radar-color) 10%, transparent);
+    overflow: hidden;
+    position: relative;
+    width: var(--radar-size);
+  }
+
+  /* Concentric rings via radial-gradient */
+  .radar-face::before {
+    background:
+      radial-gradient(circle, transparent 32%, color-mix(in srgb, var(--radar-color) 22%, transparent) 33%, transparent 34%),
+      radial-gradient(circle, transparent 65%, color-mix(in srgb, var(--radar-color) 16%, transparent) 66%, transparent 67%),
+      radial-gradient(circle, transparent 98%, color-mix(in srgb, var(--radar-color) 35%, transparent) 99%);
+    border-radius: 50%;
+    bottom: 0;
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 0;
+  }
+
+  /* Crosshair lines */
+  .radar-face::after {
+    background:
+      linear-gradient(
+        to right,
+        transparent calc(50% - 0.5px),
+        color-mix(in srgb, var(--radar-color) 20%, transparent) calc(50% - 0.5px),
+        color-mix(in srgb, var(--radar-color) 20%, transparent) calc(50% + 0.5px),
+        transparent calc(50% + 0.5px)
+      ),
+      linear-gradient(
+        to bottom,
+        transparent calc(50% - 0.5px),
+        color-mix(in srgb, var(--radar-color) 20%, transparent) calc(50% - 0.5px),
+        color-mix(in srgb, var(--radar-color) 20%, transparent) calc(50% + 0.5px),
+        transparent calc(50% + 0.5px)
+      );
+    border-radius: 50%;
+    bottom: 0;
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+  }
+
+  /* Rotating sweep — conic gradient */
+  .radar-scan {
+    background: conic-gradient(
+      from 0deg,
+      color-mix(in srgb, var(--radar-color) 55%, transparent) 0deg,
+      color-mix(in srgb, var(--radar-color) 28%, transparent) 25deg,
+      color-mix(in srgb, var(--radar-color) 10%, transparent) 50deg,
+      transparent 70deg
+    );
+    border-radius: 50%;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .radar-scan {
+      animation: radar-sweep 3s linear infinite;
+    }
+  }
+
+  /* Centre dot */
+  .radar-centre {
+    background: var(--radar-color);
+    border-radius: 50%;
+    box-shadow: 0 0 6px 2px color-mix(in srgb, var(--radar-color) 60%, transparent);
+    height: 6px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    z-index: 4;
+  }
+
+  /* Signal blips */
+  .radar-blip {
+    border-radius: 50%;
+    height: 5px;
+    position: absolute;
+    width: 5px;
+    z-index: 3;
+  }
+
+  .radar-blip-1 { background: var(--radar-color); left: 62%; top: 28%; }
+  .radar-blip-2 { background: var(--radar-color); left: 32%; top: 60%; }
+  .radar-blip-3 { background: var(--radar-color); left: 24%; top: 38%; }
+  .radar-blip-4 { background: var(--radar-color); left: 71%; top: 67%; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .radar-blip {
+      animation: blip-ping 2.4s ease-in-out infinite;
+    }
+    .radar-blip-2 { animation-delay: -0.8s; }
+    .radar-blip-3 { animation-delay: -1.6s; }
+    .radar-blip-4 { animation-delay: -0.4s; }
+  }
+
+  /* Label below radar */
+  .radar-label {
+    color: color-mix(in srgb, var(--color-tg) 70%, transparent);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .radar-label {
+      animation: radar-blink 1.4s ease-in-out infinite;
+    }
+  }
+
+  /* Footer layout: contact form + radar side by side */
+  .footer-section {
+    align-items: center;
+    display: flex;
+    gap: 4rem;
+    justify-content: center;
+  }
+
+}
+
+@keyframes radar-sweep {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes blip-ping {
+  0%, 100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-tg) 60%, transparent);
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-tg) 0%, transparent);
+    opacity: 1;
+    transform: scale(1.8);
+  }
+  60% {
+    box-shadow: 0 0 6px 2px color-mix(in srgb, var(--color-tg) 50%, transparent);
+    opacity: 1;
+    transform: scale(1.4);
+  }
+}
+
+@keyframes radar-blink {
+  0%, 100% { opacity: 0.5; }
+  50%       { opacity: 1;   }
+}

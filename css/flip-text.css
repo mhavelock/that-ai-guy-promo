@@ -1,0 +1,58 @@
+/* ==========================================================================
+   FLIP TEXT — 3D card flip on .taig-lg sign-off
+   Original idea & technique: cbolson — https://codepen.io/cbolson/pen/bNGjarJ
+   ==========================================================================
+   The "That AI Guy" sign-off flips on hover to reveal "Your Intellectual
+   Superior". Desktop only — mobile is static text.
+
+   Technique: CSS 3D perspective + backface-visibility on grid-stacked spans.
+   Both .flip-front and .flip-back occupy the same grid cell (1/1).
+   Hover rotates front out (rotateX -180°) and back in (rotateX 0°).
+========================================================================== */
+
+/* Mobile: render as normal inline text, hide the back */
+.flip-card {
+  display: inline;
+}
+
+.flip-back {
+  display: none;
+}
+
+@media (width >= 76.8rem) {
+
+  .flip-card {
+    --flip-duration: 0.65s;
+    --flip-ease: cubic-bezier(0.66, 0, 0.34, 1);
+    cursor: default;
+    display: inline-grid;
+    perspective: 700px;
+    vertical-align: middle;
+  }
+
+  /* Stack front and back in the same grid cell */
+  .flip-front,
+  .flip-back {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    grid-area: 1 / 1;
+    transition: transform var(--flip-duration) var(--flip-ease);
+  }
+
+  /* Back starts face-down */
+  .flip-back {
+    display: block;
+    transform: rotateX(180deg);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .flip-card:hover .flip-front {
+      transform: rotateX(-180deg);
+    }
+
+    .flip-card:hover .flip-back {
+      transform: rotateX(0deg);
+    }
+  }
+
+}

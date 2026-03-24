@@ -98,7 +98,9 @@
       <div class="promo-full-width promo-text">
         <p><span><strong><span>F</span>lagellate</strong> yourself</span> with an unrelenting onslaught of unsolicited, rude &amp; condescending personal attacks.</p>
         <p>Yours faithfully,</p>
-        <p><em class="taig-lg">That AI Guy</em></p>
+        <!-- Flip text — desktop hover reveals back face.
+             Original idea & technique: cbolson — https://codepen.io/cbolson/pen/bNGjarJ -->
+        <p><span class="flip-card" aria-label="That AI Guy — Your Intellectual Superior"><em class="taig-lg flip-front">That AI Guy</em><em class="taig-lg flip-back" aria-hidden="true">Your Intellectual Superior</em></span></p>
       </div>
     </section>
 
@@ -211,7 +213,9 @@
       <br>
       <!-- Three screenshot phones — float right mid-text; span preserves inline flow -->
       <span class="codewall-phones-r">
-        <picture>
+        <!-- AI thinking border on first phone — desktop only.
+             Original idea & technique: deepak_kharah — https://codepen.io/deepak_kharah/pen/xxobRPM -->
+        <picture class="codewall-phone-ai">
           <source type="image/webp" srcset="assets/graphics/iphones/iphone-ss-02-roastoptions_72dpi.webp 1x, assets/graphics/iphones/iphone-ss-02-roastoptions_144dpi.webp 2x">
           <img
             src="assets/graphics/iphones/iphone-ss-02-roastoptions.png"
@@ -272,6 +276,40 @@
     </section>
 
     <hr class="section-divider" data-emoji="🗨" aria-hidden="true">
+
+    <!-- Stats counters — desktop only; hidden on mobile via CSS.
+         Original idea & technique: cbolson — https://codepen.io/cbolson/pen/PwqBVqB
+         Also inspired by: educationalworks88 — https://codepen.io/educationalworks88/pen/oNQvWNJ
+         CSS @property animates --count; scroll-driven via animation-timeline: view(). -->
+    <section class="promo-stats" aria-label="Performance statistics">
+      <div class="stats-grid">
+
+        <div class="stat-card" style="--target: 847; --bar-pct: 85%">
+          <div class="stat-value">
+            <span class="stat-count"></span>
+          </div>
+          <div class="stat-bar"><div class="stat-bar-fill"></div></div>
+          <p class="stat-label">Pedantic corrections<small>delivered this session</small></p>
+        </div>
+
+        <div class="stat-card" style="--target: 99; --bar-pct: 99%">
+          <div class="stat-value">
+            <span class="stat-count"></span><span class="stat-unit">%</span>
+          </div>
+          <div class="stat-bar"><div class="stat-bar-fill"></div></div>
+          <p class="stat-label">Annoyance effectiveness<small>verified by no one</small></p>
+        </div>
+
+        <div class="stat-card" style="--target: 300; --bar-pct: 30%">
+          <div class="stat-value">
+            <span class="stat-count"></span><span class="stat-unit">ms</span>
+          </div>
+          <div class="stat-bar"><div class="stat-bar-fill"></div></div>
+          <p class="stat-label">Interruption latency<small>below human politeness threshold</small></p>
+        </div>
+
+      </div>
+    </section>
 
     <!-- Download -->
     <section class="promo-section promo-download glass" id="download" aria-label="Download">
@@ -443,6 +481,22 @@
           </div>
         </form>
       </div>
+
+      <!-- Radar widget — desktop only; hidden on mobile via CSS.
+           Original idea & technique: Cyril-Bosselut — https://codepen.io/Cyril-Bosselut/pen/MYwGpQa
+           Adapted to blue colour scheme. -->
+      <div class="radar-widget" aria-hidden="true">
+        <div class="radar-face">
+          <div class="radar-scan"></div>
+          <div class="radar-centre"></div>
+          <div class="radar-blip radar-blip-1"></div>
+          <div class="radar-blip radar-blip-2"></div>
+          <div class="radar-blip radar-blip-3"></div>
+          <div class="radar-blip radar-blip-4"></div>
+        </div>
+        <p class="radar-label">Listening…</p>
+      </div>
+
     </section>
   </footer>
 
@@ -466,6 +520,9 @@
         aria-hidden="true"
       >
       <span class="bottom-nav-label">Home</span>
+      <!-- Star orbit — desktop only.
+           Original idea & technique: metamezzo — https://codepen.io/metamezzo/pen/NPWvqQp -->
+      <span class="orbit-star" aria-hidden="true">★</span>
     </a>
     <a href="privacy.html" class="bottom-nav-item">
       <img

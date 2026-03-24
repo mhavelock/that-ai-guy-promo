@@ -1,0 +1,56 @@
+/* ==========================================================================
+   STAR ORBIT — a star orbits the TG logo in the bottom nav home item
+   Original idea & technique: metamezzo — https://codepen.io/metamezzo/pen/NPWvqQp
+   ==========================================================================
+   Desktop only. The .orbit-star span is hidden on mobile.
+   The home nav item (.bottom-nav-item.is-active) must be position: relative.
+
+   Technique: rotate(θ) translateX(r) rotate(-θ)
+     — first rotate moves the element's position around the parent centre
+     — translateX(r) places it at orbit radius
+     — counter-rotate keeps the star glyph upright (not spinning with it)
+========================================================================== */
+
+/* Hidden on mobile */
+.orbit-star {
+  display: none;
+}
+
+@media (width >= 76.8rem) {
+
+  /* Parent must be positioned for the orbit to have an anchor */
+  .bottom-nav-item {
+    position: relative;
+  }
+
+  .orbit-star {
+    --orbit-radius: 20px;
+    color: var(--color-tg);
+    display: block;
+    font-size: 0.5rem;
+    left: 50%;
+    line-height: 1;
+    pointer-events: none;
+    position: absolute;
+    text-shadow: 0 0 6px color-mix(in srgb, var(--color-tg) 70%, transparent);
+    top: 50%;
+    user-select: none;
+    z-index: 4;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .orbit-star {
+      animation: orbit-spin 4s linear infinite;
+    }
+  }
+
+}
+
+@keyframes orbit-spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg) translateX(var(--orbit-radius)) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg);
+  }
+}
