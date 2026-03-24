@@ -8,13 +8,8 @@
    5.  Layout
    6.  Components — Buttons
    7.  Components — Forms
-   8.  Components — Tooltips
-   9.  Components — Modal / Dialog
-   10. Components — Alerts
-   11. Components — Icons
-   12. Navigation
-   13. Footer
-   14. Utilities
+   8.  Components — Alerts
+   9.  Utilities
 ========================================================================== */
 
 /* ==========================================================================
@@ -24,6 +19,7 @@
 @import url("grid.css");
 @import url("utilities.css");
 @import url("badges.css");
+@import url("global-xtra.css");
 /* slider.css is imported by theme.css — do not duplicate here */
 
 /* ==========================================================================
@@ -542,94 +538,7 @@ main {
 
 
 /* ==========================================================================
-   8. Components — Tooltips
-========================================================================== */
-
-[data-tooltip] {
-  position: relative;
-}
-
-[data-tooltip]::after {
-  background-color: var(--color-text);
-  border-radius: var(--radius-sm);
-  bottom: calc(100% + var(--space-2));
-  color: var(--color-bg);
-  content: attr(data-tooltip);
-  font-size: var(--font-size-xsm);
-  left: 50%;
-  opacity: 0;
-  padding-block: var(--space-1);
-  padding-inline: var(--space-3);
-  pointer-events: none;
-  position: absolute;
-  transform: translateX(-50%) translateY(var(--space-2));
-  transition: opacity var(--transition-fast), transform var(--transition-fast);
-  white-space: nowrap;
-  z-index: 100;
-}
-
-[data-tooltip]:hover::after,
-[data-tooltip]:focus-visible::after {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-
-
-/* ==========================================================================
-   9. Components — Modal / Dialog
-========================================================================== */
-
-.modal {
-  background-color: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-lg);
-  max-width: min(90vw, 34rem);
-  padding: 0;
-  width: 100%;
-}
-
-.modal::backdrop {
-  background-color: rgb(0 0 0 / 0.6);
-  backdrop-filter: blur(2px);
-}
-
-.modal-inner {
-  display: flex;
-  flex-direction: column;
-}
-
-.modal-header {
-  align-items: center;
-  border-bottom: 1px solid var(--color-border);
-  display: flex;
-  justify-content: space-between;
-  padding: var(--space-5) var(--space-6);
-}
-
-.modal-title {
-  font-size: var(--font-size-xl);
-}
-
-.modal-body {
-  padding: var(--space-6);
-}
-
-.modal-footer {
-  border-top: 1px solid var(--color-border);
-  display: flex;
-  gap: var(--space-3);
-  justify-content: flex-end;
-  padding: var(--space-5) var(--space-6);
-}
-
-.modal-close {
-  color: var(--color-text-muted);
-}
-
-
-/* ==========================================================================
-   10. Components — Alerts
+   8. Components — Alerts
 ========================================================================== */
 
 .alert {
@@ -661,124 +570,7 @@ main {
 
 
 /* ==========================================================================
-   11. Components — Icons
-========================================================================== */
-
-.icon {
-  display: inline-block;
-  fill: currentColor;
-  flex-shrink: 0;
-  height: 1em;
-  vertical-align: middle;
-  width: 1em;
-}
-
-.icon-sm { height: 1rem; width: 1rem; }
-.icon-md { height: 1.5rem; width: 1.5rem; }
-.icon-lg { height: 2rem; width: 2rem; }
-
-
-/* ==========================================================================
-   12. Navigation
-========================================================================== */
-
-.site-header {
-  background-color: var(--color-bg);
-  border-bottom: 1px solid var(--color-border);
-  left: 0;
-  position: sticky;
-  right: 0;
-  top: 0;
-  z-index: 50;
-}
-
-.site-header-inner {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  min-height: 4rem;
-}
-
-.site-logo {
-  flex-shrink: 0;
-  text-decoration: none;
-}
-
-.site-logo-img {
-  height: auto;
-  max-height: 2.25rem;
-  width: auto;
-}
-
-.site-nav {
-  align-items: center;
-  display: flex;
-  gap: var(--space-6);
-}
-
-.site-nav-link {
-  color: var(--color-text);
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.site-nav-link:hover {
-  opacity: 0.7;
-}
-
-
-/* ==========================================================================
-   13. Footer
-========================================================================== */
-
-.site-footer {
-  background-color: var(--color-surface);
-  border-top: 1px solid var(--color-border);
-  padding-block: var(--space-8);
-}
-
-.site-footer-inner {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  text-align: center;
-}
-
-@media (width >= 600px) {
-  .site-footer-inner {
-    flex-direction: row;
-    justify-content: space-between;
-    text-align: start;
-  }
-}
-
-.footer-copy {
-  color: var(--color-text-muted);
-  font-size: var(--font-size-xsm);
-  max-width: none;
-}
-
-.footer-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-4);
-}
-
-.footer-nav-link {
-  color: var(--color-text-muted);
-  font-size: var(--font-size-xsm);
-  text-decoration: none;
-}
-
-.footer-nav-link:hover {
-  color: var(--color-text);
-  opacity: 1;
-}
-
-
-/* ==========================================================================
-   14. Utilities
+   9. Utilities
 ========================================================================== */
 
 /* Skip link — visually hidden until focused */

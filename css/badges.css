@@ -61,7 +61,12 @@
   min-width: 14rem;
   mix-blend-mode: plus-lighter;
   position: relative;
-  transition: clip-path 0.7s var(--spring);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .badges dl {
+    transition: clip-path 0.7s var(--spring);
+  }
 }
 
 .badges dt {
