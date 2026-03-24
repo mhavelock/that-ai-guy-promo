@@ -62,18 +62,15 @@
     top: 0;
   }
 
-  /* Back face: gradient text matching page copy style */
+  /* Back face: brand-blue solid text — gradient avoided (unreliable in 3D transforms) */
   .taig-back {
     align-items: center;
-    background: var(--text-gradient);
-    background-clip: text;
-    color: transparent;
+    color: var(--color-tg);
     display: flex;
     font-family: var(--font-brand);
     font-size: 3rem;
     font-weight: 600;
     justify-content: center;
-    mix-blend-mode: plus-lighter;
     transform: rotateX(90deg); /* starts face-down */
   }
 

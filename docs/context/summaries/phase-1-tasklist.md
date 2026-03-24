@@ -2,7 +2,7 @@
 
 **Phase:** 1 — Foundation
 **Created:** 2026-03-13
-**Updated:** 2026-03-24
+**Updated:** 2026-03-24 (session 2)
 **Status:** In progress
 
 > **Working convention:** Stop and check between each task — show `git diff` when done.
@@ -187,12 +187,26 @@
 
 ---
 
-## Desktop *(audit after mobile is complete)*
+## Desktop enhancements *(2026-03-24 session — committed before crash)*
+
+- [x] **Scrollbar** — blue animated `--color-tg` scrollbar (`css/desktop.css`)
+- [x] **Marquee strip** — comedy one-liners ticker between intro + badges (`css/marquee.css`)
+- [x] **Glass panel tokens** — `--glass-panel-*` in `desktop.css`; `.glass-panel` modifier class
+- [x] **Stats section** — 3 animated counters + progress bars, scroll-driven (`css/stats.css`)
+- [x] **Blob badge** — `border-radius` morph keyframe on `dt` at desktop breakpoint (`css/badges.css`)
+- [x] **Flip text** — `em.taig-lg` flips to "Naturally." on scroll; `css/flip-text.css`; back face `color: var(--color-tg)` (gradient dropped — unreliable in 3D)
+- [x] **Star orbit** — orbit animation around bottom nav home icon (`css/orbit.css`)
+- [x] **AI thinking widget** — pill badge in codewall section (`css/ai-thinking.css`)
+- [x] **Radar widget** — footer decorative radar (`css/radar.css`)
+
+## Desktop *(layout pass — deferred)*
 
 - [ ] **Codewall `padding-top`** — at 1228px the speech bubble overlaps the section above. Current `padding-top: 9rem` at `76.8rem+` may need increasing or a fluid `clamp()` between breakpoints
 - [ ] **Codewall `min-height`** — mobile value `clamp(70rem, 300vw, 80rem)` set to prevent CLS from `cw-wave` animation. Desktop breakpoint should override with a lower value (layout is different at 76.8rem+)
 - [ ] **Codewall phone overlap** — at 76.8rem+ the left phone (42%) + phones-r (63%) = 105%, they overlap. Fix: reduce phones-r desktop width, or rethink layout at that breakpoint
 - [ ] Desktop layout pass (bottom nav, typography, spacing)
+- [ ] Hero panel (intro + badges in glass frame)
+- [ ] Footer panel (contact + radar)
 
 ---
 

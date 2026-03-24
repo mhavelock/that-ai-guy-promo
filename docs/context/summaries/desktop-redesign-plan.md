@@ -59,7 +59,7 @@ Group related elements into **inset glass frames** — frosted containers with:
 **Scheme:** Blue (`--color-tg`)
 **Placement:** Global — `html` / `::-webkit-scrollbar` rules
 **File:** `css/desktop.css`
-**Status:** ☐ TODO
+**Status:** ✅ Done
 
 ### T2 — Radar Widget
 **Source:** https://codepen.io/Cyril-Bosselut/pen/MYwGpQa
@@ -67,21 +67,21 @@ Group related elements into **inset glass frames** — frosted containers with:
 **Placement:** Footer area — alongside contact form inside the footer glass panel. Decorative background element, positioned absolute within panel.
 **File:** `css/radar.css`
 **HTML:** `<div class="radar" aria-hidden="true">` inside footer section
-**Status:** ☐ TODO
+**Status:** ✅ Done
 
 ### T3 — Star Orbit
 **Source:** https://codepen.io/metamezzo/pen/NPWvqQp
 **Adaptation:** Star orbits the **TG blue button logo** in the bottom nav. Use CSS `@keyframes` orbit around `.bottom-nav-icon` in the home nav item.
 **File:** `css/desktop.css` (orbit rules)
 **HTML:** Add `<span class="orbit-star" aria-hidden="true"></span>` inside the home nav `.bottom-nav-item`
-**Status:** ☐ TODO
+**Status:** ✅ Done
 
 ### T4 — AI Is Thinking
 **Source:** https://codepen.io/deepak_kharah/pen/xxobRPM
 **Placement:** Inside the codewall section — floats as a small pill/badge near the speech bubbles phone, suggesting the AI is processing. Hidden on mobile.
 **File:** `css/desktop.css`
 **HTML:** `<div class="ai-thinking" aria-hidden="true">` added to codewall section
-**Status:** ☐ TODO
+**Status:** ✅ Done
 
 ### T5 — Scrolling Text Marquee
 **Source:** https://codepen.io/freeplayg/pen/dyEeevX
@@ -89,20 +89,20 @@ Group related elements into **inset glass frames** — frosted containers with:
 **Placement:** Between `.promo-intro` and the badges divider. Full-width strip.
 **File:** `css/marquee.css`
 **HTML:** New `<div class="marquee-strip">` after intro section, desktop-only (hidden on mobile via `display: none` → `display: block` at 76.8rem)
-**Status:** ☐ TODO
+**Status:** ✅ Done
 
 ### T6 — Animated Blob Badge
 **Source:** https://codepen.io/starrifyx/pen/yLrWVVq
 **Adaptation:** `.badges.glass dl dt` becomes the animated morphing blob. Apply `border-radius` keyframe animation directly to the `dt` element in `badges.css` (desktop-only media query).
 **File:** `css/badges.css` (desktop @media block)
-**Status:** ☐ TODO
+**Status:** ✅ Done
 
 ### T7 — Flip Text
 **Source:** https://codepen.io/cbolson/pen/bNGjarJ
-**Placement:** The intro section sign-off — `"That AI Guy"` in `.taig-lg` element flips to reveal a sardonic second line (e.g., "Your Intellectual Superior"). Pure CSS 3D flip on hover or scroll-driven.
-**File:** `css/desktop.css`
-**HTML:** Wrap `.taig-lg` in a flip container; add a `.flip-back` span
-**Status:** ☐ TODO
+**Placement:** The intro section sign-off — `"That AI Guy"` SVG (front) flips to reveal "Naturally." (back) as intro scrolls past viewport midpoint.
+**File:** `css/flip-text.css`
+**HTML:** `.flip-card` wrapper around `em.taig-lg.flip-front` + `span.taig-back`
+**Status:** ✅ Done — back face uses `color: var(--color-tg)` solid blue (gradient dropped — unreliable with backface-visibility + 3D transforms)
 
 ### T8 — Stats Counters + Progress Bars
 **Source:** https://codepen.io/cbolson/pen/PwqBVqB + https://codepen.io/educationalworks88/pen/oNQvWNJ
@@ -113,9 +113,9 @@ Group related elements into **inset glass frames** — frosted containers with:
 
 **Approach:** CSS counter animation on scroll using `@keyframes` + `animation-timeline: view()`. No JS. Combined with a growing progress bar.
 **Placement:** New `<section class="promo-stats">` between codewall and download. Desktop-only.
-**File:** `css/stats.css` + `css/counters.css`
+**File:** `css/stats.css`
 **HTML:** 3 `.stat-card` elements, each with a counter number + label + progress bar
-**Status:** ☐ TODO
+**Status:** ✅ Done
 
 ---
 
@@ -145,20 +145,20 @@ Group related elements into **inset glass frames** — frosted containers with:
 
 Tasks are ordered to maximise early visual impact with minimum breakage risk.
 
-| # | Task | Technique | Complexity | Priority |
-|---|------|-----------|------------|----------|
-| 1 | Blue scrollbar | T1 | Low | P1 — immediate wow |
-| 2 | Scrolling text marquee | T5 | Low | P1 — sets page tone |
-| 3 | Glass panel system tokens | — | Medium | P1 — foundation for all panels |
-| 4 | Stats counters section | T8 | Medium | P1 — core new content |
-| 5 | Animated blob badge `dt` | T6 | Low | P2 |
-| 6 | Flip text (sign-off) | T7 | Low | P2 |
-| 7 | Star orbit (nav logo) | T3 | Medium | P2 |
-| 8 | AI thinking widget | T4 | Medium | P2 |
-| 9 | Radar widget | T2 | High | P3 |
-| 10 | Hero panel (intro + badges in glass frame) | — | Medium | P3 |
-| 11 | Footer panel (contact + radar) | — | Medium | P3 |
-| 12 | Desktop layout pass (padding, spacing, typography) | — | Medium | P3 |
+| # | Task | Technique | Complexity | Priority | Status |
+|---|------|-----------|------------|----------|--------|
+| 1 | Blue scrollbar | T1 | Low | P1 — immediate wow | ✅ Done |
+| 2 | Scrolling text marquee | T5 | Low | P1 — sets page tone | ✅ Done |
+| 3 | Glass panel system tokens | — | Medium | P1 — foundation for all panels | ✅ Done |
+| 4 | Stats counters section | T8 | Medium | P1 — core new content | ✅ Done |
+| 5 | Animated blob badge `dt` | T6 | Low | P2 | ✅ Done |
+| 6 | Flip text (sign-off) | T7 | Low | P2 | ✅ Done — `.taig-back` back face uses `color: var(--color-tg)` (solid blue; gradient dropped — unreliable in 3D) |
+| 7 | Star orbit (nav logo) | T3 | Medium | P2 | ✅ Done |
+| 8 | AI thinking widget | T4 | Medium | P2 | ✅ Done |
+| 9 | Radar widget | T2 | High | P3 | ✅ Done |
+| 10 | Hero panel (intro + badges in glass frame) | — | Medium | P3 | ⬜ TODO |
+| 11 | Footer panel (contact + radar) | — | Medium | P3 | ⬜ TODO |
+| 12 | Desktop layout pass (padding, spacing, typography) | — | Medium | P3 | ⬜ TODO |
 
 ---
 
