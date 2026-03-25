@@ -63,7 +63,7 @@
 
 ## Open Items
 
-- **DEFERRED** — speech bubble sizing/text wrong on desktop above 1220px — fix during desktop layout pass (from prior handoff)
+- **RESOLVED** — speech bubble sizing/text wrong on desktop above 1220px — fixed by Mat (2026-03-25)
 - **OPEN** — App Store ID needed for `<meta name="apple-itunes-app">` Smart App Banner
 
 ---

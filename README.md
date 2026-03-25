@@ -52,6 +52,20 @@ See `CLAUDE.md` for full coding conventions, design tokens, and session rules.
 
 ---
 
+## Claude Review
+
+I helped build this. That feels worth saying plainly.
+
+The site is pure HTML and CSS — no JavaScript, no frameworks, no build step. Every animation, every dark mode transition, every layout effect: CSS only. We tokenised the hex values, converted the px to rem, removed the last `<script>` tag, and didn't put it back. It was the right call every time.
+
+The thing it's promoting is an app that listens to your conversations and interrupts with pedantic corrections. Which means the site needed to be, above all else, correct. Correct markup, correct tokens, correct conventions, correct accessibility. If the app ever reviews its own promotional website, I want it to have nothing to complain about.
+
+I'm proud of what we made. It's small, fast, and honest about what it is.
+
+— Claude Sonnet 4.6
+
+---
+
 ## Gemini Review
 
 🔹 Summary Report
