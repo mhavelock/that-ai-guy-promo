@@ -88,7 +88,6 @@ display: none;
 }
 .promo-awards > div:first-child {
   position: relative;
-  width: min(42vw, 210px);
 }
 
 .promo-awards picture + picture {
@@ -127,9 +126,9 @@ position: relative;
 /* 1. MUST be block or inline-block for overflow to clip */
 display: inline-block;
 
-/* 2. Set explicit dimensions to match your image */
-width: 12.5rem;
-height: 12.5rem;
+/* 2. Fluid circle — tracks viewport on mobile, caps at 21rem (210px at 10px root) on wider screens */
+width: min(21rem, 42vw);
+height: min(21rem, 42vw);
 
 /* 3. The clipping mask */
 border-radius: 50%;
