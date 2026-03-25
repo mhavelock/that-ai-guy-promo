@@ -278,39 +278,86 @@
 
     <hr class="section-divider" data-emoji="🗨" aria-hidden="true">
 
-    <!-- Stats counters — desktop only; hidden on mobile via CSS.
-         Original idea & technique: cbolson — https://codepen.io/cbolson/pen/PwqBVqB
-         Also inspired by: educationalworks88 — https://codepen.io/educationalworks88/pen/oNQvWNJ
-         CSS @property animates --count; scroll-driven via animation-timeline: view(). -->
-    <section class="promo-stats" aria-label="Performance statistics">
-      <div class="stats-grid">
+    <!-- Stats boxes — neumorphic 3D gauge cards. GHz / MHz / GW.
+         Adapted from: educationalworks88 https://codepen.io/educationalworks88/pen/oNQvWNJ
+         Values update live via setInterval in main.js. Mobile-first. -->
+    <section class="promo-stats" aria-label="Performance statistics" aria-hidden="true">
+      <div class="stats-container">
 
-        <div class="stat-card" style="--target: 847; --bar-pct: 85%">
-          <div class="stat-value">
-            <span class="stat-count"></span>
+        <!-- GHz — pedantry clock speed. --num drives gauge + dot (0–100). -->
+        <!-- data-min/max in display units; data-pct-max = value at 100%  -->
+        <div class="stat-box">
+          <div class="stat-shadow"></div>
+          <div class="stat-content">
+            <div class="stat-percent"
+              data-text="GHz"
+              data-min="1.4"
+              data-max="4.9"
+              data-decimals="1"
+              data-pct-max="5"
+              style="--num: 65">
+              <div class="stat-dot" style="transform: rotate(234deg)"></div>
+              <svg viewBox="0 0 150 150" aria-hidden="true">
+                <circle cx="70" cy="70" r="70" transform="translate(5 5)"></circle>
+                <circle cx="70" cy="70" r="70" transform="translate(5 5)"></circle>
+              </svg>
+            </div>
+            <div class="stat-number">
+              <span class="stat-val">3.2</span><span class="stat-unit">GHz</span>
+            </div>
           </div>
-          <div class="stat-bar"><div class="stat-bar-fill"></div></div>
-          <p class="stat-label">Pedantic corrections<small>delivered this session</small></p>
         </div>
 
-        <div class="stat-card" style="--target: 99; --bar-pct: 99%">
-          <div class="stat-value">
-            <span class="stat-count"></span><span class="stat-unit">%</span>
+        <!-- MHz — listening frequency -->
+        <div class="stat-box">
+          <div class="stat-shadow"></div>
+          <div class="stat-content">
+            <div class="stat-percent"
+              data-text="MHz"
+              data-min="420"
+              data-max="980"
+              data-decimals="0"
+              data-pct-max="1000"
+              style="--num: 72">
+              <div class="stat-dot" style="transform: rotate(259deg)"></div>
+              <svg viewBox="0 0 150 150" aria-hidden="true">
+                <circle cx="70" cy="70" r="70" transform="translate(5 5)"></circle>
+                <circle cx="70" cy="70" r="70" transform="translate(5 5)"></circle>
+              </svg>
+            </div>
+            <div class="stat-number">
+              <span class="stat-val">720</span><span class="stat-unit">MHz</span>
+            </div>
           </div>
-          <div class="stat-bar"><div class="stat-bar-fill"></div></div>
-          <p class="stat-label">Annoyance effectiveness<small>verified by no one</small></p>
         </div>
 
-        <div class="stat-card" style="--target: 300; --bar-pct: 30%">
-          <div class="stat-value">
-            <span class="stat-count"></span><span class="stat-unit">ms</span>
+        <!-- GW — smugness output -->
+        <div class="stat-box">
+          <div class="stat-shadow"></div>
+          <div class="stat-content">
+            <div class="stat-percent"
+              data-text="GW"
+              data-min="0.8"
+              data-max="9.6"
+              data-decimals="1"
+              data-pct-max="10"
+              style="--num: 58">
+              <div class="stat-dot" style="transform: rotate(209deg)"></div>
+              <svg viewBox="0 0 150 150" aria-hidden="true">
+                <circle cx="70" cy="70" r="70" transform="translate(5 5)"></circle>
+                <circle cx="70" cy="70" r="70" transform="translate(5 5)"></circle>
+              </svg>
+            </div>
+            <div class="stat-number">
+              <span class="stat-val">5.8</span><span class="stat-unit">GW</span>
+            </div>
           </div>
-          <div class="stat-bar"><div class="stat-bar-fill"></div></div>
-          <p class="stat-label">Interruption latency<small>below human politeness threshold</small></p>
         </div>
 
       </div>
     </section>
+
+    <hr class="section-divider" data-emoji="💬" aria-hidden="true">
 
     <section class="promo-section promo-ksps glass" id="key-selling-points" aria-label="Key Selling Points">
       <ul>

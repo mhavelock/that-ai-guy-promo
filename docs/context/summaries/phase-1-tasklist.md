@@ -236,12 +236,13 @@
 - [x] **Flip text — "Be That Guy."** — back face text updated; `letter-spacing: -0.04em` tightened
 - [x] **Flip text — view-timeline moved** — `view-timeline-name: --promo-intro` lifted out of desktop media query to base styles
 
-### Session 2026-03-25 — Mobile-first ai-thinking + open item closure
+### Session 2026-03-25 — Stats boxes redesign + ai-thinking mobile-first + open item closure
 
 - [x] **Visual check** — CSS iPhone at 320px/390px; flip timing on mobile — confirmed via CSS review: `clamp(100px, 30vw, 200px)` scales correctly; flip uses `exit` range so flat at scroll=0 (CLOSED)
 - [x] **Badge typo "stike"** — corrected by Mat (CLOSED)
 - [x] **Copy sign-off** — ongoing approval deferred to launch; no blockers (CLOSED)
 - [x] **ai-thinking mobile-first** — removed `@media (width >= 76.8rem)` wrapper from `::before`/`::after`; effect now active on all screen sizes; `prefers-reduced-motion` gate retained
+- [x] **Stats boxes redesign** — replaced glass counter cards with neumorphic 3D gauge cards (adapted from educationalworks88 CodePen); GHz / MHz / GW units; circular SVG arc + rotating dot; JS `setInterval` updates values every 3.5s with 1s CSS transitions; mobile-first; `css/stats.css` rewritten, HTML rebuilt, `main.js` extended
 
 ---
 
