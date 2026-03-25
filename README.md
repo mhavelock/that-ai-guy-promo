@@ -4,9 +4,9 @@ Promotional website for the **That AI Guy** iOS app — a comedy entertainment a
 
 ## Stack
 
-- Vanilla HTML5 / CSS / JavaScript — no build tools, no frameworks
+- HTML5 / CSS — zero JavaScript in production, no build tools, no frameworks
 - Hosted on Cloudflare Pages (`npx wrangler pages deploy`)
-- CSS-first: JS only where CSS cannot achieve the goal
+- CSS-first: all animation, theming, and interactivity in CSS
 
 ## Structure
 
@@ -31,10 +31,6 @@ Promotional website for the **That AI Guy** iOS app — a comedy entertainment a
 │   ├── stars.css           # CSS star-rating via <input type="range"> + @property
 │   ├── reviews.css         # Review card layout
 │   └── speech-bubbles.css  # Phone + speech bubble positioning
-├── js/
-│   ├── main.js             # Modal behaviour
-│   ├── theme.js            # Light/dark toggle, localStorage
-│   └── logger.js           # Build activity logging (localStorage)
 └── assets/                 # Logos, screenshots, SVGs, audio, avatars
 ```
 
@@ -57,6 +53,27 @@ See `CLAUDE.md` for full coding conventions, design tokens, and session rules.
 ---
 
 ## Improvements log
+
+### 2026-03-25 — Pre-launch audit
+
+**Zero JS**
+- All JavaScript removed from production pages — site runs on HTML + CSS only
+- Stats gauge boxes use static HTML values; theme auto-detected from system preference via inline head script
+
+**SEO**
+- Open Graph domain corrected to `that-ai-guy.app`
+- OG image wired to real asset (`assets/graphics/thataiguy_2100x630-ogbanner-banner.png`, 2100×630)
+- Intro tagline promoted to `<h1>` (was `<ul><li>`)
+
+**Code quality**
+- `css/contect-form.css` renamed to `contact-form.css`
+- Dark mode added to stats boxes (were hardcoded light-grey)
+- Privacy nav icon corrected to white in dark mode
+- `aria-describedby` added to sent confirmation alertdialog
+- Bluesky link: `target="_blank" rel="noopener noreferrer"` added
+- `css/matrix-rain.css` deleted (orphaned file)
+
+---
 
 ### 2026-03-24 — Site audit
 

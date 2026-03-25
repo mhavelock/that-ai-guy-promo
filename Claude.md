@@ -32,7 +32,8 @@ A single-page promotional website encouraging visitors to download the **That AI
 
 ## Tech Stack
 
-- HTML5, CSS (single critical stylesheet), vanilla JS (CSS-first — use JS only when CSS cannot achieve the goal)
+- HTML5, CSS — zero JavaScript loaded in production
+- JS files exist in `js/` as unlinked reference copies only
 - No build tools, no frameworks
 - Hosted on GitHub Pages
 
@@ -67,9 +68,9 @@ A single-page promotional website encouraging visitors to download the **That AI
 │   ├── stars.css    # CSS star-rating via <input type="range"> + @property + view-timeline
 │   └── reviews.css  # Review card layout (open-quote, quote text, stars, attribution)
 ├── js/
-│   ├── main.js      # App behaviour (modal)
-│   ├── theme.js     # Light/dark toggle — reads/writes localStorage + listens to system changes
-│   └── logger.js    # Build activity logging — isolated, load after theme.js
+│   ├── main.js      # Stats box updater (unlinked — stats use static HTML values)
+│   ├── theme.js     # Light/dark toggle (unlinked — theme auto-detected via inline head script)
+│   └── logger.js    # Build activity logging (unlinked — reference copy only)
 ├── _archive/        # Archived prototypes (do not use)
 └── docs/
     ├── test-program.md
@@ -82,15 +83,13 @@ A single-page promotional website encouraging visitors to download the **That AI
 
 ## Technical development approach
 
-- **Static site**: pure HTML5 / CSS / vanilla JS — no build tools, no package managers, no frameworks
-- **CSS-first**: use JS only where CSS cannot achieve the goal
-- **Multi-file CSS architecture**: `global.css` (design system; imports `grid.css`, `utilities.css`, `badges.css`) + `theme.css` (promo layout + nav + dark/light tokens; imports `stars.css`, `slider.css`, `reviews.css`)
+- **Static site**: pure HTML5 / CSS — no build tools, no package managers, no frameworks, zero JS in production
+- **CSS-first**: all animation, theming, interactivity, and layout achieved in CSS. No JS loaded on any page.
+- **Multi-file CSS architecture**: `global.css` (design system; imports `grid.css`, `utilities.css`, `badges.css`) + `theme.css` (promo layout + dark/light tokens + nav; imports `stars.css`, `slider.css`, `reviews.css`, `speech-bubbles.css`, `codewall.css`, `top-bg-fx.css`, `iphone.css`) + `desktop.css` (imports `marquee.css`, `ai-thinking.css`, `flip-text.css`, `orbit.css`, `stats.css`, `radar.css`)
 - **Mobile-first CSS** *(critical rule)*: base styles must target the smallest screen — no media queries needed for mobile. Layer desktop overrides upward using `@media (width >= Npx)` only. **Never use `max-width` breakpoints.** Exception: `slider.css` is a third-party component — do not refactor its media queries.
-- **Modern CSS**: custom properties for all tokens, `clamp()` for fluid type, `@media (width >=)` range syntax, logical properties
+- **Modern CSS**: custom properties for all tokens, `clamp()` for fluid type, `@media (width >=)` range syntax, logical properties, `color-mix()`, `@property`, scroll-driven animations
 - **Glass modifier pattern**: glassmorphism (`backdrop-filter`, `background: rgba()`, `border: 1px solid rgba()`, `box-shadow`) lives on a `.glass` modifier class — never baked into the structural component class. Apply both in HTML: `class="bottom-nav glass"`. This keeps structure and appearance independently reusable.
-- **JS pattern**: deferred, wrapped in IIFE, event delegation — no global scope pollution
-- **`<dialog>` for modals**: native, accessible, keyboard-dismissible with no extra JS complexity
-- **Logging**: `js/logger.js` is isolated from `main.js` — stores structured entries in `localStorage` (key: `thaiaiguy:buildlog`) with in-memory fallback. Load before `main.js`. Remove/gate test block before production. Inspect via `Logger.print()` in the browser console.
+- **Dark mode**: `[data-theme="dark"]` attribute on `<html>`, set by a tiny inline `<script>` in `<head>` that reads system preference. No toggle button. No theme.js loaded.
 - **Git workflow**: feature development on `main`; deploy via GitHub Pages
 
 ---
@@ -100,7 +99,7 @@ A single-page promotional website encouraging visitors to download the **That AI
 - **Tone**: fun and comedic — copy and layout should reflect the app's personality
 - **Clarity**: single, clear call-to-action — download the app. Every element should support this goal
 - **Minimal friction**: large touch targets (≥ 44×44px), large text, large buttons, no clutter
-- **Light/dark mode**: `prefers-color-scheme` auto + manual toggle (`theme-toggle-btn`) saves preference to `localStorage`
+- **Light/dark mode**: `prefers-color-scheme` auto-detection via inline head script — sets `[data-theme]` attribute before first paint; no manual toggle
 - **No motion surprises**: animations and transforms respect `prefers-reduced-motion`
 - **Accessible by default**: keyboard navigation, visible focus states, skip link, ARIA where needed
 
@@ -112,8 +111,8 @@ A single-page promotional website encouraging visitors to download the **That AI
 |---|---|
 | `<meta name="description">` | ✓ All pages |
 | Open Graph title + description + type | ✓ index.html |
-| Open Graph image | Placeholder — needs real asset |
-| Open Graph URL | Placeholder — needs final domain |
+| Open Graph image | ✓ `assets/graphics/thataiguy_2100x630-ogbanner-banner.png` |
+| Open Graph URL | ✓ `https://that-ai-guy.app/` |
 | `noindex` on privacy page | ✓ |
 | Semantic HTML (`main`, `section`, `article`, `nav`) | ✓ |
 | `<meta name="apple-itunes-app">` Smart App Banner | Placeholder — needs App Store ID |
@@ -127,7 +126,7 @@ A single-page promotional website encouraging visitors to download the **That AI
 
 - **PageSpeed target**: 100 (mobile + desktop)
 - **Fonts**: Google Fonts loaded asynchronously (non-render-blocking `preload` + `onload` swap); `font-display: swap`; `<link rel="preconnect">` hints
-- **JS**: deferred, minimal (<5 KB), no third-party scripts
+- **Zero JS**: no scripts loaded on any page — eliminates all JS parse/execute cost
 - **CSS**: two small files, no render-blocking after font fix
 - **Images**: `width` + `height` on all `<img>` for CLS prevention; retina via `<picture>` / `srcset`; `loading="lazy"` on below-fold images
 - **SVG icons**: inline in HTML — zero additional requests
@@ -180,7 +179,7 @@ A single-page promotional website encouraging visitors to download the **That AI
 ## Coding conventions
 
 ### Language
-- HTML and CSS only. JavaScript only when pre-agreed (e.g. class switcher for light/dark toggle). Prefer CSS transitions, animations, and effects to add interactivity.
+- HTML and CSS only. No JavaScript loaded in production. Prefer CSS transitions, animations, and effects for all interactivity.
 
 ### HTML
 - Keep HTML clean, semantic, and class-free where possible. Use element specificity to target elements — e.g. `.promo-block > p ~ span:first-child + em { color: red }`. Reserve classes for reusable components or when specificity cannot cleanly target the element.
@@ -252,7 +251,7 @@ A single-page promotional website encouraging visitors to download the **That AI
 - Valid HTML5 (W3C)
 - `lang="en"` on `<html>`
 - `<meta charset="UTF-8">` and `<meta name="viewport" content="width=device-width, initial-scale=1">`
-- Separate concerns: content (HTML) / presentation (CSS) / behaviour (JS)
+- Separate concerns: content (HTML) / presentation (CSS)
 
 ---
 
