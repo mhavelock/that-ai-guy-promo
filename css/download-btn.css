@@ -61,27 +61,29 @@
    Dark mode — static dark neumorphic, no animation
    ========================================================================== */
 
-[data-theme="dark"] .btn-appstore,
-[data-theme="dark"] .btn-appstore:hover {
-  animation: none;
-  background: #1a1d28;
-  border-radius: 14px;
-  box-shadow: 10px 10px 20px #0a0c12,
-    -10px -10px 20px #272c3d;
-}
+@media (prefers-color-scheme: dark) {
+  .btn-appstore,
+  .btn-appstore:hover {
+    animation: none;
+    background: #1a1d28;
+    border-radius: 14px;
+    box-shadow: 10px 10px 20px #0a0c12,
+      -10px -10px 20px #272c3d;
+  }
 
-[data-theme="dark"] .btn-appstore:active,
-[data-theme="dark"] .btn-appstore:focus-visible {
-  animation: none;
-  background: #1a1d28;
-  border-radius: 14px;
-  box-shadow: inset 6px 6px 12px #0a0c12,
-    inset -6px -6px 12px #272c3d;
-  outline: none;
-}
+  .btn-appstore:active,
+  .btn-appstore:focus-visible {
+    animation: none;
+    background: #1a1d28;
+    border-radius: 14px;
+    box-shadow: inset 6px 6px 12px #0a0c12,
+      inset -6px -6px 12px #272c3d;
+    outline: none;
+  }
 
-[data-theme="dark"] .btn-appstore img {
-  filter: invert(1);
+  .btn-appstore img {
+    filter: invert(1);
+  }
 }
 
 /* ==========================================================================

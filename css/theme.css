@@ -2,7 +2,7 @@
    THEME — That AI Guy Promo Page
    ==========================================================================
    1.  Font (Fredoka via Google Fonts)
-   2.  Theme tokens — light / dark (via [data-theme])
+   2.  Theme tokens — light / dark (via prefers-color-scheme)
    3.  Global type overrides
    3a. Background decorators (mobile only)
    4.  Hide default header
@@ -51,7 +51,7 @@
 }
 
 
-:root[data-theme="light"] {
+:root {
   /* Colour */
   --color-tg:                   #045ada;
   --color-bg:                   #ffffff;
@@ -95,48 +95,50 @@
                   radial-gradient(circle at 20% 100%, rgba(71, 175, 240, 0.95), rgba(200,222,255,.70) 90%);
 }
 
-:root[data-theme="dark"] {
-  /* Colour */
-  --color-bg:                   #0b0d10;
-  --color-tg:                   #3a7abf;
-  --color-surface:              #1a1d28;
-  --color-border:               #2c3044;
-  --color-text:                 #a1b1ca;
-  --color-text-muted:           #6b7a94;
-  --color-btn-primary-bg:       #1d1f24;
-  --color-btn-primary-text:     #a1b1ca;
-  --color-btn-secondary-bg:     #ebe6b7;
-  --color-btn-secondary-text:   #1d1f24;
-  --color-focus:                #7aaff0;
-  --color-alert-info-bg:        #1a2540;
-  --color-alert-info-text:      #90b8f0;
-  --color-alert-success-bg:     #152a1e;
-  --color-alert-success-text:   #7fcfa0;
-  --color-alert-warning-bg:     #2a2005;
-  --color-alert-warning-text:   #d4a845;
-  --color-alert-error-bg:       #2a0f0f;
-  --color-alert-error-text:     #d48080;
-  --shadow-sm:                  0 1px 3px rgb(0 0 0 / 0.3);
-  --shadow-md:                  0 4px 12px rgb(0 0 0 / 0.4);
-  --shadow-lg:                  0 8px 24px rgb(0 0 0 / 0.5);
-  /* Stars */
-  --color-star-active:          #a1b1ca;
-  --color-star-inactive:        #6b7a94;
-  /* Navigation */
-  --nav-glass-bg:               rgba(15, 18, 28, 0.65);
-  --nav-glass-border:           rgba(255, 255, 255, 0.12);
-  --nav-glass-shadow:           rgba(0, 0, 0, 0.55);
-  --nav-glass-highlight:        rgba(255, 255, 255, 0.10);
-  --nav-active-bg:              rgba(255, 255, 255, 0.14);
-  --nav-active-glow:            rgba(80, 140, 255, 0.50);
-  --nav-text:                   #a1b1ca;
-  --toggle-bg:                  rgba(255, 255, 255, 0.10);
-  --toggle-border:              rgba(255, 255, 255, 0.15);
-  --text-gradient:                radial-gradient(circle at 100% 30%, rgba(100, 150, 255, 0.95), rgba(150, 190, 255, 0.40) 80%),
-                  radial-gradient(circle at 100% 40%, rgba(80, 180, 255, 0.90), rgba(140, 220, 255, 0.30) 50%),
-                  radial-gradient(circle at 55% 300%, rgba(90, 120, 255, 0.90), rgba(120, 180, 255, 0.50) 80%),
-                  radial-gradient(circle at 50% 50%, rgba(140, 80, 255, 0.85), rgba(170, 140, 255, 0.50) 80%),
-                  radial-gradient(circle at 20% 100%, rgba(100, 210, 255, 0.95), rgba(200, 235, 255, 0.80) 90%);
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Colour */
+    --color-bg:                   #0b0d10;
+    --color-tg:                   #3a7abf;
+    --color-surface:              #1a1d28;
+    --color-border:               #2c3044;
+    --color-text:                 #a1b1ca;
+    --color-text-muted:           #6b7a94;
+    --color-btn-primary-bg:       #1d1f24;
+    --color-btn-primary-text:     #a1b1ca;
+    --color-btn-secondary-bg:     #ebe6b7;
+    --color-btn-secondary-text:   #1d1f24;
+    --color-focus:                #7aaff0;
+    --color-alert-info-bg:        #1a2540;
+    --color-alert-info-text:      #90b8f0;
+    --color-alert-success-bg:     #152a1e;
+    --color-alert-success-text:   #7fcfa0;
+    --color-alert-warning-bg:     #2a2005;
+    --color-alert-warning-text:   #d4a845;
+    --color-alert-error-bg:       #2a0f0f;
+    --color-alert-error-text:     #d48080;
+    --shadow-sm:                  0 1px 3px rgb(0 0 0 / 0.3);
+    --shadow-md:                  0 4px 12px rgb(0 0 0 / 0.4);
+    --shadow-lg:                  0 8px 24px rgb(0 0 0 / 0.5);
+    /* Stars */
+    --color-star-active:          #a1b1ca;
+    --color-star-inactive:        #6b7a94;
+    /* Navigation */
+    --nav-glass-bg:               rgba(15, 18, 28, 0.65);
+    --nav-glass-border:           rgba(255, 255, 255, 0.12);
+    --nav-glass-shadow:           rgba(0, 0, 0, 0.55);
+    --nav-glass-highlight:        rgba(255, 255, 255, 0.10);
+    --nav-active-bg:              rgba(255, 255, 255, 0.14);
+    --nav-active-glow:            rgba(80, 140, 255, 0.50);
+    --nav-text:                   #a1b1ca;
+    --toggle-bg:                  rgba(255, 255, 255, 0.10);
+    --toggle-border:              rgba(255, 255, 255, 0.15);
+    --text-gradient:                radial-gradient(circle at 100% 30%, rgba(100, 150, 255, 0.95), rgba(150, 190, 255, 0.40) 80%),
+                    radial-gradient(circle at 100% 40%, rgba(80, 180, 255, 0.90), rgba(140, 220, 255, 0.30) 50%),
+                    radial-gradient(circle at 55% 300%, rgba(90, 120, 255, 0.90), rgba(120, 180, 255, 0.50) 80%),
+                    radial-gradient(circle at 50% 50%, rgba(140, 80, 255, 0.85), rgba(170, 140, 255, 0.50) 80%),
+                    radial-gradient(circle at 20% 100%, rgba(100, 210, 255, 0.95), rgba(200, 235, 255, 0.80) 90%);
+  }
 }
 
 
@@ -314,9 +316,11 @@ body::after {
   transform: rotateY(180deg);
 }
 
-[data-theme="dark"] body::before,
-[data-theme="dark"] body::after {
-  filter: invert(1);
+@media (prefers-color-scheme: dark) {
+  body::before,
+  body::after {
+    filter: invert(1);
+  }
 }
 
 /* Parallax drift — mobile only (desktop elements are display:none above).
@@ -354,8 +358,10 @@ body::after {
 
 
 /* Dark mode: codewall base text — overrides hardcoded #1e2460 in codewall.css */
-[data-theme="dark"] .promo-codewall {
-  color: #8090b8;
+@media (prefers-color-scheme: dark) {
+  .promo-codewall {
+    color: #8090b8;
+  }
 }
 
 
@@ -570,8 +576,10 @@ overflow-x: clip does not create a scroll container so z-index is unaffected. */
 }
 
 /* Privacy icon is black SVG — invert to white in dark mode */
-[data-theme="dark"] a[href="privacy.html"] .bottom-nav-icon {
-  filter: invert(1);
+@media (prefers-color-scheme: dark) {
+  a[href="privacy.html"] .bottom-nav-icon {
+    filter: invert(1);
+  }
 }
 
 .bottom-nav-label {

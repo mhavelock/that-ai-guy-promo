@@ -31,16 +31,6 @@
   <!-- Smart App Banner — uncomment and update app-id once live on the App Store -->
   <!-- <meta name="apple-itunes-app" content="app-id=PLACEHOLDER"> -->
 
-  <!-- Early theme init — prevents flash of wrong theme.
-    Reads saved preference from localStorage; falls back to system preference.
-    Must run inline before CSS is applied. -->
-  <script>
-    (function () {
-      var saved = localStorage.getItem('thaiaiguy:theme');
-      var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      document.documentElement.dataset.theme = theme;
-    }());
-  </script>
 
   <!-- Fredoka variable font (300–700) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

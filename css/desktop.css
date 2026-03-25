@@ -35,11 +35,13 @@
   --glass-panel-radius: 2rem;
 }
 
-[data-theme="dark"] {
-  --glass-panel-bg:     rgba(255, 255, 255, 0.03);
-  --glass-panel-border: rgba(255, 255, 255, 0.09);
-  --glass-panel-shine:  rgba(255, 255, 255, 0.07);
-  --glass-panel-shadow: rgba(0, 0, 0, 0.45);
+@media (prefers-color-scheme: dark) {
+  :root {
+    --glass-panel-bg:     rgba(255, 255, 255, 0.03);
+    --glass-panel-border: rgba(255, 255, 255, 0.09);
+    --glass-panel-shine:  rgba(255, 255, 255, 0.07);
+    --glass-panel-shadow: rgba(0, 0, 0, 0.45);
+  }
 }
 
 @media (width >= 76.8rem) {

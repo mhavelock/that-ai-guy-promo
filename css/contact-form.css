@@ -133,63 +133,65 @@
    Dark mode
    ========================================================================== */
 
-[data-theme="dark"] .contact-form h2 {
-  color: #a1b1ca;
-}
+@media (prefers-color-scheme: dark) {
+  .contact-form h2 {
+    color: #a1b1ca;
+  }
 
-[data-theme="dark"] .contact-form p {
-  color: #6a7a8a;
-}
+  .contact-form p {
+    color: #6a7a8a;
+  }
 
-[data-theme="dark"] .contact-form {
-  background: #1a1d28;
-  box-shadow: 10px 10px 20px #0a0c12,
-    -10px -10px 20px #272c3d;
-}
+  .contact-form {
+    background: #1a1d28;
+    box-shadow: 10px 10px 20px #0a0c12,
+      -10px -10px 20px #272c3d;
+  }
 
-[data-theme="dark"] .contact-form .input-field input,
-[data-theme="dark"] .contact-form .input-message {
-  background: #1a1d28;
-  box-shadow: inset 6px 6px 10px #0a0c12,
-    inset -6px -6px 10px #272c3d;
-  color: #a1b1ca;
-}
+  .contact-form .input-field input,
+  .contact-form .input-message {
+    background: #1a1d28;
+    box-shadow: inset 6px 6px 10px #0a0c12,
+      inset -6px -6px 10px #272c3d;
+    color: #a1b1ca;
+  }
 
-[data-theme="dark"] .contact-form .input-field input::placeholder,
-[data-theme="dark"] .contact-form .input-message::placeholder {
-  color: #6a7a8a;
-}
+  .contact-form .input-field input::placeholder,
+  .contact-form .input-message::placeholder {
+    color: #6a7a8a;
+  }
 
-[data-theme="dark"] .contact-form .input-field i {
-  color: #a1b1ca;
-}
+  .contact-form .input-field i {
+    color: #a1b1ca;
+  }
 
-[data-theme="dark"] .contact-form .input-field input:focus-visible {
-  box-shadow: inset 4px 4px 8px #080a0f,
-    inset -4px -4px 8px #2a3045,
-    0 0 0 2px rgba(80, 160, 220, 0.4);
-  outline: none;
-}
+  .contact-form .input-field input:focus-visible {
+    box-shadow: inset 4px 4px 8px #080a0f,
+      inset -4px -4px 8px #2a3045,
+      0 0 0 2px rgba(80, 160, 220, 0.4);
+    outline: none;
+  }
 
-[data-theme="dark"] .contact-form .btn {
-  box-shadow: 5px 5px 15px #0a0c12,
-    -5px -5px 15px #272c3d;
-  color: #1d1f24;
-}
+  .contact-form .btn {
+    box-shadow: 5px 5px 15px #0a0c12,
+      -5px -5px 15px #272c3d;
+    color: #1d1f24;
+  }
 
-[data-theme="dark"] .contact-form .btn:active,
-[data-theme="dark"] .contact-form .btn:focus-visible {
-  box-shadow: inset 4px 4px 10px #080a0f,
-    inset -2px -2px 6px #2a3045;
-  outline: none;
-}
+  .contact-form .btn:active,
+  .contact-form .btn:focus-visible {
+    box-shadow: inset 4px 4px 10px #080a0f,
+      inset -2px -2px 6px #2a3045;
+    outline: none;
+  }
 
-[data-theme="dark"] .contact-form .options {
-  color: #6a7a8a;
-}
+  .contact-form .options {
+    color: #6a7a8a;
+  }
 
-[data-theme="dark"] .contact-form .options a {
-  color: #a1b1ca;
+  .contact-form .options a {
+    color: #a1b1ca;
+  }
 }
 
 /* ==========================================================================
