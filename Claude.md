@@ -89,7 +89,7 @@ A single-page promotional website encouraging visitors to download the **That AI
 - **Mobile-first CSS** *(critical rule)*: base styles must target the smallest screen — no media queries needed for mobile. Layer desktop overrides upward using `@media (width >= Npx)` only. **Never use `max-width` breakpoints.** Exception: `slider.css` is a third-party component — do not refactor its media queries.
 - **Modern CSS**: custom properties for all tokens, `clamp()` for fluid type, `@media (width >=)` range syntax, logical properties, `color-mix()`, `@property`, scroll-driven animations
 - **Glass modifier pattern**: glassmorphism (`backdrop-filter`, `background: rgba()`, `border: 1px solid rgba()`, `box-shadow`) lives on a `.glass` modifier class — never baked into the structural component class. Apply both in HTML: `class="bottom-nav glass"`. This keeps structure and appearance independently reusable.
-- **Dark mode**: `[data-theme="dark"]` attribute on `<html>`, set by a tiny inline `<script>` in `<head>` that reads system preference. No toggle button. No theme.js loaded.
+- **Dark mode**: native `@media (prefers-color-scheme: dark)` — no script, no attribute, no JS. All dark overrides live in media query blocks across the CSS files.
 - **Git workflow**: feature development on `main`; deploy via GitHub Pages
 
 ---
@@ -99,7 +99,7 @@ A single-page promotional website encouraging visitors to download the **That AI
 - **Tone**: fun and comedic — copy and layout should reflect the app's personality
 - **Clarity**: single, clear call-to-action — download the app. Every element should support this goal
 - **Minimal friction**: large touch targets (≥ 44×44px), large text, large buttons, no clutter
-- **Light/dark mode**: `prefers-color-scheme` auto-detection via inline head script — sets `[data-theme]` attribute before first paint; no manual toggle
+- **Light/dark mode**: native `@media (prefers-color-scheme: dark)` — tracks OS preference automatically, no JS, no flash
 - **No motion surprises**: animations and transforms respect `prefers-reduced-motion`
 - **Accessible by default**: keyboard navigation, visible focus states, skip link, ARIA where needed
 

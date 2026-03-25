@@ -58,7 +58,8 @@ See `CLAUDE.md` for full coding conventions, design tokens, and session rules.
 
 **Zero JS**
 - All JavaScript removed from production pages — site runs on HTML + CSS only
-- Stats gauge boxes use static HTML values; theme auto-detected from system preference via inline head script
+- Stats gauge boxes use static HTML values
+- Dark mode via `@media (prefers-color-scheme: dark)` — no script, no flash, tracks OS preference natively
 
 **SEO**
 - Open Graph domain corrected to `that-ai-guy.app`
@@ -72,6 +73,19 @@ See `CLAUDE.md` for full coding conventions, design tokens, and session rules.
 - `aria-describedby` added to sent confirmation alertdialog
 - Bluesky link: `target="_blank" rel="noopener noreferrer"` added
 - `css/matrix-rain.css` deleted (orphaned file)
+
+### 2026-03-25 — CSS audit (session 2)
+
+**Dark mode**
+- Inline theme-init `<script>` removed from all pages
+- All `[data-theme="dark"]` selectors converted to `@media (prefers-color-scheme: dark)` across 8 CSS files
+- Contact form dark mode: highlight shadow updated to white (`rgba(255,255,255,0.12)`) for visible depth
+
+**CSS conventions**
+- Hex values with variable equivalents replaced: `#333`/`#111` → `var(--color-text)`, `#444` → `var(--stat-indicator-color)`
+- Download button: 9 neumorphic grey shades extracted to `--btn-neomorph-*` local tokens
+- `px` → `rem` across `contact-form.css`, `stats.css`, `utilities.css` (spacing, dimensions, clamp bounds)
+- `overflow-x: clip` + `overflow-clip-margin: 2rem` on `.promo-stats` — prevents mobile horizontal scroll while allowing shadows to breathe
 
 ---
 
