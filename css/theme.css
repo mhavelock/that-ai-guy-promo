@@ -565,6 +565,11 @@ overflow-x: clip does not create a scroll container so z-index is unaffected. */
   width: 2.6rem;
 }
 
+/* Privacy icon is black SVG — invert to white in dark mode */
+[data-theme="dark"] a[href="privacy.html"] .bottom-nav-icon {
+  filter: invert(1);
+}
+
 .bottom-nav-label {
   display: block;
 }
