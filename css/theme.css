@@ -278,6 +278,15 @@ Exceptions (badges, reviews, stars) are pinned in their own stylesheets. */
   list-style: none;
 }
 
+/* h1 in promo-signature: visually matches the old <ul><li> — body text, not heading size */
+.promo-signature h1 {
+  filter: brightness(0.6);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-body);
+  line-height: var(--line-height-body);
+}
+
 /* ==========================================================================
    3a. Background decorators (mobile only)
 ========================================================================== */
@@ -304,13 +313,6 @@ body::after {
 [data-theme="dark"] body::before,
 [data-theme="dark"] body::after {
   filter: invert(1);
-}
-
-@media (width >= 76.8rem) {
-  body::before,
-  body::after {
-    display: none;
-  }
 }
 
 /* Parallax drift — mobile only (desktop elements are display:none above).
@@ -479,8 +481,8 @@ body::after {
   width: clamp(32rem, 90vw, 90rem);
 }
 
-.promo-signature ul + p{
-  margin: 1rem 0 0
+.promo-signature h1 + p {
+  margin: 1rem 0 0;
 }
 
 
