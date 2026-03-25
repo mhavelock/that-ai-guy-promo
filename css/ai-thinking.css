@@ -3,7 +3,7 @@
    Original idea & technique: deepak_kharah — https://codepen.io/deepak_kharah/pen/xxobRPM
    ==========================================================================
    Applied to .codewall-phone-ai (the first picture in codewall-phones-r).
-   Desktop only. Reduced-motion: glow only (no spin).
+   Mobile-first — all screen sizes. Reduced-motion: glow only (no spin).
 
    The phone fills the image edge-to-edge with rounded corners.
    --phone-corner-x / -y tune the border-radius to match the phone shape.
@@ -28,70 +28,67 @@
   --phone-corner-y:  6.0%;
 }
 
-@media (width >= 76.8rem) {
+/* ::before — pulsing glow halo behind the phone rim */
+.codewall-phone-ai::before {
+  border-radius:
+    var(--phone-corner-x) var(--phone-corner-x) var(--phone-corner-x) var(--phone-corner-x)
+    / var(--phone-corner-y) var(--phone-corner-y) var(--phone-corner-y) var(--phone-corner-y);
+  bottom: 0;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--color-tg) 30%, transparent),
+    0 0 14px 4px color-mix(in srgb, var(--color-tg) 14%, transparent);
+  content: '';
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+}
 
-  /* ::before — pulsing glow halo behind the phone rim */
+@media (prefers-reduced-motion: no-preference) {
+
+  /* Pulsing glow — slow breath cycle */
   .codewall-phone-ai::before {
+    animation: ai-glow 2.8s ease-in-out infinite;
+  }
+
+  /* ::after — spinning scan-line border */
+  .codewall-phone-ai::after {
+    animation: ai-spin 3.5s linear infinite;
+    background: conic-gradient(
+      from var(--ai-angle),
+      transparent                                         0deg,
+      transparent                                       195deg,
+      color-mix(in srgb, var(--color-tg) 55%, transparent) 255deg,
+      color-mix(in srgb, var(--color-tg) 90%, white)     305deg,
+      rgba(210, 235, 255, 1)                            325deg,
+      color-mix(in srgb, var(--color-tg) 90%, white)     340deg,
+      transparent                                       360deg
+    );
     border-radius:
       var(--phone-corner-x) var(--phone-corner-x) var(--phone-corner-x) var(--phone-corner-x)
       / var(--phone-corner-y) var(--phone-corner-y) var(--phone-corner-y) var(--phone-corner-y);
     bottom: 0;
-    box-shadow:
-      0 0 0 1px color-mix(in srgb, var(--color-tg) 30%, transparent),
-      0 0 14px 4px color-mix(in srgb, var(--color-tg) 14%, transparent);
     content: '';
     left: 0;
+    /* Mask trick: show only the 2px padded border, not the fill */
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: destination-out;
+    padding: 2px;
     pointer-events: none;
     position: absolute;
     right: 0;
     top: 0;
-    z-index: 2;
+    z-index: 3;
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-
-    /* Pulsing glow — slow breath cycle */
-    .codewall-phone-ai::before {
-      animation: ai-glow 2.8s ease-in-out infinite;
-    }
-
-    /* ::after — spinning scan-line border */
-    .codewall-phone-ai::after {
-      animation: ai-spin 3.5s linear infinite;
-      background: conic-gradient(
-        from var(--ai-angle),
-        transparent                                         0deg,
-        transparent                                       195deg,
-        color-mix(in srgb, var(--color-tg) 55%, transparent) 255deg,
-        color-mix(in srgb, var(--color-tg) 90%, white)     305deg,
-        rgba(210, 235, 255, 1)                            325deg,
-        color-mix(in srgb, var(--color-tg) 90%, white)     340deg,
-        transparent                                       360deg
-      );
-      border-radius:
-        var(--phone-corner-x) var(--phone-corner-x) var(--phone-corner-x) var(--phone-corner-x)
-        / var(--phone-corner-y) var(--phone-corner-y) var(--phone-corner-y) var(--phone-corner-y);
-      bottom: 0;
-      content: '';
-      left: 0;
-      /* Mask trick: show only the 2px padded border, not the fill */
-      mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-      -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-      mask-composite: exclude;
-      -webkit-mask-composite: destination-out;
-      padding: 2px;
-      pointer-events: none;
-      position: absolute;
-      right: 0;
-      top: 0;
-      z-index: 3;
-    }
-
-  }
 }
 
 @keyframes ai-glow {
