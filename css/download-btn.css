@@ -5,6 +5,20 @@
    Active / Focus: 2 inset styles only, 1s hold + 1s transition, 4s cycle
    ========================================================================== */
 
+/* Local tokens — neumorphic light-mode palette.
+   Dark mode turns animation off entirely (see prefers-color-scheme block below). */
+:root {
+  --btn-neomorph-base:          #e0e0e0;
+  --btn-neomorph-mid:           #cacaca;
+  --btn-neomorph-end:           #f0f0f0;
+  --btn-neomorph-shadow-dark:   #cecece;
+  --btn-neomorph-shadow-light:  #f2f2f2;
+  --btn-neomorph-shadow-c1:     #c1c1c1;
+  --btn-neomorph-shadow-mid:    #a8a8a8;
+  --btn-neomorph-shadow-lg:     #afafaf;
+  --btn-neomorph-inset-dark:    #777777;
+}
+
 .promo-download {
   align-items: center;
   display: flex;
@@ -22,9 +36,9 @@
 .btn-appstore {
   animation: btn-appstore-cycle 30s linear infinite;
   max-width: 28rem;
-  background: #e0e0e0;
+  background: var(--btn-neomorph-base);
   border-radius: 14px;
-  box-shadow: 25px 25px 49px #cecece, -25px -25px 49px #f2f2f2;
+  box-shadow: 25px 25px 49px var(--btn-neomorph-shadow-dark), -25px -25px 49px var(--btn-neomorph-shadow-light);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -96,9 +110,9 @@
   .btn-appstore:active,
   .btn-appstore:focus {
     animation: none;
-    background: linear-gradient(145deg, #cacaca, #f0f0f0);
+    background: linear-gradient(145deg, var(--btn-neomorph-mid), var(--btn-neomorph-end));
     border-radius: 18px;
-    box-shadow: 9px 9px 18px #c1c1c1, -9px -9px 18px #ffffff;
+    box-shadow: 9px 9px 18px var(--btn-neomorph-shadow-c1), -9px -9px 18px #ffffff;
   }
 }
 
@@ -111,81 +125,81 @@
 
   /* 1 — flat, outer */
   0%, 8.89% {
-    background: #e0e0e0;
+    background: var(--btn-neomorph-base);
     border-radius: 14px;
-    box-shadow: 25px 25px 49px #cecece,
-      -25px -25px 49px #f2f2f2;
+    box-shadow: 25px 25px 49px var(--btn-neomorph-shadow-dark),
+      -25px -25px 49px var(--btn-neomorph-shadow-light);
   }
 
   /* 2 — gradient, outer, tight shadow */
   11.11%, 20% {
-    background: linear-gradient(145deg, #cacaca, #f0f0f0);
+    background: linear-gradient(145deg, var(--btn-neomorph-mid), var(--btn-neomorph-end));
     border-radius: 18px;
-    box-shadow: 9px 9px 18px #c1c1c1,
+    box-shadow: 9px 9px 18px var(--btn-neomorph-shadow-c1),
       -9px -9px 18px #ffffff;
   }
 
   /* 3 — gradient, outer */
   22.22%, 31.11% {
-    background: linear-gradient(145deg, #cacaca, #f0f0f0);
+    background: linear-gradient(145deg, var(--btn-neomorph-mid), var(--btn-neomorph-end));
     border-radius: 21px;
-    box-shadow: 25px 25px 49px #cecece,
-      -25px -25px 49px #f2f2f2;
+    box-shadow: 25px 25px 49px var(--btn-neomorph-shadow-dark),
+      -25px -25px 49px var(--btn-neomorph-shadow-light);
   }
 
   /* 4 — gradient reversed, outer */
   33.33%, 42.22% {
-    background: linear-gradient(145deg, #f0f0f0, #cacaca);
+    background: linear-gradient(145deg, var(--btn-neomorph-end), var(--btn-neomorph-mid));
     border-radius: 7px;
-    box-shadow: 25px 25px 49px #a8a8a8,
+    box-shadow: 25px 25px 49px var(--btn-neomorph-shadow-mid),
       -25px -25px 49px #ffffff;
   }
 
   /* 5 — gradient, outer, sharp corners */
   44.44%, 53.33% {
-    background: linear-gradient(145deg, #cacaca, #f0f0f0);
+    background: linear-gradient(145deg, var(--btn-neomorph-mid), var(--btn-neomorph-end));
     border-radius: 10px;
-    box-shadow: 37px 37px 74px #afafaf,
+    box-shadow: 37px 37px 74px var(--btn-neomorph-shadow-lg),
       -37px -37px 74px #ffffff;
   }
 
   /* 6 — flat, inset */
   55.56%, 64.44% {
-    background: #e0e0e0;
+    background: var(--btn-neomorph-base);
     border-radius: 21px;
-    box-shadow: inset 25px 25px 49px #cecece,
-      inset -25px -25px 49px #f2f2f2;
+    box-shadow: inset 25px 25px 49px var(--btn-neomorph-shadow-dark),
+      inset -25px -25px 49px var(--btn-neomorph-shadow-light);
   }
 
   /* 7 — gradient reversed, outer, large */
   66.67%, 75.56% {
-    background: linear-gradient(145deg, #f0f0f0, #cacaca);
+    background: linear-gradient(145deg, var(--btn-neomorph-end), var(--btn-neomorph-mid));
     border-radius: 18px;
-    box-shadow: 38px 38px 76px #afafaf,
+    box-shadow: 38px 38px 76px var(--btn-neomorph-shadow-lg),
       -38px -38px 76px #ffffff;
   }
 
   /* 8 — flat, inset, strong dark shadow */
   77.78%, 86.67% {
-    background: #e0e0e0;
+    background: var(--btn-neomorph-base);
     border-radius: 7px;
-    box-shadow: inset 9px 9px 18px #777777,
+    box-shadow: inset 9px 9px 18px var(--btn-neomorph-inset-dark),
       inset -9px -9px 18px #ffffff;
   }
 
   /* 9 — flat, outer, dark shadow */
   88.89%, 97.78% {
-    background: #e0e0e0;
+    background: var(--btn-neomorph-base);
     border-radius: 10px;
-    box-shadow: 9px 9px 18px #777777,
+    box-shadow: 9px 9px 18px var(--btn-neomorph-inset-dark),
       -9px -9px 18px #ffffff;
   }
 
   100% {
-    background: #e0e0e0;
+    background: var(--btn-neomorph-base);
     border-radius: 14px;
-    box-shadow: 25px 25px 49px #cecece,
-      -25px -25px 49px #f2f2f2;
+    box-shadow: 25px 25px 49px var(--btn-neomorph-shadow-dark),
+      -25px -25px 49px var(--btn-neomorph-shadow-light);
   }
 }
 
@@ -198,65 +212,65 @@
 
   /* 1 — flat, outer */
   0%, 9.52% {
-    background: #e0e0e0;
+    background: var(--btn-neomorph-base);
     border-radius: 14px;
-    box-shadow: 25px 25px 49px #cecece,
-      -25px -25px 49px #f2f2f2;
+    box-shadow: 25px 25px 49px var(--btn-neomorph-shadow-dark),
+      -25px -25px 49px var(--btn-neomorph-shadow-light);
   }
 
   /* 2 — gradient, tight shadow */
   14.29%, 23.81% {
-    background: linear-gradient(145deg, #cacaca, #f0f0f0);
+    background: linear-gradient(145deg, var(--btn-neomorph-mid), var(--btn-neomorph-end));
     border-radius: 18px;
-    box-shadow: 9px 9px 18px #c1c1c1,
+    box-shadow: 9px 9px 18px var(--btn-neomorph-shadow-c1),
       -9px -9px 18px #ffffff;
   }
 
   /* 3 — gradient, outer */
   28.57%, 38.10% {
-    background: linear-gradient(145deg, #cacaca, #f0f0f0);
+    background: linear-gradient(145deg, var(--btn-neomorph-mid), var(--btn-neomorph-end));
     border-radius: 21px;
-    box-shadow: 25px 25px 49px #cecece,
-      -25px -25px 49px #f2f2f2;
+    box-shadow: 25px 25px 49px var(--btn-neomorph-shadow-dark),
+      -25px -25px 49px var(--btn-neomorph-shadow-light);
   }
 
   /* 4 — gradient reversed */
   42.86%, 52.38% {
-    background: linear-gradient(145deg, #f0f0f0, #cacaca);
+    background: linear-gradient(145deg, var(--btn-neomorph-end), var(--btn-neomorph-mid));
     border-radius: 7px;
-    box-shadow: 25px 25px 49px #a8a8a8,
+    box-shadow: 25px 25px 49px var(--btn-neomorph-shadow-mid),
       -25px -25px 49px #ffffff;
   }
 
   /* 5 — gradient, sharp corners */
   57.14%, 66.67% {
-    background: linear-gradient(145deg, #cacaca, #f0f0f0);
+    background: linear-gradient(145deg, var(--btn-neomorph-mid), var(--btn-neomorph-end));
     border-radius: 10px;
-    box-shadow: 37px 37px 74px #afafaf,
+    box-shadow: 37px 37px 74px var(--btn-neomorph-shadow-lg),
       -37px -37px 74px #ffffff;
   }
 
   /* 7 — gradient reversed, large */
   71.43%, 80.95% {
-    background: linear-gradient(145deg, #f0f0f0, #cacaca);
+    background: linear-gradient(145deg, var(--btn-neomorph-end), var(--btn-neomorph-mid));
     border-radius: 18px;
-    box-shadow: 38px 38px 76px #afafaf,
+    box-shadow: 38px 38px 76px var(--btn-neomorph-shadow-lg),
       -38px -38px 76px #ffffff;
   }
 
   /* 9 — flat, outer, dark shadow */
   85.71%, 95.24% {
-    background: #e0e0e0;
+    background: var(--btn-neomorph-base);
     border-radius: 10px;
-    box-shadow: 9px 9px 18px #777777,
+    box-shadow: 9px 9px 18px var(--btn-neomorph-inset-dark),
       -9px -9px 18px #ffffff;
   }
 
   100% {
-    background: #e0e0e0;
+    background: var(--btn-neomorph-base);
     border-radius: 14px;
-    box-shadow: 25px 25px 49px #cecece,
-      -25px -25px 49px #f2f2f2;
+    box-shadow: 25px 25px 49px var(--btn-neomorph-shadow-dark),
+      -25px -25px 49px var(--btn-neomorph-shadow-light);
   }
 }
 
@@ -269,24 +283,24 @@
 
   /* 6 — inset, light shadow */
   0%, 25% {
-    background: #e0e0e0;
+    background: var(--btn-neomorph-base);
     border-radius: 21px;
-    box-shadow: inset 25px 25px 49px #cecece,
-      inset -25px -25px 49px #f2f2f2;
+    box-shadow: inset 25px 25px 49px var(--btn-neomorph-shadow-dark),
+      inset -25px -25px 49px var(--btn-neomorph-shadow-light);
   }
 
   /* 8 — inset, dark shadow */
   50%, 75% {
-    background: #e0e0e0;
+    background: var(--btn-neomorph-base);
     border-radius: 7px;
-    box-shadow: inset 9px 9px 18px #777777,
+    box-shadow: inset 9px 9px 18px var(--btn-neomorph-inset-dark),
       inset -9px -9px 18px #ffffff;
   }
 
   100% {
-    background: #e0e0e0;
+    background: var(--btn-neomorph-base);
     border-radius: 14px;
-    box-shadow: inset 25px 25px 49px #cecece,
-      inset -25px -25px 49px #f2f2f2;
+    box-shadow: inset 25px 25px 49px var(--btn-neomorph-shadow-dark),
+      inset -25px -25px 49px var(--btn-neomorph-shadow-light);
   }
 }

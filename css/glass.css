@@ -66,7 +66,7 @@
     --glass-form-shine:        rgba(255, 255, 255, 0.10);
     --glass-form-shadow:       rgba(0, 0, 0, 0.45);
     --glass-form-neu-lo:       #0a0c12;
-    --glass-form-neu-hi:       #272c3d;
+    --glass-form-neu-hi:       rgba(255, 255, 255, 0.10);
 
     /* Review card glass — dark */
     --glass-review-bg:         rgba(255, 255, 255, 0.07);

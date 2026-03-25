@@ -11,6 +11,12 @@
    Reduced-motion: CSS transitions retained, dot transition disabled.
 ========================================================================== */
 
+/* Local token — neumorphic indicator colour (disc bg, dot bead, value text in light mode).
+   Dark mode overrides these individually via prefers-color-scheme blocks below. */
+:root {
+  --stat-indicator-color: #444;
+}
+
 /* Section wrapper
    overflow-x: clip prevents the cast shadows pushing the viewport wider.
    overflow-clip-margin lets them bleed 2rem outside before clipping — avoids
@@ -40,10 +46,10 @@
 .stat-box {
   align-items: center;
   display: flex;
-  height: clamp(180px, 41vw, 240px);
+  height: clamp(11.25rem, 41vw, 15rem);
   justify-content: center;
   position: relative;
-  width: clamp(160px, 37vw, 220px);
+  width: clamp(10rem, 37vw, 13.75rem);
 }
 
 /* Left bright highlight edge */
@@ -136,15 +142,15 @@
 ========================================================================== */
 
 .stat-percent {
-  height: clamp(110px, 25vw, 140px);
+  height: clamp(6.875rem, 25vw, 8.75rem);
   position: relative;
-  width: clamp(110px, 25vw, 140px);
+  width: clamp(6.875rem, 25vw, 8.75rem);
 }
 
 /* Center disc — shows unit label from data-text attribute */
 .stat-percent::before {
   align-items: center;
-  background: #444;
+  background: var(--stat-indicator-color);
   border-radius: 50%;
   color: #fff;
   content: attr(data-text);
@@ -194,15 +200,15 @@
 
 /* Dot bead at the 12 o'clock position of the rotating container */
 .stat-dot::before {
-  background: #444;
+  background: var(--stat-indicator-color);
   border-radius: 50%;
   content: '';
-  height: 13px;
+  height: 0.8125rem;
   left: 50%;
   position: absolute;
   top: -6px;
   transform: translateX(-50%);
-  width: 13px;
+  width: 0.8125rem;
 }
 
 /* ==========================================================================
@@ -210,7 +216,7 @@
 ========================================================================== */
 
 .stat-number {
-  color: #444;
+  color: var(--stat-indicator-color);
   font-family: 'Courier New', Courier, monospace;
   margin-top: 0.5rem;
   text-align: center;
