@@ -8,6 +8,8 @@ ss/
 tmp/
 docs/discovery/workshop.css
 
+*.bak
+
 # wrangler files
 .wrangler
 .dev.vars*
