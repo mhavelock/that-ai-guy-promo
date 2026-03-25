@@ -278,6 +278,10 @@ Exceptions (badges, reviews, stars) are pinned in their own stylesheets. */
   list-style: none;
 }
 
+.promo-ksps ul li {
+  margin-bottom: 0.66em;
+}
+
 /* h1 in promo-signature: visually matches the old <ul><li> — body text, not heading size */
 .promo-signature h1 {
   filter: brightness(0.6);

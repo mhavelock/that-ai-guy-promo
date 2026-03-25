@@ -11,10 +11,16 @@
    Reduced-motion: CSS transitions retained, dot transition disabled.
 ========================================================================== */
 
-/* Section wrapper */
+/* Section wrapper
+   overflow-x: clip prevents the cast shadows pushing the viewport wider.
+   overflow-clip-margin lets them bleed 2rem outside before clipping — avoids
+   the hard-cut that overflow:hidden produces, and unlike hidden does not
+   create a scroll container (safe for any sticky/fixed children). */
 .promo-stats {
   margin: 0 auto 4rem;
   max-width: 72rem;
+  overflow-clip-margin: content-box 2rem;
+  overflow-x: clip;
   padding: 0 var(--grid-gutter);
 }
 
