@@ -221,6 +221,55 @@
 }
 
 /* ==========================================================================
+   Dark mode — token-mapped overrides for all hardcoded light values
+========================================================================== */
+
+[data-theme="dark"] .stat-box::before {
+  background: linear-gradient(#2a2d3a, #1a1d28, #111318);
+}
+
+[data-theme="dark"] .stat-box::after {
+  background: #0a0c12;
+}
+
+[data-theme="dark"] .stat-shadow {
+  background: #1a1d28;
+}
+
+[data-theme="dark"] .stat-shadow::before,
+[data-theme="dark"] .stat-shadow::after {
+  background: linear-gradient(rgba(0, 0, 0, 0.25), transparent);
+}
+
+[data-theme="dark"] .stat-content {
+  background: linear-gradient(#1e2235, #141720);
+  box-shadow:
+    5px 5px 5px rgba(0, 0, 0, 0.4),
+    15px 15px 15px rgba(0, 0, 0, 0.3),
+    20px 20px 20px rgba(0, 0, 0, 0.2),
+    50px 50px 50px rgba(0, 0, 0, 0.2),
+    inset 3px 3px 2px rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .stat-percent::before {
+  background: #0b0d10;
+  color: var(--color-text);
+}
+
+[data-theme="dark"] .stat-percent svg circle {
+  stroke: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .stat-dot::before {
+  background: var(--color-text);
+}
+
+[data-theme="dark"] .stat-number {
+  color: var(--color-text);
+}
+
+
+/* ==========================================================================
    Reduced motion — disable transitions; keep static state
 ========================================================================== */
 
