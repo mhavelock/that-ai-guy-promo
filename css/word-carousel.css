@@ -51,8 +51,9 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .word-carousel li {
+  ul.word-carousel li {
     animation: word-carousel-rotate 20s linear infinite;
+    line-height: 2.5;
   }
 
   .word-carousel li:nth-child(1) { animation-delay:   0s; }

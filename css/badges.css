@@ -98,20 +98,23 @@
   color: var(--color-text);
   display: flex;
   flex-direction: column;
-  font-size: 1.4rem;
+  font-size: var(--font-size-lg);
   height: 100%;
   justify-content: center;
   left: 0;
-  line-height: 1;
+  line-height: var( --line-height-component);
   opacity: 0;
   padding: 1rem;
   pointer-events: none;
   position: absolute;
   text-align: center;
   text-transform: uppercase;
-  top: 0;
+  top: -2.25rem;
   transition: opacity 0.2s ease-out;
   width: 100%;
+  font-weight: 700;
+  letter-spacing: var(--letter-space-lg);
+
 }
 
 /* Press */
