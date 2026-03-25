@@ -26,7 +26,7 @@
  * The inner .phone is always 430×734px; transform:scale() shrinks it to fit.
  */
 .iphone-mockup {
-  --iphone-w: clamp(100px, 30vw, 200px);
+  --iphone-w: clamp(8rem, 30vw, 12rem);
   align-self: center;
   flex-shrink: 0;
   height: calc(var(--iphone-w) * 1.707);
@@ -36,14 +36,14 @@
 
 /* Inner phone — full 430×734 design, scaled to match container */
 .iphone-mockup .phone {
-  height: 734px;
+  height: 73.4rem;
   left: 0;
   position: absolute;
   top: 0;
   /* calc(px / px) = unitless — valid CSS per Values Level 4 spec */
-  transform: scale(calc(var(--iphone-w) / 430px));
+  transform: scale(calc(var(--iphone-w) / 43rem));
   transform-origin: top left;
-  width: 430px;
+  width: 43rem;
 }
 
 

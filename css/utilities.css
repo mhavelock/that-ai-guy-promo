@@ -3,7 +3,11 @@
    ==========================================================================
    1. Screen-reader only (visually-hidden)
 ========================================================================== */
-
+:root {
+  --color: #fff;
+	--color-accent-1: hsl(201, 82%, 51%);
+	--color-accent-2: hsl(225, 82%, 35%);
+}
 
 /* ==========================================================================
    1. Screen-reader only (visually-hidden)
@@ -78,7 +82,7 @@ display: none;
 .promo-awards {
   align-items: center;
   display: flex;
-  gap: 1.5rem;
+  gap: 4rem;
   justify-content: center;
   padding: 0 0 8rem;
 }
@@ -165,4 +169,50 @@ animation: shineLoop 8s infinite;
 0%, 10% { left: -100%; }
 25% { left: 130%; }
 100% { left: 130%; }
+}
+
+
+/* ==========================================================================
+   . Typography
+========================================================================== */
+
+
+.txt-01 {
+  transition: all 0.5s;
+  -webkit-text-stroke: 1px #065998;
+  font-variation-settings: "wght" 300, "ital" 0;
+  letter-spacing: 0.1rem;
+}
+
+.txt-01:hover {
+  font-variation-settings: "wght" 500, "ital" 1;
+  text-shadow: 10px 10px 0px #051d92,
+  15px 15px 0px #0419d3,
+  20px 20px 0px #060992,
+  25px 25px 0px #0335b5,
+  45px 45px 10px #0055dc;
+  letter-spacing: 0.166rem;
+}
+
+.txt-02 {
+  text-transform: uppercase;
+  filter: brightness(0.6);
+}
+
+.txt-02 i {
+  cursor: url("../assets/cursors/spiral.png"), auto;
+}
+
+.txt-02 i:hover{
+  font-stretch: 150%;
+  transition: all 1000ms cubic-bezier(0.42, 0, 0.11, 1.43);
+  font-size: 150%;
+  font-weight: 700;
+  line-height: 0.8;
+  height: 0.8em;
+}
+
+.txt-05 {
+  color: #2367f0;
+  text-shadow: 0 1px 1px rgba(4, 81, 223, 0.4),0 -1px 1px #fff;
 }

@@ -81,6 +81,7 @@
   justify-content: center;
   padding: 3rem;
   transition: opacity 0.2s ease-out;
+  text-align: center;
 }
 
 @media (width >= 76.8rem) {

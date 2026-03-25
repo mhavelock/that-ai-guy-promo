@@ -101,7 +101,7 @@
 }
 
 .imgresize-bubble-3 figcaption {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: var(--font-weight-light);
   letter-spacing: 0;
   margin-left: 0.5rem;
@@ -117,7 +117,7 @@
 }
 
 .imgresize-bubble-4 figcaption {
-  font-size: clamp(1.5rem, -1.77rem + 3.9vw, 1.75rem);
+  font-size: clamp(1.4rem, -1.77rem + 3.9vw, 1.5rem);
   font-weight: var(--font-weight-heading);
   letter-spacing: 0;
   margin-left: -1rem;
@@ -128,7 +128,7 @@
   /* bulle3 — REALLY!? — top right */
   .imgresize-bubble-1 {
     left: 50%;
-    min-width: 30rem;
+    min-width: 18rem;
     top: -7.5rem;
     width: 26%;
   }
@@ -149,7 +149,7 @@
 
   .imgresize-bubble-2 figcaption {
     margin-left: -0.55em;
-    top: 5rem;
+    top: 3rem;
   }
 
   /* bulle6 — NONSENSE!! — mid right */
@@ -161,11 +161,11 @@
   }
 
   .imgresize-bubble-3 figcaption {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: var(--font-weight-light);
     letter-spacing: 0;
     margin-left: 0.33em;
-    top: 7.5rem;
+    top: 4.5rem;
   }
 
   /* bulle8 — FIGURATIVELY? — lower right */
