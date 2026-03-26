@@ -7,11 +7,6 @@
    Reduced-motion: strip shows but track is static (no scroll).
 ========================================================================== */
 
-/* Hidden on mobile */
-.marquee-strip {
-  display: none;
-}
-
 @media (width >= 76.8rem) {
 
   /* Hide section-dividers that the marquee strip replaces on desktop */
