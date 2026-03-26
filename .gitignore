@@ -9,6 +9,7 @@ tmp/
 docs/discovery/workshop.css
 
 *.bak
+purge-cache.sh
 
 # wrangler files
 .wrangler
