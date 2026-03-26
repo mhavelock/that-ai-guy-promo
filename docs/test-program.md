@@ -123,6 +123,12 @@ Run at the end of each development phase before sign-off.
 - [ ] Max width (1440px) respected — content doesn't stretch beyond this
 - [ ] Landscape mobile: no layout breaks, content accessible
 
+> **Debugging horizontal scroll:** open DevTools → mobile device → run in console:
+> ```js
+> document.querySelectorAll('*').forEach(el => { if (el.scrollWidth > document.documentElement.clientWidth) console.log(el) })
+> ```
+> Lists every element wider than the viewport. Common causes: `white-space: nowrap`, positive `translateX()`, or absolute elements wider than their container. Fix: add `overflow-x: clip` to the wrapping section.
+
 ### Interactions
 - [ ] Skip link appears on first Tab keypress and scrolls to main content
 - [ ] Nav links scroll to correct sections
