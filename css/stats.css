@@ -17,9 +17,13 @@
   --stat-indicator-color: #444;
 }
 
+/* overflow-x: clip + overflow-clip-margin: gauge drop-shadows bleed 2rem
+   outside the container before clipping — avoids a hard cut on the shadows. */
 .promo-stats {
   margin: 0 auto 4rem;
   max-width: 72rem;
+  overflow-clip-margin: content-box 2rem;
+  overflow-x: clip;
   padding: 0 var(--grid-gutter);
 }
 
