@@ -140,7 +140,6 @@ html {
 
 body {
   min-height: 100dvh;
-  overflow-x: clip; /* prevent horizontal scroll from wide elements (word carousel, etc.) */
 }
 
 
@@ -310,7 +309,6 @@ main {
   min-width: var(--min-width);
   max-width: var(--max-width);
   padding: 1.2rem 1.2rem 0;
-  overflow-x: clip; /* catch-all — section-level clips are the primary fix */
   position: relative;
   z-index: 1;
 }
