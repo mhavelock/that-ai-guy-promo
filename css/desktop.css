@@ -4,8 +4,12 @@
    Master file for all desktop-specific styling.
    All rules are scoped to (width >= 76.8rem) — mobile is completely untouched.
 
-   Imports:
+   Imports (desktop-only — safe to load behind media="(min-width: 768px)"):
      marquee.css   — scrolling text ticker strip
+     orbit.css     — star orbiting home nav item
+
+   Mobile-applicable files (ai-thinking, flip-text, stats, radar) are linked
+   directly from <head> without a media query — they apply at all screen sizes.
 
    Contents:
    1. Glass panel system tokens
@@ -14,11 +18,7 @@
 ========================================================================== */
 
 @import url("marquee.css");
-@import url("ai-thinking.css");
-@import url("flip-text.css");
 @import url("orbit.css");
-@import url("stats.css");
-@import url("radar.css");
 
 
 /* ==========================================================================

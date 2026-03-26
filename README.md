@@ -21,16 +21,26 @@ Promotional website for the **That AI Guy** iOS app — a comedy entertainment a
 ├── robots.txt              # Search engine directives
 ├── sitemap.xml             # XML sitemap (root URL)
 ├── css/
+│   │   # — Loaded unconditionally (all screen sizes) —
 │   ├── global.css          # Design system (tokens, reset, typography, layout)
 │   ├── global-xtra.css     # Unused design system components (kept for reference)
 │   ├── theme.css           # Promo layout + dark/light tokens + nav
-│   ├── grid.css            # Badge grid layout
-│   ├── utilities.css       # sr-only, blockquote comma separator
-│   ├── slider.css          # CSS-only carousel (third-party — do not refactor)
-│   ├── badges.css          # Circle badge + clip-path hover morph
-│   ├── stars.css           # CSS star-rating via <input type="range"> + @property
-│   ├── reviews.css         # Review card layout
-│   └── speech-bubbles.css  # Phone + speech bubble positioning
+│   │                       #   imports: stars.css, slider.css, reviews.css,
+│   │                       #            speech-bubbles.css, codewall.css,
+│   │                       #            top-bg-fx.css, iphone.css
+│   ├── glass.css           # .glass modifier — glassmorphism tokens + rules
+│   ├── contact-form.css    # Neumorphic contact form
+│   ├── download-btn.css    # Animated App Store button
+│   ├── word-carousel.css   # CSS-only vertical word carousel
+│   ├── ai-thinking.css     # Spinning scan-line border on codewall phone
+│   ├── flip-text.css       # Scroll-driven 3D flip on logo (all screen sizes)
+│   ├── stats.css           # Neumorphic 3D gauge cards (all screen sizes)
+│   ├── radar.css           # Animated radar widget (all screen sizes)
+│   │
+│   │   # — Loaded only at (min-width: 768px) via <link media=""> —
+│   └── desktop.css         # Desktop enhancements master file
+│                           #   imports: marquee.css (ticker strip),
+│                           #            orbit.css (star orbit on nav)
 └── assets/                 # Logos, screenshots, SVGs, audio, avatars
 ```
 
@@ -96,6 +106,16 @@ The contact form is a showcase of Server Actions and Optimistic UI:
 • Tablet: Optimizes for touch-latency, ensuring that the dynamic effects don't interfere with scroll momentum.
 
 ## Improvements log
+
+### 2026-03-26 — CSS loading split
+
+**Performance architecture**
+- `desktop.css` now loads conditionally via `<link media="(min-width: 768px)">` — mobile browsers skip parsing it entirely
+- Four all-screen files (`ai-thinking.css`, `flip-text.css`, `stats.css`, `radar.css`) moved from `desktop.css @import` chain to direct `<link>` tags in `<head>` — they apply at all screen sizes and must load unconditionally
+- `desktop.css` now imports only `marquee.css` and `orbit.css` — both genuinely desktop-only (hidden at mobile via `display: none` base rule)
+- Result: clean separation between "loads everywhere" and "loads at desktop width only"
+
+---
 
 ### 2026-03-25 — Pre-launch audit
 

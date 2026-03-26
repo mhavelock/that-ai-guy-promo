@@ -199,6 +199,15 @@
 - [x] **AI thinking widget** — pill badge in codewall section (`css/ai-thinking.css`)
 - [x] **Radar widget** — footer decorative radar (`css/radar.css`)
 
+### Session 2026-03-26 — CSS loading split
+
+- [x] **`desktop.css` conditional loading** — `<link media="(min-width: 768px)">` on `desktop.css` in `full.html`; mobile browsers skip parsing it entirely
+- [x] **Mobile-applicable files moved to direct `<link>` tags** — `ai-thinking.css`, `flip-text.css`, `stats.css`, `radar.css` removed from `desktop.css @import` chain and linked directly from `<head>` (no media query); they apply at all screen sizes
+- [x] **`desktop.css` imports now desktop-only** — retains only `marquee.css` + `orbit.css`; both have `display: none` base rules so they are safe behind the 768px media guard
+- [x] **`desktop.css` comment updated** — import block annotated to explain the split
+
+---
+
 ## Desktop *(layout pass — deferred)*
 
 - [ ] **Codewall `padding-top`** — at 1228px the speech bubble overlaps the section above. Current `padding-top: 9rem` at `76.8rem+` may need increasing or a fluid `clamp()` between breakpoints
