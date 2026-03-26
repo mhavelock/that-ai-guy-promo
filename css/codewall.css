@@ -32,7 +32,6 @@
   line-height: 1.4;
   margin-bottom: 3rem;
   overflow-wrap: anywhere; /* break long tokens at float column edge */
-  overflow-x: clip; /* clip speech bubble overflow on mobile */
   padding: 0; /* no side gutters — full viewport width */
   padding-top: clamp(4rem, 20vw, 7.5rem); /* headroom for top speech bubble (bubble-1 at top: -23% of phone wrap ≈ 17.3vw) */
 }

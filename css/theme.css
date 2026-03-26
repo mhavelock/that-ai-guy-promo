@@ -508,6 +508,15 @@ body::after {
 
 
 /* ==========================================================================
+   6a. Section: Key Selling Points — word carousel
+========================================================================== */
+
+.promo-ksps {
+  overflow-x: clip;
+}
+
+
+/* ==========================================================================
    7. Section: Features — text left, phone + speech bubbles right
 ========================================================================== */
 
@@ -521,11 +530,6 @@ body::after {
    9. Section: Reviews / Slider
 ========================================================================== */
 
-/* Clip background slide cards that translateX off-screen left/right.
-overflow-x: clip does not create a scroll container so z-index is unaffected. */
-.promo-reviews {
-  overflow-x: clip;
-}
 
 
 /* ==========================================================================
