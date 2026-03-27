@@ -207,8 +207,10 @@
     gap: 1rem;
     max-width: 90rem;
     padding: 1rem 1.5rem;
+    position: relative;
     text-align: left;
     width: 100%;
+
   }
 
   .contact-form h2,
@@ -323,4 +325,85 @@
 @keyframes sent-modal-enter {
   0% { transform: translateY(-10px); }
   100% { transform: translateY(0); }
+}
+
+
+
+ul.links {
+  display: none;
+}
+
+ul.contact-links {
+  position: absolute;
+  list-style: none;
+  right: 3rem;
+  top: 3rem;
+}
+
+
+@media (width >= 76.8rem) {
+  ul.links {
+    list-style: none;
+    margin: 0 0 0 3rem;
+    display: flex;
+  }
+
+  ul.contact-links {
+    display: none;
+  }
+}
+
+/* ===== BLUESKY FLUTTER ANIMATION ===== */
+/* Adapted from https://github.com/nicholasgasior/bluesky-flutterby (MIT) */
+.bsky-flutter {
+    color: #0085ff;
+    display: block;
+    height: 2rem;
+    transition: transform 200ms;
+    width: 2rem;
+}
+
+.bsky-flutter .left {
+    transform-origin: center;
+}
+
+.bsky-flutter .right {
+    transform: scale(-1, 1);
+    transform-origin: center;
+}
+
+.bsky-flutter:hover,
+.bsky-flutter:focus {
+    transform: rotate(-5deg);
+    transition: transform 500ms;
+}
+
+.bsky-flutter:hover .left,
+.bsky-flutter:focus .left {
+    animation: bsky-flutter 430ms ease-in-out;
+    --flip: 1;
+}
+
+.bsky-flutter:hover .right,
+.bsky-flutter:focus .right {
+    animation: bsky-flutter 500ms ease-in-out;
+    --flip: -1;
+}
+
+@keyframes bsky-flutter {
+    10%  { transform: scale(calc(var(--flip) * 1), 0.9); }
+    20%  { transform: scale(calc(var(--flip) * 0.5), 1); }
+    40%  { transform: scale(calc(var(--flip) * 0.9), 0.95); }
+    60%  { transform: scale(calc(var(--flip) * 0.3), 1); }
+    80%  { transform: scale(calc(var(--flip) * 0.9), 0.95); }
+    100% { transform: scale(calc(var(--flip) * 1), 1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bsky-flutter:hover .left,
+    .bsky-flutter:focus .left,
+    .bsky-flutter:hover .right,
+    .bsky-flutter:focus .right {
+        animation: none;
+    }
 }
