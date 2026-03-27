@@ -37,14 +37,20 @@
       <article class="prose-content">
         <header class="prose-header">
           <h1>Privacy Policy</h1>
-          <p class="prose-meta">Last updated: <time datetime="2026-03-13">13 March 2026</time></p>
+          <p class="prose-meta">Last updated: <time datetime="2026-03-27">27 March 2026</time></p>
         </header>
 
         <p>This Privacy Policy explains how That AI Guy ("we", "us", or "our") collects, uses, and protects your information when you use the That AI Guy iOS application.</p>
 
         <h2>1. Information we collect</h2>
         <h3>Audio data</h3>
-        <p>That AI Guy uses your iPhone's microphone to listen to conversations in the room. Short audio segments are captured, transcribed, and sent to a third-party language model to generate responses. We do not permanently store audio recordings on our servers.</p>
+        <p>That AI Guy uses your iPhone's microphone to listen to conversations. Audio is captured in short segments and transcribed entirely on your device using Apple's built-in speech recognition (SFSpeechRecognizer). Audio is never transmitted anywhere — only the resulting text transcript is sent for analysis.</p>
+        <h3>Transcribed text</h3>
+        <p>Short text transcripts (maximum 600 characters per segment) are sent directly from your device to your chosen AI provider — either Anthropic or Google — using your own API key. We have no backend server and never receive, see, or store any transcript data.</p>
+        <h3>API key</h3>
+        <p>You supply your own AI provider API key during setup. It is stored exclusively in iOS Secure Storage on your device and is never transmitted to us. It is sent only to your chosen provider (Anthropic or Google) as part of direct API calls made by the app.</p>
+        <h3>Names and keywords (Roasting feature)</h3>
+        <p>The Roasting feature allows you to enter a person's name and optional descriptive keywords. This information is sent to your chosen AI provider for that session only. It is not retained by us, logged, or stored beyond the API call.</p>
         <h3>Usage data</h3>
         <p>We may collect anonymous usage statistics (such as session length and feature interactions) to improve the app. This data cannot be used to identify you.</p>
         <h3>Device information</h3>
@@ -52,17 +58,23 @@
 
         <h2>2. How we use your information</h2>
         <ul>
-          <li>To generate real-time comedic responses based on detected speech</li>
+          <li>To generate real-time corrections, observations, and responses based on detected speech</li>
           <li>To improve the accuracy and quality of the app</li>
           <li>To diagnose technical issues</li>
         </ul>
         <p>We do not sell, rent, or share your personal data with third parties for marketing purposes.</p>
 
         <h2>3. Third-party services</h2>
-        <p>That AI Guy uses a third-party large language model (LLM) API to process transcribed audio and generate responses. Transcribed text may be transmitted to this service. Their use of that data is governed by their own privacy policy. We recommend reviewing the privacy policy of any third-party services we use.</p>
+        <p>That AI Guy sends transcribed text to one of the following AI providers, depending on your choice at setup:</p>
+        <ul>
+          <li><strong>Anthropic</strong> (Claude Haiku) — <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener noreferrer">anthropic.com/privacy</a></li>
+          <li><strong>Google</strong> (Gemini Flash) — <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a></li>
+        </ul>
+        <p>You select your provider and supply your own API key. Data sent to these providers is governed by their respective privacy policies. We do not act as an intermediary — API calls are made directly from your device to the provider.</p>
 
         <h2>4. Data retention</h2>
-        <p>Audio recordings are processed in real time and are not retained on our servers beyond the duration required to generate a response. Anonymised usage analytics may be retained for up to 12 months.</p>
+        <p>We operate no backend servers and retain no user data. Transcripts are processed in real time on your device and sent directly to your AI provider — they are not stored by us at any point. Your API key remains on your device in iOS Secure Storage until you delete it.</p>
+        <p>Anonymised usage analytics may be retained for up to 12 months.</p>
 
         <h2>5. Your rights</h2>
         <p>Depending on your location, you may have the right to:</p>
@@ -72,10 +84,10 @@
           <li>Object to or restrict processing of your data</li>
           <li>Withdraw consent at any time</li>
         </ul>
-        <p>You can revoke microphone access at any time via <strong>Settings &gt; Privacy &amp; Security &gt; Microphone</strong> on your iPhone.</p>
+        <p>You can revoke microphone access at any time via <strong>Settings &gt; Privacy &amp; Security &gt; Microphone</strong> on your iPhone. You can delete all locally stored data (including your API key) using <strong>Delete All Data</strong> in the app's Settings.</p>
 
         <h2>6. Data security</h2>
-        <p>We take reasonable technical and organisational measures to protect your data against unauthorised access, loss, or disclosure. All data transmissions use HTTPS encryption.</p>
+        <p>All API calls are made directly from your device to your chosen provider over HTTPS. Your API key is stored in iOS Secure Storage (encrypted, sandboxed to this app). We have no servers that could be breached to expose your data.</p>
 
         <h2>7. Children's privacy</h2>
         <p>That AI Guy is not intended for children under the age of 13. We do not knowingly collect data from children. If you believe a child has provided us with personal information, please contact us and we will delete it promptly.</p>
