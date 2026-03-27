@@ -523,6 +523,10 @@ body::after {
   display: none;
 }
 
+/* Hidden on mobile */
+.orbit-star {
+  display: none;
+}
 
 /* ==========================================================================
    7. Section: Features — text left, phone + speech bubbles right

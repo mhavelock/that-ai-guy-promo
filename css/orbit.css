@@ -11,10 +11,7 @@
      — counter-rotate keeps the star glyph upright (not spinning with it)
 ========================================================================== */
 
-/* Hidden on mobile */
-.orbit-star {
-  display: none;
-}
+
 
 @media (width >= 76.8rem) {
 
