@@ -2,6 +2,9 @@
 
 Promotional website for the **That AI Guy** iOS app — a comedy entertainment app that listens to conversations via the iPhone microphone and interrupts with pedantic corrections and put-downs, powered by an external LLM.
 
+Started: 13 March 2026
+Launch-ready: 26 March 2026
+
 ## Stack
 
 - HTML5 / CSS — zero JavaScript in production, no build tools, no frameworks
