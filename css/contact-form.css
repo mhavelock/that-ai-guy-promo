@@ -8,7 +8,13 @@
   align-items: center;
   display: flex;
   justify-content: center;
-  padding: 2rem 1rem 10rem;
+  padding: 2rem 1rem 3rem;
+}
+
+@media (width >= 76.8rem) {
+  .footer-section {
+    padding-bottom: 10rem;
+  }
 }
 
 /* ---- Card (mobile) ---- */
@@ -21,6 +27,8 @@
   padding: 5rem 4rem;
   text-align: center;
   width: 34rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .contact-form-logo {
@@ -328,11 +336,6 @@
 }
 
 
-
-ul.links {
-  display: none;
-}
-
 ul.contact-links {
   position: absolute;
   list-style: none;
@@ -340,16 +343,10 @@ ul.contact-links {
   top: 3rem;
 }
 
-
 @media (width >= 76.8rem) {
-  ul.links {
-    list-style: none;
-    margin: 0 0 0 3rem;
-    display: flex;
-  }
-
   ul.contact-links {
-    display: none;
+    right: -5rem;
+    top: 2rem;
   }
 }
 

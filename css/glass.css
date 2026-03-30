@@ -250,7 +250,7 @@
 /* Stop animation, apply glass surface */
 .promo-download.glass .btn-appstore,
 .promo-download.glass .btn-appstore:hover {
-  animation: none;
+  /* animation: none; */
   backdrop-filter: var(--glass-blur);
   background: var(--glass-btn-bg);
   box-shadow:

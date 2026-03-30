@@ -191,19 +191,15 @@
    Idle-state only — dt fades out on hover (existing transition untouched).
 ========================================================================== */
 
-@media (width >= 76.8rem) {
-  @media (prefers-reduced-motion: no-preference) {
-
-    .badges dt {
-      animation: badge-blob 9s ease-in-out infinite;
-    }
-
-    .badges dl:nth-child(1) dt { animation-delay:    0s; }
-    .badges dl:nth-child(2) dt { animation-delay:  -3s; }
-    .badges dl:nth-child(3) dt { animation-delay:  -6s; }
-    .badges dl:nth-child(4) dt { animation-delay: -1.5s; }
-
+@media (prefers-reduced-motion: no-preference) {
+  .badges dt {
+    animation: badge-blob 9s ease-in-out infinite;
   }
+
+  .badges dl:nth-child(1) dt { animation-delay:    0s; }
+  .badges dl:nth-child(2) dt { animation-delay:  -3s; }
+  .badges dl:nth-child(3) dt { animation-delay:  -6s; }
+  .badges dl:nth-child(4) dt { animation-delay: -1.5s; }
 }
 
 @keyframes badge-blob {
