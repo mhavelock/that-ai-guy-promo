@@ -299,6 +299,14 @@ time {
   padding-top: var(--space-6);
 }
 
+.patent-notice {
+  color: var(--color-text-muted);
+  font-size: calc(var(--font-size-xsm) + 0.1rem);
+  opacity: 0.5;
+  padding-block: var(--space-4);
+  text-align: center;
+}
+
 
 /* ==========================================================================
    5. Layout

@@ -110,6 +110,13 @@ The contact form is a showcase of Server Actions and Optimistic UI:
 
 ## Improvements log
 
+### 2026-03-31
+
+- Patent notice added to footer: "US Patent Application Pending · No. 64/019,879 [Procurable: Sept 2027]" (`.patent-notice` in `global.css`)
+- Matching notice added to iOS app Settings footer (see `~/Claudette/Cowork/projects/that-guy/components/SettingsModal.tsx`)
+
+---
+
 ### 2026-03-26 — CSS loading split
 
 **Performance architecture**
