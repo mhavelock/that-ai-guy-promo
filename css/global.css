@@ -305,6 +305,7 @@ time {
   opacity: 0.5;
   padding-block: var(--space-4);
   text-align: center;
+  max-width: 100%;
 }
 
 

@@ -1,0 +1,22 @@
+/* ==========================================================================
+   QR — qr-code positioning with scissors
+========================================================================== */
+
+.qr-code {
+    position: relative;
+    opacity: 0.9;
+}
+.qr-code .scissors {
+    position: absolute;
+    right: 1rem;
+    top: -5.75rem;
+}
+.qr {
+    border: 4px dashed black;
+    width: 15rem;
+    float: right;
+    margin: 0 1rem 2rem 2rem;
+    height: auto;
+    z-index: 2;
+    position: relative;
+}

@@ -1,0 +1,129 @@
+/* ==========================================================================
+   SCISSORS — animated scissors
+   Original idea & technique: Ben Young — https://codepen.io/bendalis
+========================================================================== */
+
+/* EDITABLE PARAMETERS */
+/* handle width */
+/* blade width */
+/* blade's height and handle's thickness will be inversely proportional to $div */
+/* initial amplitude between blades */
+/* final amplitude between blades */
+/* NON EDITABLE PARAMETERS */
+/* handle height */
+/* handle border thickness */
+/* blade height */
+/* joint diameter */
+/* left position of the center of rotation */
+/* left position in % of the center of rotation */
+/* left position of the joint in % */
+
+.scissors {
+  position: relative;
+  width: 5.075em;
+  height: 1.75em;
+  margin: 1.875em auto;
+}
+
+.half {
+  width: 5.075em;
+  height: 1em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transform-origin: 46.52174% 100% 0;
+  transform: rotate(10deg);
+  animation: rot-up 1s ease-out infinite;
+}
+.half:nth-child(even) {
+  top: 0.75em;
+  transform-origin: 46.52174% 0% 0;
+  transform: rotate(-10deg);
+  animation: rot-down 1s ease-out infinite;
+}
+.half:nth-child(even) .blade {
+  top: 0;
+  border-radius: 0 0.25em 0 0;
+}
+.half:nth-child(even) .blade:after {
+  top: 0.25em;
+  border-style: solid;
+  border-width: 0.25em 0.5em 0 0.5em;
+  border-color: #004971 transparent transparent transparent;
+}
+
+@keyframes rot-up {
+  0% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(40deg);
+  }
+  100% {
+    transform: rotate(10deg);
+  }
+}
+@keyframes rot-down {
+  0% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(-40deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
+.joint {
+  width: 0.175em;
+  height: 0.175em;
+  border-radius: 50%;
+  background: #b2d8eb;
+  position: absolute;
+  top: 0.7875em;
+  left: 45%;
+}
+
+.handle {
+  width: 2em;
+  height: 1em;
+  border-radius: 0.5em;
+  border: 0.25em solid #004971;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+}
+
+.blade {
+  width: 3.75em;
+  height: 0.25em;
+  position: absolute;
+  top: 0.75em;
+  left: 2em;
+  background: #9fb2c6;
+  border-radius: 0 0 0.25em 0;
+}
+.blade:before {
+  content: '';
+  width: 1em;
+  height: 0.25em;
+  background: #9fb2c6;
+  position: absolute;
+  top: 0;
+  left: -1em;
+}
+.blade:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0.5em 0.25em 0.5em;
+  border-color: transparent transparent #004971 transparent;
+  position: absolute;
+  top: -0.25em;
+  left: -0.5em;
+}
