@@ -37,7 +37,7 @@
       <article class="prose-content">
         <header class="prose-header">
           <h1>Privacy Policy</h1>
-          <p class="prose-meta">Last updated: <time datetime="2026-03-27">27 March 2026</time></p>
+          <p class="prose-meta">Last updated: <time datetime="2026-04-12">12 April 2026</time></p>
         </header>
 
         <p>This Privacy Policy explains how That AI Guy ("we", "us", or "our") collects, uses, and protects your information when you use the That AI Guy iOS application.</p>
@@ -46,9 +46,9 @@
         <h3>Audio data</h3>
         <p>That AI Guy uses your iPhone's microphone to listen to conversations. Audio is captured in short segments and transcribed entirely on your device using Apple's built-in speech recognition (SFSpeechRecognizer). Audio is never transmitted anywhere — only the resulting text transcript is sent for analysis.</p>
         <h3>Transcribed text</h3>
-        <p>Short text transcripts (maximum 600 characters per segment) are sent directly from your device to your chosen AI provider — either Anthropic or Google — using your own API key. We have no backend server and never receive, see, or store any transcript data.</p>
+        <p>Short text transcripts (maximum 600 characters per segment) are sent from your device for AI analysis. By default, the app uses our free relay service: transcripts are routed via our Cloudflare Worker to OpenRouter's API, which forwards them to the AI model. No transcript data is stored by us or by the relay at any point — processing is real time only. If you supply your own API key, transcripts are sent directly from your device to your chosen AI provider with no relay involved.</p>
         <h3>API key</h3>
-        <p>You supply your own AI provider API key during setup. It is stored exclusively in iOS Secure Storage on your device and is never transmitted to us. It is sent only to your chosen provider (Anthropic or Google) as part of direct API calls made by the app.</p>
+        <p>The app works without an API key by default using our relay service. If you choose to supply your own key, it is stored exclusively in iOS Secure Storage on your device and is never transmitted to us. It is sent only to your chosen AI provider as part of direct API calls made by the app.</p>
         <h3>Names and keywords (Roasting feature)</h3>
         <p>The Roasting feature allows you to enter a person's name and optional descriptive keywords. This information is sent to your chosen AI provider for that session only. It is not retained by us, logged, or stored beyond the API call.</p>
         <h3>Usage data</h3>
@@ -65,15 +65,16 @@
         <p>We do not sell, rent, or share your personal data with third parties for marketing purposes.</p>
 
         <h2>3. Third-party services</h2>
-        <p>That AI Guy sends transcribed text to one of the following AI providers, depending on your choice at setup:</p>
+        <p>By default, That AI Guy routes transcribed text through the following services:</p>
         <ul>
-          <li><strong>Anthropic</strong> (Claude Haiku) — <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener noreferrer">anthropic.com/privacy</a></li>
-          <li><strong>Google</strong> (Gemini Flash) — <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a></li>
+          <li><strong>Cloudflare Workers</strong> (relay infrastructure) — <a href="https://www.cloudflare.com/privacypolicy" target="_blank" rel="noopener noreferrer">cloudflare.com/privacypolicy</a></li>
+          <li><strong>OpenRouter</strong> (AI model routing) — <a href="https://openrouter.ai/privacy" target="_blank" rel="noopener noreferrer">openrouter.ai/privacy</a></li>
         </ul>
-        <p>You select your provider and supply your own API key. Data sent to these providers is governed by their respective privacy policies. We do not act as an intermediary — API calls are made directly from your device to the provider.</p>
+        <p>Neither service stores transcript data. Processing is ephemeral and real time only.</p>
+        <p>If you supply your own API key, transcripts are sent directly from your device to your chosen AI provider, bypassing the relay entirely. Data sent to your provider is governed by their privacy policy.</p>
 
         <h2>4. Data retention</h2>
-        <p>We operate no backend servers and retain no user data. Transcripts are processed in real time on your device and sent directly to your AI provider — they are not stored by us at any point. Your API key remains on your device in iOS Secure Storage until you delete it.</p>
+        <p>We retain no user data. Transcripts are processed in real time and are not stored by us at any point — neither via the relay nor via direct API calls. Our relay infrastructure (Cloudflare Workers) is stateless and ephemeral; no transcript data persists after a request completes. Your API key, if supplied, remains on your device in iOS Secure Storage until you delete it.</p>
         <p>Anonymised usage analytics may be retained for up to 12 months.</p>
 
         <h2>5. Your rights</h2>
@@ -87,7 +88,7 @@
         <p>You can revoke microphone access at any time via <strong>Settings &gt; Privacy &amp; Security &gt; Microphone</strong> on your iPhone. You can delete all locally stored data (including your API key) using <strong>Delete All Data</strong> in the app's Settings.</p>
 
         <h2>6. Data security</h2>
-        <p>All API calls are made directly from your device to your chosen provider over HTTPS. Your API key is stored in iOS Secure Storage (encrypted, sandboxed to this app). We have no servers that could be breached to expose your data.</p>
+        <p>All data transmission — whether via our relay or direct to your chosen provider — uses HTTPS. Our relay runs on Cloudflare's serverless infrastructure with no persistent storage. Your API key, if supplied, is stored in iOS Secure Storage (encrypted, sandboxed to this app) and never transmitted to us.</p>
 
         <h2>7. Children's privacy</h2>
         <p>That AI Guy is not intended for children under the age of 13. We do not knowingly collect data from children. If you believe a child has provided us with personal information, please contact us and we will delete it promptly.</p>
