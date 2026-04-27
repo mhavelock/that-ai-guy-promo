@@ -33,7 +33,6 @@ A single-page promotional website encouraging visitors to download the **That AI
 ## Tech Stack
 
 - HTML5, CSS — zero JavaScript loaded in production
-- JS files exist in `js/` as unlinked reference copies only
 - No build tools, no frameworks
 - Hosted on GitHub Pages
 
@@ -67,10 +66,6 @@ A single-page promotional website encouraging visitors to download the **That AI
 │   ├── badges.css   # Circle badge + clip-path morph on hover
 │   ├── stars.css    # CSS star-rating via <input type="range"> + @property + view-timeline
 │   └── reviews.css  # Review card layout (open-quote, quote text, stars, attribution)
-├── js/
-│   ├── main.js      # Stats box updater (unlinked — stats use static HTML values)
-│   ├── theme.js     # Light/dark toggle (unlinked — theme auto-detected via inline head script)
-│   └── logger.js    # Build activity logging (unlinked — reference copy only)
 ├── _archive/        # Archived prototypes (do not use)
 └── docs/
     ├── test-program.md
