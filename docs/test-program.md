@@ -17,7 +17,6 @@ Run at the end of each development phase before sign-off.
 ### Code organisation
 - [ ] HTML files are well-structured with clear semantic sections
 - [ ] CSS follows global → custom architecture with no leakage between files
-- [ ] JS is minimal, non-blocking, wrapped in IIFE
 - [ ] File/folder structure matches the spec in Claude.md
 - [ ] No orphaned or unused files
 
@@ -43,26 +42,9 @@ Run at the end of each development phase before sign-off.
 - [ ] `@media (prefers-color-scheme: dark)` rules present for all colour tokens
 - [ ] `@media (prefers-reduced-motion: reduce)` applied to transitions and transforms
 
-### Clean code — JS
-- [ ] No `console.log` statements in main.js
-- [ ] `const`/`let` only (no `var`)
-- [ ] `===` not `==`
-- [ ] Semicolons on all statements
-- [ ] Event listeners use delegation where possible
-- [ ] No memory leaks from uncleaned listeners or large objects in global scope
-
-### Logger (js/logger.js)
-- [ ] Logger loaded before main.js in all HTML pages that use it
-- [ ] Test log block removed or gated before production deployment
-- [ ] `Logger.print()` shows no unexpected ERROR or WARN entries
-- [ ] `Logger.logStorage()` shows no unexpected keys in localStorage or sessionStorage
-- [ ] `Logger.logScripts()` confirms all scripts have `defer: true`
-- [ ] No 404s on image timing entries (check for ERROR level entries in image category)
-
 ### Performance
 - [ ] Web fonts loaded non-render-blocking (async `preload` + `onload` swap + `<noscript>` fallback)
 - [ ] `<link rel="preconnect">` for external font domains
-- [ ] JS loaded with `defer` or placed before `</body>`
 - [ ] `loading="lazy"` on all below-fold `<img>` elements
 - [ ] `width` and `height` on all `<img>` elements (CLS prevention)
 - [ ] No unnecessary third-party scripts

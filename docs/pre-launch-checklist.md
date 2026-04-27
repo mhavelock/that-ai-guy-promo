@@ -43,8 +43,6 @@ Run `docs/test-program.md` automated checklist first, then:
 ## 4. Remove JS toggle
 
 - [ ] Remove `<button class="theme-toggle glass" id="theme-toggle-btn">` from `index.html`
-- [ ] Remove `<script src="js/theme.js" defer></script>` from `index.html`
-- [ ] Delete `js/theme.js`
 - [ ] Keep the inline `<script>` in `<head>` — it handles FOUC prevention and system preference on page load
 - [ ] Confirm dark/light mode still switches correctly via system settings after removal
 
@@ -54,6 +52,4 @@ Run `docs/test-program.md` automated checklist first, then:
 - [ ] Check all CSS custom properties resolve (no `var(--undefined)`)
 - [ ] Confirm no leftover placeholder copy (lorem ipsum, TBD, TODO)
 - [ ] Confirm no hardcoded colours outside `codewall.css` (intentional exception)
-- [ ] Confirm no `console.log` statements left in JS files
-- [ ] Review `js/logger.js` — remove or gate test block before production
-- [ ] Check `localStorage` keys are correct: `thaiaiguy:theme`, `thaiaiguy:buildlog`
+- [ ] Check `localStorage` keys are correct: `thaiaiguy:theme`
